@@ -56,17 +56,13 @@ Partial Class home
         Me.menuEpicerieSalee = New System.Windows.Forms.Panel()
         Me.menuEpicerieSaleeLabel = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.cartDetailButton = New Microsoft.VisualBasic.PowerPacks.OvalShape()
-        Me.ShapeContainer5 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
-        Me.cartDetaillButton2 = New Microsoft.VisualBasic.PowerPacks.OvalShape()
-        Me.ShapeContainer4 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
-        Me.OvalShape1 = New Microsoft.VisualBasic.PowerPacks.OvalShape()
-        Me.OvalShape2 = New Microsoft.VisualBasic.PowerPacks.OvalShape()
-        Me.OvalShape3 = New Microsoft.VisualBasic.PowerPacks.OvalShape()
-        Me.OvalShape4 = New Microsoft.VisualBasic.PowerPacks.OvalShape()
+        Me.myListButton = New System.Windows.Forms.Button()
+        Me.cartValidationButton = New System.Windows.Forms.Button()
         Me.ListView1 = New System.Windows.Forms.ListView()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.cartDetailButton = New System.Windows.Forms.Button()
+        Me.cartSuppressionButton = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.cartSaveButton = New System.Windows.Forms.Button()
         Me.header.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.centerPanel.SuspendLayout()
@@ -159,7 +155,6 @@ Partial Class home
         Me.centerPanel.Controls.Add(Me.affGridPanel)
         Me.centerPanel.Controls.Add(Me.affListPanel)
         Me.centerPanel.Controls.Add(Me.Menu)
-        Me.centerPanel.Controls.Add(Me.ShapeContainer4)
         Me.centerPanel.Location = New System.Drawing.Point(0, 85)
         Me.centerPanel.Name = "centerPanel"
         Me.centerPanel.Size = New System.Drawing.Size(1103, 642)
@@ -424,121 +419,112 @@ Partial Class home
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.Panel2.Controls.Add(Me.Button2)
-        Me.Panel2.Controls.Add(Me.Button1)
-        Me.Panel2.Controls.Add(Me.ShapeContainer5)
+        Me.Panel2.Controls.Add(Me.cartSaveButton)
+        Me.Panel2.Controls.Add(Me.Label1)
+        Me.Panel2.Controls.Add(Me.cartSuppressionButton)
+        Me.Panel2.Controls.Add(Me.cartDetailButton)
+        Me.Panel2.Controls.Add(Me.myListButton)
+        Me.Panel2.Controls.Add(Me.cartValidationButton)
         Me.Panel2.Controls.Add(Me.ListView1)
         Me.Panel2.Location = New System.Drawing.Point(1102, 86)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(246, 638)
         Me.Panel2.TabIndex = 4
         '
-        'cartDetailButton
+        'myListButton
         '
-        Me.cartDetailButton.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.cartDetailButton.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
-        Me.cartDetailButton.BorderColor = System.Drawing.SystemColors.ActiveCaption
-        Me.cartDetailButton.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.cartDetailButton.Location = New System.Drawing.Point(-37, 102)
-        Me.cartDetailButton.Name = "cartDetailButton"
-        Me.cartDetailButton.Size = New System.Drawing.Size(80, 80)
+        Me.myListButton.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.myListButton.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.myListButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.myListButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.myListButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.myListButton.Font = New System.Drawing.Font("Roboto", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.myListButton.Location = New System.Drawing.Point(14, 608)
+        Me.myListButton.Name = "myListButton"
+        Me.myListButton.Size = New System.Drawing.Size(222, 26)
+        Me.myListButton.TabIndex = 3
+        Me.myListButton.Text = "Mes listes"
+        Me.myListButton.UseVisualStyleBackColor = True
         '
-        'ShapeContainer5
+        'cartValidationButton
         '
-        Me.ShapeContainer5.Location = New System.Drawing.Point(0, 0)
-        Me.ShapeContainer5.Margin = New System.Windows.Forms.Padding(0)
-        Me.ShapeContainer5.Name = "ShapeContainer5"
-        Me.ShapeContainer5.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.OvalShape4, Me.OvalShape3, Me.cartDetailButton})
-        Me.ShapeContainer5.Size = New System.Drawing.Size(246, 638)
-        Me.ShapeContainer5.TabIndex = 0
-        Me.ShapeContainer5.TabStop = False
-        '
-        'cartDetaillButton2
-        '
-        Me.cartDetaillButton2.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.cartDetaillButton2.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
-        Me.cartDetaillButton2.BorderColor = System.Drawing.SystemColors.ActiveCaption
-        Me.cartDetaillButton2.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.cartDetaillButton2.Location = New System.Drawing.Point(1065, 103)
-        Me.cartDetaillButton2.Name = "cartDetaillButton2"
-        Me.cartDetaillButton2.Size = New System.Drawing.Size(80, 80)
-        '
-        'ShapeContainer4
-        '
-        Me.ShapeContainer4.Location = New System.Drawing.Point(0, 0)
-        Me.ShapeContainer4.Margin = New System.Windows.Forms.Padding(0)
-        Me.ShapeContainer4.Name = "ShapeContainer4"
-        Me.ShapeContainer4.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.OvalShape2, Me.OvalShape1, Me.cartDetaillButton2})
-        Me.ShapeContainer4.Size = New System.Drawing.Size(1103, 642)
-        Me.ShapeContainer4.TabIndex = 3
-        Me.ShapeContainer4.TabStop = False
-        '
-        'OvalShape1
-        '
-        Me.OvalShape1.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.OvalShape1.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
-        Me.OvalShape1.BorderColor = System.Drawing.SystemColors.ActiveCaption
-        Me.OvalShape1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.OvalShape1.Location = New System.Drawing.Point(1061, 224)
-        Me.OvalShape1.Name = "OvalShape1"
-        Me.OvalShape1.Size = New System.Drawing.Size(80, 80)
-        '
-        'OvalShape2
-        '
-        Me.OvalShape2.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.OvalShape2.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
-        Me.OvalShape2.BorderColor = System.Drawing.SystemColors.ActiveCaption
-        Me.OvalShape2.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.OvalShape2.Location = New System.Drawing.Point(1062, 354)
-        Me.OvalShape2.Name = "OvalShape2"
-        Me.OvalShape2.Size = New System.Drawing.Size(80, 80)
-        '
-        'OvalShape3
-        '
-        Me.OvalShape3.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.OvalShape3.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
-        Me.OvalShape3.BorderColor = System.Drawing.SystemColors.ActiveCaption
-        Me.OvalShape3.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.OvalShape3.Location = New System.Drawing.Point(-38, 223)
-        Me.OvalShape3.Name = "OvalShape3"
-        Me.OvalShape3.Size = New System.Drawing.Size(80, 80)
-        '
-        'OvalShape4
-        '
-        Me.OvalShape4.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.OvalShape4.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
-        Me.OvalShape4.BorderColor = System.Drawing.SystemColors.ActiveCaption
-        Me.OvalShape4.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.OvalShape4.Location = New System.Drawing.Point(-39, 353)
-        Me.OvalShape4.Name = "OvalShape4"
-        Me.OvalShape4.Size = New System.Drawing.Size(80, 80)
+        Me.cartValidationButton.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.cartValidationButton.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.cartValidationButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.cartValidationButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.cartValidationButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cartValidationButton.Font = New System.Drawing.Font("Roboto", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cartValidationButton.Location = New System.Drawing.Point(14, 469)
+        Me.cartValidationButton.Name = "cartValidationButton"
+        Me.cartValidationButton.Size = New System.Drawing.Size(222, 30)
+        Me.cartValidationButton.TabIndex = 2
+        Me.cartValidationButton.Text = "Valider"
+        Me.cartValidationButton.UseVisualStyleBackColor = True
         '
         'ListView1
         '
         Me.ListView1.BackColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.ListView1.Location = New System.Drawing.Point(0, 20)
+        Me.ListView1.Location = New System.Drawing.Point(0, -1)
         Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(246, 562)
+        Me.ListView1.Size = New System.Drawing.Size(246, 434)
         Me.ListView1.TabIndex = 1
         Me.ListView1.UseCompatibleStateImageBehavior = False
         '
-        'Button1
+        'cartDetailButton
         '
-        Me.Button1.Location = New System.Drawing.Point(4, 588)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(236, 23)
-        Me.Button1.TabIndex = 2
-        Me.Button1.Text = "Valider"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.cartDetailButton.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.cartDetailButton.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.cartDetailButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.cartDetailButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.cartDetailButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cartDetailButton.Font = New System.Drawing.Font("Roboto", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cartDetailButton.Location = New System.Drawing.Point(14, 503)
+        Me.cartDetailButton.Name = "cartDetailButton"
+        Me.cartDetailButton.Size = New System.Drawing.Size(222, 34)
+        Me.cartDetailButton.TabIndex = 4
+        Me.cartDetailButton.Text = "Détails"
+        Me.cartDetailButton.UseVisualStyleBackColor = True
         '
-        'Button2
+        'cartSuppressionButton
         '
-        Me.Button2.Location = New System.Drawing.Point(4, 612)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(236, 23)
-        Me.Button2.TabIndex = 3
-        Me.Button2.Text = "Mes listes"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.cartSuppressionButton.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.cartSuppressionButton.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.cartSuppressionButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.cartSuppressionButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.cartSuppressionButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cartSuppressionButton.Font = New System.Drawing.Font("Roboto", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cartSuppressionButton.Location = New System.Drawing.Point(14, 541)
+        Me.cartSuppressionButton.Name = "cartSuppressionButton"
+        Me.cartSuppressionButton.Size = New System.Drawing.Size(222, 32)
+        Me.cartSuppressionButton.TabIndex = 5
+        Me.cartSuppressionButton.Text = "Supprimer"
+        Me.cartSuppressionButton.UseVisualStyleBackColor = True
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Roboto", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.DimGray
+        Me.Label1.Location = New System.Drawing.Point(41, 435)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(154, 34)
+        Me.Label1.TabIndex = 6
+        Me.Label1.Text = "Total : 56 €"
+        '
+        'cartSaveButton
+        '
+        Me.cartSaveButton.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.cartSaveButton.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.cartSaveButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.cartSaveButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.cartSaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cartSaveButton.Font = New System.Drawing.Font("Roboto", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cartSaveButton.Location = New System.Drawing.Point(15, 576)
+        Me.cartSaveButton.Name = "cartSaveButton"
+        Me.cartSaveButton.Size = New System.Drawing.Size(222, 28)
+        Me.cartSaveButton.TabIndex = 7
+        Me.cartSaveButton.Text = "Sauvegarder"
+        Me.cartSaveButton.UseVisualStyleBackColor = True
         '
         'home
         '
@@ -570,6 +556,7 @@ Partial Class home
         Me.menuEpicerieSalee.ResumeLayout(False)
         Me.menuEpicerieSalee.PerformLayout()
         Me.Panel2.ResumeLayout(False)
+        Me.Panel2.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -607,16 +594,12 @@ Partial Class home
     Friend WithEvents LineShape3 As Microsoft.VisualBasic.PowerPacks.LineShape
     Friend WithEvents LineShape2 As Microsoft.VisualBasic.PowerPacks.LineShape
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
-    Friend WithEvents cartDetailButton As Microsoft.VisualBasic.PowerPacks.OvalShape
-    Friend WithEvents ShapeContainer5 As Microsoft.VisualBasic.PowerPacks.ShapeContainer
-    Friend WithEvents ShapeContainer4 As Microsoft.VisualBasic.PowerPacks.ShapeContainer
-    Friend WithEvents cartDetaillButton2 As Microsoft.VisualBasic.PowerPacks.OvalShape
-    Friend WithEvents OvalShape2 As Microsoft.VisualBasic.PowerPacks.OvalShape
-    Friend WithEvents OvalShape1 As Microsoft.VisualBasic.PowerPacks.OvalShape
-    Friend WithEvents OvalShape4 As Microsoft.VisualBasic.PowerPacks.OvalShape
-    Friend WithEvents OvalShape3 As Microsoft.VisualBasic.PowerPacks.OvalShape
-    Friend WithEvents Button2 As System.Windows.Forms.Button
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents myListButton As System.Windows.Forms.Button
+    Friend WithEvents cartValidationButton As System.Windows.Forms.Button
     Friend WithEvents ListView1 As System.Windows.Forms.ListView
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents cartSuppressionButton As System.Windows.Forms.Button
+    Friend WithEvents cartDetailButton As System.Windows.Forms.Button
+    Friend WithEvents cartSaveButton As System.Windows.Forms.Button
 
 End Class
