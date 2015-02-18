@@ -17,6 +17,15 @@
     '********************************************************************************
     '*************************** Init component   ***********************************
     '********************************************************************************
+    Public Sub New(ByVal art As Article)
+        InitializeComponent()
+        Me.labelNomArticle.Text = art.name
+        Me.labelDescription.Text = art.desc
+        Me.labelMarque.Text = art.brand
+        Me.labelPoids.Text = String.Concat(art.weight, " kg")
+        Me.labelPrix.Text = String.Concat(art.price, " €")
+    End Sub
+
     Public Sub New()
         InitializeComponent()
     End Sub
@@ -46,7 +55,7 @@
         Me.labelNomArticle.Name = "labelNomArticle"
         Me.labelNomArticle.Size = New System.Drawing.Size(45, 21)
         Me.labelNomArticle.TabIndex = 0
-        Me.labelNomArticle.Text = "nom"
+        Me.labelNomArticle.Text = "n"
         '
         'labelPlusInfo
         '
@@ -67,7 +76,7 @@
         Me.labelPrix.Name = "labelPrix"
         Me.labelPrix.Size = New System.Drawing.Size(50, 21)
         Me.labelPrix.TabIndex = 2
-        Me.labelPrix.Text = "2.00 €"
+        Me.labelPrix.Text = "€"
         '
         'imageBox
         '
@@ -88,7 +97,7 @@
         Me.labelDescription.Name = "labelDescription"
         Me.labelDescription.Size = New System.Drawing.Size(30, 13)
         Me.labelDescription.TabIndex = 4
-        Me.labelDescription.Text = "desc"
+        Me.labelDescription.Text = "d"
         '
         'labelPoids
         '
@@ -98,7 +107,7 @@
         Me.labelPoids.Name = "labelPoids"
         Me.labelPoids.Size = New System.Drawing.Size(36, 13)
         Me.labelPoids.TabIndex = 5
-        Me.labelPoids.Text = "poids"
+        Me.labelPoids.Text = "p"
         '
         'labelQuantite
         '
@@ -145,7 +154,7 @@
         Me.labelMarque.Name = "labelMarque"
         Me.labelMarque.Size = New System.Drawing.Size(65, 21)
         Me.labelMarque.TabIndex = 10
-        Me.labelMarque.Text = "marque"
+        Me.labelMarque.Text = "m"
         '
         'labelAjouter
         '

@@ -25,11 +25,26 @@ Partial Class home
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(home))
         Me.headerPanel = New System.Windows.Forms.Panel()
         Me.cartLabel = New System.Windows.Forms.Label()
+        Me.logoPictureBox = New System.Windows.Forms.PictureBox()
         Me.searchButton = New System.Windows.Forms.Button()
         Me.searchTextBox = New System.Windows.Forms.TextBox()
         Me.separateurShapeContainer = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
         Me.LineShape1 = New Microsoft.VisualBasic.PowerPacks.LineShape()
         Me.centerPanel = New System.Windows.Forms.Panel()
+        Me.articlePanel = New System.Windows.Forms.FlowLayoutPanel()
+        Me.popUpPanel = New System.Windows.Forms.TableLayoutPanel()
+        Me.contentPopUpLabel = New System.Windows.Forms.Label()
+        Me.titlePopUpLabel = New System.Windows.Forms.Label()
+        Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.cancelPopUpButton = New System.Windows.Forms.Button()
+        Me.validPopUpButton = New System.Windows.Forms.Button()
+        Me.menuPanel = New System.Windows.Forms.Panel()
+        Me.menuBoissonsButton = New System.Windows.Forms.Button()
+        Me.menuMarcheButton = New System.Windows.Forms.Button()
+        Me.menuSurgelesButton = New System.Windows.Forms.Button()
+        Me.menuFraisButton = New System.Windows.Forms.Button()
+        Me.menuEpicerieSaleeButton = New System.Windows.Forms.Button()
+        Me.menuEpicerieSucreeButton = New System.Windows.Forms.Button()
         Me.validationPaymentPanel = New System.Windows.Forms.Panel()
         Me.paymentTotalLabel = New System.Windows.Forms.Label()
         Me.paymentNbProdLabel = New System.Windows.Forms.Label()
@@ -37,12 +52,6 @@ Partial Class home
         Me.paymentTitleLabel = New System.Windows.Forms.Label()
         Me.paidButton = New System.Windows.Forms.Button()
         Me.cancelPaidButton = New System.Windows.Forms.Button()
-        Me.menuSurgelesButton = New System.Windows.Forms.Button()
-        Me.menuBoissonsButton = New System.Windows.Forms.Button()
-        Me.menuEpicerieSucreeButton = New System.Windows.Forms.Button()
-        Me.menuEpicerieSaleeButton = New System.Windows.Forms.Button()
-        Me.menuFraisButton = New System.Windows.Forms.Button()
-        Me.menuMarcheButton = New System.Windows.Forms.Button()
         Me.affGridPanel = New System.Windows.Forms.Panel()
         Me.ShapeContainer3 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
         Me.RectangleShape4 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
@@ -63,24 +72,16 @@ Partial Class home
         Me.cartListButton = New System.Windows.Forms.Button()
         Me.cartValidationButton = New System.Windows.Forms.Button()
         Me.cartListView = New System.Windows.Forms.ListView()
-        Me.logoPictureBox = New System.Windows.Forms.PictureBox()
-        Me.menuPanel = New System.Windows.Forms.Panel()
-        Me.titlePopUpLabel = New System.Windows.Forms.Label()
-        Me.contentPopUpLabel = New System.Windows.Forms.Label()
-        Me.cancelPopUpButton = New System.Windows.Forms.Button()
-        Me.popUpPanel = New System.Windows.Forms.TableLayoutPanel()
-        Me.validPopUpButton = New System.Windows.Forms.Button()
-        Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel()
         Me.headerPanel.SuspendLayout()
+        CType(Me.logoPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.centerPanel.SuspendLayout()
+        Me.popUpPanel.SuspendLayout()
+        Me.FlowLayoutPanel2.SuspendLayout()
+        Me.menuPanel.SuspendLayout()
         Me.validationPaymentPanel.SuspendLayout()
         Me.affGridPanel.SuspendLayout()
         Me.affListPanel.SuspendLayout()
         Me.cartPanel.SuspendLayout()
-        CType(Me.logoPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.menuPanel.SuspendLayout()
-        Me.popUpPanel.SuspendLayout()
-        Me.FlowLayoutPanel2.SuspendLayout()
         Me.SuspendLayout()
         '
         'headerPanel
@@ -106,6 +107,15 @@ Partial Class home
         Me.cartLabel.Size = New System.Drawing.Size(218, 48)
         Me.cartLabel.TabIndex = 6
         Me.cartLabel.Text = "Mon panier"
+        '
+        'logoPictureBox
+        '
+        Me.logoPictureBox.Image = CType(resources.GetObject("logoPictureBox.Image"), System.Drawing.Image)
+        Me.logoPictureBox.Location = New System.Drawing.Point(12, 6)
+        Me.logoPictureBox.Name = "logoPictureBox"
+        Me.logoPictureBox.Size = New System.Drawing.Size(221, 90)
+        Me.logoPictureBox.TabIndex = 4
+        Me.logoPictureBox.TabStop = False
         '
         'searchButton
         '
@@ -148,9 +158,10 @@ Partial Class home
         'centerPanel
         '
         Me.centerPanel.BackColor = System.Drawing.Color.White
-        Me.centerPanel.Controls.Add(Me.popUpPanel)
-        Me.centerPanel.Controls.Add(Me.menuPanel)
         Me.centerPanel.Controls.Add(Me.validationPaymentPanel)
+        Me.centerPanel.Controls.Add(Me.popUpPanel)
+        Me.centerPanel.Controls.Add(Me.articlePanel)
+        Me.centerPanel.Controls.Add(Me.menuPanel)
         Me.centerPanel.Controls.Add(Me.affGridPanel)
         Me.centerPanel.Controls.Add(Me.affListPanel)
         Me.centerPanel.Cursor = System.Windows.Forms.Cursors.Default
@@ -158,6 +169,208 @@ Partial Class home
         Me.centerPanel.Name = "centerPanel"
         Me.centerPanel.Size = New System.Drawing.Size(1103, 642)
         Me.centerPanel.TabIndex = 3
+        '
+        'articlePanel
+        '
+        Me.articlePanel.Location = New System.Drawing.Point(55, 118)
+        Me.articlePanel.Name = "articlePanel"
+        Me.articlePanel.Size = New System.Drawing.Size(998, 487)
+        Me.articlePanel.TabIndex = 13
+        '
+        'popUpPanel
+        '
+        Me.popUpPanel.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.popUpPanel.ColumnCount = 1
+        Me.popUpPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.popUpPanel.Controls.Add(Me.contentPopUpLabel, 0, 1)
+        Me.popUpPanel.Controls.Add(Me.titlePopUpLabel, 0, 0)
+        Me.popUpPanel.Controls.Add(Me.FlowLayoutPanel2, 0, 2)
+        Me.popUpPanel.Location = New System.Drawing.Point(302, 211)
+        Me.popUpPanel.Name = "popUpPanel"
+        Me.popUpPanel.RowCount = 3
+        Me.popUpPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.popUpPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.popUpPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 53.0!))
+        Me.popUpPanel.Size = New System.Drawing.Size(532, 200)
+        Me.popUpPanel.TabIndex = 12
+        '
+        'contentPopUpLabel
+        '
+        Me.contentPopUpLabel.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.contentPopUpLabel.AutoSize = True
+        Me.contentPopUpLabel.Font = New System.Drawing.Font("Roboto", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.contentPopUpLabel.ForeColor = System.Drawing.Color.White
+        Me.contentPopUpLabel.Location = New System.Drawing.Point(80, 97)
+        Me.contentPopUpLabel.Name = "contentPopUpLabel"
+        Me.contentPopUpLabel.Size = New System.Drawing.Size(372, 24)
+        Me.contentPopUpLabel.TabIndex = 10
+        Me.contentPopUpLabel.Text = "Voulez-vous supprimer tous les produit ?"
+        '
+        'titlePopUpLabel
+        '
+        Me.titlePopUpLabel.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.titlePopUpLabel.AutoSize = True
+        Me.titlePopUpLabel.BackColor = System.Drawing.Color.Transparent
+        Me.titlePopUpLabel.Font = New System.Drawing.Font("Roboto", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.titlePopUpLabel.ForeColor = System.Drawing.Color.White
+        Me.titlePopUpLabel.Location = New System.Drawing.Point(35, 18)
+        Me.titlePopUpLabel.Name = "titlePopUpLabel"
+        Me.titlePopUpLabel.Size = New System.Drawing.Size(461, 37)
+        Me.titlePopUpLabel.TabIndex = 3
+        Me.titlePopUpLabel.Text = "Suppression de tous les produits"
+        '
+        'FlowLayoutPanel2
+        '
+        Me.FlowLayoutPanel2.Controls.Add(Me.cancelPopUpButton)
+        Me.FlowLayoutPanel2.Controls.Add(Me.validPopUpButton)
+        Me.FlowLayoutPanel2.Location = New System.Drawing.Point(3, 149)
+        Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
+        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(526, 47)
+        Me.FlowLayoutPanel2.TabIndex = 11
+        '
+        'cancelPopUpButton
+        '
+        Me.cancelPopUpButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.cancelPopUpButton.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.cancelPopUpButton.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.cancelPopUpButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.cancelPopUpButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.cancelPopUpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cancelPopUpButton.Font = New System.Drawing.Font("Roboto Lt", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cancelPopUpButton.Location = New System.Drawing.Point(30, 3)
+        Me.cancelPopUpButton.Margin = New System.Windows.Forms.Padding(30, 3, 3, 3)
+        Me.cancelPopUpButton.Name = "cancelPopUpButton"
+        Me.cancelPopUpButton.Size = New System.Drawing.Size(217, 36)
+        Me.cancelPopUpButton.TabIndex = 10
+        Me.cancelPopUpButton.Text = "Annuler"
+        Me.cancelPopUpButton.UseVisualStyleBackColor = False
+        '
+        'validPopUpButton
+        '
+        Me.validPopUpButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.validPopUpButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.validPopUpButton.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.validPopUpButton.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.validPopUpButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.validPopUpButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.validPopUpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.validPopUpButton.Font = New System.Drawing.Font("Roboto Lt", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.validPopUpButton.Location = New System.Drawing.Point(300, 3)
+        Me.validPopUpButton.Margin = New System.Windows.Forms.Padding(50, 3, 3, 3)
+        Me.validPopUpButton.Name = "validPopUpButton"
+        Me.validPopUpButton.Size = New System.Drawing.Size(217, 36)
+        Me.validPopUpButton.TabIndex = 10
+        Me.validPopUpButton.Text = "Oui"
+        Me.validPopUpButton.UseVisualStyleBackColor = False
+        '
+        'menuPanel
+        '
+        Me.menuPanel.Controls.Add(Me.menuBoissonsButton)
+        Me.menuPanel.Controls.Add(Me.menuMarcheButton)
+        Me.menuPanel.Controls.Add(Me.menuSurgelesButton)
+        Me.menuPanel.Controls.Add(Me.menuFraisButton)
+        Me.menuPanel.Controls.Add(Me.menuEpicerieSaleeButton)
+        Me.menuPanel.Controls.Add(Me.menuEpicerieSucreeButton)
+        Me.menuPanel.Location = New System.Drawing.Point(145, 34)
+        Me.menuPanel.Name = "menuPanel"
+        Me.menuPanel.Size = New System.Drawing.Size(730, 43)
+        Me.menuPanel.TabIndex = 10
+        '
+        'menuBoissonsButton
+        '
+        Me.menuBoissonsButton.BackColor = System.Drawing.Color.LightGray
+        Me.menuBoissonsButton.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.menuBoissonsButton.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.menuBoissonsButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver
+        Me.menuBoissonsButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
+        Me.menuBoissonsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.menuBoissonsButton.Font = New System.Drawing.Font("Roboto", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.menuBoissonsButton.Location = New System.Drawing.Point(508, 1)
+        Me.menuBoissonsButton.Name = "menuBoissonsButton"
+        Me.menuBoissonsButton.Size = New System.Drawing.Size(116, 42)
+        Me.menuBoissonsButton.TabIndex = 7
+        Me.menuBoissonsButton.Text = "Boissons"
+        Me.menuBoissonsButton.UseVisualStyleBackColor = False
+        '
+        'menuMarcheButton
+        '
+        Me.menuMarcheButton.BackColor = System.Drawing.Color.LightGray
+        Me.menuMarcheButton.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.menuMarcheButton.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.menuMarcheButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver
+        Me.menuMarcheButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
+        Me.menuMarcheButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.menuMarcheButton.Font = New System.Drawing.Font("Roboto", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.menuMarcheButton.Location = New System.Drawing.Point(1, 1)
+        Me.menuMarcheButton.Name = "menuMarcheButton"
+        Me.menuMarcheButton.Size = New System.Drawing.Size(107, 42)
+        Me.menuMarcheButton.TabIndex = 3
+        Me.menuMarcheButton.Text = "Marché"
+        Me.menuMarcheButton.UseVisualStyleBackColor = False
+        '
+        'menuSurgelesButton
+        '
+        Me.menuSurgelesButton.BackColor = System.Drawing.Color.LightGray
+        Me.menuSurgelesButton.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.menuSurgelesButton.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.menuSurgelesButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver
+        Me.menuSurgelesButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
+        Me.menuSurgelesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.menuSurgelesButton.Font = New System.Drawing.Font("Roboto", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.menuSurgelesButton.Location = New System.Drawing.Point(623, 1)
+        Me.menuSurgelesButton.Name = "menuSurgelesButton"
+        Me.menuSurgelesButton.Size = New System.Drawing.Size(108, 42)
+        Me.menuSurgelesButton.TabIndex = 8
+        Me.menuSurgelesButton.Text = "Surgelés"
+        Me.menuSurgelesButton.UseVisualStyleBackColor = False
+        '
+        'menuFraisButton
+        '
+        Me.menuFraisButton.BackColor = System.Drawing.Color.LightGray
+        Me.menuFraisButton.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.menuFraisButton.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.menuFraisButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver
+        Me.menuFraisButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
+        Me.menuFraisButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.menuFraisButton.Font = New System.Drawing.Font("Roboto", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.menuFraisButton.Location = New System.Drawing.Point(107, 1)
+        Me.menuFraisButton.Name = "menuFraisButton"
+        Me.menuFraisButton.Size = New System.Drawing.Size(86, 42)
+        Me.menuFraisButton.TabIndex = 4
+        Me.menuFraisButton.Text = "Frais"
+        Me.menuFraisButton.UseVisualStyleBackColor = False
+        '
+        'menuEpicerieSaleeButton
+        '
+        Me.menuEpicerieSaleeButton.BackColor = System.Drawing.Color.LightGray
+        Me.menuEpicerieSaleeButton.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.menuEpicerieSaleeButton.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.menuEpicerieSaleeButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver
+        Me.menuEpicerieSaleeButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
+        Me.menuEpicerieSaleeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.menuEpicerieSaleeButton.Font = New System.Drawing.Font("Roboto", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.menuEpicerieSaleeButton.Location = New System.Drawing.Point(192, 1)
+        Me.menuEpicerieSaleeButton.Name = "menuEpicerieSaleeButton"
+        Me.menuEpicerieSaleeButton.Size = New System.Drawing.Size(156, 42)
+        Me.menuEpicerieSaleeButton.TabIndex = 5
+        Me.menuEpicerieSaleeButton.Text = "Epicerie Salée"
+        Me.menuEpicerieSaleeButton.UseVisualStyleBackColor = False
+        '
+        'menuEpicerieSucreeButton
+        '
+        Me.menuEpicerieSucreeButton.BackColor = System.Drawing.Color.LightGray
+        Me.menuEpicerieSucreeButton.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.menuEpicerieSucreeButton.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.menuEpicerieSucreeButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver
+        Me.menuEpicerieSucreeButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
+        Me.menuEpicerieSucreeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.menuEpicerieSucreeButton.Font = New System.Drawing.Font("Roboto", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.menuEpicerieSucreeButton.Location = New System.Drawing.Point(347, 1)
+        Me.menuEpicerieSucreeButton.Name = "menuEpicerieSucreeButton"
+        Me.menuEpicerieSucreeButton.Size = New System.Drawing.Size(162, 42)
+        Me.menuEpicerieSucreeButton.TabIndex = 6
+        Me.menuEpicerieSucreeButton.Text = "Epicerie Sucrée"
+        Me.menuEpicerieSucreeButton.UseVisualStyleBackColor = False
         '
         'validationPaymentPanel
         '
@@ -250,102 +463,6 @@ Partial Class home
         Me.cancelPaidButton.TabIndex = 0
         Me.cancelPaidButton.Text = "Continuer mes achats"
         Me.cancelPaidButton.UseVisualStyleBackColor = False
-        '
-        'menuSurgelesButton
-        '
-        Me.menuSurgelesButton.BackColor = System.Drawing.Color.LightGray
-        Me.menuSurgelesButton.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.menuSurgelesButton.FlatAppearance.BorderColor = System.Drawing.Color.Black
-        Me.menuSurgelesButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver
-        Me.menuSurgelesButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
-        Me.menuSurgelesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.menuSurgelesButton.Font = New System.Drawing.Font("Roboto", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.menuSurgelesButton.Location = New System.Drawing.Point(623, 1)
-        Me.menuSurgelesButton.Name = "menuSurgelesButton"
-        Me.menuSurgelesButton.Size = New System.Drawing.Size(108, 42)
-        Me.menuSurgelesButton.TabIndex = 8
-        Me.menuSurgelesButton.Text = "Surgelés"
-        Me.menuSurgelesButton.UseVisualStyleBackColor = False
-        '
-        'menuBoissonsButton
-        '
-        Me.menuBoissonsButton.BackColor = System.Drawing.Color.LightGray
-        Me.menuBoissonsButton.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.menuBoissonsButton.FlatAppearance.BorderColor = System.Drawing.Color.Black
-        Me.menuBoissonsButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver
-        Me.menuBoissonsButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
-        Me.menuBoissonsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.menuBoissonsButton.Font = New System.Drawing.Font("Roboto", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.menuBoissonsButton.Location = New System.Drawing.Point(508, 1)
-        Me.menuBoissonsButton.Name = "menuBoissonsButton"
-        Me.menuBoissonsButton.Size = New System.Drawing.Size(116, 42)
-        Me.menuBoissonsButton.TabIndex = 7
-        Me.menuBoissonsButton.Text = "Boissons"
-        Me.menuBoissonsButton.UseVisualStyleBackColor = False
-        '
-        'menuEpicerieSucreeButton
-        '
-        Me.menuEpicerieSucreeButton.BackColor = System.Drawing.Color.LightGray
-        Me.menuEpicerieSucreeButton.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.menuEpicerieSucreeButton.FlatAppearance.BorderColor = System.Drawing.Color.Black
-        Me.menuEpicerieSucreeButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver
-        Me.menuEpicerieSucreeButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
-        Me.menuEpicerieSucreeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.menuEpicerieSucreeButton.Font = New System.Drawing.Font("Roboto", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.menuEpicerieSucreeButton.Location = New System.Drawing.Point(347, 1)
-        Me.menuEpicerieSucreeButton.Name = "menuEpicerieSucreeButton"
-        Me.menuEpicerieSucreeButton.Size = New System.Drawing.Size(162, 42)
-        Me.menuEpicerieSucreeButton.TabIndex = 6
-        Me.menuEpicerieSucreeButton.Text = "Epicerie Sucrée"
-        Me.menuEpicerieSucreeButton.UseVisualStyleBackColor = False
-        '
-        'menuEpicerieSaleeButton
-        '
-        Me.menuEpicerieSaleeButton.BackColor = System.Drawing.Color.LightGray
-        Me.menuEpicerieSaleeButton.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.menuEpicerieSaleeButton.FlatAppearance.BorderColor = System.Drawing.Color.Black
-        Me.menuEpicerieSaleeButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver
-        Me.menuEpicerieSaleeButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
-        Me.menuEpicerieSaleeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.menuEpicerieSaleeButton.Font = New System.Drawing.Font("Roboto", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.menuEpicerieSaleeButton.Location = New System.Drawing.Point(192, 1)
-        Me.menuEpicerieSaleeButton.Name = "menuEpicerieSaleeButton"
-        Me.menuEpicerieSaleeButton.Size = New System.Drawing.Size(156, 42)
-        Me.menuEpicerieSaleeButton.TabIndex = 5
-        Me.menuEpicerieSaleeButton.Text = "Epicerie Salée"
-        Me.menuEpicerieSaleeButton.UseVisualStyleBackColor = False
-        '
-        'menuFraisButton
-        '
-        Me.menuFraisButton.BackColor = System.Drawing.Color.LightGray
-        Me.menuFraisButton.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.menuFraisButton.FlatAppearance.BorderColor = System.Drawing.Color.Black
-        Me.menuFraisButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver
-        Me.menuFraisButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
-        Me.menuFraisButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.menuFraisButton.Font = New System.Drawing.Font("Roboto", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.menuFraisButton.Location = New System.Drawing.Point(107, 1)
-        Me.menuFraisButton.Name = "menuFraisButton"
-        Me.menuFraisButton.Size = New System.Drawing.Size(86, 42)
-        Me.menuFraisButton.TabIndex = 4
-        Me.menuFraisButton.Text = "Frais"
-        Me.menuFraisButton.UseVisualStyleBackColor = False
-        '
-        'menuMarcheButton
-        '
-        Me.menuMarcheButton.BackColor = System.Drawing.Color.LightGray
-        Me.menuMarcheButton.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.menuMarcheButton.FlatAppearance.BorderColor = System.Drawing.Color.Black
-        Me.menuMarcheButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver
-        Me.menuMarcheButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
-        Me.menuMarcheButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.menuMarcheButton.Font = New System.Drawing.Font("Roboto", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.menuMarcheButton.Location = New System.Drawing.Point(1, 1)
-        Me.menuMarcheButton.Name = "menuMarcheButton"
-        Me.menuMarcheButton.Size = New System.Drawing.Size(107, 42)
-        Me.menuMarcheButton.TabIndex = 3
-        Me.menuMarcheButton.Text = "Marché"
-        Me.menuMarcheButton.UseVisualStyleBackColor = False
         '
         'affGridPanel
         '
@@ -560,114 +677,6 @@ Partial Class home
         Me.cartListView.TabIndex = 1
         Me.cartListView.UseCompatibleStateImageBehavior = False
         '
-        'logoPictureBox
-        '
-        Me.logoPictureBox.Image = CType(resources.GetObject("logoPictureBox.Image"), System.Drawing.Image)
-        Me.logoPictureBox.Location = New System.Drawing.Point(12, 6)
-        Me.logoPictureBox.Name = "logoPictureBox"
-        Me.logoPictureBox.Size = New System.Drawing.Size(221, 90)
-        Me.logoPictureBox.TabIndex = 4
-        Me.logoPictureBox.TabStop = False
-        '
-        'menuPanel
-        '
-        Me.menuPanel.Controls.Add(Me.menuBoissonsButton)
-        Me.menuPanel.Controls.Add(Me.menuMarcheButton)
-        Me.menuPanel.Controls.Add(Me.menuSurgelesButton)
-        Me.menuPanel.Controls.Add(Me.menuFraisButton)
-        Me.menuPanel.Controls.Add(Me.menuEpicerieSaleeButton)
-        Me.menuPanel.Controls.Add(Me.menuEpicerieSucreeButton)
-        Me.menuPanel.Location = New System.Drawing.Point(145, 34)
-        Me.menuPanel.Name = "menuPanel"
-        Me.menuPanel.Size = New System.Drawing.Size(730, 43)
-        Me.menuPanel.TabIndex = 10
-        '
-        'titlePopUpLabel
-        '
-        Me.titlePopUpLabel.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.titlePopUpLabel.AutoSize = True
-        Me.titlePopUpLabel.BackColor = System.Drawing.Color.Transparent
-        Me.titlePopUpLabel.Font = New System.Drawing.Font("Roboto", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.titlePopUpLabel.ForeColor = System.Drawing.Color.White
-        Me.titlePopUpLabel.Location = New System.Drawing.Point(35, 15)
-        Me.titlePopUpLabel.Name = "titlePopUpLabel"
-        Me.titlePopUpLabel.Size = New System.Drawing.Size(461, 37)
-        Me.titlePopUpLabel.TabIndex = 3
-        Me.titlePopUpLabel.Text = "Suppression de tous les produits"
-        '
-        'contentPopUpLabel
-        '
-        Me.contentPopUpLabel.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.contentPopUpLabel.AutoSize = True
-        Me.contentPopUpLabel.Font = New System.Drawing.Font("Roboto", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.contentPopUpLabel.ForeColor = System.Drawing.Color.White
-        Me.contentPopUpLabel.Location = New System.Drawing.Point(80, 88)
-        Me.contentPopUpLabel.Name = "contentPopUpLabel"
-        Me.contentPopUpLabel.Size = New System.Drawing.Size(372, 24)
-        Me.contentPopUpLabel.TabIndex = 10
-        Me.contentPopUpLabel.Text = "Voulez-vous supprimer tous les produit ?"
-        '
-        'cancelPopUpButton
-        '
-        Me.cancelPopUpButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.cancelPopUpButton.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.cancelPopUpButton.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.cancelPopUpButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.cancelPopUpButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.cancelPopUpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cancelPopUpButton.Font = New System.Drawing.Font("Roboto Lt", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cancelPopUpButton.Location = New System.Drawing.Point(30, 3)
-        Me.cancelPopUpButton.Margin = New System.Windows.Forms.Padding(30, 3, 3, 3)
-        Me.cancelPopUpButton.Name = "cancelPopUpButton"
-        Me.cancelPopUpButton.Size = New System.Drawing.Size(217, 36)
-        Me.cancelPopUpButton.TabIndex = 10
-        Me.cancelPopUpButton.Text = "Annuler"
-        Me.cancelPopUpButton.UseVisualStyleBackColor = False
-        '
-        'popUpPanel
-        '
-        Me.popUpPanel.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.popUpPanel.ColumnCount = 1
-        Me.popUpPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.popUpPanel.Controls.Add(Me.contentPopUpLabel, 0, 1)
-        Me.popUpPanel.Controls.Add(Me.titlePopUpLabel, 0, 0)
-        Me.popUpPanel.Controls.Add(Me.FlowLayoutPanel2, 0, 2)
-        Me.popUpPanel.Location = New System.Drawing.Point(302, 211)
-        Me.popUpPanel.Name = "popUpPanel"
-        Me.popUpPanel.RowCount = 3
-        Me.popUpPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.popUpPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.popUpPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 53.0!))
-        Me.popUpPanel.Size = New System.Drawing.Size(532, 188)
-        Me.popUpPanel.TabIndex = 12
-        '
-        'validPopUpButton
-        '
-        Me.validPopUpButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.validPopUpButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.validPopUpButton.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.validPopUpButton.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.validPopUpButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.validPopUpButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.validPopUpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.validPopUpButton.Font = New System.Drawing.Font("Roboto Lt", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.validPopUpButton.Location = New System.Drawing.Point(300, 3)
-        Me.validPopUpButton.Margin = New System.Windows.Forms.Padding(50, 3, 3, 3)
-        Me.validPopUpButton.Name = "validPopUpButton"
-        Me.validPopUpButton.Size = New System.Drawing.Size(217, 36)
-        Me.validPopUpButton.TabIndex = 10
-        Me.validPopUpButton.Text = "Oui"
-        Me.validPopUpButton.UseVisualStyleBackColor = False
-        '
-        'FlowLayoutPanel2
-        '
-        Me.FlowLayoutPanel2.Controls.Add(Me.cancelPopUpButton)
-        Me.FlowLayoutPanel2.Controls.Add(Me.validPopUpButton)
-        Me.FlowLayoutPanel2.Location = New System.Drawing.Point(3, 137)
-        Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
-        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(526, 48)
-        Me.FlowLayoutPanel2.TabIndex = 11
-        '
         'home
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -680,18 +689,18 @@ Partial Class home
         Me.Text = "Form1"
         Me.headerPanel.ResumeLayout(False)
         Me.headerPanel.PerformLayout()
+        CType(Me.logoPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.centerPanel.ResumeLayout(False)
+        Me.popUpPanel.ResumeLayout(False)
+        Me.popUpPanel.PerformLayout()
+        Me.FlowLayoutPanel2.ResumeLayout(False)
+        Me.menuPanel.ResumeLayout(False)
         Me.validationPaymentPanel.ResumeLayout(False)
         Me.validationPaymentPanel.PerformLayout()
         Me.affGridPanel.ResumeLayout(False)
         Me.affListPanel.ResumeLayout(False)
         Me.cartPanel.ResumeLayout(False)
         Me.cartPanel.PerformLayout()
-        CType(Me.logoPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.menuPanel.ResumeLayout(False)
-        Me.popUpPanel.ResumeLayout(False)
-        Me.popUpPanel.PerformLayout()
-        Me.FlowLayoutPanel2.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -743,5 +752,6 @@ Partial Class home
     Friend WithEvents FlowLayoutPanel2 As System.Windows.Forms.FlowLayoutPanel
     Friend WithEvents cancelPopUpButton As System.Windows.Forms.Button
     Friend WithEvents validPopUpButton As System.Windows.Forms.Button
+    Friend WithEvents articlePanel As System.Windows.Forms.FlowLayoutPanel
 
 End Class
