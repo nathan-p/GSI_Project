@@ -132,7 +132,8 @@
                                )
         detailNameLabel.Text = name
         detailOriginLabel.Text = "Origine : " + origin
-        detailImgPictureBox.Image = Image.FromFile(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ressources", urlImg))
+        'detailImgPictureBox.Image = New Bitmap("./ressources/pome.jpg")
+        detailImgPictureBox.ImageLocation = "ressources/pome.jpg"
         detailPriceLabel.Text = price
         detailPriceKgLabel.Text = "Prix/kg : " + priceKg
         detailWeightLabel.Text = weight + "Poids : "
@@ -152,36 +153,36 @@
         '**********************
         'Catégorie Marché
         Dim pomme As WindowsApplication1.Article
-        pomme = New Article("Pomme", "Marche", "Traiteur", 0.6, 1, "France", "Pommes granny")
+        pomme = New Article("Pomme", "Marche", "Traiteur", 0.6, 1, "France", "Pommes granny", "pomme.jpg")
         Dim cerises As WindowsApplication1.Article
-        cerises = New Article("Cerise", "Marche", "Traiteur", 1, 1, "France", "Cerises griottes")
+        cerises = New Article("Cerise", "Marche", "Traiteur", 1, 1, "France", "Cerises griottes", "cerise.jpg")
         Dim litchi As WindowsApplication1.Article
-        litchi = New Article("Litchi", "Marche", "Traiteur", 1.2, 1, "Madagascar", "Des litchi")
+        litchi = New Article("Litchi", "Marche", "Traiteur", 1.2, 1, "Madagascar", "Des litchi", "litchi.jpg")
         'Catégorie Frais
         Dim poisson As WindowsApplication1.Article
-        poisson = New Article("Saumon", "Frais", " ", 5.2, 1.1, "France", "Saumon frais de norvège")
+        poisson = New Article("Saumon", "Frais", " ", 5.2, 1.1, "France", "Saumon frais de norvège", "saumon.jpg")
         'Catégorie Epicerie Salee
         Dim saucisson As WindowsApplication1.Article
-        saucisson = New Article("Saucisson", "Sales", "Justin bridou", 3.2, 1, "France", "Viande de porc recyclé")
+        saucisson = New Article("Saucisson", "Sales", "Justin bridou", 3.2, 1, "France", "Viande de porc recyclé", "saucisson.jpg")
         'Catégorie Epicerie Sucree
         Dim malabar As WindowsApplication1.Article
-        malabar = New Article("Malabars", "Sucres", "Malabar", 1.2, 1, "France", "Chewing gum au goût nature")
+        malabar = New Article("Malabars", "Sucres", "Malabar", 1.2, 1, "France", "Chewing gum au goût nature", "malabar.jpg")
         Dim carambar As WindowsApplication1.Article
-        carambar = New Article("Carambar", "Sucres", "Carambar", 0.8, 0.8, "France", "Sucreries goût caramel")
+        carambar = New Article("Carambar", "Sucres", "Carambar", 0.8, 0.8, "France", "Sucreries goût caramel", "carambar.jpg")
         'Catégorie Boissons
         Dim eau As WindowsApplication1.Article
-        eau = New Article("Eau Evian", "Boisson", "Evian", 0.5, 1.5, "France", "Eau minérale naturelle Evian")
+        eau = New Article("Eau Evian", "Boisson", "Evian", 0.5, 1.5, "France", "Eau minérale naturelle Evian", "evian.jpg")
         Dim lait As WindowsApplication1.Article
-        lait = New Article("Lait demi écrémé", "Boisson", "Lactel", 0.46, 1, "France", "Lait de vache")
+        lait = New Article("Lait demi écrémé", "Boisson", "Lactel", 0.46, 1, "France", "Lait de vache", "lait.jpg")
         Dim coca As WindowsApplication1.Article
-        coca = New Article("Coca-cola", "Boisson", "Coca", 1.6, 1, "USA", "Boisson gazeuse")
+        coca = New Article("Coca-cola", "Boisson", "Coca", 1.6, 1, "USA", "Boisson gazeuse", "coca.jpg")
         Dim jusOrange As WindowsApplication1.Article
-        jusOrange = New Article("Jus d'orange", "Boisson", "Pulco", 1.2, 1, "Espagne", "Pur jus de fruit sans pulpe")
+        jusOrange = New Article("Jus d'orange", "Boisson", "Pulco", 1.2, 1, "Espagne", "Pur jus de fruit sans pulpe", "orange.jpg")
         'Catégorie Surgeles
         Dim poissonPane As WindowsApplication1.Article
-        poissonPane = New Article("Poisson Pané", "Surgeles", "Findus", 4.5, 2, "France", "Poisson panés frais pêché la veille")
+        poissonPane = New Article("Poisson Pané", "Surgeles", "Findus", 4.5, 2, "France", "Poisson panés frais pêché la veille", "poisson_pane.jpg")
         Dim steakHache As WindowsApplication1.Article
-        steakHache = New Article("Steak haché", "Surgeles", "Charal", 5.3, 2, "France", "Pur boeuf")
+        steakHache = New Article("Steak haché", "Surgeles", "Charal", 5.3, 2, "France", "Pur boeuf", "steak.jpg")
 
 
         listArticles = New ArrayList
@@ -403,4 +404,5 @@
     Private Sub detailCloseButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles detailCloseButton.Click
         detailPopUpPanel.Visible = False
     End Sub
+
 End Class

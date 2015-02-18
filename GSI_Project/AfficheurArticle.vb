@@ -86,12 +86,13 @@
         '
         Me.imageBox.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.imageBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.imageBox.ImageLocation = "System.Drawing.Bitmap"
         Me.imageBox.Location = New System.Drawing.Point(15, 48)
         Me.imageBox.Name = "imageBox"
         Me.imageBox.Size = New System.Drawing.Size(100, 85)
         Me.imageBox.TabIndex = 3
         Me.imageBox.TabStop = False
+        Me.imageBox.ImageLocation = "ressources/pome.jpg"
+
         '
         'labelDescription
         '
