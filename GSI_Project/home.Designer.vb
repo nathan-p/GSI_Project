@@ -23,15 +23,20 @@ Partial Class home
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(home))
-        Me.header = New System.Windows.Forms.Panel()
+        Me.headerPanel = New System.Windows.Forms.Panel()
         Me.cartLabel = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.searchButton = New System.Windows.Forms.Button()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
+        Me.searchTextBox = New System.Windows.Forms.TextBox()
+        Me.separateurShapeContainer = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
         Me.LineShape1 = New Microsoft.VisualBasic.PowerPacks.LineShape()
         Me.centerPanel = New System.Windows.Forms.Panel()
         Me.validationPaymentPanel = New System.Windows.Forms.Panel()
+        Me.paymentTotalLabel = New System.Windows.Forms.Label()
+        Me.paymentNbProdLabel = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.paymentTitleLabel = New System.Windows.Forms.Label()
+        Me.paidButton = New System.Windows.Forms.Button()
+        Me.cancelPaidButton = New System.Windows.Forms.Button()
         Me.menuSurgelesButton = New System.Windows.Forms.Button()
         Me.menuBoissonsButton = New System.Windows.Forms.Button()
         Me.menuEpicerieSucreeButton = New System.Windows.Forms.Button()
@@ -50,41 +55,46 @@ Partial Class home
         Me.LineShape4 = New Microsoft.VisualBasic.PowerPacks.LineShape()
         Me.LineShape3 = New Microsoft.VisualBasic.PowerPacks.LineShape()
         Me.LineShape2 = New Microsoft.VisualBasic.PowerPacks.LineShape()
-        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.cartPanel = New System.Windows.Forms.Panel()
         Me.cartSaveButton = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.cartTotalPriceLabel = New System.Windows.Forms.Label()
         Me.cartSuppressionButton = New System.Windows.Forms.Button()
         Me.cartDetailButton = New System.Windows.Forms.Button()
-        Me.myListButton = New System.Windows.Forms.Button()
+        Me.cartListButton = New System.Windows.Forms.Button()
         Me.cartValidationButton = New System.Windows.Forms.Button()
-        Me.ListView1 = New System.Windows.Forms.ListView()
-        Me.cancelPaidButton = New System.Windows.Forms.Button()
-        Me.paidButton = New System.Windows.Forms.Button()
-        Me.paymentTitleLabel = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.paymentNbProdLabel = New System.Windows.Forms.Label()
-        Me.paymentTotalLabel = New System.Windows.Forms.Label()
-        Me.header.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.cartListView = New System.Windows.Forms.ListView()
+        Me.logoPictureBox = New System.Windows.Forms.PictureBox()
+        Me.menuPanel = New System.Windows.Forms.Panel()
+        Me.titlePopUpLabel = New System.Windows.Forms.Label()
+        Me.contentPopUpLabel = New System.Windows.Forms.Label()
+        Me.cancelPopUpButton = New System.Windows.Forms.Button()
+        Me.popUpPanel = New System.Windows.Forms.TableLayoutPanel()
+        Me.validPopUpButton = New System.Windows.Forms.Button()
+        Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.headerPanel.SuspendLayout()
         Me.centerPanel.SuspendLayout()
         Me.validationPaymentPanel.SuspendLayout()
         Me.affGridPanel.SuspendLayout()
         Me.affListPanel.SuspendLayout()
-        Me.Panel2.SuspendLayout()
+        Me.cartPanel.SuspendLayout()
+        CType(Me.logoPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.menuPanel.SuspendLayout()
+        Me.popUpPanel.SuspendLayout()
+        Me.FlowLayoutPanel2.SuspendLayout()
         Me.SuspendLayout()
         '
-        'header
+        'headerPanel
         '
-        Me.header.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.header.Controls.Add(Me.cartLabel)
-        Me.header.Controls.Add(Me.PictureBox1)
-        Me.header.Controls.Add(Me.searchButton)
-        Me.header.Controls.Add(Me.TextBox1)
-        Me.header.Controls.Add(Me.ShapeContainer1)
-        Me.header.Location = New System.Drawing.Point(0, 0)
-        Me.header.Name = "header"
-        Me.header.Size = New System.Drawing.Size(1348, 86)
-        Me.header.TabIndex = 2
+        Me.headerPanel.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.headerPanel.Controls.Add(Me.cartLabel)
+        Me.headerPanel.Controls.Add(Me.logoPictureBox)
+        Me.headerPanel.Controls.Add(Me.searchButton)
+        Me.headerPanel.Controls.Add(Me.searchTextBox)
+        Me.headerPanel.Controls.Add(Me.separateurShapeContainer)
+        Me.headerPanel.Location = New System.Drawing.Point(0, 0)
+        Me.headerPanel.Name = "headerPanel"
+        Me.headerPanel.Size = New System.Drawing.Size(1348, 86)
+        Me.headerPanel.TabIndex = 2
         '
         'cartLabel
         '
@@ -97,15 +107,6 @@ Partial Class home
         Me.cartLabel.TabIndex = 6
         Me.cartLabel.Text = "Mon panier"
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(12, 6)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(221, 90)
-        Me.PictureBox1.TabIndex = 4
-        Me.PictureBox1.TabStop = False
-        '
         'searchButton
         '
         Me.searchButton.Location = New System.Drawing.Point(860, 23)
@@ -115,25 +116,25 @@ Partial Class home
         Me.searchButton.Text = "Rechercher"
         Me.searchButton.UseVisualStyleBackColor = True
         '
-        'TextBox1
+        'searchTextBox
         '
-        Me.TextBox1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.TextBox1.Font = New System.Drawing.Font("Roboto Lt", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(271, 23)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(594, 40)
-        Me.TextBox1.TabIndex = 0
-        Me.TextBox1.Text = "Rechercher un produit"
+        Me.searchTextBox.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.searchTextBox.Font = New System.Drawing.Font("Roboto Lt", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.searchTextBox.Location = New System.Drawing.Point(271, 23)
+        Me.searchTextBox.Name = "searchTextBox"
+        Me.searchTextBox.Size = New System.Drawing.Size(594, 40)
+        Me.searchTextBox.TabIndex = 0
+        Me.searchTextBox.Text = "Rechercher un produit"
         '
-        'ShapeContainer1
+        'separateurShapeContainer
         '
-        Me.ShapeContainer1.Location = New System.Drawing.Point(0, 0)
-        Me.ShapeContainer1.Margin = New System.Windows.Forms.Padding(0)
-        Me.ShapeContainer1.Name = "ShapeContainer1"
-        Me.ShapeContainer1.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.LineShape1})
-        Me.ShapeContainer1.Size = New System.Drawing.Size(1348, 86)
-        Me.ShapeContainer1.TabIndex = 5
-        Me.ShapeContainer1.TabStop = False
+        Me.separateurShapeContainer.Location = New System.Drawing.Point(0, 0)
+        Me.separateurShapeContainer.Margin = New System.Windows.Forms.Padding(0)
+        Me.separateurShapeContainer.Name = "separateurShapeContainer"
+        Me.separateurShapeContainer.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.LineShape1})
+        Me.separateurShapeContainer.Size = New System.Drawing.Size(1348, 86)
+        Me.separateurShapeContainer.TabIndex = 5
+        Me.separateurShapeContainer.TabStop = False
         '
         'LineShape1
         '
@@ -147,13 +148,9 @@ Partial Class home
         'centerPanel
         '
         Me.centerPanel.BackColor = System.Drawing.Color.White
+        Me.centerPanel.Controls.Add(Me.popUpPanel)
+        Me.centerPanel.Controls.Add(Me.menuPanel)
         Me.centerPanel.Controls.Add(Me.validationPaymentPanel)
-        Me.centerPanel.Controls.Add(Me.menuSurgelesButton)
-        Me.centerPanel.Controls.Add(Me.menuBoissonsButton)
-        Me.centerPanel.Controls.Add(Me.menuEpicerieSucreeButton)
-        Me.centerPanel.Controls.Add(Me.menuEpicerieSaleeButton)
-        Me.centerPanel.Controls.Add(Me.menuFraisButton)
-        Me.centerPanel.Controls.Add(Me.menuMarcheButton)
         Me.centerPanel.Controls.Add(Me.affGridPanel)
         Me.centerPanel.Controls.Add(Me.affListPanel)
         Me.centerPanel.Cursor = System.Windows.Forms.Cursors.Default
@@ -177,6 +174,83 @@ Partial Class home
         Me.validationPaymentPanel.TabIndex = 9
         Me.validationPaymentPanel.Visible = False
         '
+        'paymentTotalLabel
+        '
+        Me.paymentTotalLabel.AutoSize = True
+        Me.paymentTotalLabel.Font = New System.Drawing.Font("Roboto", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.paymentTotalLabel.ForeColor = System.Drawing.Color.White
+        Me.paymentTotalLabel.Location = New System.Drawing.Point(197, 140)
+        Me.paymentTotalLabel.Name = "paymentTotalLabel"
+        Me.paymentTotalLabel.Size = New System.Drawing.Size(71, 24)
+        Me.paymentTotalLabel.TabIndex = 10
+        Me.paymentTotalLabel.Text = "Total : "
+        '
+        'paymentNbProdLabel
+        '
+        Me.paymentNbProdLabel.AutoSize = True
+        Me.paymentNbProdLabel.Font = New System.Drawing.Font("Roboto", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.paymentNbProdLabel.ForeColor = System.Drawing.Color.White
+        Me.paymentNbProdLabel.Location = New System.Drawing.Point(83, 78)
+        Me.paymentNbProdLabel.Name = "paymentNbProdLabel"
+        Me.paymentNbProdLabel.Size = New System.Drawing.Size(364, 24)
+        Me.paymentNbProdLabel.TabIndex = 9
+        Me.paymentNbProdLabel.Text = "Vous avez 11 produits dans votre panier"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Roboto", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.White
+        Me.Label2.Location = New System.Drawing.Point(274, 128)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(81, 39)
+        Me.Label2.TabIndex = 8
+        Me.Label2.Text = "56 €"
+        '
+        'paymentTitleLabel
+        '
+        Me.paymentTitleLabel.AutoSize = True
+        Me.paymentTitleLabel.Font = New System.Drawing.Font("Roboto", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.paymentTitleLabel.ForeColor = System.Drawing.Color.White
+        Me.paymentTitleLabel.Location = New System.Drawing.Point(80, 16)
+        Me.paymentTitleLabel.Name = "paymentTitleLabel"
+        Me.paymentTitleLabel.Size = New System.Drawing.Size(396, 37)
+        Me.paymentTitleLabel.TabIndex = 2
+        Me.paymentTitleLabel.Text = "Récapitulatif de votre panier"
+        '
+        'paidButton
+        '
+        Me.paidButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.paidButton.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.paidButton.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.paidButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.paidButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.paidButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.paidButton.Font = New System.Drawing.Font("Roboto Lt", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.paidButton.Location = New System.Drawing.Point(281, 195)
+        Me.paidButton.Name = "paidButton"
+        Me.paidButton.Size = New System.Drawing.Size(217, 36)
+        Me.paidButton.TabIndex = 1
+        Me.paidButton.Text = "Payer"
+        Me.paidButton.UseVisualStyleBackColor = False
+        '
+        'cancelPaidButton
+        '
+        Me.cancelPaidButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.cancelPaidButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.cancelPaidButton.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.cancelPaidButton.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.cancelPaidButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.cancelPaidButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.cancelPaidButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cancelPaidButton.Font = New System.Drawing.Font("Roboto Lt", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cancelPaidButton.Location = New System.Drawing.Point(31, 195)
+        Me.cancelPaidButton.Name = "cancelPaidButton"
+        Me.cancelPaidButton.Size = New System.Drawing.Size(217, 36)
+        Me.cancelPaidButton.TabIndex = 0
+        Me.cancelPaidButton.Text = "Continuer mes achats"
+        Me.cancelPaidButton.UseVisualStyleBackColor = False
+        '
         'menuSurgelesButton
         '
         Me.menuSurgelesButton.BackColor = System.Drawing.Color.LightGray
@@ -186,7 +260,7 @@ Partial Class home
         Me.menuSurgelesButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
         Me.menuSurgelesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.menuSurgelesButton.Font = New System.Drawing.Font("Roboto", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.menuSurgelesButton.Location = New System.Drawing.Point(761, 36)
+        Me.menuSurgelesButton.Location = New System.Drawing.Point(623, 1)
         Me.menuSurgelesButton.Name = "menuSurgelesButton"
         Me.menuSurgelesButton.Size = New System.Drawing.Size(108, 42)
         Me.menuSurgelesButton.TabIndex = 8
@@ -202,7 +276,7 @@ Partial Class home
         Me.menuBoissonsButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
         Me.menuBoissonsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.menuBoissonsButton.Font = New System.Drawing.Font("Roboto", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.menuBoissonsButton.Location = New System.Drawing.Point(646, 36)
+        Me.menuBoissonsButton.Location = New System.Drawing.Point(508, 1)
         Me.menuBoissonsButton.Name = "menuBoissonsButton"
         Me.menuBoissonsButton.Size = New System.Drawing.Size(116, 42)
         Me.menuBoissonsButton.TabIndex = 7
@@ -218,7 +292,7 @@ Partial Class home
         Me.menuEpicerieSucreeButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
         Me.menuEpicerieSucreeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.menuEpicerieSucreeButton.Font = New System.Drawing.Font("Roboto", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.menuEpicerieSucreeButton.Location = New System.Drawing.Point(485, 36)
+        Me.menuEpicerieSucreeButton.Location = New System.Drawing.Point(347, 1)
         Me.menuEpicerieSucreeButton.Name = "menuEpicerieSucreeButton"
         Me.menuEpicerieSucreeButton.Size = New System.Drawing.Size(162, 42)
         Me.menuEpicerieSucreeButton.TabIndex = 6
@@ -234,7 +308,7 @@ Partial Class home
         Me.menuEpicerieSaleeButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
         Me.menuEpicerieSaleeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.menuEpicerieSaleeButton.Font = New System.Drawing.Font("Roboto", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.menuEpicerieSaleeButton.Location = New System.Drawing.Point(330, 36)
+        Me.menuEpicerieSaleeButton.Location = New System.Drawing.Point(192, 1)
         Me.menuEpicerieSaleeButton.Name = "menuEpicerieSaleeButton"
         Me.menuEpicerieSaleeButton.Size = New System.Drawing.Size(156, 42)
         Me.menuEpicerieSaleeButton.TabIndex = 5
@@ -250,7 +324,7 @@ Partial Class home
         Me.menuFraisButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
         Me.menuFraisButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.menuFraisButton.Font = New System.Drawing.Font("Roboto", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.menuFraisButton.Location = New System.Drawing.Point(245, 36)
+        Me.menuFraisButton.Location = New System.Drawing.Point(107, 1)
         Me.menuFraisButton.Name = "menuFraisButton"
         Me.menuFraisButton.Size = New System.Drawing.Size(86, 42)
         Me.menuFraisButton.TabIndex = 4
@@ -266,7 +340,7 @@ Partial Class home
         Me.menuMarcheButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
         Me.menuMarcheButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.menuMarcheButton.Font = New System.Drawing.Font("Roboto", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.menuMarcheButton.Location = New System.Drawing.Point(139, 36)
+        Me.menuMarcheButton.Location = New System.Drawing.Point(1, 1)
         Me.menuMarcheButton.Name = "menuMarcheButton"
         Me.menuMarcheButton.Size = New System.Drawing.Size(107, 42)
         Me.menuMarcheButton.TabIndex = 3
@@ -376,20 +450,20 @@ Partial Class home
         Me.LineShape2.Y1 = 8
         Me.LineShape2.Y2 = 8
         '
-        'Panel2
+        'cartPanel
         '
-        Me.Panel2.BackColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.Panel2.Controls.Add(Me.cartSaveButton)
-        Me.Panel2.Controls.Add(Me.Label1)
-        Me.Panel2.Controls.Add(Me.cartSuppressionButton)
-        Me.Panel2.Controls.Add(Me.cartDetailButton)
-        Me.Panel2.Controls.Add(Me.myListButton)
-        Me.Panel2.Controls.Add(Me.cartValidationButton)
-        Me.Panel2.Controls.Add(Me.ListView1)
-        Me.Panel2.Location = New System.Drawing.Point(1102, 86)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(246, 638)
-        Me.Panel2.TabIndex = 4
+        Me.cartPanel.BackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.cartPanel.Controls.Add(Me.cartSaveButton)
+        Me.cartPanel.Controls.Add(Me.cartTotalPriceLabel)
+        Me.cartPanel.Controls.Add(Me.cartSuppressionButton)
+        Me.cartPanel.Controls.Add(Me.cartDetailButton)
+        Me.cartPanel.Controls.Add(Me.cartListButton)
+        Me.cartPanel.Controls.Add(Me.cartValidationButton)
+        Me.cartPanel.Controls.Add(Me.cartListView)
+        Me.cartPanel.Location = New System.Drawing.Point(1102, 86)
+        Me.cartPanel.Name = "cartPanel"
+        Me.cartPanel.Size = New System.Drawing.Size(246, 638)
+        Me.cartPanel.TabIndex = 4
         '
         'cartSaveButton
         '
@@ -406,16 +480,16 @@ Partial Class home
         Me.cartSaveButton.Text = "Sauvegarder"
         Me.cartSaveButton.UseVisualStyleBackColor = True
         '
-        'Label1
+        'cartTotalPriceLabel
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Roboto", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.DimGray
-        Me.Label1.Location = New System.Drawing.Point(41, 435)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(154, 34)
-        Me.Label1.TabIndex = 6
-        Me.Label1.Text = "Total : 56 €"
+        Me.cartTotalPriceLabel.AutoSize = True
+        Me.cartTotalPriceLabel.Font = New System.Drawing.Font("Roboto", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cartTotalPriceLabel.ForeColor = System.Drawing.Color.DimGray
+        Me.cartTotalPriceLabel.Location = New System.Drawing.Point(41, 435)
+        Me.cartTotalPriceLabel.Name = "cartTotalPriceLabel"
+        Me.cartTotalPriceLabel.Size = New System.Drawing.Size(154, 34)
+        Me.cartTotalPriceLabel.TabIndex = 6
+        Me.cartTotalPriceLabel.Text = "Total : 56 €"
         '
         'cartSuppressionButton
         '
@@ -447,20 +521,20 @@ Partial Class home
         Me.cartDetailButton.Text = "Détails"
         Me.cartDetailButton.UseVisualStyleBackColor = True
         '
-        'myListButton
+        'cartListButton
         '
-        Me.myListButton.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.myListButton.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.myListButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.myListButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.myListButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.myListButton.Font = New System.Drawing.Font("Roboto", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.myListButton.Location = New System.Drawing.Point(14, 608)
-        Me.myListButton.Name = "myListButton"
-        Me.myListButton.Size = New System.Drawing.Size(222, 26)
-        Me.myListButton.TabIndex = 3
-        Me.myListButton.Text = "Mes listes"
-        Me.myListButton.UseVisualStyleBackColor = True
+        Me.cartListButton.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.cartListButton.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.cartListButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.cartListButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.cartListButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cartListButton.Font = New System.Drawing.Font("Roboto", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cartListButton.Location = New System.Drawing.Point(14, 608)
+        Me.cartListButton.Name = "cartListButton"
+        Me.cartListButton.Size = New System.Drawing.Size(222, 26)
+        Me.cartListButton.TabIndex = 3
+        Me.cartListButton.Text = "Mes listes"
+        Me.cartListButton.UseVisualStyleBackColor = True
         '
         'cartValidationButton
         '
@@ -477,121 +551,156 @@ Partial Class home
         Me.cartValidationButton.Text = "Valider"
         Me.cartValidationButton.UseVisualStyleBackColor = True
         '
-        'ListView1
+        'cartListView
         '
-        Me.ListView1.BackColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.ListView1.Location = New System.Drawing.Point(0, -1)
-        Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(246, 434)
-        Me.ListView1.TabIndex = 1
-        Me.ListView1.UseCompatibleStateImageBehavior = False
+        Me.cartListView.BackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.cartListView.Location = New System.Drawing.Point(0, -1)
+        Me.cartListView.Name = "cartListView"
+        Me.cartListView.Size = New System.Drawing.Size(246, 434)
+        Me.cartListView.TabIndex = 1
+        Me.cartListView.UseCompatibleStateImageBehavior = False
         '
-        'cancelPaidButton
+        'logoPictureBox
         '
-        Me.cancelPaidButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.cancelPaidButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.cancelPaidButton.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.cancelPaidButton.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.cancelPaidButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.cancelPaidButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.cancelPaidButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cancelPaidButton.Font = New System.Drawing.Font("Roboto Lt", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cancelPaidButton.Location = New System.Drawing.Point(31, 195)
-        Me.cancelPaidButton.Name = "cancelPaidButton"
-        Me.cancelPaidButton.Size = New System.Drawing.Size(217, 36)
-        Me.cancelPaidButton.TabIndex = 0
-        Me.cancelPaidButton.Text = "Continuer mes achats"
-        Me.cancelPaidButton.UseVisualStyleBackColor = False
+        Me.logoPictureBox.Image = CType(resources.GetObject("logoPictureBox.Image"), System.Drawing.Image)
+        Me.logoPictureBox.Location = New System.Drawing.Point(12, 6)
+        Me.logoPictureBox.Name = "logoPictureBox"
+        Me.logoPictureBox.Size = New System.Drawing.Size(221, 90)
+        Me.logoPictureBox.TabIndex = 4
+        Me.logoPictureBox.TabStop = False
         '
-        'paidButton
+        'menuPanel
         '
-        Me.paidButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.paidButton.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.paidButton.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.paidButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.paidButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.paidButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.paidButton.Font = New System.Drawing.Font("Roboto Lt", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.paidButton.Location = New System.Drawing.Point(281, 195)
-        Me.paidButton.Name = "paidButton"
-        Me.paidButton.Size = New System.Drawing.Size(217, 36)
-        Me.paidButton.TabIndex = 1
-        Me.paidButton.Text = "Payer"
-        Me.paidButton.UseVisualStyleBackColor = False
+        Me.menuPanel.Controls.Add(Me.menuBoissonsButton)
+        Me.menuPanel.Controls.Add(Me.menuMarcheButton)
+        Me.menuPanel.Controls.Add(Me.menuSurgelesButton)
+        Me.menuPanel.Controls.Add(Me.menuFraisButton)
+        Me.menuPanel.Controls.Add(Me.menuEpicerieSaleeButton)
+        Me.menuPanel.Controls.Add(Me.menuEpicerieSucreeButton)
+        Me.menuPanel.Location = New System.Drawing.Point(145, 34)
+        Me.menuPanel.Name = "menuPanel"
+        Me.menuPanel.Size = New System.Drawing.Size(730, 43)
+        Me.menuPanel.TabIndex = 10
         '
-        'paymentTitleLabel
+        'titlePopUpLabel
         '
-        Me.paymentTitleLabel.AutoSize = True
-        Me.paymentTitleLabel.Font = New System.Drawing.Font("Roboto", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.paymentTitleLabel.ForeColor = System.Drawing.Color.White
-        Me.paymentTitleLabel.Location = New System.Drawing.Point(80, 16)
-        Me.paymentTitleLabel.Name = "paymentTitleLabel"
-        Me.paymentTitleLabel.Size = New System.Drawing.Size(396, 37)
-        Me.paymentTitleLabel.TabIndex = 2
-        Me.paymentTitleLabel.Text = "Récapitulatif de votre panier"
+        Me.titlePopUpLabel.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.titlePopUpLabel.AutoSize = True
+        Me.titlePopUpLabel.BackColor = System.Drawing.Color.Transparent
+        Me.titlePopUpLabel.Font = New System.Drawing.Font("Roboto", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.titlePopUpLabel.ForeColor = System.Drawing.Color.White
+        Me.titlePopUpLabel.Location = New System.Drawing.Point(35, 15)
+        Me.titlePopUpLabel.Name = "titlePopUpLabel"
+        Me.titlePopUpLabel.Size = New System.Drawing.Size(461, 37)
+        Me.titlePopUpLabel.TabIndex = 3
+        Me.titlePopUpLabel.Text = "Suppression de tous les produits"
         '
-        'Label2
+        'contentPopUpLabel
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Roboto", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(274, 128)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(82, 41)
-        Me.Label2.TabIndex = 8
-        Me.Label2.Text = "56 €"
+        Me.contentPopUpLabel.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.contentPopUpLabel.AutoSize = True
+        Me.contentPopUpLabel.Font = New System.Drawing.Font("Roboto", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.contentPopUpLabel.ForeColor = System.Drawing.Color.White
+        Me.contentPopUpLabel.Location = New System.Drawing.Point(80, 88)
+        Me.contentPopUpLabel.Name = "contentPopUpLabel"
+        Me.contentPopUpLabel.Size = New System.Drawing.Size(372, 24)
+        Me.contentPopUpLabel.TabIndex = 10
+        Me.contentPopUpLabel.Text = "Voulez-vous supprimer tous les produit ?"
         '
-        'paymentNbProdLabel
+        'cancelPopUpButton
         '
-        Me.paymentNbProdLabel.AutoSize = True
-        Me.paymentNbProdLabel.Font = New System.Drawing.Font("Roboto", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.paymentNbProdLabel.ForeColor = System.Drawing.Color.White
-        Me.paymentNbProdLabel.Location = New System.Drawing.Point(83, 78)
-        Me.paymentNbProdLabel.Name = "paymentNbProdLabel"
-        Me.paymentNbProdLabel.Size = New System.Drawing.Size(364, 24)
-        Me.paymentNbProdLabel.TabIndex = 9
-        Me.paymentNbProdLabel.Text = "Vous avez 11 produits dans votre panier"
+        Me.cancelPopUpButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.cancelPopUpButton.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.cancelPopUpButton.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.cancelPopUpButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.cancelPopUpButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.cancelPopUpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cancelPopUpButton.Font = New System.Drawing.Font("Roboto Lt", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cancelPopUpButton.Location = New System.Drawing.Point(30, 3)
+        Me.cancelPopUpButton.Margin = New System.Windows.Forms.Padding(30, 3, 3, 3)
+        Me.cancelPopUpButton.Name = "cancelPopUpButton"
+        Me.cancelPopUpButton.Size = New System.Drawing.Size(217, 36)
+        Me.cancelPopUpButton.TabIndex = 10
+        Me.cancelPopUpButton.Text = "Annuler"
+        Me.cancelPopUpButton.UseVisualStyleBackColor = False
         '
-        'paymentTotalLabel
+        'popUpPanel
         '
-        Me.paymentTotalLabel.AutoSize = True
-        Me.paymentTotalLabel.Font = New System.Drawing.Font("Roboto", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.paymentTotalLabel.ForeColor = System.Drawing.Color.White
-        Me.paymentTotalLabel.Location = New System.Drawing.Point(197, 140)
-        Me.paymentTotalLabel.Name = "paymentTotalLabel"
-        Me.paymentTotalLabel.Size = New System.Drawing.Size(71, 24)
-        Me.paymentTotalLabel.TabIndex = 10
-        Me.paymentTotalLabel.Text = "Total : "
+        Me.popUpPanel.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.popUpPanel.ColumnCount = 1
+        Me.popUpPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.popUpPanel.Controls.Add(Me.contentPopUpLabel, 0, 1)
+        Me.popUpPanel.Controls.Add(Me.titlePopUpLabel, 0, 0)
+        Me.popUpPanel.Controls.Add(Me.FlowLayoutPanel2, 0, 2)
+        Me.popUpPanel.Location = New System.Drawing.Point(302, 211)
+        Me.popUpPanel.Name = "popUpPanel"
+        Me.popUpPanel.RowCount = 3
+        Me.popUpPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.popUpPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.popUpPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 53.0!))
+        Me.popUpPanel.Size = New System.Drawing.Size(532, 188)
+        Me.popUpPanel.TabIndex = 12
+        '
+        'validPopUpButton
+        '
+        Me.validPopUpButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.validPopUpButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.validPopUpButton.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.validPopUpButton.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.validPopUpButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.validPopUpButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.validPopUpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.validPopUpButton.Font = New System.Drawing.Font("Roboto Lt", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.validPopUpButton.Location = New System.Drawing.Point(300, 3)
+        Me.validPopUpButton.Margin = New System.Windows.Forms.Padding(50, 3, 3, 3)
+        Me.validPopUpButton.Name = "validPopUpButton"
+        Me.validPopUpButton.Size = New System.Drawing.Size(217, 36)
+        Me.validPopUpButton.TabIndex = 10
+        Me.validPopUpButton.Text = "Oui"
+        Me.validPopUpButton.UseVisualStyleBackColor = False
+        '
+        'FlowLayoutPanel2
+        '
+        Me.FlowLayoutPanel2.Controls.Add(Me.cancelPopUpButton)
+        Me.FlowLayoutPanel2.Controls.Add(Me.validPopUpButton)
+        Me.FlowLayoutPanel2.Location = New System.Drawing.Point(3, 137)
+        Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
+        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(526, 48)
+        Me.FlowLayoutPanel2.TabIndex = 11
         '
         'home
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1348, 721)
-        Me.Controls.Add(Me.header)
+        Me.Controls.Add(Me.headerPanel)
         Me.Controls.Add(Me.centerPanel)
-        Me.Controls.Add(Me.Panel2)
+        Me.Controls.Add(Me.cartPanel)
         Me.Name = "home"
         Me.Text = "Form1"
-        Me.header.ResumeLayout(False)
-        Me.header.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.headerPanel.ResumeLayout(False)
+        Me.headerPanel.PerformLayout()
         Me.centerPanel.ResumeLayout(False)
         Me.validationPaymentPanel.ResumeLayout(False)
         Me.validationPaymentPanel.PerformLayout()
         Me.affGridPanel.ResumeLayout(False)
         Me.affListPanel.ResumeLayout(False)
-        Me.Panel2.ResumeLayout(False)
-        Me.Panel2.PerformLayout()
+        Me.cartPanel.ResumeLayout(False)
+        Me.cartPanel.PerformLayout()
+        CType(Me.logoPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.menuPanel.ResumeLayout(False)
+        Me.popUpPanel.ResumeLayout(False)
+        Me.popUpPanel.PerformLayout()
+        Me.FlowLayoutPanel2.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents header As System.Windows.Forms.Panel
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents headerPanel As System.Windows.Forms.Panel
+    Friend WithEvents searchTextBox As System.Windows.Forms.TextBox
     Friend WithEvents centerPanel As System.Windows.Forms.Panel
     Friend WithEvents searchButton As System.Windows.Forms.Button
-    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
-    Friend WithEvents ShapeContainer1 As Microsoft.VisualBasic.PowerPacks.ShapeContainer
+    Friend WithEvents logoPictureBox As System.Windows.Forms.PictureBox
+    Friend WithEvents separateurShapeContainer As Microsoft.VisualBasic.PowerPacks.ShapeContainer
     Friend WithEvents LineShape1 As Microsoft.VisualBasic.PowerPacks.LineShape
     Friend WithEvents cartLabel As System.Windows.Forms.Label
     Friend WithEvents affListPanel As System.Windows.Forms.Panel
@@ -606,11 +715,11 @@ Partial Class home
     Friend WithEvents LineShape4 As Microsoft.VisualBasic.PowerPacks.LineShape
     Friend WithEvents LineShape3 As Microsoft.VisualBasic.PowerPacks.LineShape
     Friend WithEvents LineShape2 As Microsoft.VisualBasic.PowerPacks.LineShape
-    Friend WithEvents Panel2 As System.Windows.Forms.Panel
-    Friend WithEvents myListButton As System.Windows.Forms.Button
+    Friend WithEvents cartPanel As System.Windows.Forms.Panel
+    Friend WithEvents cartListButton As System.Windows.Forms.Button
     Friend WithEvents cartValidationButton As System.Windows.Forms.Button
-    Friend WithEvents ListView1 As System.Windows.Forms.ListView
-    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents cartListView As System.Windows.Forms.ListView
+    Friend WithEvents cartTotalPriceLabel As System.Windows.Forms.Label
     Friend WithEvents cartSuppressionButton As System.Windows.Forms.Button
     Friend WithEvents cartDetailButton As System.Windows.Forms.Button
     Friend WithEvents cartSaveButton As System.Windows.Forms.Button
@@ -627,5 +736,12 @@ Partial Class home
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents paymentNbProdLabel As System.Windows.Forms.Label
     Friend WithEvents paymentTotalLabel As System.Windows.Forms.Label
+    Friend WithEvents menuPanel As System.Windows.Forms.Panel
+    Friend WithEvents popUpPanel As System.Windows.Forms.TableLayoutPanel
+    Friend WithEvents contentPopUpLabel As System.Windows.Forms.Label
+    Friend WithEvents titlePopUpLabel As System.Windows.Forms.Label
+    Friend WithEvents FlowLayoutPanel2 As System.Windows.Forms.FlowLayoutPanel
+    Friend WithEvents cancelPopUpButton As System.Windows.Forms.Button
+    Friend WithEvents validPopUpButton As System.Windows.Forms.Button
 
 End Class
