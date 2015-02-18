@@ -1,4 +1,4 @@
-﻿Public Class home
+﻿Public Class Home
 
     Enum State
         INIT
@@ -39,7 +39,7 @@
         cartListView.Items.Add(New ListViewItem("Produit numéro 4 "))
         cartListView.Items.Add(New ListViewItem("Produit numéro 5 "))
 
-        'initArticles()
+        initArticles()
 
     End Sub
 
@@ -93,8 +93,15 @@
     End Sub
 
     Private Sub showPopUp()
-
+        popUpPanel.Height = 200
         popUpPanel.Visible = True
+    End Sub
+
+    Public Sub showDetailPopUp()
+        cartSuppressionButton.Text = "FUCK"
+        detailPopUpPanel.Height = 350
+        detailPopUpPanel.Visible = True
+
     End Sub
 
     Private Sub realisePayment()
@@ -115,6 +122,23 @@
         contentPopUpLabel.Text = content
         cancelPopUpButton.Text = cancelButton
         validPopUpButton.Text = validButton
+    End Sub
+
+    Public Sub setDetailPopUp(ByVal name As String, ByVal category As String,
+                               ByVal brand As String, ByVal weight As String,
+                               ByVal priceKg As String, ByVal origin As String,
+                               ByVal description As String, ByVal price As String,
+                               ByVal urlImg As String
+                               )
+        detailNameLabel.Text = name
+        detailOriginLabel.Text = "Origine : " + origin
+        detailImgPictureBox.Image = Image.FromFile(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ressources", urlImg))
+        detailPriceLabel.Text = price
+        detailPriceKgLabel.Text = "Prix/kg : " + priceKg
+        detailWeightLabel.Text = weight + "Poids : "
+        detailCategoryLabel.Text = "Catégorie : " + category
+        detailSpecLabel.Text = description
+        detailBrandLabel.Text = "Marque : " + brand
     End Sub
 
 
@@ -179,7 +203,7 @@
         Dim listAfficheur As ArrayList
         listAfficheur = New ArrayList
 
-        'addArticlesInPanel()
+        addArticlesInPanel()
     End Sub
 
     Sub addArticlesInPanel()
@@ -206,7 +230,7 @@
         For Each item As Article In listArticles
             If (item.category = cat) Then
                 Console.WriteLine(item.name)
-                afficheur = New AfficheurArticle(item)
+                afficheur = New AfficheurArticle(item, Me)
                 Me.articlePanel.Controls.Add(afficheur)
             End If
         Next
@@ -263,7 +287,7 @@
                 setPopUp("Suppression des produits", "Voulez-vous supprimer tous les produits ?", "Supprimer", "Annuler")
                 showPopUp()
             Case State.VALID_CART
-                
+
         End Select
 
     End Sub
@@ -370,5 +394,13 @@
     Private Sub menuSurgelesButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles menuSurgelesButton.Click
         categorieActif = categorie.SURGELES
         addArticlesInPanel()
+    End Sub
+
+
+    '********************************************************************************
+    '********************** DETAIL PRODUTC BUTTON CLICK LISTENER ********************
+    '********************************************************************************
+    Private Sub detailCloseButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles detailCloseButton.Click
+        detailPopUpPanel.Visible = False
     End Sub
 End Class

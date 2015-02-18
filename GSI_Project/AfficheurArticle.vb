@@ -13,17 +13,21 @@
     Friend WithEvents labelAjouter As System.Windows.Forms.Label
     Friend WithEvents labelRetirer As System.Windows.Forms.Label
     Friend WithEvents labelNomArticle As System.Windows.Forms.Label
+    Dim home As Home
+    Dim article As Article
 
     '********************************************************************************
     '*************************** Init component   ***********************************
     '********************************************************************************
-    Public Sub New(ByVal art As Article)
+    Public Sub New(ByVal art As Article, ByVal home As Home)
         InitializeComponent()
         Me.labelNomArticle.Text = art.name
         Me.labelDescription.Text = art.desc
         Me.labelMarque.Text = art.brand
         Me.labelPoids.Text = String.Concat(art.weight, " kg")
         Me.labelPrix.Text = String.Concat(art.price, " €")
+        Me.home = home
+        Me.article = art
     End Sub
 
     Public Sub New()
@@ -53,7 +57,7 @@
         Me.labelNomArticle.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.labelNomArticle.Location = New System.Drawing.Point(11, 24)
         Me.labelNomArticle.Name = "labelNomArticle"
-        Me.labelNomArticle.Size = New System.Drawing.Size(45, 21)
+        Me.labelNomArticle.Size = New System.Drawing.Size(24, 28)
         Me.labelNomArticle.TabIndex = 0
         Me.labelNomArticle.Text = "n"
         '
@@ -63,7 +67,7 @@
         Me.labelPlusInfo.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.labelPlusInfo.Location = New System.Drawing.Point(123, 120)
         Me.labelPlusInfo.Name = "labelPlusInfo"
-        Me.labelPlusInfo.Size = New System.Drawing.Size(55, 13)
+        Me.labelPlusInfo.Size = New System.Drawing.Size(65, 19)
         Me.labelPlusInfo.TabIndex = 1
         Me.labelPlusInfo.TabStop = True
         Me.labelPlusInfo.Text = "+ D'infos"
@@ -74,7 +78,7 @@
         Me.labelPrix.Font = New System.Drawing.Font("Segoe UI Semilight", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.labelPrix.Location = New System.Drawing.Point(11, 165)
         Me.labelPrix.Name = "labelPrix"
-        Me.labelPrix.Size = New System.Drawing.Size(50, 21)
+        Me.labelPrix.Size = New System.Drawing.Size(23, 28)
         Me.labelPrix.TabIndex = 2
         Me.labelPrix.Text = "€"
         '
@@ -95,7 +99,7 @@
         Me.labelDescription.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.labelDescription.Location = New System.Drawing.Point(123, 72)
         Me.labelDescription.Name = "labelDescription"
-        Me.labelDescription.Size = New System.Drawing.Size(30, 13)
+        Me.labelDescription.Size = New System.Drawing.Size(17, 19)
         Me.labelDescription.TabIndex = 4
         Me.labelDescription.Text = "d"
         '
@@ -105,7 +109,7 @@
         Me.labelPoids.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.labelPoids.Location = New System.Drawing.Point(123, 85)
         Me.labelPoids.Name = "labelPoids"
-        Me.labelPoids.Size = New System.Drawing.Size(36, 13)
+        Me.labelPoids.Size = New System.Drawing.Size(17, 19)
         Me.labelPoids.TabIndex = 5
         Me.labelPoids.Text = "p"
         '
@@ -115,7 +119,7 @@
         Me.labelQuantite.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.labelQuantite.Location = New System.Drawing.Point(154, 162)
         Me.labelQuantite.Name = "labelQuantite"
-        Me.labelQuantite.Size = New System.Drawing.Size(19, 21)
+        Me.labelQuantite.Size = New System.Drawing.Size(23, 28)
         Me.labelQuantite.TabIndex = 8
         Me.labelQuantite.Text = "0"
         '
@@ -152,7 +156,7 @@
         Me.labelMarque.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.labelMarque.Location = New System.Drawing.Point(122, 48)
         Me.labelMarque.Name = "labelMarque"
-        Me.labelMarque.Size = New System.Drawing.Size(65, 21)
+        Me.labelMarque.Size = New System.Drawing.Size(29, 28)
         Me.labelMarque.TabIndex = 10
         Me.labelMarque.Text = "m"
         '
@@ -164,7 +168,7 @@
         Me.labelAjouter.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.labelAjouter.Location = New System.Drawing.Point(195, 150)
         Me.labelAjouter.Name = "labelAjouter"
-        Me.labelAjouter.Size = New System.Drawing.Size(27, 30)
+        Me.labelAjouter.Size = New System.Drawing.Size(35, 37)
         Me.labelAjouter.TabIndex = 11
         Me.labelAjouter.Text = "+"
         '
@@ -175,7 +179,7 @@
         Me.labelRetirer.Font = New System.Drawing.Font("Segoe UI", 12.0!)
         Me.labelRetirer.Location = New System.Drawing.Point(122, 162)
         Me.labelRetirer.Name = "labelRetirer"
-        Me.labelRetirer.Size = New System.Drawing.Size(16, 21)
+        Me.labelRetirer.Size = New System.Drawing.Size(20, 28)
         Me.labelRetirer.TabIndex = 12
         Me.labelRetirer.Text = "-"
         '
@@ -293,7 +297,19 @@
     End Sub
 
     Private Sub labelPlusInfo_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles labelPlusInfo.LinkClicked
+        Me.labelNomArticle.Text = "CA MARCHE !"
 
+        Me.home.setDetailPopUp(
+            article.name,
+            article.category,
+            article.brand,
+            article.weight,
+            article.priceKilo,
+            article.origin,
+            article.desc,
+            article.price,
+            article.img)
+        Me.home.showDetailPopUp()
     End Sub
 
 
@@ -306,4 +322,5 @@
         Me.AutoSize = False
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
     End Sub
+
 End Class
