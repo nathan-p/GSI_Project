@@ -73,6 +73,10 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AfficheurArticle.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Article.vb" />
     <Compile Include="home.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +101,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AfficheurArticle.resx">
+      <DependentUpon>AfficheurArticle.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="home.resx">
       <DependentUpon>home.vb</DependentUpon>
     </EmbeddedResource>

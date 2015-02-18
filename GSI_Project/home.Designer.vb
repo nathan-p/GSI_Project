@@ -31,7 +31,7 @@ Partial Class home
         Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
         Me.LineShape1 = New Microsoft.VisualBasic.PowerPacks.LineShape()
         Me.centerPanel = New System.Windows.Forms.Panel()
-        Me.validationPanel = New System.Windows.Forms.Panel()
+        Me.validationPaymentPanel = New System.Windows.Forms.Panel()
         Me.menuSurgelesButton = New System.Windows.Forms.Button()
         Me.menuBoissonsButton = New System.Windows.Forms.Button()
         Me.menuEpicerieSucreeButton = New System.Windows.Forms.Button()
@@ -67,7 +67,7 @@ Partial Class home
         Me.header.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.centerPanel.SuspendLayout()
-        Me.validationPanel.SuspendLayout()
+        Me.validationPaymentPanel.SuspendLayout()
         Me.affGridPanel.SuspendLayout()
         Me.affListPanel.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -147,7 +147,7 @@ Partial Class home
         'centerPanel
         '
         Me.centerPanel.BackColor = System.Drawing.Color.White
-        Me.centerPanel.Controls.Add(Me.validationPanel)
+        Me.centerPanel.Controls.Add(Me.validationPaymentPanel)
         Me.centerPanel.Controls.Add(Me.menuSurgelesButton)
         Me.centerPanel.Controls.Add(Me.menuBoissonsButton)
         Me.centerPanel.Controls.Add(Me.menuEpicerieSucreeButton)
@@ -162,20 +162,20 @@ Partial Class home
         Me.centerPanel.Size = New System.Drawing.Size(1103, 642)
         Me.centerPanel.TabIndex = 3
         '
-        'validationPanel
+        'validationPaymentPanel
         '
-        Me.validationPanel.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.validationPanel.Controls.Add(Me.paymentTotalLabel)
-        Me.validationPanel.Controls.Add(Me.paymentNbProdLabel)
-        Me.validationPanel.Controls.Add(Me.Label2)
-        Me.validationPanel.Controls.Add(Me.paymentTitleLabel)
-        Me.validationPanel.Controls.Add(Me.paidButton)
-        Me.validationPanel.Controls.Add(Me.cancelPaidButton)
-        Me.validationPanel.Location = New System.Drawing.Point(271, 179)
-        Me.validationPanel.Name = "validationPanel"
-        Me.validationPanel.Size = New System.Drawing.Size(537, 255)
-        Me.validationPanel.TabIndex = 9
-        Me.validationPanel.Visible = False
+        Me.validationPaymentPanel.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.validationPaymentPanel.Controls.Add(Me.paymentTotalLabel)
+        Me.validationPaymentPanel.Controls.Add(Me.paymentNbProdLabel)
+        Me.validationPaymentPanel.Controls.Add(Me.Label2)
+        Me.validationPaymentPanel.Controls.Add(Me.paymentTitleLabel)
+        Me.validationPaymentPanel.Controls.Add(Me.paidButton)
+        Me.validationPaymentPanel.Controls.Add(Me.cancelPaidButton)
+        Me.validationPaymentPanel.Location = New System.Drawing.Point(271, 179)
+        Me.validationPaymentPanel.Name = "validationPaymentPanel"
+        Me.validationPaymentPanel.Size = New System.Drawing.Size(0, 0)
+        Me.validationPaymentPanel.TabIndex = 9
+        Me.validationPaymentPanel.Visible = False
         '
         'menuSurgelesButton
         '
@@ -577,8 +577,8 @@ Partial Class home
         Me.header.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.centerPanel.ResumeLayout(False)
-        Me.validationPanel.ResumeLayout(False)
-        Me.validationPanel.PerformLayout()
+        Me.validationPaymentPanel.ResumeLayout(False)
+        Me.validationPaymentPanel.PerformLayout()
         Me.affGridPanel.ResumeLayout(False)
         Me.affListPanel.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
@@ -620,7 +620,7 @@ Partial Class home
     Friend WithEvents menuSurgelesButton As System.Windows.Forms.Button
     Friend WithEvents menuBoissonsButton As System.Windows.Forms.Button
     Friend WithEvents menuEpicerieSucreeButton As System.Windows.Forms.Button
-    Friend WithEvents validationPanel As System.Windows.Forms.Panel
+    Friend WithEvents validationPaymentPanel As System.Windows.Forms.Panel
     Friend WithEvents paidButton As System.Windows.Forms.Button
     Friend WithEvents cancelPaidButton As System.Windows.Forms.Button
     Friend WithEvents paymentTitleLabel As System.Windows.Forms.Label

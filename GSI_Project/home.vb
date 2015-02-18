@@ -88,7 +88,7 @@
             Case State.CART
 
             Case State.VALID_CART
-                validationPanel.Visible = True
+                validationPaymentPanel.Visible = True
         End Select
     End Sub
 
@@ -116,7 +116,7 @@
             Case State.CART
 
             Case State.VALID_CART
-                validationPanel.Visible = False
+                validationPaymentPanel.Visible = False
                 realisePayment()
                 myState = State.INIT
                 updateUI()
@@ -130,11 +130,15 @@
             Case State.CART
 
             Case State.VALID_CART
-                validationPanel.Visible = False
+                validationPaymentPanel.Visible = False
         End Select
     End Sub
 
     Private Sub Label2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label2.Click
+
+    End Sub
+
+    Private Sub AfficheurArticle1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs)
 
     End Sub
 End Class
