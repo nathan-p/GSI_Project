@@ -173,7 +173,7 @@ Partial Class home
         Me.validationPaymentPanel.Controls.Add(Me.cancelPaidButton)
         Me.validationPaymentPanel.Location = New System.Drawing.Point(271, 179)
         Me.validationPaymentPanel.Name = "validationPaymentPanel"
-        Me.validationPaymentPanel.Size = New System.Drawing.Size(0, 0)
+        Me.validationPaymentPanel.Size = New System.Drawing.Size(535, 0)
         Me.validationPaymentPanel.TabIndex = 9
         Me.validationPaymentPanel.Visible = False
         '
