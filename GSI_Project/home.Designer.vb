@@ -574,7 +574,7 @@ Partial Class Home
         Me.menuBoissonsButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
         Me.menuBoissonsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.menuBoissonsButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.menuBoissonsButton.Location = New System.Drawing.Point(508, 1)
+        Me.menuBoissonsButton.Location = New System.Drawing.Point(507, 1)
         Me.menuBoissonsButton.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.menuBoissonsButton.Name = "menuBoissonsButton"
         Me.menuBoissonsButton.Size = New System.Drawing.Size(116, 42)
@@ -608,7 +608,7 @@ Partial Class Home
         Me.menuSurgelesButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
         Me.menuSurgelesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.menuSurgelesButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.menuSurgelesButton.Location = New System.Drawing.Point(623, 1)
+        Me.menuSurgelesButton.Location = New System.Drawing.Point(622, 1)
         Me.menuSurgelesButton.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.menuSurgelesButton.Name = "menuSurgelesButton"
         Me.menuSurgelesButton.Size = New System.Drawing.Size(108, 42)
@@ -642,7 +642,7 @@ Partial Class Home
         Me.menuEpicerieSaleeButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
         Me.menuEpicerieSaleeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.menuEpicerieSaleeButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.menuEpicerieSaleeButton.Location = New System.Drawing.Point(192, 1)
+        Me.menuEpicerieSaleeButton.Location = New System.Drawing.Point(191, 1)
         Me.menuEpicerieSaleeButton.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.menuEpicerieSaleeButton.Name = "menuEpicerieSaleeButton"
         Me.menuEpicerieSaleeButton.Size = New System.Drawing.Size(156, 42)
@@ -659,7 +659,7 @@ Partial Class Home
         Me.menuEpicerieSucreeButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
         Me.menuEpicerieSucreeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.menuEpicerieSucreeButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.menuEpicerieSucreeButton.Location = New System.Drawing.Point(347, 1)
+        Me.menuEpicerieSucreeButton.Location = New System.Drawing.Point(346, 1)
         Me.menuEpicerieSucreeButton.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.menuEpicerieSucreeButton.Name = "menuEpicerieSucreeButton"
         Me.menuEpicerieSucreeButton.Size = New System.Drawing.Size(163, 42)
