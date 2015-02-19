@@ -43,10 +43,9 @@ Partial Class AfficheurProduit
         '
         Me.labelMarque.AutoSize = True
         Me.labelMarque.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.labelMarque.Location = New System.Drawing.Point(103, 43)
-        Me.labelMarque.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.labelMarque.Location = New System.Drawing.Point(137, 53)
         Me.labelMarque.Name = "labelMarque"
-        Me.labelMarque.Size = New System.Drawing.Size(24, 21)
+        Me.labelMarque.Size = New System.Drawing.Size(29, 28)
         Me.labelMarque.TabIndex = 20
         Me.labelMarque.Text = "m"
         '
@@ -56,10 +55,9 @@ Partial Class AfficheurProduit
         Me.labelRetirer.BackColor = System.Drawing.Color.LightCoral
         Me.labelRetirer.Enabled = False
         Me.labelRetirer.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.labelRetirer.Location = New System.Drawing.Point(92, 154)
-        Me.labelRetirer.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.labelRetirer.Location = New System.Drawing.Point(144, 190)
         Me.labelRetirer.Name = "labelRetirer"
-        Me.labelRetirer.Size = New System.Drawing.Size(16, 21)
+        Me.labelRetirer.Size = New System.Drawing.Size(20, 28)
         Me.labelRetirer.TabIndex = 22
         Me.labelRetirer.Text = "-"
         '
@@ -69,10 +67,9 @@ Partial Class AfficheurProduit
         Me.labelAjouter.BackColor = System.Drawing.Color.LightGreen
         Me.labelAjouter.Enabled = False
         Me.labelAjouter.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.labelAjouter.Location = New System.Drawing.Point(143, 151)
-        Me.labelAjouter.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.labelAjouter.Location = New System.Drawing.Point(220, 185)
         Me.labelAjouter.Name = "labelAjouter"
-        Me.labelAjouter.Size = New System.Drawing.Size(27, 30)
+        Me.labelAjouter.Size = New System.Drawing.Size(35, 37)
         Me.labelAjouter.TabIndex = 21
         Me.labelAjouter.Text = "+"
         '
@@ -80,10 +77,9 @@ Partial Class AfficheurProduit
         '
         Me.labelPoids.AutoSize = True
         Me.labelPoids.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.labelPoids.Location = New System.Drawing.Point(104, 99)
-        Me.labelPoids.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.labelPoids.Location = New System.Drawing.Point(139, 122)
         Me.labelPoids.Name = "labelPoids"
-        Me.labelPoids.Size = New System.Drawing.Size(14, 13)
+        Me.labelPoids.Size = New System.Drawing.Size(17, 19)
         Me.labelPoids.TabIndex = 18
         Me.labelPoids.Text = "p"
         '
@@ -91,10 +87,9 @@ Partial Class AfficheurProduit
         '
         Me.labelDescription.AutoSize = True
         Me.labelDescription.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.labelDescription.Location = New System.Drawing.Point(104, 73)
-        Me.labelDescription.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.labelDescription.Location = New System.Drawing.Point(139, 90)
         Me.labelDescription.Name = "labelDescription"
-        Me.labelDescription.Size = New System.Drawing.Size(14, 13)
+        Me.labelDescription.Size = New System.Drawing.Size(17, 19)
         Me.labelDescription.TabIndex = 17
         Me.labelDescription.Text = "d"
         '
@@ -103,10 +98,10 @@ Partial Class AfficheurProduit
         Me.imageBox.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.imageBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.imageBox.Image = Global.WindowsApplication1.My.Resources.Resources.pomme___Copie
-        Me.imageBox.Location = New System.Drawing.Point(16, 43)
-        Me.imageBox.Margin = New System.Windows.Forms.Padding(2)
+        Me.imageBox.Location = New System.Drawing.Point(21, 53)
+        Me.imageBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.imageBox.Name = "imageBox"
-        Me.imageBox.Size = New System.Drawing.Size(77, 72)
+        Me.imageBox.Size = New System.Drawing.Size(101, 88)
         Me.imageBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.imageBox.TabIndex = 16
         Me.imageBox.TabStop = False
@@ -115,10 +110,9 @@ Partial Class AfficheurProduit
         '
         Me.labelPrix.AutoSize = True
         Me.labelPrix.Font = New System.Drawing.Font("Segoe UI Semilight", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.labelPrix.Location = New System.Drawing.Point(32, 156)
-        Me.labelPrix.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.labelPrix.Location = New System.Drawing.Point(43, 192)
         Me.labelPrix.Name = "labelPrix"
-        Me.labelPrix.Size = New System.Drawing.Size(18, 21)
+        Me.labelPrix.Size = New System.Drawing.Size(23, 28)
         Me.labelPrix.TabIndex = 15
         Me.labelPrix.Text = "€"
         '
@@ -128,10 +122,9 @@ Partial Class AfficheurProduit
         Me.labelPlusInfo.Cursor = System.Windows.Forms.Cursors.Hand
         Me.labelPlusInfo.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.labelPlusInfo.ForeColor = System.Drawing.SystemColors.MenuHighlight
-        Me.labelPlusInfo.Location = New System.Drawing.Point(110, 124)
-        Me.labelPlusInfo.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.labelPlusInfo.Location = New System.Drawing.Point(147, 153)
         Me.labelPlusInfo.Name = "labelPlusInfo"
-        Me.labelPlusInfo.Size = New System.Drawing.Size(55, 13)
+        Me.labelPlusInfo.Size = New System.Drawing.Size(65, 19)
         Me.labelPlusInfo.TabIndex = 14
         Me.labelPlusInfo.TabStop = True
         Me.labelPlusInfo.Text = "+ D'infos"
@@ -140,10 +133,9 @@ Partial Class AfficheurProduit
         '
         Me.labelNomArticle.AutoSize = True
         Me.labelNomArticle.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.labelNomArticle.Location = New System.Drawing.Point(12, 8)
-        Me.labelNomArticle.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.labelNomArticle.Location = New System.Drawing.Point(16, 10)
         Me.labelNomArticle.Name = "labelNomArticle"
-        Me.labelNomArticle.Size = New System.Drawing.Size(20, 21)
+        Me.labelNomArticle.Size = New System.Drawing.Size(24, 28)
         Me.labelNomArticle.TabIndex = 13
         Me.labelNomArticle.Text = "n"
         '
@@ -151,7 +143,7 @@ Partial Class AfficheurProduit
         '
         Me.boutonRetirer.FillColor = System.Drawing.Color.LightCoral
         Me.boutonRetirer.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid
-        Me.boutonRetirer.Location = New System.Drawing.Point(116, 189)
+        Me.boutonRetirer.Location = New System.Drawing.Point(137, 187)
         Me.boutonRetirer.Name = "boutonRetirer"
         Me.boutonRetirer.Size = New System.Drawing.Size(32, 33)
         '
@@ -161,7 +153,7 @@ Partial Class AfficheurProduit
         Me.ShapeContainer1.Margin = New System.Windows.Forms.Padding(0)
         Me.ShapeContainer1.Name = "ShapeContainer1"
         Me.ShapeContainer1.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.boutonAjouter, Me.boutonRetirer})
-        Me.ShapeContainer1.Size = New System.Drawing.Size(202, 207)
+        Me.ShapeContainer1.Size = New System.Drawing.Size(269, 239)
         Me.ShapeContainer1.TabIndex = 23
         Me.ShapeContainer1.TabStop = False
         '
@@ -170,17 +162,16 @@ Partial Class AfficheurProduit
         Me.boutonAjouter.FillColor = System.Drawing.Color.LightGreen
         Me.boutonAjouter.FillGradientColor = System.Drawing.Color.ForestGreen
         Me.boutonAjouter.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid
-        Me.boutonAjouter.Location = New System.Drawing.Point(181, 181)
+        Me.boutonAjouter.Location = New System.Drawing.Point(211, 179)
         Me.boutonAjouter.Name = "boutonAjouter"
         Me.boutonAjouter.Size = New System.Drawing.Size(53, 51)
         '
         'LabelStock
         '
         Me.LabelStock.AutoSize = True
-        Me.LabelStock.Location = New System.Drawing.Point(27, 125)
-        Me.LabelStock.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.LabelStock.Location = New System.Drawing.Point(36, 154)
         Me.LabelStock.Name = "LabelStock"
-        Me.LabelStock.Size = New System.Drawing.Size(12, 13)
+        Me.LabelStock.Size = New System.Drawing.Size(15, 17)
         Me.LabelStock.TabIndex = 24
         Me.LabelStock.Text = "s"
         '
@@ -193,7 +184,7 @@ Partial Class AfficheurProduit
         '
         'AfficheurProduit
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Transparent
         Me.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
@@ -209,9 +200,9 @@ Partial Class AfficheurProduit
         Me.Controls.Add(Me.labelPlusInfo)
         Me.Controls.Add(Me.labelNomArticle)
         Me.Controls.Add(Me.ShapeContainer1)
-        Me.Margin = New System.Windows.Forms.Padding(2)
+        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Name = "AfficheurProduit"
-        Me.Size = New System.Drawing.Size(202, 207)
+        Me.Size = New System.Drawing.Size(269, 239)
         CType(Me.imageBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
