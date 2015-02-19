@@ -24,7 +24,7 @@ Partial Class Home
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Home))
-        Dim ListViewItem1 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("Cerise", 0)
+        Dim ListViewItem1 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem(New String() {"Cerise", "2.45", "1"}, 0)
         Me.headerPanel = New System.Windows.Forms.Panel()
         Me.cartLabel = New System.Windows.Forms.Label()
         Me.logoPictureBox = New System.Windows.Forms.PictureBox()
