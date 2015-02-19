@@ -74,17 +74,6 @@
         Me.home.showDetailPopUp()
     End Sub
 
-    Private Sub UserControl1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-
-    End Sub
-
-    Private Sub labelPlusInfo_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs)
-
-    End Sub
-
-    Private Sub Label1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LabelStock.Click
-
-    End Sub
 
     Private Sub boutonAjouter_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles boutonAjouter.Click
         Me.article.stock -= 1
