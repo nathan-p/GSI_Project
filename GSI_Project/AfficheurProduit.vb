@@ -22,7 +22,7 @@
         Me.labelMarque.Text = article.brand
         Me.labelPoids.Text = String.Concat(article.weight, " kg")
         Me.labelPrix.Text = String.Concat(article.price, " €")
-        Me.LabelStock.Text = String.Concat("En Stock : ", article.stock)
+        Me.LabelStock.Text = String.Concat("En stock : ", article.stock)
     End Sub
 
     '********************************************************************************
@@ -32,7 +32,7 @@
     Private Sub updateStock()
         'Modifications des labels
         Me.LabelStock.Text = String.Concat("En stock : ", Me.article.stock)
-        Me.labelQuantite.Text = Me.qte
+        TextBoxQuantite.Text = CStr(qte)
         home.getPanier.Remove(article)
         home.getPanier.Add(article, qte)
         'Enable des boutons
@@ -45,7 +45,7 @@
             Me.boutonAjouter.FillColor = Color.LightGreen
             Me.labelAjouter.BackColor = Color.LightGreen
         End If
-        If (Me.labelQuantite.Text = "0") Then
+        If (Me.TextBoxQuantite.Text = "0") Then
             Me.boutonRetirer.Enabled = False
             Me.boutonRetirer.FillColor = Color.LightGray
             Me.labelRetirer.BackColor = Color.LightGray
@@ -113,4 +113,41 @@
     Private Sub boutonRetirer_MouseLeave(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles boutonRetirer.MouseLeave
         Me.Cursor = Cursors.Default
     End Sub
+
+    Private Sub TextBoxQuantite_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TextBoxQuantite.KeyPress
+
+        '97 - 122 = Ascii codes for simple letters
+        '65 - 90  = Ascii codes for capital letters
+        '48 - 57  = Ascii codes for numbers
+
+        If Asc(e.KeyChar) <> 8 Then
+            If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
+                e.Handled = True
+            End If
+        End If
+
+        'Appuie sur la touche entrée
+        If Asc(e.KeyChar) = 10 Or Asc(e.KeyChar) = 13 Then
+            Dim textval As String
+            Dim difference As Integer
+            textval = TextBoxQuantite.Text
+            If IsNumeric(textval) Then
+                If (textval <= (Me.article.stock + qte)) Then
+                    difference = (Me.article.stock + qte) - textval
+                    qte = textval
+                    article.stock = difference
+                Else
+                    'Chiffre entrée plus grand que le stock donc on prends tout
+                    qte = Me.article.stock + qte
+                    article.stock = 0
+                End If
+            Else
+                'Si c'est pas un numéric, on remet l'ancienne valeur
+                TextBoxQuantite.Text = CStr(qte)
+            End If
+            Me.updateStock()
+        End If
+
+    End Sub
+
 End Class

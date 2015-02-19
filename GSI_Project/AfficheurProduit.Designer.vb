@@ -25,7 +25,6 @@ Partial Class AfficheurProduit
         Me.labelMarque = New System.Windows.Forms.Label()
         Me.labelRetirer = New System.Windows.Forms.Label()
         Me.labelAjouter = New System.Windows.Forms.Label()
-        Me.labelQuantite = New System.Windows.Forms.Label()
         Me.labelPoids = New System.Windows.Forms.Label()
         Me.labelDescription = New System.Windows.Forms.Label()
         Me.imageBox = New System.Windows.Forms.PictureBox()
@@ -36,6 +35,7 @@ Partial Class AfficheurProduit
         Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
         Me.boutonAjouter = New Microsoft.VisualBasic.PowerPacks.OvalShape()
         Me.LabelStock = New System.Windows.Forms.Label()
+        Me.TextBoxQuantite = New System.Windows.Forms.TextBox()
         CType(Me.imageBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -54,6 +54,7 @@ Partial Class AfficheurProduit
         '
         Me.labelRetirer.AutoSize = True
         Me.labelRetirer.BackColor = System.Drawing.Color.LightCoral
+        Me.labelRetirer.Enabled = False
         Me.labelRetirer.Font = New System.Drawing.Font("Segoe UI", 12.0!)
         Me.labelRetirer.Location = New System.Drawing.Point(92, 154)
         Me.labelRetirer.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
@@ -74,17 +75,6 @@ Partial Class AfficheurProduit
         Me.labelAjouter.Size = New System.Drawing.Size(27, 30)
         Me.labelAjouter.TabIndex = 21
         Me.labelAjouter.Text = "+"
-        '
-        'labelQuantite
-        '
-        Me.labelQuantite.AutoSize = True
-        Me.labelQuantite.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.labelQuantite.Location = New System.Drawing.Point(117, 156)
-        Me.labelQuantite.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.labelQuantite.Name = "labelQuantite"
-        Me.labelQuantite.Size = New System.Drawing.Size(19, 21)
-        Me.labelQuantite.TabIndex = 19
-        Me.labelQuantite.Text = "0"
         '
         'labelPoids
         '
@@ -194,17 +184,24 @@ Partial Class AfficheurProduit
         Me.LabelStock.TabIndex = 24
         Me.LabelStock.Text = "s"
         '
+        'TextBoxQuantite
+        '
+        Me.TextBoxQuantite.Location = New System.Drawing.Point(112, 154)
+        Me.TextBoxQuantite.Name = "TextBoxQuantite"
+        Me.TextBoxQuantite.Size = New System.Drawing.Size(28, 20)
+        Me.TextBoxQuantite.TabIndex = 25
+        '
         'AfficheurProduit
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Transparent
         Me.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Controls.Add(Me.TextBoxQuantite)
         Me.Controls.Add(Me.LabelStock)
         Me.Controls.Add(Me.labelMarque)
         Me.Controls.Add(Me.labelRetirer)
         Me.Controls.Add(Me.labelAjouter)
-        Me.Controls.Add(Me.labelQuantite)
         Me.Controls.Add(Me.labelPoids)
         Me.Controls.Add(Me.labelDescription)
         Me.Controls.Add(Me.imageBox)
@@ -223,7 +220,6 @@ Partial Class AfficheurProduit
     Friend WithEvents labelMarque As System.Windows.Forms.Label
     Friend WithEvents labelRetirer As System.Windows.Forms.Label
     Friend WithEvents labelAjouter As System.Windows.Forms.Label
-    Friend WithEvents labelQuantite As System.Windows.Forms.Label
     Friend WithEvents labelPoids As System.Windows.Forms.Label
     Friend WithEvents labelDescription As System.Windows.Forms.Label
     Friend WithEvents imageBox As System.Windows.Forms.PictureBox
@@ -234,5 +230,6 @@ Partial Class AfficheurProduit
     Friend WithEvents ShapeContainer1 As Microsoft.VisualBasic.PowerPacks.ShapeContainer
     Friend WithEvents boutonAjouter As Microsoft.VisualBasic.PowerPacks.OvalShape
     Friend WithEvents LabelStock As System.Windows.Forms.Label
+    Friend WithEvents TextBoxQuantite As System.Windows.Forms.TextBox
 
 End Class
