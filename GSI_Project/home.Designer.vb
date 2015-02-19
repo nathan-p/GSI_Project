@@ -25,7 +25,6 @@ Partial Class Home
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Home))
         Me.headerPanel = New System.Windows.Forms.Panel()
         Me.cartLabel = New System.Windows.Forms.Label()
-        Me.logoPictureBox = New System.Windows.Forms.PictureBox()
         Me.searchButton = New System.Windows.Forms.Button()
         Me.searchTextBox = New System.Windows.Forms.TextBox()
         Me.separateurShapeContainer = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
@@ -33,7 +32,6 @@ Partial Class Home
         Me.centerPanel = New System.Windows.Forms.Panel()
         Me.detailPopUpPanel = New System.Windows.Forms.TableLayoutPanel()
         Me.detailPriceLabel = New System.Windows.Forms.Label()
-        Me.detailImgPictureBox = New System.Windows.Forms.PictureBox()
         Me.detailSpecLabel = New System.Windows.Forms.Label()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.detailNameLabel = New System.Windows.Forms.Label()
@@ -84,11 +82,11 @@ Partial Class Home
         Me.cartListButton = New System.Windows.Forms.Button()
         Me.cartValidationButton = New System.Windows.Forms.Button()
         Me.cartListView = New System.Windows.Forms.ListView()
+        Me.logoPictureBox = New System.Windows.Forms.PictureBox()
+        Me.detailImgPictureBox = New System.Windows.Forms.PictureBox()
         Me.headerPanel.SuspendLayout()
-        CType(Me.logoPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.centerPanel.SuspendLayout()
         Me.detailPopUpPanel.SuspendLayout()
-        CType(Me.detailImgPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.validationPaymentPanel.SuspendLayout()
         Me.popUpPanel.SuspendLayout()
@@ -97,6 +95,8 @@ Partial Class Home
         Me.affGridPanel.SuspendLayout()
         Me.affListPanel.SuspendLayout()
         Me.cartPanel.SuspendLayout()
+        CType(Me.logoPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.detailImgPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'headerPanel
@@ -122,15 +122,6 @@ Partial Class Home
         Me.cartLabel.Size = New System.Drawing.Size(218, 48)
         Me.cartLabel.TabIndex = 6
         Me.cartLabel.Text = "Mon panier"
-        '
-        'logoPictureBox
-        '
-        Me.logoPictureBox.Image = CType(resources.GetObject("logoPictureBox.Image"), System.Drawing.Image)
-        Me.logoPictureBox.Location = New System.Drawing.Point(12, 6)
-        Me.logoPictureBox.Name = "logoPictureBox"
-        Me.logoPictureBox.Size = New System.Drawing.Size(221, 90)
-        Me.logoPictureBox.TabIndex = 4
-        Me.logoPictureBox.TabStop = False
         '
         'searchButton
         '
@@ -191,7 +182,7 @@ Partial Class Home
         Me.detailPopUpPanel.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.detailPopUpPanel.ColumnCount = 3
         Me.detailPopUpPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.detailPopUpPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 367.0!))
+        Me.detailPopUpPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 283.0!))
         Me.detailPopUpPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 33.0!))
         Me.detailPopUpPanel.Controls.Add(Me.detailPriceLabel, 0, 1)
         Me.detailPopUpPanel.Controls.Add(Me.detailImgPictureBox, 0, 0)
@@ -201,10 +192,11 @@ Partial Class Home
         Me.detailPopUpPanel.Location = New System.Drawing.Point(230, 150)
         Me.detailPopUpPanel.Name = "detailPopUpPanel"
         Me.detailPopUpPanel.RowCount = 2
-        Me.detailPopUpPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.detailPopUpPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.detailPopUpPanel.Size = New System.Drawing.Size(600, 0)
+        Me.detailPopUpPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 58.0!))
+        Me.detailPopUpPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 42.0!))
+        Me.detailPopUpPanel.Size = New System.Drawing.Size(600, 350)
         Me.detailPopUpPanel.TabIndex = 14
+        Me.detailPopUpPanel.Visible = False
         '
         'detailPriceLabel
         '
@@ -212,19 +204,11 @@ Partial Class Home
         Me.detailPriceLabel.AutoSize = True
         Me.detailPriceLabel.Font = New System.Drawing.Font("Roboto Lt", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.detailPriceLabel.ForeColor = System.Drawing.Color.White
-        Me.detailPriceLabel.Location = New System.Drawing.Point(27, 0)
+        Me.detailPriceLabel.Location = New System.Drawing.Point(69, 228)
         Me.detailPriceLabel.Name = "detailPriceLabel"
-        Me.detailPriceLabel.Size = New System.Drawing.Size(145, 1)
+        Me.detailPriceLabel.Size = New System.Drawing.Size(145, 96)
         Me.detailPriceLabel.TabIndex = 0
         Me.detailPriceLabel.Text = "5 €"
-        '
-        'detailImgPictureBox
-        '
-        Me.detailImgPictureBox.Location = New System.Drawing.Point(3, 3)
-        Me.detailImgPictureBox.Name = "detailImgPictureBox"
-        Me.detailImgPictureBox.Size = New System.Drawing.Size(194, 1)
-        Me.detailImgPictureBox.TabIndex = 1
-        Me.detailImgPictureBox.TabStop = False
         '
         'detailSpecLabel
         '
@@ -232,9 +216,9 @@ Partial Class Home
         Me.detailSpecLabel.AutoSize = True
         Me.detailSpecLabel.Font = New System.Drawing.Font("Roboto", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.detailSpecLabel.ForeColor = System.Drawing.Color.White
-        Me.detailSpecLabel.Location = New System.Drawing.Point(203, 0)
+        Me.detailSpecLabel.Location = New System.Drawing.Point(287, 203)
         Me.detailSpecLabel.Name = "detailSpecLabel"
-        Me.detailSpecLabel.Size = New System.Drawing.Size(360, 1)
+        Me.detailSpecLabel.Size = New System.Drawing.Size(277, 147)
         Me.detailSpecLabel.TabIndex = 2
         Me.detailSpecLabel.Text = resources.GetString("detailSpecLabel.Text")
         '
@@ -247,9 +231,10 @@ Partial Class Home
         Me.FlowLayoutPanel1.Controls.Add(Me.detailPriceKgLabel)
         Me.FlowLayoutPanel1.Controls.Add(Me.detailOriginLabel)
         Me.FlowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
-        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(203, 3)
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(287, 3)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(361, 1)
+        Me.FlowLayoutPanel1.Padding = New System.Windows.Forms.Padding(0, 20, 0, 0)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(277, 190)
         Me.FlowLayoutPanel1.TabIndex = 3
         '
         'detailNameLabel
@@ -258,7 +243,7 @@ Partial Class Home
         Me.detailNameLabel.AutoSize = True
         Me.detailNameLabel.Font = New System.Drawing.Font("Roboto", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.detailNameLabel.ForeColor = System.Drawing.Color.White
-        Me.detailNameLabel.Location = New System.Drawing.Point(3, 0)
+        Me.detailNameLabel.Location = New System.Drawing.Point(25, 20)
         Me.detailNameLabel.Name = "detailNameLabel"
         Me.detailNameLabel.Size = New System.Drawing.Size(91, 39)
         Me.detailNameLabel.TabIndex = 0
@@ -269,11 +254,11 @@ Partial Class Home
         Me.detailCategoryLabel.AutoSize = True
         Me.detailCategoryLabel.Font = New System.Drawing.Font("Roboto", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.detailCategoryLabel.ForeColor = System.Drawing.Color.White
-        Me.detailCategoryLabel.Location = New System.Drawing.Point(100, 0)
+        Me.detailCategoryLabel.Location = New System.Drawing.Point(3, 59)
         Me.detailCategoryLabel.Name = "detailCategoryLabel"
-        Me.detailCategoryLabel.Padding = New System.Windows.Forms.Padding(80, 0, 0, 0)
+        Me.detailCategoryLabel.Padding = New System.Windows.Forms.Padding(40, 0, 0, 0)
         Me.detailCategoryLabel.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.detailCategoryLabel.Size = New System.Drawing.Size(175, 24)
+        Me.detailCategoryLabel.Size = New System.Drawing.Size(135, 24)
         Me.detailCategoryLabel.TabIndex = 1
         Me.detailCategoryLabel.Text = "Catégorie"
         Me.detailCategoryLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -283,11 +268,11 @@ Partial Class Home
         Me.detailBrandLabel.AutoSize = True
         Me.detailBrandLabel.Font = New System.Drawing.Font("Roboto", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.detailBrandLabel.ForeColor = System.Drawing.Color.White
-        Me.detailBrandLabel.Location = New System.Drawing.Point(281, 0)
+        Me.detailBrandLabel.Location = New System.Drawing.Point(3, 83)
         Me.detailBrandLabel.Name = "detailBrandLabel"
-        Me.detailBrandLabel.Padding = New System.Windows.Forms.Padding(80, 0, 0, 0)
+        Me.detailBrandLabel.Padding = New System.Windows.Forms.Padding(40, 0, 0, 0)
         Me.detailBrandLabel.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.detailBrandLabel.Size = New System.Drawing.Size(80, 0)
+        Me.detailBrandLabel.Size = New System.Drawing.Size(117, 24)
         Me.detailBrandLabel.TabIndex = 2
         Me.detailBrandLabel.Text = "Marque"
         Me.detailBrandLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -297,11 +282,11 @@ Partial Class Home
         Me.detailWeightLabel.AutoSize = True
         Me.detailWeightLabel.Font = New System.Drawing.Font("Roboto", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.detailWeightLabel.ForeColor = System.Drawing.Color.White
-        Me.detailWeightLabel.Location = New System.Drawing.Point(281, 0)
+        Me.detailWeightLabel.Location = New System.Drawing.Point(3, 107)
         Me.detailWeightLabel.Name = "detailWeightLabel"
-        Me.detailWeightLabel.Padding = New System.Windows.Forms.Padding(80, 0, 0, 0)
+        Me.detailWeightLabel.Padding = New System.Windows.Forms.Padding(40, 0, 0, 0)
         Me.detailWeightLabel.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.detailWeightLabel.Size = New System.Drawing.Size(80, 0)
+        Me.detailWeightLabel.Size = New System.Drawing.Size(100, 24)
         Me.detailWeightLabel.TabIndex = 3
         Me.detailWeightLabel.Text = "Poids"
         Me.detailWeightLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -311,11 +296,11 @@ Partial Class Home
         Me.detailPriceKgLabel.AutoSize = True
         Me.detailPriceKgLabel.Font = New System.Drawing.Font("Roboto", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.detailPriceKgLabel.ForeColor = System.Drawing.Color.White
-        Me.detailPriceKgLabel.Location = New System.Drawing.Point(281, 0)
+        Me.detailPriceKgLabel.Location = New System.Drawing.Point(3, 131)
         Me.detailPriceKgLabel.Name = "detailPriceKgLabel"
-        Me.detailPriceKgLabel.Padding = New System.Windows.Forms.Padding(80, 0, 0, 0)
+        Me.detailPriceKgLabel.Padding = New System.Windows.Forms.Padding(40, 0, 0, 0)
         Me.detailPriceKgLabel.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.detailPriceKgLabel.Size = New System.Drawing.Size(80, 0)
+        Me.detailPriceKgLabel.Size = New System.Drawing.Size(124, 24)
         Me.detailPriceKgLabel.TabIndex = 4
         Me.detailPriceKgLabel.Text = "Prix / kg"
         Me.detailPriceKgLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -325,11 +310,11 @@ Partial Class Home
         Me.detailOriginLabel.AutoSize = True
         Me.detailOriginLabel.Font = New System.Drawing.Font("Roboto", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.detailOriginLabel.ForeColor = System.Drawing.Color.White
-        Me.detailOriginLabel.Location = New System.Drawing.Point(281, 0)
+        Me.detailOriginLabel.Location = New System.Drawing.Point(3, 155)
         Me.detailOriginLabel.Name = "detailOriginLabel"
-        Me.detailOriginLabel.Padding = New System.Windows.Forms.Padding(80, 0, 0, 0)
+        Me.detailOriginLabel.Padding = New System.Windows.Forms.Padding(40, 0, 0, 0)
         Me.detailOriginLabel.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.detailOriginLabel.Size = New System.Drawing.Size(80, 0)
+        Me.detailOriginLabel.Size = New System.Drawing.Size(113, 24)
         Me.detailOriginLabel.TabIndex = 5
         Me.detailOriginLabel.Text = "Origine"
         Me.detailOriginLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -342,7 +327,7 @@ Partial Class Home
         Me.detailCloseButton.ForeColor = System.Drawing.Color.White
         Me.detailCloseButton.Location = New System.Drawing.Point(570, 3)
         Me.detailCloseButton.Name = "detailCloseButton"
-        Me.detailCloseButton.Size = New System.Drawing.Size(27, 1)
+        Me.detailCloseButton.Size = New System.Drawing.Size(27, 26)
         Me.detailCloseButton.TabIndex = 4
         Me.detailCloseButton.Text = "X"
         Me.detailCloseButton.UseVisualStyleBackColor = True
@@ -453,6 +438,7 @@ Partial Class Home
         Me.popUpPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.popUpPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.popUpPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 53.0!))
+        Me.popUpPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.popUpPanel.Size = New System.Drawing.Size(532, 0)
         Me.popUpPanel.TabIndex = 12
         '
@@ -854,6 +840,23 @@ Partial Class Home
         Me.cartListView.TabIndex = 1
         Me.cartListView.UseCompatibleStateImageBehavior = False
         '
+        'logoPictureBox
+        '
+        Me.logoPictureBox.Image = CType(resources.GetObject("logoPictureBox.Image"), System.Drawing.Image)
+        Me.logoPictureBox.Location = New System.Drawing.Point(12, 6)
+        Me.logoPictureBox.Name = "logoPictureBox"
+        Me.logoPictureBox.Size = New System.Drawing.Size(221, 90)
+        Me.logoPictureBox.TabIndex = 4
+        Me.logoPictureBox.TabStop = False
+        '
+        'detailImgPictureBox
+        '
+        Me.detailImgPictureBox.Location = New System.Drawing.Point(3, 3)
+        Me.detailImgPictureBox.Name = "detailImgPictureBox"
+        Me.detailImgPictureBox.Size = New System.Drawing.Size(278, 193)
+        Me.detailImgPictureBox.TabIndex = 1
+        Me.detailImgPictureBox.TabStop = False
+        '
         'Home
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -866,11 +869,9 @@ Partial Class Home
         Me.Text = "Form1"
         Me.headerPanel.ResumeLayout(False)
         Me.headerPanel.PerformLayout()
-        CType(Me.logoPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.centerPanel.ResumeLayout(False)
         Me.detailPopUpPanel.ResumeLayout(False)
         Me.detailPopUpPanel.PerformLayout()
-        CType(Me.detailImgPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.FlowLayoutPanel1.ResumeLayout(False)
         Me.FlowLayoutPanel1.PerformLayout()
         Me.validationPaymentPanel.ResumeLayout(False)
@@ -883,6 +884,8 @@ Partial Class Home
         Me.affListPanel.ResumeLayout(False)
         Me.cartPanel.ResumeLayout(False)
         Me.cartPanel.PerformLayout()
+        CType(Me.logoPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.detailImgPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

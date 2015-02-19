@@ -133,10 +133,12 @@
         detailNameLabel.Text = name
         detailOriginLabel.Text = "Origine : " + origin
         'detailImgPictureBox.Image = New Bitmap("./ressources/pome.jpg")
-        detailImgPictureBox.ImageLocation = "ressources/pome.jpg"
-        detailPriceLabel.Text = price
-        detailPriceKgLabel.Text = "Prix/kg : " + priceKg
-        detailWeightLabel.Text = weight + "Poids : "
+        detailImgPictureBox.Image = Image.FromFile("C:\Users\nathan\git\GSI_Project\GSI_Project\Resources\" + urlImg)
+        detailPriceLabel.Text = price + "€"
+        cartListButton.Text = detailPriceLabel.Text
+
+        detailPriceKgLabel.Text = "Prix/kg : " + priceKg + "€ / kg"
+        detailWeightLabel.Text = "Poids : " + weight + " kg"
         detailCategoryLabel.Text = "Catégorie : " + category
         detailSpecLabel.Text = description
         detailBrandLabel.Text = "Marque : " + brand

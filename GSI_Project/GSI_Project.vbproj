@@ -138,7 +138,10 @@
     <None Include="logo3.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\" />
+    <None Include="Resources\pomme - Copie.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pomme.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

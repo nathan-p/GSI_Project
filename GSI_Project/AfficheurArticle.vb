@@ -38,7 +38,6 @@
         Me.labelNomArticle = New System.Windows.Forms.Label()
         Me.labelPlusInfo = New System.Windows.Forms.LinkLabel()
         Me.labelPrix = New System.Windows.Forms.Label()
-        Me.imageBox = New System.Windows.Forms.PictureBox()
         Me.labelDescription = New System.Windows.Forms.Label()
         Me.labelPoids = New System.Windows.Forms.Label()
         Me.labelQuantite = New System.Windows.Forms.Label()
@@ -48,6 +47,7 @@
         Me.labelMarque = New System.Windows.Forms.Label()
         Me.labelAjouter = New System.Windows.Forms.Label()
         Me.labelRetirer = New System.Windows.Forms.Label()
+        Me.imageBox = New System.Windows.Forms.PictureBox()
         CType(Me.imageBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -64,7 +64,9 @@
         'labelPlusInfo
         '
         Me.labelPlusInfo.AutoSize = True
+        Me.labelPlusInfo.Cursor = System.Windows.Forms.Cursors.Hand
         Me.labelPlusInfo.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.labelPlusInfo.ForeColor = System.Drawing.SystemColors.MenuHighlight
         Me.labelPlusInfo.Location = New System.Drawing.Point(123, 120)
         Me.labelPlusInfo.Name = "labelPlusInfo"
         Me.labelPlusInfo.Size = New System.Drawing.Size(65, 19)
@@ -82,23 +84,11 @@
         Me.labelPrix.TabIndex = 2
         Me.labelPrix.Text = "€"
         '
-        'imageBox
-        '
-        Me.imageBox.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.imageBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.imageBox.Location = New System.Drawing.Point(15, 48)
-        Me.imageBox.Name = "imageBox"
-        Me.imageBox.Size = New System.Drawing.Size(100, 85)
-        Me.imageBox.TabIndex = 3
-        Me.imageBox.TabStop = False
-        Me.imageBox.ImageLocation = "ressources/pome.jpg"
-
-        '
         'labelDescription
         '
         Me.labelDescription.AutoSize = True
         Me.labelDescription.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.labelDescription.Location = New System.Drawing.Point(123, 72)
+        Me.labelDescription.Location = New System.Drawing.Point(123, 73)
         Me.labelDescription.Name = "labelDescription"
         Me.labelDescription.Size = New System.Drawing.Size(17, 19)
         Me.labelDescription.TabIndex = 4
@@ -108,7 +98,7 @@
         '
         Me.labelPoids.AutoSize = True
         Me.labelPoids.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.labelPoids.Location = New System.Drawing.Point(123, 85)
+        Me.labelPoids.Location = New System.Drawing.Point(123, 95)
         Me.labelPoids.Name = "labelPoids"
         Me.labelPoids.Size = New System.Drawing.Size(17, 19)
         Me.labelPoids.TabIndex = 5
@@ -155,7 +145,7 @@
         '
         Me.labelMarque.AutoSize = True
         Me.labelMarque.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.labelMarque.Location = New System.Drawing.Point(122, 48)
+        Me.labelMarque.Location = New System.Drawing.Point(122, 43)
         Me.labelMarque.Name = "labelMarque"
         Me.labelMarque.Size = New System.Drawing.Size(29, 28)
         Me.labelMarque.TabIndex = 10
@@ -167,7 +157,7 @@
         Me.labelAjouter.BackColor = System.Drawing.Color.LightGreen
         Me.labelAjouter.Enabled = False
         Me.labelAjouter.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.labelAjouter.Location = New System.Drawing.Point(195, 150)
+        Me.labelAjouter.Location = New System.Drawing.Point(190, 146)
         Me.labelAjouter.Name = "labelAjouter"
         Me.labelAjouter.Size = New System.Drawing.Size(35, 37)
         Me.labelAjouter.TabIndex = 11
@@ -178,14 +168,26 @@
         Me.labelRetirer.AutoSize = True
         Me.labelRetirer.BackColor = System.Drawing.Color.LightCoral
         Me.labelRetirer.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.labelRetirer.Location = New System.Drawing.Point(122, 162)
+        Me.labelRetirer.Location = New System.Drawing.Point(119, 158)
         Me.labelRetirer.Name = "labelRetirer"
         Me.labelRetirer.Size = New System.Drawing.Size(20, 28)
         Me.labelRetirer.TabIndex = 12
         Me.labelRetirer.Text = "-"
         '
+        'imageBox
+        '
+        Me.imageBox.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.imageBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.imageBox.Image = Global.WindowsApplication1.My.Resources.Resources.pomme___Copie
+        Me.imageBox.Location = New System.Drawing.Point(15, 48)
+        Me.imageBox.Name = "imageBox"
+        Me.imageBox.Size = New System.Drawing.Size(100, 85)
+        Me.imageBox.TabIndex = 3
+        Me.imageBox.TabStop = False
+        '
         'AfficheurArticle
         '
+        Me.AllowDrop = True
         Me.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Controls.Add(Me.labelRetirer)
         Me.Controls.Add(Me.labelAjouter)
@@ -198,6 +200,7 @@
         Me.Controls.Add(Me.labelPlusInfo)
         Me.Controls.Add(Me.labelNomArticle)
         Me.Controls.Add(Me.ShapeContainer1)
+        Me.DoubleBuffered = True
         Me.Name = "AfficheurArticle"
         Me.Size = New System.Drawing.Size(237, 203)
         CType(Me.imageBox, System.ComponentModel.ISupportInitialize).EndInit()
@@ -291,14 +294,14 @@
 
     Private Sub labelAjouter_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles labelAjouter.Click
 
+        Me.labelNomArticle.Text = "CA MARCHE !"
     End Sub
 
     Private Sub labelRetirer_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles labelRetirer.Click
 
     End Sub
 
-    Private Sub labelPlusInfo_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles labelPlusInfo.LinkClicked
-        Me.labelNomArticle.Text = "CA MARCHE !"
+    Public Sub labelPlusInfo_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles labelPlusInfo.LinkClicked
 
         Me.home.setDetailPopUp(
             article.name,
@@ -318,10 +321,29 @@
 
     End Sub
 
+
     Private Sub AfficheurArticle_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         InitializeComponent()
         Me.AutoSize = False
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+
     End Sub
 
+    Private Sub AfficheurArticle_MouseClick(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Me.MouseClick
+        Me.home.setDetailPopUp(
+             article.name,
+             article.category,
+             article.brand,
+             article.weight,
+             article.priceKilo,
+             article.origin,
+             article.desc,
+             article.price,
+             article.img)
+        Me.home.showDetailPopUp()
+    End Sub
+
+    Private Sub labelPlusInfo_MouseClick(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles labelPlusInfo.MouseClick
+        Me.labelAjouter.Text = "UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU"
+    End Sub
 End Class
