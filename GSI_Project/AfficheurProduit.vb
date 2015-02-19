@@ -3,6 +3,8 @@
     Dim home As Home
     Dim article As Article
     Dim qte As Integer 'Quantité à récupérer du panier de Home
+    Dim ListViewItem2 As System.Windows.Forms.ListViewItem
+    Dim imageIndex As Integer
 
     Public Sub New(ByRef art As Article, ByVal hom As Home)
         InitializeComponent()
@@ -101,6 +103,23 @@
 
     Private Sub boutonAjouter_MouseEnter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles boutonAjouter.MouseEnter
         Me.Cursor = Cursors.Hand
+        For index As Integer = 0 To home.ImageList1.Images.Count
+            If (home.ImageList1.Images.Keys(index).ToString = article.img) Then
+                imageIndex = index
+                Exit For
+            End If
+        Next
+        ListViewItem2 = New System.Windows.Forms.ListViewItem(New String() {labelNomArticle.Text, labelPrix.Text, Me.qte}, imageIndex)
+
+        Dim item2 As ListViewItem = home.ListView1.FindItemWithText(labelNomArticle.Text)
+        'Dim s As Integer = home.ListView1.FindItemWithText(labelNomArticle.Text)
+        If (item2 Is Nothing) Then
+            home.ListView1.Items.Add(ListViewItem2)
+
+
+        End If
+        home.ListView1.Update()
+
     End Sub
 
     Private Sub boutonRetirer_MouseEnter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles boutonRetirer.MouseEnter

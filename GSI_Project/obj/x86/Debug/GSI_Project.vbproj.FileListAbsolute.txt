@@ -18,3 +18,15 @@ C:\Users\JeanLuc\Documents\GSI_Project\GSI_Project\obj\x86\Debug\GSI_Project.exe
 C:\Users\JeanLuc\Documents\GSI_Project\GSI_Project\obj\x86\Debug\GSI_Project.pdb
 C:\Users\JeanLuc\Documents\GSI_Project\GSI_Project\obj\x86\Debug\WindowsApplication1.AfficheurProduit.resources
 C:\Users\nathan\git\GSI_Project\GSI_Project\obj\x86\Debug\WindowsApplication1.AfficheurProduit.resources
+Z:\Documents\GSIProject\GSI_Project\GSI_Project\obj\x86\Debug\GSI_Project.xml
+Z:\Documents\GSIProject\GSI_Project\GSI_Project\bin\Debug\GSI_Project.exe
+Z:\Documents\GSIProject\GSI_Project\GSI_Project\bin\Debug\GSI_Project.pdb
+Z:\Documents\GSIProject\GSI_Project\GSI_Project\bin\Debug\GSI_Project.xml
+Z:\Documents\GSIProject\GSI_Project\GSI_Project\obj\x86\Debug\ResolveAssemblyReference.cache
+Z:\Documents\GSIProject\GSI_Project\GSI_Project\obj\x86\Debug\WindowsApplication1.Home.resources
+Z:\Documents\GSIProject\GSI_Project\GSI_Project\obj\x86\Debug\WindowsApplication1.Resources.resources
+Z:\Documents\GSIProject\GSI_Project\GSI_Project\obj\x86\Debug\WindowsApplication1.AfficheurProduit.resources
+Z:\Documents\GSIProject\GSI_Project\GSI_Project\obj\x86\Debug\GenerateResource.read.1.tlog
+Z:\Documents\GSIProject\GSI_Project\GSI_Project\obj\x86\Debug\GenerateResource.write.1.tlog
+Z:\Documents\GSIProject\GSI_Project\GSI_Project\obj\x86\Debug\GSI_Project.exe
+Z:\Documents\GSIProject\GSI_Project\GSI_Project\obj\x86\Debug\GSI_Project.pdb

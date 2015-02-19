@@ -9,7 +9,7 @@
     Private origine As String
     Private poid As Double
     Private qteStock As Integer
-
+   
 
     '********************************************************************************
     '*************************** Constructeur     ***********************************

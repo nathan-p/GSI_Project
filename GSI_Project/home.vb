@@ -33,14 +33,7 @@ Public Class Home
         updateUI()
         updateMenuButton()
         'INITIALISATION DE LA LISTE
-        cartListView.View = View.Details
-        cartListView.Columns.Add("Nom")
-        cartListView.Columns.Add("Prix")
-        cartListView.Items.Add(New ListViewItem("Produit numéro 1"))
-        cartListView.Items.Add(New ListViewItem("Produit numéro 2 "))
-        cartListView.Items.Add(New ListViewItem("Produit numéro 3 "))
-        cartListView.Items.Add(New ListViewItem("Produit numéro 4 "))
-        cartListView.Items.Add(New ListViewItem("Produit numéro 5 "))
+       
 
         initArticles()
 
@@ -91,7 +84,7 @@ Public Class Home
     End Sub
 
     Private Sub clearCart()
-        cartListView.Clear()
+        'cartListView.Clear()
 
     End Sub
 

@@ -22,7 +22,9 @@ Partial Class Home
     'Ne la modifiez pas à l'aide de l'éditeur de code.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Home))
+        Dim ListViewItem1 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("Cerise", 0)
         Me.headerPanel = New System.Windows.Forms.Panel()
         Me.cartLabel = New System.Windows.Forms.Label()
         Me.logoPictureBox = New System.Windows.Forms.PictureBox()
@@ -83,7 +85,11 @@ Partial Class Home
         Me.cartDetailButton = New System.Windows.Forms.Button()
         Me.cartListButton = New System.Windows.Forms.Button()
         Me.cartValidationButton = New System.Windows.Forms.Button()
-        Me.cartListView = New System.Windows.Forms.ListView()
+        Me.ListView1 = New System.Windows.Forms.ListView()
+        Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.headerPanel.SuspendLayout()
         CType(Me.logoPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.centerPanel.SuspendLayout()
@@ -108,9 +114,9 @@ Partial Class Home
         Me.headerPanel.Controls.Add(Me.searchTextBox)
         Me.headerPanel.Controls.Add(Me.separateurShapeContainer)
         Me.headerPanel.Location = New System.Drawing.Point(0, 0)
-        Me.headerPanel.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.headerPanel.Margin = New System.Windows.Forms.Padding(2)
         Me.headerPanel.Name = "headerPanel"
-        Me.headerPanel.Size = New System.Drawing.Size(1348, 86)
+        Me.headerPanel.Size = New System.Drawing.Size(1011, 70)
         Me.headerPanel.TabIndex = 2
         '
         'cartLabel
@@ -118,28 +124,29 @@ Partial Class Home
         Me.cartLabel.AutoSize = True
         Me.cartLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cartLabel.ForeColor = System.Drawing.Color.White
-        Me.cartLabel.Location = New System.Drawing.Point(1117, 20)
+        Me.cartLabel.Location = New System.Drawing.Point(838, 16)
+        Me.cartLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.cartLabel.Name = "cartLabel"
-        Me.cartLabel.Size = New System.Drawing.Size(219, 46)
+        Me.cartLabel.Size = New System.Drawing.Size(177, 37)
         Me.cartLabel.TabIndex = 6
         Me.cartLabel.Text = "Mon panier"
         '
         'logoPictureBox
         '
         Me.logoPictureBox.Image = CType(resources.GetObject("logoPictureBox.Image"), System.Drawing.Image)
-        Me.logoPictureBox.Location = New System.Drawing.Point(12, 6)
-        Me.logoPictureBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.logoPictureBox.Location = New System.Drawing.Point(9, 5)
+        Me.logoPictureBox.Margin = New System.Windows.Forms.Padding(2)
         Me.logoPictureBox.Name = "logoPictureBox"
-        Me.logoPictureBox.Size = New System.Drawing.Size(221, 90)
+        Me.logoPictureBox.Size = New System.Drawing.Size(166, 73)
         Me.logoPictureBox.TabIndex = 4
         Me.logoPictureBox.TabStop = False
         '
         'searchButton
         '
-        Me.searchButton.Location = New System.Drawing.Point(860, 23)
-        Me.searchButton.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.searchButton.Location = New System.Drawing.Point(645, 19)
+        Me.searchButton.Margin = New System.Windows.Forms.Padding(2)
         Me.searchButton.Name = "searchButton"
-        Me.searchButton.Size = New System.Drawing.Size(96, 39)
+        Me.searchButton.Size = New System.Drawing.Size(72, 32)
         Me.searchButton.TabIndex = 1
         Me.searchButton.Text = "Rechercher"
         Me.searchButton.UseVisualStyleBackColor = True
@@ -148,10 +155,10 @@ Partial Class Home
         '
         Me.searchTextBox.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.searchTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.searchTextBox.Location = New System.Drawing.Point(271, 23)
-        Me.searchTextBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.searchTextBox.Location = New System.Drawing.Point(203, 19)
+        Me.searchTextBox.Margin = New System.Windows.Forms.Padding(2)
         Me.searchTextBox.Name = "searchTextBox"
-        Me.searchTextBox.Size = New System.Drawing.Size(593, 38)
+        Me.searchTextBox.Size = New System.Drawing.Size(446, 32)
         Me.searchTextBox.TabIndex = 0
         Me.searchTextBox.Text = "Rechercher un produit"
         '
@@ -161,7 +168,7 @@ Partial Class Home
         Me.separateurShapeContainer.Margin = New System.Windows.Forms.Padding(0)
         Me.separateurShapeContainer.Name = "separateurShapeContainer"
         Me.separateurShapeContainer.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.LineShape1})
-        Me.separateurShapeContainer.Size = New System.Drawing.Size(1348, 86)
+        Me.separateurShapeContainer.Size = New System.Drawing.Size(1011, 70)
         Me.separateurShapeContainer.TabIndex = 5
         Me.separateurShapeContainer.TabStop = False
         '
@@ -185,10 +192,10 @@ Partial Class Home
         Me.centerPanel.Controls.Add(Me.affGridPanel)
         Me.centerPanel.Controls.Add(Me.affListPanel)
         Me.centerPanel.Cursor = System.Windows.Forms.Cursors.Default
-        Me.centerPanel.Location = New System.Drawing.Point(0, 85)
-        Me.centerPanel.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.centerPanel.Location = New System.Drawing.Point(0, 69)
+        Me.centerPanel.Margin = New System.Windows.Forms.Padding(2)
         Me.centerPanel.Name = "centerPanel"
-        Me.centerPanel.Size = New System.Drawing.Size(1103, 642)
+        Me.centerPanel.Size = New System.Drawing.Size(827, 522)
         Me.centerPanel.TabIndex = 3
         '
         'detailPopUpPanel
@@ -196,20 +203,20 @@ Partial Class Home
         Me.detailPopUpPanel.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.detailPopUpPanel.ColumnCount = 3
         Me.detailPopUpPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.detailPopUpPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 283.0!))
-        Me.detailPopUpPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 33.0!))
+        Me.detailPopUpPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 212.0!))
+        Me.detailPopUpPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25.0!))
         Me.detailPopUpPanel.Controls.Add(Me.detailPriceLabel, 0, 1)
         Me.detailPopUpPanel.Controls.Add(Me.detailImgPictureBox, 0, 0)
         Me.detailPopUpPanel.Controls.Add(Me.detailSpecLabel, 1, 1)
         Me.detailPopUpPanel.Controls.Add(Me.FlowLayoutPanel1, 1, 0)
         Me.detailPopUpPanel.Controls.Add(Me.detailCloseButton, 2, 0)
-        Me.detailPopUpPanel.Location = New System.Drawing.Point(229, 150)
-        Me.detailPopUpPanel.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.detailPopUpPanel.Location = New System.Drawing.Point(172, 122)
+        Me.detailPopUpPanel.Margin = New System.Windows.Forms.Padding(2)
         Me.detailPopUpPanel.Name = "detailPopUpPanel"
         Me.detailPopUpPanel.RowCount = 2
         Me.detailPopUpPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.0!))
         Me.detailPopUpPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34.0!))
-        Me.detailPopUpPanel.Size = New System.Drawing.Size(600, 350)
+        Me.detailPopUpPanel.Size = New System.Drawing.Size(450, 284)
         Me.detailPopUpPanel.TabIndex = 14
         Me.detailPopUpPanel.Visible = False
         '
@@ -217,20 +224,21 @@ Partial Class Home
         '
         Me.detailPriceLabel.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.detailPriceLabel.AutoSize = True
-        Me.detailPriceLabel.Font = New System.Drawing.Font("Roboto Lt", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.detailPriceLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.detailPriceLabel.ForeColor = System.Drawing.Color.White
-        Me.detailPriceLabel.Location = New System.Drawing.Point(69, 242)
+        Me.detailPriceLabel.Location = New System.Drawing.Point(46, 199)
+        Me.detailPriceLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.detailPriceLabel.Name = "detailPriceLabel"
-        Me.detailPriceLabel.Size = New System.Drawing.Size(145, 96)
+        Me.detailPriceLabel.Size = New System.Drawing.Size(121, 73)
         Me.detailPriceLabel.TabIndex = 0
         Me.detailPriceLabel.Text = "5 €"
         '
         'detailImgPictureBox
         '
-        Me.detailImgPictureBox.Location = New System.Drawing.Point(3, 2)
-        Me.detailImgPictureBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.detailImgPictureBox.Location = New System.Drawing.Point(2, 2)
+        Me.detailImgPictureBox.Margin = New System.Windows.Forms.Padding(2)
         Me.detailImgPictureBox.Name = "detailImgPictureBox"
-        Me.detailImgPictureBox.Size = New System.Drawing.Size(277, 225)
+        Me.detailImgPictureBox.Size = New System.Drawing.Size(208, 183)
         Me.detailImgPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.detailImgPictureBox.TabIndex = 1
         Me.detailImgPictureBox.TabStop = False
@@ -241,9 +249,10 @@ Partial Class Home
         Me.detailSpecLabel.AutoSize = True
         Me.detailSpecLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.detailSpecLabel.ForeColor = System.Drawing.Color.White
-        Me.detailSpecLabel.Location = New System.Drawing.Point(288, 231)
+        Me.detailSpecLabel.Location = New System.Drawing.Point(215, 187)
+        Me.detailSpecLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.detailSpecLabel.Name = "detailSpecLabel"
-        Me.detailSpecLabel.Size = New System.Drawing.Size(275, 119)
+        Me.detailSpecLabel.Size = New System.Drawing.Size(208, 97)
         Me.detailSpecLabel.TabIndex = 2
         Me.detailSpecLabel.Text = resources.GetString("detailSpecLabel.Text")
         '
@@ -256,11 +265,11 @@ Partial Class Home
         Me.FlowLayoutPanel1.Controls.Add(Me.detailPriceKgLabel)
         Me.FlowLayoutPanel1.Controls.Add(Me.detailOriginLabel)
         Me.FlowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
-        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(287, 2)
-        Me.FlowLayoutPanel1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(215, 2)
+        Me.FlowLayoutPanel1.Margin = New System.Windows.Forms.Padding(2)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Padding = New System.Windows.Forms.Padding(0, 20, 0, 0)
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(277, 225)
+        Me.FlowLayoutPanel1.Padding = New System.Windows.Forms.Padding(0, 16, 0, 0)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(208, 183)
         Me.FlowLayoutPanel1.TabIndex = 3
         '
         'detailNameLabel
@@ -269,9 +278,10 @@ Partial Class Home
         Me.detailNameLabel.AutoSize = True
         Me.detailNameLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.detailNameLabel.ForeColor = System.Drawing.Color.White
-        Me.detailNameLabel.Location = New System.Drawing.Point(24, 20)
+        Me.detailNameLabel.Location = New System.Drawing.Point(17, 16)
+        Me.detailNameLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.detailNameLabel.Name = "detailNameLabel"
-        Me.detailNameLabel.Size = New System.Drawing.Size(94, 38)
+        Me.detailNameLabel.Size = New System.Drawing.Size(77, 31)
         Me.detailNameLabel.TabIndex = 0
         Me.detailNameLabel.Text = "NOM"
         '
@@ -280,11 +290,12 @@ Partial Class Home
         Me.detailCategoryLabel.AutoSize = True
         Me.detailCategoryLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.detailCategoryLabel.ForeColor = System.Drawing.Color.White
-        Me.detailCategoryLabel.Location = New System.Drawing.Point(3, 58)
+        Me.detailCategoryLabel.Location = New System.Drawing.Point(2, 47)
+        Me.detailCategoryLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.detailCategoryLabel.Name = "detailCategoryLabel"
-        Me.detailCategoryLabel.Padding = New System.Windows.Forms.Padding(40, 0, 0, 0)
+        Me.detailCategoryLabel.Padding = New System.Windows.Forms.Padding(30, 0, 0, 0)
         Me.detailCategoryLabel.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.detailCategoryLabel.Size = New System.Drawing.Size(137, 25)
+        Me.detailCategoryLabel.Size = New System.Drawing.Size(108, 20)
         Me.detailCategoryLabel.TabIndex = 1
         Me.detailCategoryLabel.Text = "Catégorie"
         Me.detailCategoryLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -294,11 +305,12 @@ Partial Class Home
         Me.detailBrandLabel.AutoSize = True
         Me.detailBrandLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.detailBrandLabel.ForeColor = System.Drawing.Color.White
-        Me.detailBrandLabel.Location = New System.Drawing.Point(3, 83)
+        Me.detailBrandLabel.Location = New System.Drawing.Point(2, 67)
+        Me.detailBrandLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.detailBrandLabel.Name = "detailBrandLabel"
-        Me.detailBrandLabel.Padding = New System.Windows.Forms.Padding(40, 0, 0, 0)
+        Me.detailBrandLabel.Padding = New System.Windows.Forms.Padding(30, 0, 0, 0)
         Me.detailBrandLabel.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.detailBrandLabel.Size = New System.Drawing.Size(119, 25)
+        Me.detailBrandLabel.Size = New System.Drawing.Size(93, 20)
         Me.detailBrandLabel.TabIndex = 2
         Me.detailBrandLabel.Text = "Marque"
         Me.detailBrandLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -308,11 +320,12 @@ Partial Class Home
         Me.detailWeightLabel.AutoSize = True
         Me.detailWeightLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.detailWeightLabel.ForeColor = System.Drawing.Color.White
-        Me.detailWeightLabel.Location = New System.Drawing.Point(3, 108)
+        Me.detailWeightLabel.Location = New System.Drawing.Point(2, 87)
+        Me.detailWeightLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.detailWeightLabel.Name = "detailWeightLabel"
-        Me.detailWeightLabel.Padding = New System.Windows.Forms.Padding(40, 0, 0, 0)
+        Me.detailWeightLabel.Padding = New System.Windows.Forms.Padding(30, 0, 0, 0)
         Me.detailWeightLabel.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.detailWeightLabel.Size = New System.Drawing.Size(101, 25)
+        Me.detailWeightLabel.Size = New System.Drawing.Size(78, 20)
         Me.detailWeightLabel.TabIndex = 3
         Me.detailWeightLabel.Text = "Poids"
         Me.detailWeightLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -322,11 +335,12 @@ Partial Class Home
         Me.detailPriceKgLabel.AutoSize = True
         Me.detailPriceKgLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.detailPriceKgLabel.ForeColor = System.Drawing.Color.White
-        Me.detailPriceKgLabel.Location = New System.Drawing.Point(3, 133)
+        Me.detailPriceKgLabel.Location = New System.Drawing.Point(2, 107)
+        Me.detailPriceKgLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.detailPriceKgLabel.Name = "detailPriceKgLabel"
-        Me.detailPriceKgLabel.Padding = New System.Windows.Forms.Padding(40, 0, 0, 0)
+        Me.detailPriceKgLabel.Padding = New System.Windows.Forms.Padding(30, 0, 0, 0)
         Me.detailPriceKgLabel.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.detailPriceKgLabel.Size = New System.Drawing.Size(122, 25)
+        Me.detailPriceKgLabel.Size = New System.Drawing.Size(93, 20)
         Me.detailPriceKgLabel.TabIndex = 4
         Me.detailPriceKgLabel.Text = "Prix / kg"
         Me.detailPriceKgLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -336,11 +350,12 @@ Partial Class Home
         Me.detailOriginLabel.AutoSize = True
         Me.detailOriginLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.detailOriginLabel.ForeColor = System.Drawing.Color.White
-        Me.detailOriginLabel.Location = New System.Drawing.Point(3, 158)
+        Me.detailOriginLabel.Location = New System.Drawing.Point(2, 127)
+        Me.detailOriginLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.detailOriginLabel.Name = "detailOriginLabel"
-        Me.detailOriginLabel.Padding = New System.Windows.Forms.Padding(40, 0, 0, 0)
+        Me.detailOriginLabel.Padding = New System.Windows.Forms.Padding(30, 0, 0, 0)
         Me.detailOriginLabel.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.detailOriginLabel.Size = New System.Drawing.Size(115, 25)
+        Me.detailOriginLabel.Size = New System.Drawing.Size(89, 20)
         Me.detailOriginLabel.TabIndex = 5
         Me.detailOriginLabel.Text = "Origine"
         Me.detailOriginLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -351,10 +366,10 @@ Partial Class Home
         Me.detailCloseButton.FlatAppearance.BorderSize = 0
         Me.detailCloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.detailCloseButton.ForeColor = System.Drawing.Color.White
-        Me.detailCloseButton.Location = New System.Drawing.Point(570, 2)
-        Me.detailCloseButton.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.detailCloseButton.Location = New System.Drawing.Point(427, 2)
+        Me.detailCloseButton.Margin = New System.Windows.Forms.Padding(2)
         Me.detailCloseButton.Name = "detailCloseButton"
-        Me.detailCloseButton.Size = New System.Drawing.Size(27, 26)
+        Me.detailCloseButton.Size = New System.Drawing.Size(20, 21)
         Me.detailCloseButton.TabIndex = 4
         Me.detailCloseButton.Text = "X"
         Me.detailCloseButton.UseVisualStyleBackColor = True
@@ -368,10 +383,10 @@ Partial Class Home
         Me.validationPaymentPanel.Controls.Add(Me.paymentTitleLabel)
         Me.validationPaymentPanel.Controls.Add(Me.paidButton)
         Me.validationPaymentPanel.Controls.Add(Me.cancelPaidButton)
-        Me.validationPaymentPanel.Location = New System.Drawing.Point(271, 178)
-        Me.validationPaymentPanel.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.validationPaymentPanel.Location = New System.Drawing.Point(203, 145)
+        Me.validationPaymentPanel.Margin = New System.Windows.Forms.Padding(2)
         Me.validationPaymentPanel.Name = "validationPaymentPanel"
-        Me.validationPaymentPanel.Size = New System.Drawing.Size(535, 0)
+        Me.validationPaymentPanel.Size = New System.Drawing.Size(401, 0)
         Me.validationPaymentPanel.TabIndex = 9
         Me.validationPaymentPanel.Visible = False
         '
@@ -380,9 +395,10 @@ Partial Class Home
         Me.paymentTotalLabel.AutoSize = True
         Me.paymentTotalLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.paymentTotalLabel.ForeColor = System.Drawing.Color.White
-        Me.paymentTotalLabel.Location = New System.Drawing.Point(197, 140)
+        Me.paymentTotalLabel.Location = New System.Drawing.Point(148, 114)
+        Me.paymentTotalLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.paymentTotalLabel.Name = "paymentTotalLabel"
-        Me.paymentTotalLabel.Size = New System.Drawing.Size(72, 25)
+        Me.paymentTotalLabel.Size = New System.Drawing.Size(56, 20)
         Me.paymentTotalLabel.TabIndex = 10
         Me.paymentTotalLabel.Text = "Total : "
         '
@@ -391,9 +407,10 @@ Partial Class Home
         Me.paymentNbProdLabel.AutoSize = True
         Me.paymentNbProdLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.paymentNbProdLabel.ForeColor = System.Drawing.Color.White
-        Me.paymentNbProdLabel.Location = New System.Drawing.Point(83, 78)
+        Me.paymentNbProdLabel.Location = New System.Drawing.Point(62, 63)
+        Me.paymentNbProdLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.paymentNbProdLabel.Name = "paymentNbProdLabel"
-        Me.paymentNbProdLabel.Size = New System.Drawing.Size(361, 25)
+        Me.paymentNbProdLabel.Size = New System.Drawing.Size(292, 20)
         Me.paymentNbProdLabel.TabIndex = 9
         Me.paymentNbProdLabel.Text = "Vous avez 11 produits dans votre panier"
         '
@@ -402,9 +419,10 @@ Partial Class Home
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(275, 128)
+        Me.Label2.Location = New System.Drawing.Point(206, 104)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(80, 38)
+        Me.Label2.Size = New System.Drawing.Size(66, 31)
         Me.Label2.TabIndex = 8
         Me.Label2.Text = "56 €"
         '
@@ -413,9 +431,10 @@ Partial Class Home
         Me.paymentTitleLabel.AutoSize = True
         Me.paymentTitleLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.paymentTitleLabel.ForeColor = System.Drawing.Color.White
-        Me.paymentTitleLabel.Location = New System.Drawing.Point(80, 16)
+        Me.paymentTitleLabel.Location = New System.Drawing.Point(60, 13)
+        Me.paymentTitleLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.paymentTitleLabel.Name = "paymentTitleLabel"
-        Me.paymentTitleLabel.Size = New System.Drawing.Size(385, 36)
+        Me.paymentTitleLabel.Size = New System.Drawing.Size(312, 29)
         Me.paymentTitleLabel.TabIndex = 2
         Me.paymentTitleLabel.Text = "Récapitulatif de votre panier"
         '
@@ -428,10 +447,10 @@ Partial Class Home
         Me.paidButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveCaption
         Me.paidButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.paidButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.paidButton.Location = New System.Drawing.Point(281, 194)
-        Me.paidButton.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.paidButton.Location = New System.Drawing.Point(211, 158)
+        Me.paidButton.Margin = New System.Windows.Forms.Padding(2)
         Me.paidButton.Name = "paidButton"
-        Me.paidButton.Size = New System.Drawing.Size(217, 36)
+        Me.paidButton.Size = New System.Drawing.Size(163, 29)
         Me.paidButton.TabIndex = 1
         Me.paidButton.Text = "Payer"
         Me.paidButton.UseVisualStyleBackColor = False
@@ -446,10 +465,10 @@ Partial Class Home
         Me.cancelPaidButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveCaption
         Me.cancelPaidButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cancelPaidButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cancelPaidButton.Location = New System.Drawing.Point(31, 194)
-        Me.cancelPaidButton.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.cancelPaidButton.Location = New System.Drawing.Point(23, 158)
+        Me.cancelPaidButton.Margin = New System.Windows.Forms.Padding(2)
         Me.cancelPaidButton.Name = "cancelPaidButton"
-        Me.cancelPaidButton.Size = New System.Drawing.Size(217, 36)
+        Me.cancelPaidButton.Size = New System.Drawing.Size(163, 29)
         Me.cancelPaidButton.TabIndex = 0
         Me.cancelPaidButton.Text = "Continuer mes achats"
         Me.cancelPaidButton.UseVisualStyleBackColor = False
@@ -462,15 +481,15 @@ Partial Class Home
         Me.popUpPanel.Controls.Add(Me.contentPopUpLabel, 0, 1)
         Me.popUpPanel.Controls.Add(Me.titlePopUpLabel, 0, 0)
         Me.popUpPanel.Controls.Add(Me.FlowLayoutPanel2, 0, 2)
-        Me.popUpPanel.Location = New System.Drawing.Point(301, 210)
-        Me.popUpPanel.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.popUpPanel.Location = New System.Drawing.Point(226, 171)
+        Me.popUpPanel.Margin = New System.Windows.Forms.Padding(2)
         Me.popUpPanel.Name = "popUpPanel"
         Me.popUpPanel.RowCount = 3
         Me.popUpPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.popUpPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.popUpPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 53.0!))
-        Me.popUpPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.popUpPanel.Size = New System.Drawing.Size(532, 0)
+        Me.popUpPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 43.0!))
+        Me.popUpPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16.0!))
+        Me.popUpPanel.Size = New System.Drawing.Size(399, 0)
         Me.popUpPanel.TabIndex = 12
         '
         'contentPopUpLabel
@@ -479,9 +498,10 @@ Partial Class Home
         Me.contentPopUpLabel.AutoSize = True
         Me.contentPopUpLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.contentPopUpLabel.ForeColor = System.Drawing.Color.White
-        Me.contentPopUpLabel.Location = New System.Drawing.Point(83, -26)
+        Me.contentPopUpLabel.Location = New System.Drawing.Point(52, -21)
+        Me.contentPopUpLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.contentPopUpLabel.Name = "contentPopUpLabel"
-        Me.contentPopUpLabel.Size = New System.Drawing.Size(365, 1)
+        Me.contentPopUpLabel.Size = New System.Drawing.Size(295, 1)
         Me.contentPopUpLabel.TabIndex = 10
         Me.contentPopUpLabel.Text = "Voulez-vous supprimer tous les produit ?"
         '
@@ -492,9 +512,10 @@ Partial Class Home
         Me.titlePopUpLabel.BackColor = System.Drawing.Color.Transparent
         Me.titlePopUpLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.titlePopUpLabel.ForeColor = System.Drawing.Color.White
-        Me.titlePopUpLabel.Location = New System.Drawing.Point(40, 0)
+        Me.titlePopUpLabel.Location = New System.Drawing.Point(17, 0)
+        Me.titlePopUpLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.titlePopUpLabel.Name = "titlePopUpLabel"
-        Me.titlePopUpLabel.Size = New System.Drawing.Size(451, 1)
+        Me.titlePopUpLabel.Size = New System.Drawing.Size(365, 1)
         Me.titlePopUpLabel.TabIndex = 3
         Me.titlePopUpLabel.Text = "Suppression de tous les produits"
         '
@@ -502,10 +523,10 @@ Partial Class Home
         '
         Me.FlowLayoutPanel2.Controls.Add(Me.cancelPopUpButton)
         Me.FlowLayoutPanel2.Controls.Add(Me.validPopUpButton)
-        Me.FlowLayoutPanel2.Location = New System.Drawing.Point(3, -50)
-        Me.FlowLayoutPanel2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.FlowLayoutPanel2.Location = New System.Drawing.Point(2, -40)
+        Me.FlowLayoutPanel2.Margin = New System.Windows.Forms.Padding(2)
         Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
-        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(525, 47)
+        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(394, 38)
         Me.FlowLayoutPanel2.TabIndex = 11
         '
         'cancelPopUpButton
@@ -517,10 +538,10 @@ Partial Class Home
         Me.cancelPopUpButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveCaption
         Me.cancelPopUpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cancelPopUpButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cancelPopUpButton.Location = New System.Drawing.Point(29, 2)
-        Me.cancelPopUpButton.Margin = New System.Windows.Forms.Padding(29, 2, 3, 2)
+        Me.cancelPopUpButton.Location = New System.Drawing.Point(22, 2)
+        Me.cancelPopUpButton.Margin = New System.Windows.Forms.Padding(22, 2, 2, 2)
         Me.cancelPopUpButton.Name = "cancelPopUpButton"
-        Me.cancelPopUpButton.Size = New System.Drawing.Size(217, 36)
+        Me.cancelPopUpButton.Size = New System.Drawing.Size(163, 29)
         Me.cancelPopUpButton.TabIndex = 10
         Me.cancelPopUpButton.Text = "Annuler"
         Me.cancelPopUpButton.UseVisualStyleBackColor = False
@@ -535,10 +556,10 @@ Partial Class Home
         Me.validPopUpButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveCaption
         Me.validPopUpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.validPopUpButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.validPopUpButton.Location = New System.Drawing.Point(300, 2)
-        Me.validPopUpButton.Margin = New System.Windows.Forms.Padding(51, 2, 3, 2)
+        Me.validPopUpButton.Location = New System.Drawing.Point(225, 2)
+        Me.validPopUpButton.Margin = New System.Windows.Forms.Padding(38, 2, 2, 2)
         Me.validPopUpButton.Name = "validPopUpButton"
-        Me.validPopUpButton.Size = New System.Drawing.Size(217, 36)
+        Me.validPopUpButton.Size = New System.Drawing.Size(163, 29)
         Me.validPopUpButton.TabIndex = 10
         Me.validPopUpButton.Text = "Oui"
         Me.validPopUpButton.UseVisualStyleBackColor = False
@@ -546,10 +567,10 @@ Partial Class Home
         'articlePanel
         '
         Me.articlePanel.AutoScroll = True
-        Me.articlePanel.Location = New System.Drawing.Point(55, 101)
-        Me.articlePanel.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.articlePanel.Location = New System.Drawing.Point(41, 82)
+        Me.articlePanel.Margin = New System.Windows.Forms.Padding(2)
         Me.articlePanel.Name = "articlePanel"
-        Me.articlePanel.Size = New System.Drawing.Size(997, 530)
+        Me.articlePanel.Size = New System.Drawing.Size(748, 431)
         Me.articlePanel.TabIndex = 13
         '
         'menuPanel
@@ -560,10 +581,10 @@ Partial Class Home
         Me.menuPanel.Controls.Add(Me.menuFraisButton)
         Me.menuPanel.Controls.Add(Me.menuEpicerieSaleeButton)
         Me.menuPanel.Controls.Add(Me.menuEpicerieSucreeButton)
-        Me.menuPanel.Location = New System.Drawing.Point(145, 34)
-        Me.menuPanel.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.menuPanel.Location = New System.Drawing.Point(109, 28)
+        Me.menuPanel.Margin = New System.Windows.Forms.Padding(2)
         Me.menuPanel.Name = "menuPanel"
-        Me.menuPanel.Size = New System.Drawing.Size(731, 43)
+        Me.menuPanel.Size = New System.Drawing.Size(548, 35)
         Me.menuPanel.TabIndex = 10
         '
         'menuBoissonsButton
@@ -575,10 +596,10 @@ Partial Class Home
         Me.menuBoissonsButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
         Me.menuBoissonsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.menuBoissonsButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.menuBoissonsButton.Location = New System.Drawing.Point(508, 1)
-        Me.menuBoissonsButton.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.menuBoissonsButton.Location = New System.Drawing.Point(381, 1)
+        Me.menuBoissonsButton.Margin = New System.Windows.Forms.Padding(2)
         Me.menuBoissonsButton.Name = "menuBoissonsButton"
-        Me.menuBoissonsButton.Size = New System.Drawing.Size(116, 42)
+        Me.menuBoissonsButton.Size = New System.Drawing.Size(87, 34)
         Me.menuBoissonsButton.TabIndex = 7
         Me.menuBoissonsButton.Text = "Boissons"
         Me.menuBoissonsButton.UseVisualStyleBackColor = False
@@ -593,9 +614,9 @@ Partial Class Home
         Me.menuMarcheButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.menuMarcheButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.menuMarcheButton.Location = New System.Drawing.Point(1, 1)
-        Me.menuMarcheButton.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.menuMarcheButton.Margin = New System.Windows.Forms.Padding(2)
         Me.menuMarcheButton.Name = "menuMarcheButton"
-        Me.menuMarcheButton.Size = New System.Drawing.Size(107, 42)
+        Me.menuMarcheButton.Size = New System.Drawing.Size(80, 34)
         Me.menuMarcheButton.TabIndex = 3
         Me.menuMarcheButton.Text = "Marché"
         Me.menuMarcheButton.UseVisualStyleBackColor = False
@@ -609,10 +630,10 @@ Partial Class Home
         Me.menuSurgelesButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
         Me.menuSurgelesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.menuSurgelesButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.menuSurgelesButton.Location = New System.Drawing.Point(623, 1)
-        Me.menuSurgelesButton.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.menuSurgelesButton.Location = New System.Drawing.Point(467, 1)
+        Me.menuSurgelesButton.Margin = New System.Windows.Forms.Padding(2)
         Me.menuSurgelesButton.Name = "menuSurgelesButton"
-        Me.menuSurgelesButton.Size = New System.Drawing.Size(108, 42)
+        Me.menuSurgelesButton.Size = New System.Drawing.Size(81, 34)
         Me.menuSurgelesButton.TabIndex = 8
         Me.menuSurgelesButton.Text = "Surgelés"
         Me.menuSurgelesButton.UseVisualStyleBackColor = False
@@ -626,10 +647,10 @@ Partial Class Home
         Me.menuFraisButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
         Me.menuFraisButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.menuFraisButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.menuFraisButton.Location = New System.Drawing.Point(107, 1)
-        Me.menuFraisButton.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.menuFraisButton.Location = New System.Drawing.Point(80, 1)
+        Me.menuFraisButton.Margin = New System.Windows.Forms.Padding(2)
         Me.menuFraisButton.Name = "menuFraisButton"
-        Me.menuFraisButton.Size = New System.Drawing.Size(85, 42)
+        Me.menuFraisButton.Size = New System.Drawing.Size(64, 34)
         Me.menuFraisButton.TabIndex = 4
         Me.menuFraisButton.Text = "Frais"
         Me.menuFraisButton.UseVisualStyleBackColor = False
@@ -643,10 +664,10 @@ Partial Class Home
         Me.menuEpicerieSaleeButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
         Me.menuEpicerieSaleeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.menuEpicerieSaleeButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.menuEpicerieSaleeButton.Location = New System.Drawing.Point(192, 1)
-        Me.menuEpicerieSaleeButton.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.menuEpicerieSaleeButton.Location = New System.Drawing.Point(144, 1)
+        Me.menuEpicerieSaleeButton.Margin = New System.Windows.Forms.Padding(2)
         Me.menuEpicerieSaleeButton.Name = "menuEpicerieSaleeButton"
-        Me.menuEpicerieSaleeButton.Size = New System.Drawing.Size(156, 42)
+        Me.menuEpicerieSaleeButton.Size = New System.Drawing.Size(117, 34)
         Me.menuEpicerieSaleeButton.TabIndex = 5
         Me.menuEpicerieSaleeButton.Text = "Epicerie Salée"
         Me.menuEpicerieSaleeButton.UseVisualStyleBackColor = False
@@ -660,10 +681,10 @@ Partial Class Home
         Me.menuEpicerieSucreeButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
         Me.menuEpicerieSucreeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.menuEpicerieSucreeButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.menuEpicerieSucreeButton.Location = New System.Drawing.Point(347, 1)
-        Me.menuEpicerieSucreeButton.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.menuEpicerieSucreeButton.Location = New System.Drawing.Point(260, 1)
+        Me.menuEpicerieSucreeButton.Margin = New System.Windows.Forms.Padding(2)
         Me.menuEpicerieSucreeButton.Name = "menuEpicerieSucreeButton"
-        Me.menuEpicerieSucreeButton.Size = New System.Drawing.Size(163, 42)
+        Me.menuEpicerieSucreeButton.Size = New System.Drawing.Size(122, 34)
         Me.menuEpicerieSucreeButton.TabIndex = 6
         Me.menuEpicerieSucreeButton.Text = "Epicerie Sucrée"
         Me.menuEpicerieSucreeButton.UseVisualStyleBackColor = False
@@ -674,10 +695,10 @@ Partial Class Home
         Me.affGridPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.affGridPanel.Controls.Add(Me.ShapeContainer3)
         Me.affGridPanel.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.affGridPanel.Location = New System.Drawing.Point(1000, 34)
-        Me.affGridPanel.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.affGridPanel.Location = New System.Drawing.Point(750, 28)
+        Me.affGridPanel.Margin = New System.Windows.Forms.Padding(2)
         Me.affGridPanel.Name = "affGridPanel"
-        Me.affGridPanel.Size = New System.Drawing.Size(53, 44)
+        Me.affGridPanel.Size = New System.Drawing.Size(40, 36)
         Me.affGridPanel.TabIndex = 2
         '
         'ShapeContainer3
@@ -686,7 +707,7 @@ Partial Class Home
         Me.ShapeContainer3.Margin = New System.Windows.Forms.Padding(0)
         Me.ShapeContainer3.Name = "ShapeContainer3"
         Me.ShapeContainer3.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.RectangleShape4, Me.RectangleShape3, Me.RectangleShape2, Me.RectangleShape1})
-        Me.ShapeContainer3.Size = New System.Drawing.Size(51, 42)
+        Me.ShapeContainer3.Size = New System.Drawing.Size(38, 34)
         Me.ShapeContainer3.TabIndex = 0
         Me.ShapeContainer3.TabStop = False
         '
@@ -725,10 +746,10 @@ Partial Class Home
         Me.affListPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.affListPanel.Controls.Add(Me.ShapeContainer2)
         Me.affListPanel.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.affListPanel.Location = New System.Drawing.Point(949, 34)
-        Me.affListPanel.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.affListPanel.Location = New System.Drawing.Point(712, 28)
+        Me.affListPanel.Margin = New System.Windows.Forms.Padding(2)
         Me.affListPanel.Name = "affListPanel"
-        Me.affListPanel.Size = New System.Drawing.Size(53, 44)
+        Me.affListPanel.Size = New System.Drawing.Size(40, 36)
         Me.affListPanel.TabIndex = 1
         '
         'ShapeContainer2
@@ -737,7 +758,7 @@ Partial Class Home
         Me.ShapeContainer2.Margin = New System.Windows.Forms.Padding(0)
         Me.ShapeContainer2.Name = "ShapeContainer2"
         Me.ShapeContainer2.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.LineShape5, Me.LineShape4, Me.LineShape3, Me.LineShape2})
-        Me.ShapeContainer2.Size = New System.Drawing.Size(51, 42)
+        Me.ShapeContainer2.Size = New System.Drawing.Size(38, 34)
         Me.ShapeContainer2.TabIndex = 0
         Me.ShapeContainer2.TabStop = False
         '
@@ -780,17 +801,17 @@ Partial Class Home
         'cartPanel
         '
         Me.cartPanel.BackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.cartPanel.Controls.Add(Me.ListView1)
         Me.cartPanel.Controls.Add(Me.cartSaveButton)
         Me.cartPanel.Controls.Add(Me.cartTotalPriceLabel)
         Me.cartPanel.Controls.Add(Me.cartSuppressionButton)
         Me.cartPanel.Controls.Add(Me.cartDetailButton)
         Me.cartPanel.Controls.Add(Me.cartListButton)
         Me.cartPanel.Controls.Add(Me.cartValidationButton)
-        Me.cartPanel.Controls.Add(Me.cartListView)
-        Me.cartPanel.Location = New System.Drawing.Point(1101, 86)
-        Me.cartPanel.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.cartPanel.Location = New System.Drawing.Point(826, 70)
+        Me.cartPanel.Margin = New System.Windows.Forms.Padding(2)
         Me.cartPanel.Name = "cartPanel"
-        Me.cartPanel.Size = New System.Drawing.Size(245, 638)
+        Me.cartPanel.Size = New System.Drawing.Size(184, 518)
         Me.cartPanel.TabIndex = 4
         '
         'cartSaveButton
@@ -801,10 +822,10 @@ Partial Class Home
         Me.cartSaveButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveCaption
         Me.cartSaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cartSaveButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cartSaveButton.Location = New System.Drawing.Point(15, 576)
-        Me.cartSaveButton.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.cartSaveButton.Location = New System.Drawing.Point(11, 468)
+        Me.cartSaveButton.Margin = New System.Windows.Forms.Padding(2)
         Me.cartSaveButton.Name = "cartSaveButton"
-        Me.cartSaveButton.Size = New System.Drawing.Size(221, 28)
+        Me.cartSaveButton.Size = New System.Drawing.Size(166, 23)
         Me.cartSaveButton.TabIndex = 7
         Me.cartSaveButton.Text = "Sauvegarder"
         Me.cartSaveButton.UseVisualStyleBackColor = True
@@ -814,9 +835,10 @@ Partial Class Home
         Me.cartTotalPriceLabel.AutoSize = True
         Me.cartTotalPriceLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cartTotalPriceLabel.ForeColor = System.Drawing.Color.DimGray
-        Me.cartTotalPriceLabel.Location = New System.Drawing.Point(41, 434)
+        Me.cartTotalPriceLabel.Location = New System.Drawing.Point(31, 353)
+        Me.cartTotalPriceLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.cartTotalPriceLabel.Name = "cartTotalPriceLabel"
-        Me.cartTotalPriceLabel.Size = New System.Drawing.Size(156, 32)
+        Me.cartTotalPriceLabel.Size = New System.Drawing.Size(119, 26)
         Me.cartTotalPriceLabel.TabIndex = 6
         Me.cartTotalPriceLabel.Text = "Total : 56 €"
         '
@@ -828,10 +850,10 @@ Partial Class Home
         Me.cartSuppressionButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveCaption
         Me.cartSuppressionButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cartSuppressionButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cartSuppressionButton.Location = New System.Drawing.Point(13, 542)
-        Me.cartSuppressionButton.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.cartSuppressionButton.Location = New System.Drawing.Point(10, 440)
+        Me.cartSuppressionButton.Margin = New System.Windows.Forms.Padding(2)
         Me.cartSuppressionButton.Name = "cartSuppressionButton"
-        Me.cartSuppressionButton.Size = New System.Drawing.Size(221, 32)
+        Me.cartSuppressionButton.Size = New System.Drawing.Size(166, 26)
         Me.cartSuppressionButton.TabIndex = 5
         Me.cartSuppressionButton.Text = "Supprimer"
         Me.cartSuppressionButton.UseVisualStyleBackColor = True
@@ -844,10 +866,10 @@ Partial Class Home
         Me.cartDetailButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveCaption
         Me.cartDetailButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cartDetailButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cartDetailButton.Location = New System.Drawing.Point(13, 503)
-        Me.cartDetailButton.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.cartDetailButton.Location = New System.Drawing.Point(10, 409)
+        Me.cartDetailButton.Margin = New System.Windows.Forms.Padding(2)
         Me.cartDetailButton.Name = "cartDetailButton"
-        Me.cartDetailButton.Size = New System.Drawing.Size(221, 34)
+        Me.cartDetailButton.Size = New System.Drawing.Size(166, 28)
         Me.cartDetailButton.TabIndex = 4
         Me.cartDetailButton.Text = "Détails"
         Me.cartDetailButton.UseVisualStyleBackColor = True
@@ -860,10 +882,10 @@ Partial Class Home
         Me.cartListButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveCaption
         Me.cartListButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cartListButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cartListButton.Location = New System.Drawing.Point(13, 608)
-        Me.cartListButton.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.cartListButton.Location = New System.Drawing.Point(10, 494)
+        Me.cartListButton.Margin = New System.Windows.Forms.Padding(2)
         Me.cartListButton.Name = "cartListButton"
-        Me.cartListButton.Size = New System.Drawing.Size(221, 26)
+        Me.cartListButton.Size = New System.Drawing.Size(166, 21)
         Me.cartListButton.TabIndex = 3
         Me.cartListButton.Text = "Mes listes"
         Me.cartListButton.UseVisualStyleBackColor = True
@@ -876,33 +898,68 @@ Partial Class Home
         Me.cartValidationButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveCaption
         Me.cartValidationButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cartValidationButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cartValidationButton.Location = New System.Drawing.Point(13, 469)
-        Me.cartValidationButton.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.cartValidationButton.Location = New System.Drawing.Point(10, 381)
+        Me.cartValidationButton.Margin = New System.Windows.Forms.Padding(2)
         Me.cartValidationButton.Name = "cartValidationButton"
-        Me.cartValidationButton.Size = New System.Drawing.Size(221, 30)
+        Me.cartValidationButton.Size = New System.Drawing.Size(166, 24)
         Me.cartValidationButton.TabIndex = 2
         Me.cartValidationButton.Text = "Valider"
         Me.cartValidationButton.UseVisualStyleBackColor = True
         '
-        'cartListView
+        'ListView1
         '
-        Me.cartListView.BackColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.cartListView.Location = New System.Drawing.Point(0, -1)
-        Me.cartListView.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.cartListView.Name = "cartListView"
-        Me.cartListView.Size = New System.Drawing.Size(247, 434)
-        Me.cartListView.TabIndex = 1
-        Me.cartListView.UseCompatibleStateImageBehavior = False
+        Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3})
+        Me.ListView1.Items.AddRange(New System.Windows.Forms.ListViewItem() {ListViewItem1})
+        Me.ListView1.LargeImageList = Me.ImageList1
+        Me.ListView1.Location = New System.Drawing.Point(0, -1)
+        Me.ListView1.Name = "ListView1"
+        Me.ListView1.Size = New System.Drawing.Size(185, 351)
+        Me.ListView1.SmallImageList = Me.ImageList1
+        Me.ListView1.TabIndex = 0
+        Me.ListView1.UseCompatibleStateImageBehavior = False
+        Me.ListView1.View = System.Windows.Forms.View.Details
+        '
+        'ColumnHeader1
+        '
+        Me.ColumnHeader1.Text = "Articles"
+        Me.ColumnHeader1.Width = 96
+        '
+        'ColumnHeader2
+        '
+        Me.ColumnHeader2.Text = "Prix"
+        '
+        'ColumnHeader3
+        '
+        Me.ColumnHeader3.Text = "Qte"
+        '
+        'ImageList1
+        '
+        Me.ImageList1.ImageStream = CType(resources.GetObject("ImageList1.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
+        Me.ImageList1.Images.SetKeyName(0, "carambar.jpg")
+        Me.ImageList1.Images.SetKeyName(1, "cerise.jpg")
+        Me.ImageList1.Images.SetKeyName(2, "coca.jpg")
+        Me.ImageList1.Images.SetKeyName(3, "evian.jpg")
+        Me.ImageList1.Images.SetKeyName(4, "lait.jpg")
+        Me.ImageList1.Images.SetKeyName(5, "litchi.jpg")
+        Me.ImageList1.Images.SetKeyName(6, "malabar.jpg")
+        Me.ImageList1.Images.SetKeyName(7, "orange.jpg")
+        Me.ImageList1.Images.SetKeyName(8, "poisson_pane.jpg")
+        Me.ImageList1.Images.SetKeyName(9, "pomme - Copie.jpg")
+        Me.ImageList1.Images.SetKeyName(10, "pomme.jpg")
+        Me.ImageList1.Images.SetKeyName(11, "saucisson.jpg")
+        Me.ImageList1.Images.SetKeyName(12, "saumon.jpg")
+        Me.ImageList1.Images.SetKeyName(13, "steak.JPG")
         '
         'Home
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1348, 721)
+        Me.ClientSize = New System.Drawing.Size(1011, 586)
         Me.Controls.Add(Me.headerPanel)
         Me.Controls.Add(Me.centerPanel)
         Me.Controls.Add(Me.cartPanel)
-        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "Home"
         Me.Text = "Form1"
         Me.headerPanel.ResumeLayout(False)
@@ -950,7 +1007,6 @@ Partial Class Home
     Friend WithEvents cartPanel As System.Windows.Forms.Panel
     Friend WithEvents cartListButton As System.Windows.Forms.Button
     Friend WithEvents cartValidationButton As System.Windows.Forms.Button
-    Friend WithEvents cartListView As System.Windows.Forms.ListView
     Friend WithEvents cartTotalPriceLabel As System.Windows.Forms.Label
     Friend WithEvents cartSuppressionButton As System.Windows.Forms.Button
     Friend WithEvents cartDetailButton As System.Windows.Forms.Button
@@ -988,5 +1044,10 @@ Partial Class Home
     Friend WithEvents detailPriceKgLabel As System.Windows.Forms.Label
     Friend WithEvents detailOriginLabel As System.Windows.Forms.Label
     Friend WithEvents detailCloseButton As System.Windows.Forms.Button
+    Friend WithEvents ListView1 As System.Windows.Forms.ListView
+    Friend WithEvents ColumnHeader1 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader2 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader3 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ImageList1 As System.Windows.Forms.ImageList
 
 End Class
