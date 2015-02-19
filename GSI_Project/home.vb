@@ -175,7 +175,7 @@
         Dim eau As WindowsApplication1.Article
         eau = New Article("Eau Evian", "Boisson", "Evian", 0.5, 1.5, "France", "Eau minérale naturelle Evian", "evian.jpg")
         Dim lait As WindowsApplication1.Article
-        lait = New Article("Lait demi écrémé", "Boisson", "Lactel", 0.46, 1, "France", "Lait de vache", "lait.jpg")
+        lait = New Article("Lait bio", "Boisson", "Lactel", 0.46, 1, "France", "Lait de vache", "lait.jpg")
         Dim coca As WindowsApplication1.Article
         coca = New Article("Coca-cola", "Boisson", "Coca", 1.6, 1, "USA", "Boisson gazeuse", "coca.jpg")
         Dim jusOrange As WindowsApplication1.Article

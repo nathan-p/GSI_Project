@@ -55,7 +55,7 @@
         '
         Me.labelNomArticle.AutoSize = True
         Me.labelNomArticle.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.labelNomArticle.Location = New System.Drawing.Point(11, 24)
+        Me.labelNomArticle.Location = New System.Drawing.Point(8, 8)
         Me.labelNomArticle.Name = "labelNomArticle"
         Me.labelNomArticle.Size = New System.Drawing.Size(24, 28)
         Me.labelNomArticle.TabIndex = 0
