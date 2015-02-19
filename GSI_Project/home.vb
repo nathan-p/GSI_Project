@@ -101,7 +101,6 @@ Public Class Home
     End Sub
 
     Public Sub showDetailPopUp()
-        cartSuppressionButton.Text = "FUCK"
         detailPopUpPanel.Height = 350
         detailPopUpPanel.Visible = True
 
