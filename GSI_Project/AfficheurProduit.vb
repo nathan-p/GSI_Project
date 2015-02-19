@@ -8,7 +8,10 @@
         InitializeComponent()
         Me.home = hom
         Me.article = art
-        qte = 0
+        If (Not home.getPanier().ContainsKey(article)) Then
+            home.getPanier.Add(article, 0)
+        End If
+        Me.qte = home.getPanier().Item(article)
         updateStock()
         initLabels()
     End Sub
@@ -19,7 +22,7 @@
         Me.labelMarque.Text = article.brand
         Me.labelPoids.Text = String.Concat(article.weight, " kg")
         Me.labelPrix.Text = String.Concat(article.price, " €")
-        Me.LabelStock.Text = String.Concat("Stock : ", article.stock)
+        Me.LabelStock.Text = String.Concat("En Stock : ", article.stock)
     End Sub
 
     '********************************************************************************
@@ -30,6 +33,8 @@
         'Modifications des labels
         Me.LabelStock.Text = String.Concat("En stock : ", Me.article.stock)
         Me.labelQuantite.Text = Me.qte
+        home.getPanier.Remove(article)
+        home.getPanier.Add(article, qte)
         'Enable des boutons
         If (Me.article.stock = 0) Then
             Me.boutonAjouter.Enabled = False

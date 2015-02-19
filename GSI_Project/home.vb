@@ -22,6 +22,7 @@
     Dim nbProduct As Integer
     Dim listArticles As ArrayList
     Dim categorieActif As categorie
+    Dim panier As New Dictionary(Of Article, Integer)
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'INITIALISATION DES ATTRIBUTS
@@ -255,8 +256,7 @@
         addArticlesInPanel()
     End Sub
 
-    Sub addArticlesInPanel()
-        Dim afficheur As AfficheurProduit
+    Private Sub addArticlesInPanel()
         Me.articlePanel.Controls.Clear()
         Dim cat As String
         cat = New String("")
@@ -281,13 +281,19 @@
                 Console.WriteLine(item.name)
                 'afficheur = New AfficheurArticle(item, Me)
                 'Me.articlePanel.Controls.Add(afficheur)
-
                 Me.articlePanel.Controls.Add(New AfficheurProduit(item, Me))
             End If
         Next
     End Sub
 
-
+    Public Property getPanier() As Dictionary(Of Article, Integer)
+        Get
+            Return panier
+        End Get
+        Set(ByVal value As Dictionary(Of Article, Integer))
+            panier = value
+        End Set
+    End Property
 
 
 
