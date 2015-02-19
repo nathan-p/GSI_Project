@@ -2,9 +2,9 @@
 
     Dim home As Home
     Dim article As Article
-    Dim qte As Integer
+    Dim qte As Integer 'Quantité à récupérer du panier de Home
 
-    Public Sub New(ByVal art As Article, ByVal hom As Home)
+    Public Sub New(ByRef art As Article, ByVal hom As Home)
         InitializeComponent()
         Me.home = hom
         Me.article = art
