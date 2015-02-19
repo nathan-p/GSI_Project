@@ -282,7 +282,12 @@ Public Class Home
         For Each item As Article In listArticles
             If (item.category = cat) Then
                 Console.WriteLine(item.name)
-                Me.articlePanel.Controls.Add(New AfficheurProduit(item, Me))
+                Dim afficheur As AfficheurProduit
+                afficheur = New AfficheurProduit(item, Me)
+                Dim path As String = Directory.GetCurrentDirectory()
+                afficheur.imageBox.Image = Image.FromFile(path + "\Ressources\" + item.img)
+                Me.articlePanel.Controls.Add(afficheur)
+
             End If
         Next
     End Sub

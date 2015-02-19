@@ -114,9 +114,10 @@ Partial Class AfficheurProduit
         Me.imageBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.imageBox.Image = Global.WindowsApplication1.My.Resources.Resources.pomme___Copie
         Me.imageBox.Location = New System.Drawing.Point(16, 43)
-        Me.imageBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.imageBox.Margin = New System.Windows.Forms.Padding(2)
         Me.imageBox.Name = "imageBox"
         Me.imageBox.Size = New System.Drawing.Size(77, 72)
+        Me.imageBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.imageBox.TabIndex = 16
         Me.imageBox.TabStop = False
         '
@@ -211,7 +212,7 @@ Partial Class AfficheurProduit
         Me.Controls.Add(Me.labelPlusInfo)
         Me.Controls.Add(Me.labelNomArticle)
         Me.Controls.Add(Me.ShapeContainer1)
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "AfficheurProduit"
         Me.Size = New System.Drawing.Size(202, 207)
         CType(Me.imageBox, System.ComponentModel.ISupportInitialize).EndInit()
