@@ -67,7 +67,7 @@ Partial Class AfficheurProduit
         Me.labelAjouter.BackColor = System.Drawing.Color.LightGreen
         Me.labelAjouter.Enabled = False
         Me.labelAjouter.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.labelAjouter.Location = New System.Drawing.Point(220, 185)
+        Me.labelAjouter.Location = New System.Drawing.Point(235, 181)
         Me.labelAjouter.Name = "labelAjouter"
         Me.labelAjouter.Size = New System.Drawing.Size(35, 37)
         Me.labelAjouter.TabIndex = 21
@@ -143,7 +143,7 @@ Partial Class AfficheurProduit
         '
         Me.boutonRetirer.FillColor = System.Drawing.Color.LightCoral
         Me.boutonRetirer.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid
-        Me.boutonRetirer.Location = New System.Drawing.Point(137, 187)
+        Me.boutonRetirer.Location = New System.Drawing.Point(138, 186)
         Me.boutonRetirer.Name = "boutonRetirer"
         Me.boutonRetirer.Size = New System.Drawing.Size(32, 33)
         '
@@ -153,7 +153,7 @@ Partial Class AfficheurProduit
         Me.ShapeContainer1.Margin = New System.Windows.Forms.Padding(0)
         Me.ShapeContainer1.Name = "ShapeContainer1"
         Me.ShapeContainer1.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.boutonAjouter, Me.boutonRetirer})
-        Me.ShapeContainer1.Size = New System.Drawing.Size(269, 239)
+        Me.ShapeContainer1.Size = New System.Drawing.Size(303, 249)
         Me.ShapeContainer1.TabIndex = 23
         Me.ShapeContainer1.TabStop = False
         '
@@ -162,7 +162,7 @@ Partial Class AfficheurProduit
         Me.boutonAjouter.FillColor = System.Drawing.Color.LightGreen
         Me.boutonAjouter.FillGradientColor = System.Drawing.Color.ForestGreen
         Me.boutonAjouter.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid
-        Me.boutonAjouter.Location = New System.Drawing.Point(211, 179)
+        Me.boutonAjouter.Location = New System.Drawing.Point(225, 173)
         Me.boutonAjouter.Name = "boutonAjouter"
         Me.boutonAjouter.Size = New System.Drawing.Size(53, 51)
         '
@@ -177,9 +177,10 @@ Partial Class AfficheurProduit
         '
         'TextBoxQuantite
         '
-        Me.TextBoxQuantite.Location = New System.Drawing.Point(112, 154)
+        Me.TextBoxQuantite.Location = New System.Drawing.Point(183, 191)
+        Me.TextBoxQuantite.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.TextBoxQuantite.Name = "TextBoxQuantite"
-        Me.TextBoxQuantite.Size = New System.Drawing.Size(28, 20)
+        Me.TextBoxQuantite.Size = New System.Drawing.Size(28, 22)
         Me.TextBoxQuantite.TabIndex = 25
         '
         'AfficheurProduit
@@ -202,7 +203,7 @@ Partial Class AfficheurProduit
         Me.Controls.Add(Me.ShapeContainer1)
         Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Name = "AfficheurProduit"
-        Me.Size = New System.Drawing.Size(269, 239)
+        Me.Size = New System.Drawing.Size(303, 249)
         CType(Me.imageBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()

@@ -207,8 +207,8 @@ Partial Class Home
         Me.detailPopUpPanel.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.detailPopUpPanel.Name = "detailPopUpPanel"
         Me.detailPopUpPanel.RowCount = 2
-        Me.detailPopUpPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 58.0!))
-        Me.detailPopUpPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 42.0!))
+        Me.detailPopUpPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.0!))
+        Me.detailPopUpPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34.0!))
         Me.detailPopUpPanel.Size = New System.Drawing.Size(600, 350)
         Me.detailPopUpPanel.TabIndex = 14
         Me.detailPopUpPanel.Visible = False
@@ -219,7 +219,7 @@ Partial Class Home
         Me.detailPriceLabel.AutoSize = True
         Me.detailPriceLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.detailPriceLabel.ForeColor = System.Drawing.Color.White
-        Me.detailPriceLabel.Location = New System.Drawing.Point(68, 231)
+        Me.detailPriceLabel.Location = New System.Drawing.Point(68, 245)
         Me.detailPriceLabel.Name = "detailPriceLabel"
         Me.detailPriceLabel.Size = New System.Drawing.Size(148, 91)
         Me.detailPriceLabel.TabIndex = 0
@@ -230,7 +230,7 @@ Partial Class Home
         Me.detailImgPictureBox.Location = New System.Drawing.Point(3, 2)
         Me.detailImgPictureBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.detailImgPictureBox.Name = "detailImgPictureBox"
-        Me.detailImgPictureBox.Size = New System.Drawing.Size(277, 193)
+        Me.detailImgPictureBox.Size = New System.Drawing.Size(277, 225)
         Me.detailImgPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.detailImgPictureBox.TabIndex = 1
         Me.detailImgPictureBox.TabStop = False
@@ -241,9 +241,9 @@ Partial Class Home
         Me.detailSpecLabel.AutoSize = True
         Me.detailSpecLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.detailSpecLabel.ForeColor = System.Drawing.Color.White
-        Me.detailSpecLabel.Location = New System.Drawing.Point(288, 203)
+        Me.detailSpecLabel.Location = New System.Drawing.Point(288, 231)
         Me.detailSpecLabel.Name = "detailSpecLabel"
-        Me.detailSpecLabel.Size = New System.Drawing.Size(275, 147)
+        Me.detailSpecLabel.Size = New System.Drawing.Size(275, 119)
         Me.detailSpecLabel.TabIndex = 2
         Me.detailSpecLabel.Text = resources.GetString("detailSpecLabel.Text")
         '
@@ -260,7 +260,7 @@ Partial Class Home
         Me.FlowLayoutPanel1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
         Me.FlowLayoutPanel1.Padding = New System.Windows.Forms.Padding(0, 20, 0, 0)
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(277, 190)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(277, 225)
         Me.FlowLayoutPanel1.TabIndex = 3
         '
         'detailNameLabel
@@ -545,10 +545,11 @@ Partial Class Home
         '
         'articlePanel
         '
+        Me.articlePanel.AutoScroll = True
         Me.articlePanel.Location = New System.Drawing.Point(55, 101)
         Me.articlePanel.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.articlePanel.Name = "articlePanel"
-        Me.articlePanel.Size = New System.Drawing.Size(997, 531)
+        Me.articlePanel.Size = New System.Drawing.Size(997, 530)
         Me.articlePanel.TabIndex = 13
         '
         'menuPanel
@@ -574,7 +575,7 @@ Partial Class Home
         Me.menuBoissonsButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
         Me.menuBoissonsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.menuBoissonsButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.menuBoissonsButton.Location = New System.Drawing.Point(507, 1)
+        Me.menuBoissonsButton.Location = New System.Drawing.Point(508, 1)
         Me.menuBoissonsButton.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.menuBoissonsButton.Name = "menuBoissonsButton"
         Me.menuBoissonsButton.Size = New System.Drawing.Size(116, 42)
@@ -608,7 +609,7 @@ Partial Class Home
         Me.menuSurgelesButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
         Me.menuSurgelesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.menuSurgelesButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.menuSurgelesButton.Location = New System.Drawing.Point(622, 1)
+        Me.menuSurgelesButton.Location = New System.Drawing.Point(623, 1)
         Me.menuSurgelesButton.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.menuSurgelesButton.Name = "menuSurgelesButton"
         Me.menuSurgelesButton.Size = New System.Drawing.Size(108, 42)
@@ -642,7 +643,7 @@ Partial Class Home
         Me.menuEpicerieSaleeButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
         Me.menuEpicerieSaleeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.menuEpicerieSaleeButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.menuEpicerieSaleeButton.Location = New System.Drawing.Point(191, 1)
+        Me.menuEpicerieSaleeButton.Location = New System.Drawing.Point(192, 1)
         Me.menuEpicerieSaleeButton.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.menuEpicerieSaleeButton.Name = "menuEpicerieSaleeButton"
         Me.menuEpicerieSaleeButton.Size = New System.Drawing.Size(156, 42)
@@ -659,7 +660,7 @@ Partial Class Home
         Me.menuEpicerieSucreeButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
         Me.menuEpicerieSucreeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.menuEpicerieSucreeButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.menuEpicerieSucreeButton.Location = New System.Drawing.Point(346, 1)
+        Me.menuEpicerieSucreeButton.Location = New System.Drawing.Point(347, 1)
         Me.menuEpicerieSucreeButton.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.menuEpicerieSucreeButton.Name = "menuEpicerieSucreeButton"
         Me.menuEpicerieSucreeButton.Size = New System.Drawing.Size(163, 42)
