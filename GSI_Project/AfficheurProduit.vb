@@ -81,7 +81,19 @@
         Me.updateStock()
     End Sub
 
+    Private Sub boutonAjouter_DoubleClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles boutonAjouter.DoubleClick
+        Me.article.stock -= 1
+        Me.qte += 1
+        Me.updateStock()
+    End Sub
+
     Private Sub boutonRetirer_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles boutonRetirer.Click
+        Me.article.stock += 1
+        Me.qte -= 1
+        Me.updateStock()
+    End Sub
+
+    Private Sub boutonRetirer_DoubleClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles boutonRetirer.DoubleClick
         Me.article.stock += 1
         Me.qte -= 1
         Me.updateStock()
