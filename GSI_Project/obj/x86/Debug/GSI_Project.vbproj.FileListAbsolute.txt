@@ -8,3 +8,4 @@ C:\Users\nathan\git\GSI_Project\GSI_Project\obj\x86\Debug\GSI_Project.xml
 C:\Users\nathan\git\GSI_Project\GSI_Project\obj\x86\Debug\GSI_Project.pdb
 C:\Users\nathan\git\GSI_Project\GSI_Project\obj\x86\Debug\WindowsApplication1.home.resources
 C:\Users\nathan\git\GSI_Project\GSI_Project\obj\x86\Debug\WindowsApplication1.AfficheurArticle.resources
+C:\Users\nathan\git\GSI_Project\GSI_Project\obj\x86\Debug\WindowsApplication1.UserControl1.resources

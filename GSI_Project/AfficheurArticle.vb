@@ -189,9 +189,9 @@
         '
         Me.AllowDrop = True
         Me.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Controls.Add(Me.labelMarque)
         Me.Controls.Add(Me.labelRetirer)
         Me.Controls.Add(Me.labelAjouter)
-        Me.Controls.Add(Me.labelMarque)
         Me.Controls.Add(Me.labelQuantite)
         Me.Controls.Add(Me.labelPoids)
         Me.Controls.Add(Me.labelDescription)
@@ -284,25 +284,7 @@
     '*************************** Listener         ***********************************
     '********************************************************************************
 
-    Private Sub OvalShape1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles boutonAjouter.Click
-
-    End Sub
-
-    Private Sub boutonRetirer_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles boutonRetirer.Click
-
-    End Sub
-
-    Private Sub labelAjouter_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles labelAjouter.Click
-
-        Me.labelNomArticle.Text = "CA MARCHE !"
-    End Sub
-
-    Private Sub labelRetirer_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles labelRetirer.Click
-
-    End Sub
-
     Public Sub labelPlusInfo_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles labelPlusInfo.LinkClicked
-
         Me.home.setDetailPopUp(
             article.name,
             article.category,
@@ -317,11 +299,6 @@
     End Sub
 
 
-    Private Sub labelMarque_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles labelMarque.Click
-
-    End Sub
-
-
     Private Sub AfficheurArticle_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         InitializeComponent()
         Me.AutoSize = False
@@ -330,6 +307,8 @@
     End Sub
 
     Private Sub AfficheurArticle_MouseClick(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Me.MouseClick
+        Me.labelNomArticle.Visible = False
+
         Me.home.setDetailPopUp(
              article.name,
              article.category,
@@ -343,7 +322,4 @@
         Me.home.showDetailPopUp()
     End Sub
 
-    Private Sub labelPlusInfo_MouseClick(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles labelPlusInfo.MouseClick
-        Me.labelAjouter.Text = "UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU"
-    End Sub
 End Class

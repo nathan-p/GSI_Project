@@ -8,6 +8,7 @@
     Private description As String
     Private origine As String
     Private poid As Double
+    Private qteStock As Integer
 
 
     '********************************************************************************
@@ -20,6 +21,7 @@
         Me.prix = price
         Me.marque = brand
         Me.poid = weight
+        Me.qteStock = 10
         Me.description = desc
         Me.origine = origin
         Me.urlImage = img
@@ -71,6 +73,15 @@
         End Get
         Set(ByVal value As String)
             prixAuKilo = value
+        End Set
+    End Property
+
+    Public Property stock() As Integer
+        Get
+            Return qteStock
+        End Get
+        Set(ByVal value As Integer)
+            qteStock = value
         End Set
     End Property
 

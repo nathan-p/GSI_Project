@@ -233,8 +233,10 @@
         For Each item As Article In listArticles
             If (item.category = cat) Then
                 Console.WriteLine(item.name)
-                afficheur = New AfficheurArticle(item, Me)
-                Me.articlePanel.Controls.Add(afficheur)
+                'afficheur = New AfficheurArticle(item, Me)
+                'Me.articlePanel.Controls.Add(afficheur)
+
+                Me.articlePanel.Controls.Add(New UserControl1(item, Me))
             End If
         Next
     End Sub
