@@ -9,3 +9,13 @@ C:\Users\nathan\git\GSI_Project\GSI_Project\obj\x86\Debug\GSI_Project.pdb
 C:\Users\nathan\git\GSI_Project\GSI_Project\obj\x86\Debug\WindowsApplication1.home.resources
 C:\Users\nathan\git\GSI_Project\GSI_Project\obj\x86\Debug\WindowsApplication1.AfficheurArticle.resources
 C:\Users\nathan\git\GSI_Project\GSI_Project\obj\x86\Debug\WindowsApplication1.UserControl1.resources
+C:\Users\JeanLuc\Documents\GSI_Project\GSI_Project\obj\x86\Debug\GSI_Project.xml
+C:\Users\JeanLuc\Documents\GSI_Project\GSI_Project\bin\Debug\GSI_Project.exe
+C:\Users\JeanLuc\Documents\GSI_Project\GSI_Project\bin\Debug\GSI_Project.pdb
+C:\Users\JeanLuc\Documents\GSI_Project\GSI_Project\bin\Debug\GSI_Project.xml
+C:\Users\JeanLuc\Documents\GSI_Project\GSI_Project\obj\x86\Debug\WindowsApplication1.Home.resources
+C:\Users\JeanLuc\Documents\GSI_Project\GSI_Project\obj\x86\Debug\WindowsApplication1.Resources.resources
+C:\Users\JeanLuc\Documents\GSI_Project\GSI_Project\obj\x86\Debug\GSI_Project.vbproj.GenerateResource.Cache
+C:\Users\JeanLuc\Documents\GSI_Project\GSI_Project\obj\x86\Debug\GSI_Project.exe
+C:\Users\JeanLuc\Documents\GSI_Project\GSI_Project\obj\x86\Debug\GSI_Project.pdb
+C:\Users\JeanLuc\Documents\GSI_Project\GSI_Project\obj\x86\Debug\WindowsApplication1.AfficheurProduit.resources

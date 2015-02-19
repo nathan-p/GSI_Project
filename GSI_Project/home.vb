@@ -28,7 +28,7 @@
         myState = State.CART
         categorieActif = categorie.MARCHE
         updateUI()
-
+        updateMenuButton()
         'INITIALISATION DE LA LISTE
         cartListView.View = View.Details
         cartListView.Columns.Add("Nom")
@@ -144,6 +144,52 @@
         detailBrandLabel.Text = "Marque : " + brand
     End Sub
 
+    Private Sub updateMenuButton()
+        Select Case categorieActif
+            Case categorie.BOISSONS
+                menuBoissonsButton.BackColor = Color.LightSlateGray
+                menuEpicerieSaleeButton.BackColor = Color.Gainsboro
+                menuEpicerieSucreeButton.BackColor = Color.Gainsboro
+                menuFraisButton.BackColor = Color.Gainsboro
+                menuSurgelesButton.BackColor = Color.Gainsboro
+                menuMarcheButton.BackColor = Color.Gainsboro
+            Case (categorie.FRAIS)
+                menuBoissonsButton.BackColor = Color.Gainsboro
+                menuEpicerieSaleeButton.BackColor = Color.Gainsboro
+                menuEpicerieSucreeButton.BackColor = Color.Gainsboro
+                menuFraisButton.BackColor = Color.LightSlateGray
+                menuSurgelesButton.BackColor = Color.Gainsboro
+                menuMarcheButton.BackColor = Color.Gainsboro
+            Case categorie.MARCHE
+                menuBoissonsButton.BackColor = Color.Gainsboro
+                menuEpicerieSaleeButton.BackColor = Color.Gainsboro
+                menuEpicerieSucreeButton.BackColor = Color.Gainsboro
+                menuFraisButton.BackColor = Color.Gainsboro
+                menuSurgelesButton.BackColor = Color.Gainsboro
+                menuMarcheButton.BackColor = Color.LightSlateGray
+            Case categorie.SALES
+                menuBoissonsButton.BackColor = Color.Gainsboro
+                menuEpicerieSaleeButton.BackColor = Color.LightSlateGray
+                menuEpicerieSucreeButton.BackColor = Color.Gainsboro
+                menuFraisButton.BackColor = Color.Gainsboro
+                menuSurgelesButton.BackColor = Color.Gainsboro
+                menuMarcheButton.BackColor = Color.Gainsboro
+            Case categorie.SUCRES
+                menuBoissonsButton.BackColor = Color.Gainsboro
+                menuEpicerieSaleeButton.BackColor = Color.Gainsboro
+                menuEpicerieSucreeButton.BackColor = Color.LightSlateGray
+                menuFraisButton.BackColor = Color.Gainsboro
+                menuSurgelesButton.BackColor = Color.Gainsboro
+                menuMarcheButton.BackColor = Color.Gainsboro
+            Case categorie.SURGELES
+                menuBoissonsButton.BackColor = Color.Gainsboro
+                menuEpicerieSaleeButton.BackColor = Color.Gainsboro
+                menuEpicerieSucreeButton.BackColor = Color.Gainsboro
+                menuFraisButton.BackColor = Color.Gainsboro
+                menuSurgelesButton.BackColor = Color.LightSlateGray
+                menuMarcheButton.BackColor = Color.Gainsboro
+        End Select
+    End Sub
 
     '********************************************************************************
     '*************************** ARTICLES INITIALIZATION ****************************
@@ -210,7 +256,7 @@
     End Sub
 
     Sub addArticlesInPanel()
-        Dim afficheur As AfficheurArticle
+        Dim afficheur As AfficheurProduit
         Me.articlePanel.Controls.Clear()
         Dim cat As String
         cat = New String("")
@@ -236,7 +282,7 @@
                 'afficheur = New AfficheurArticle(item, Me)
                 'Me.articlePanel.Controls.Add(afficheur)
 
-                Me.articlePanel.Controls.Add(New UserControl1(item, Me))
+                Me.articlePanel.Controls.Add(New AfficheurProduit(item, Me))
             End If
         Next
     End Sub
@@ -374,31 +420,37 @@
     Private Sub menuFraisButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles menuFraisButton.Click
         categorieActif = categorie.FRAIS
         addArticlesInPanel()
+        updateMenuButton()
     End Sub
 
     Private Sub menuMarcheButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles menuMarcheButton.Click
         categorieActif = categorie.MARCHE
         addArticlesInPanel()
+        updateMenuButton()
     End Sub
 
     Private Sub menuEpicerieSaleeButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles menuEpicerieSaleeButton.Click
         categorieActif = categorie.SALES
         addArticlesInPanel()
+        updateMenuButton()
     End Sub
 
     Private Sub menuEpicerieSucreeButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles menuEpicerieSucreeButton.Click
         categorieActif = categorie.SUCRES
         addArticlesInPanel()
+        updateMenuButton()
     End Sub
 
     Private Sub menuBoissonsButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles menuBoissonsButton.Click
         categorieActif = categorie.BOISSONS
         addArticlesInPanel()
+        updateMenuButton()
     End Sub
 
     Private Sub menuSurgelesButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles menuSurgelesButton.Click
         categorieActif = categorie.SURGELES
         addArticlesInPanel()
+        updateMenuButton()
     End Sub
 
 

@@ -1,4 +1,4 @@
-﻿Public Class UserControl1
+﻿Public Class AfficheurProduit
 
     Dim home As Home
     Dim article As Article
