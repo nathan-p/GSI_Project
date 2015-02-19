@@ -152,46 +152,154 @@ Public Class Home
         Select Case categorieActif
             Case categorie.BOISSONS
                 menuBoissonsButton.BackColor = Color.LightSlateGray
+                menuBoissonsButton.Cursor = Cursors.Default
+                menuBoissonsButton.Enabled = False
+
                 menuEpicerieSaleeButton.BackColor = Color.Gainsboro
+                menuEpicerieSaleeButton.Cursor = Cursors.Hand
+                menuEpicerieSaleeButton.Enabled = True
+
                 menuEpicerieSucreeButton.BackColor = Color.Gainsboro
+                menuEpicerieSucreeButton.Cursor = Cursors.Hand
+                menuEpicerieSucreeButton.Enabled = True
+
                 menuFraisButton.BackColor = Color.Gainsboro
+                menuFraisButton.Cursor = Cursors.Hand
+                menuFraisButton.Enabled = True
+
                 menuSurgelesButton.BackColor = Color.Gainsboro
+                menuSurgelesButton.Cursor = Cursors.Hand
+                menuSurgelesButton.Enabled = True
+
                 menuMarcheButton.BackColor = Color.Gainsboro
+                menuMarcheButton.Cursor = Cursors.Hand
+                menuMarcheButton.Enabled = True
+
             Case (categorie.FRAIS)
                 menuBoissonsButton.BackColor = Color.Gainsboro
+                menuBoissonsButton.Cursor = Cursors.Hand
+                menuBoissonsButton.Enabled = True
+
                 menuEpicerieSaleeButton.BackColor = Color.Gainsboro
+                menuEpicerieSaleeButton.Cursor = Cursors.Hand
+                menuEpicerieSaleeButton.Enabled = True
+
                 menuEpicerieSucreeButton.BackColor = Color.Gainsboro
+                menuEpicerieSucreeButton.Cursor = Cursors.Hand
+                menuEpicerieSucreeButton.Enabled = True
+
                 menuFraisButton.BackColor = Color.LightSlateGray
+                menuFraisButton.Cursor = Cursors.Default
+                menuFraisButton.Enabled = False
+
                 menuSurgelesButton.BackColor = Color.Gainsboro
+                menuSurgelesButton.Cursor = Cursors.Hand
+                menuSurgelesButton.Enabled = True
+
                 menuMarcheButton.BackColor = Color.Gainsboro
+                menuMarcheButton.Cursor = Cursors.Hand
+                menuMarcheButton.Enabled = True
+
+
             Case categorie.MARCHE
                 menuBoissonsButton.BackColor = Color.Gainsboro
+                menuBoissonsButton.Cursor = Cursors.Hand
+                menuBoissonsButton.Enabled = True
+
                 menuEpicerieSaleeButton.BackColor = Color.Gainsboro
+                menuEpicerieSaleeButton.Cursor = Cursors.Hand
+                menuEpicerieSaleeButton.Enabled = True
+
                 menuEpicerieSucreeButton.BackColor = Color.Gainsboro
+                menuEpicerieSucreeButton.Cursor = Cursors.Hand
+                menuEpicerieSucreeButton.Enabled = True
+
                 menuFraisButton.BackColor = Color.Gainsboro
+                menuFraisButton.Cursor = Cursors.Hand
+                menuFraisButton.Enabled = True
+
                 menuSurgelesButton.BackColor = Color.Gainsboro
+                menuSurgelesButton.Cursor = Cursors.Hand
+                menuSurgelesButton.Enabled = True
+
                 menuMarcheButton.BackColor = Color.LightSlateGray
+                menuMarcheButton.Cursor = Cursors.Default
+                menuMarcheButton.Enabled = False
+
             Case categorie.SALES
                 menuBoissonsButton.BackColor = Color.Gainsboro
+                menuBoissonsButton.Cursor = Cursors.Hand
+                menuBoissonsButton.Enabled = True
+
                 menuEpicerieSaleeButton.BackColor = Color.LightSlateGray
+                menuEpicerieSaleeButton.Cursor = Cursors.Default
+                menuEpicerieSaleeButton.Enabled = False
+
                 menuEpicerieSucreeButton.BackColor = Color.Gainsboro
+                menuEpicerieSucreeButton.Cursor = Cursors.Hand
+                menuEpicerieSucreeButton.Enabled = True
+
                 menuFraisButton.BackColor = Color.Gainsboro
+                menuFraisButton.Cursor = Cursors.Hand
+                menuFraisButton.Enabled = True
+
                 menuSurgelesButton.BackColor = Color.Gainsboro
+                menuSurgelesButton.Cursor = Cursors.Hand
+                menuSurgelesButton.Enabled = True
+
                 menuMarcheButton.BackColor = Color.Gainsboro
+                menuMarcheButton.Cursor = Cursors.Hand
+                menuMarcheButton.Enabled = True
+
             Case categorie.SUCRES
                 menuBoissonsButton.BackColor = Color.Gainsboro
+                menuBoissonsButton.Cursor = Cursors.Hand
+                menuBoissonsButton.Enabled = True
+
                 menuEpicerieSaleeButton.BackColor = Color.Gainsboro
+                menuEpicerieSaleeButton.Cursor = Cursors.Hand
+                menuEpicerieSaleeButton.Enabled = True
+
                 menuEpicerieSucreeButton.BackColor = Color.LightSlateGray
+                menuEpicerieSucreeButton.Cursor = Cursors.Default
+                menuEpicerieSucreeButton.Enabled = False
+
                 menuFraisButton.BackColor = Color.Gainsboro
+                menuFraisButton.Cursor = Cursors.Hand
+                menuFraisButton.Enabled = True
+
                 menuSurgelesButton.BackColor = Color.Gainsboro
+                menuSurgelesButton.Cursor = Cursors.Hand
+                menuSurgelesButton.Enabled = True
+
                 menuMarcheButton.BackColor = Color.Gainsboro
+                menuMarcheButton.Cursor = Cursors.Hand
+                menuMarcheButton.Enabled = True
+
             Case categorie.SURGELES
                 menuBoissonsButton.BackColor = Color.Gainsboro
+                menuBoissonsButton.Cursor = Cursors.Hand
+                menuBoissonsButton.Enabled = True
+
                 menuEpicerieSaleeButton.BackColor = Color.Gainsboro
+                menuEpicerieSaleeButton.Cursor = Cursors.Hand
+                menuEpicerieSaleeButton.Enabled = True
+
                 menuEpicerieSucreeButton.BackColor = Color.Gainsboro
+                menuEpicerieSucreeButton.Cursor = Cursors.Hand
+                menuEpicerieSucreeButton.Enabled = True
+
                 menuFraisButton.BackColor = Color.Gainsboro
+                menuFraisButton.Cursor = Cursors.Hand
+                menuFraisButton.Enabled = True
+
                 menuSurgelesButton.BackColor = Color.LightSlateGray
+                menuSurgelesButton.Cursor = Cursors.Default
+                menuSurgelesButton.Enabled = False
+
                 menuMarcheButton.BackColor = Color.Gainsboro
+                menuMarcheButton.Cursor = Cursors.Hand
+                menuMarcheButton.Enabled = True
         End Select
     End Sub
 
