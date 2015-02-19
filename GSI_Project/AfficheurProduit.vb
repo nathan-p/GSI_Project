@@ -38,8 +38,8 @@
         'Enable des boutons
         If (Me.article.stock = 0) Then
             Me.boutonAjouter.Enabled = False
-            Me.boutonAjouter.FillColor = Color.DarkGreen
-            Me.labelAjouter.BackColor = Color.DarkGreen
+            Me.boutonAjouter.FillColor = Color.LightGray
+            Me.labelAjouter.BackColor = Color.LightGray
         Else
             Me.boutonAjouter.Enabled = True
             Me.boutonAjouter.FillColor = Color.LightGreen
@@ -47,8 +47,8 @@
         End If
         If (Me.labelQuantite.Text = "0") Then
             Me.boutonRetirer.Enabled = False
-            Me.boutonRetirer.FillColor = Color.DarkRed
-            Me.labelRetirer.BackColor = Color.DarkRed
+            Me.boutonRetirer.FillColor = Color.LightGray
+            Me.labelRetirer.BackColor = Color.LightGray
         Else
             Me.boutonRetirer.Enabled = True
             Me.boutonRetirer.FillColor = Color.LightCoral
@@ -96,5 +96,21 @@
         Me.article.stock += 1
         Me.qte -= 1
         Me.updateStock()
+    End Sub
+
+    Private Sub boutonAjouter_MouseEnter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles boutonAjouter.MouseEnter
+        Me.Cursor = Cursors.Hand
+    End Sub
+
+    Private Sub boutonRetirer_MouseEnter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles boutonRetirer.MouseEnter
+        Me.Cursor = Cursors.Hand
+    End Sub
+
+    Private Sub boutonAjouter_MouseLeave(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles boutonAjouter.MouseLeave
+        Me.Cursor = Cursors.Default
+    End Sub
+
+    Private Sub boutonRetirer_MouseLeave(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles boutonRetirer.MouseLeave
+        Me.Cursor = Cursors.Default
     End Sub
 End Class
