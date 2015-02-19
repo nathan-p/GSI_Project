@@ -132,8 +132,8 @@
                                )
         detailNameLabel.Text = name
         detailOriginLabel.Text = "Origine : " + origin
-        'detailImgPictureBox.Image = New Bitmap("./ressources/pome.jpg")
-        detailImgPictureBox.Image = Image.FromFile("C:\Users\nathan\git\GSI_Project\GSI_Project\Resources\" + urlImg)
+        'detailImgPictureBox.Image = New Bitmap("./Ressources/pomme.jpg")
+        'detailImgPictureBox.Image = Image.FromFile("C:\Users\nathan\git\GSI_Project\GSI_Project\Resources\" + urlImg)
         detailPriceLabel.Text = price + "€"
         cartListButton.Text = detailPriceLabel.Text
 
