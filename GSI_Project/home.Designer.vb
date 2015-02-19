@@ -25,6 +25,7 @@ Partial Class Home
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Home))
         Me.headerPanel = New System.Windows.Forms.Panel()
         Me.cartLabel = New System.Windows.Forms.Label()
+        Me.logoPictureBox = New System.Windows.Forms.PictureBox()
         Me.searchButton = New System.Windows.Forms.Button()
         Me.searchTextBox = New System.Windows.Forms.TextBox()
         Me.separateurShapeContainer = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
@@ -32,6 +33,7 @@ Partial Class Home
         Me.centerPanel = New System.Windows.Forms.Panel()
         Me.detailPopUpPanel = New System.Windows.Forms.TableLayoutPanel()
         Me.detailPriceLabel = New System.Windows.Forms.Label()
+        Me.detailImgPictureBox = New System.Windows.Forms.PictureBox()
         Me.detailSpecLabel = New System.Windows.Forms.Label()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.detailNameLabel = New System.Windows.Forms.Label()
@@ -82,11 +84,11 @@ Partial Class Home
         Me.cartListButton = New System.Windows.Forms.Button()
         Me.cartValidationButton = New System.Windows.Forms.Button()
         Me.cartListView = New System.Windows.Forms.ListView()
-        Me.logoPictureBox = New System.Windows.Forms.PictureBox()
-        Me.detailImgPictureBox = New System.Windows.Forms.PictureBox()
         Me.headerPanel.SuspendLayout()
+        CType(Me.logoPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.centerPanel.SuspendLayout()
         Me.detailPopUpPanel.SuspendLayout()
+        CType(Me.detailImgPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.validationPaymentPanel.SuspendLayout()
         Me.popUpPanel.SuspendLayout()
@@ -95,8 +97,6 @@ Partial Class Home
         Me.affGridPanel.SuspendLayout()
         Me.affListPanel.SuspendLayout()
         Me.cartPanel.SuspendLayout()
-        CType(Me.logoPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.detailImgPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'headerPanel
@@ -122,6 +122,15 @@ Partial Class Home
         Me.cartLabel.Size = New System.Drawing.Size(218, 48)
         Me.cartLabel.TabIndex = 6
         Me.cartLabel.Text = "Mon panier"
+        '
+        'logoPictureBox
+        '
+        Me.logoPictureBox.Image = CType(resources.GetObject("logoPictureBox.Image"), System.Drawing.Image)
+        Me.logoPictureBox.Location = New System.Drawing.Point(12, 6)
+        Me.logoPictureBox.Name = "logoPictureBox"
+        Me.logoPictureBox.Size = New System.Drawing.Size(221, 90)
+        Me.logoPictureBox.TabIndex = 4
+        Me.logoPictureBox.TabStop = False
         '
         'searchButton
         '
@@ -209,6 +218,14 @@ Partial Class Home
         Me.detailPriceLabel.Size = New System.Drawing.Size(145, 96)
         Me.detailPriceLabel.TabIndex = 0
         Me.detailPriceLabel.Text = "5 €"
+        '
+        'detailImgPictureBox
+        '
+        Me.detailImgPictureBox.Location = New System.Drawing.Point(3, 3)
+        Me.detailImgPictureBox.Name = "detailImgPictureBox"
+        Me.detailImgPictureBox.Size = New System.Drawing.Size(278, 193)
+        Me.detailImgPictureBox.TabIndex = 1
+        Me.detailImgPictureBox.TabStop = False
         '
         'detailSpecLabel
         '
@@ -840,23 +857,6 @@ Partial Class Home
         Me.cartListView.TabIndex = 1
         Me.cartListView.UseCompatibleStateImageBehavior = False
         '
-        'logoPictureBox
-        '
-        Me.logoPictureBox.Image = CType(resources.GetObject("logoPictureBox.Image"), System.Drawing.Image)
-        Me.logoPictureBox.Location = New System.Drawing.Point(12, 6)
-        Me.logoPictureBox.Name = "logoPictureBox"
-        Me.logoPictureBox.Size = New System.Drawing.Size(221, 90)
-        Me.logoPictureBox.TabIndex = 4
-        Me.logoPictureBox.TabStop = False
-        '
-        'detailImgPictureBox
-        '
-        Me.detailImgPictureBox.Location = New System.Drawing.Point(3, 3)
-        Me.detailImgPictureBox.Name = "detailImgPictureBox"
-        Me.detailImgPictureBox.Size = New System.Drawing.Size(278, 193)
-        Me.detailImgPictureBox.TabIndex = 1
-        Me.detailImgPictureBox.TabStop = False
-        '
         'Home
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -869,9 +869,11 @@ Partial Class Home
         Me.Text = "Form1"
         Me.headerPanel.ResumeLayout(False)
         Me.headerPanel.PerformLayout()
+        CType(Me.logoPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.centerPanel.ResumeLayout(False)
         Me.detailPopUpPanel.ResumeLayout(False)
         Me.detailPopUpPanel.PerformLayout()
+        CType(Me.detailImgPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.FlowLayoutPanel1.ResumeLayout(False)
         Me.FlowLayoutPanel1.PerformLayout()
         Me.validationPaymentPanel.ResumeLayout(False)
@@ -884,8 +886,6 @@ Partial Class Home
         Me.affListPanel.ResumeLayout(False)
         Me.cartPanel.ResumeLayout(False)
         Me.cartPanel.PerformLayout()
-        CType(Me.logoPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.detailImgPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

@@ -1,4 +1,6 @@
-﻿Public Class Home
+﻿Imports System.IO
+
+Public Class Home
 
     Enum State
         INIT
@@ -133,7 +135,8 @@
         detailNameLabel.Text = name
         detailOriginLabel.Text = "Origine : " + origin
         'detailImgPictureBox.Image = New Bitmap("./Ressources/pomme.jpg")
-        'detailImgPictureBox.Image = Image.FromFile("C:\Users\nathan\git\GSI_Project\GSI_Project\Resources\" + urlImg)
+        Dim path As String = Directory.GetCurrentDirectory()
+        detailImgPictureBox.Image = Image.FromFile(path + "\Ressources\" + urlImg)
         detailPriceLabel.Text = price + "€"
         cartListButton.Text = detailPriceLabel.Text
 
@@ -256,7 +259,6 @@
     End Sub
 
     Sub addArticlesInPanel()
-        Dim afficheur As AfficheurProduit
         Me.articlePanel.Controls.Clear()
         Dim cat As String
         cat = New String("")
@@ -279,9 +281,6 @@
         For Each item As Article In listArticles
             If (item.category = cat) Then
                 Console.WriteLine(item.name)
-                'afficheur = New AfficheurArticle(item, Me)
-                'Me.articlePanel.Controls.Add(afficheur)
-
                 Me.articlePanel.Controls.Add(New AfficheurProduit(item, Me))
             End If
         Next
@@ -461,4 +460,7 @@
         detailPopUpPanel.Visible = False
     End Sub
 
+    Private Sub articlePanel_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles articlePanel.Paint
+
+    End Sub
 End Class
