@@ -317,12 +317,12 @@ Public Class Home
     '********************************************************************************
     '*************************** MENU SORT DISPLAY HOVER LISTENER *******************
     '********************************************************************************
-    Private Sub affGridPanel_MouseEnter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles affGridPanel.MouseEnter
-        affGridPanel.BackColor = Color.Silver
+    Private Sub affListPanel_MouseEnter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles affListPanel.MouseEnter
+        affListPanel.BackColor = Color.Silver
     End Sub
 
-    Private Sub affGridPanel_MouseLeave(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles affGridPanel.MouseLeave
-        affGridPanel.BackColor = Color.Gainsboro
+    Private Sub affListPanel_MouseLeave(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles affListPanel.MouseLeave
+        affListPanel.BackColor = Color.Gainsboro
     End Sub
 
 
@@ -482,4 +482,6 @@ Public Class Home
     Private Sub articlePanel_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles articlePanel.Paint
 
     End Sub
+
+
 End Class

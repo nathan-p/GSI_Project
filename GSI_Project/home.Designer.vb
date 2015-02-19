@@ -217,11 +217,11 @@ Partial Class Home
         '
         Me.detailPriceLabel.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.detailPriceLabel.AutoSize = True
-        Me.detailPriceLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.detailPriceLabel.Font = New System.Drawing.Font("Roboto Lt", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.detailPriceLabel.ForeColor = System.Drawing.Color.White
-        Me.detailPriceLabel.Location = New System.Drawing.Point(68, 245)
+        Me.detailPriceLabel.Location = New System.Drawing.Point(69, 242)
         Me.detailPriceLabel.Name = "detailPriceLabel"
-        Me.detailPriceLabel.Size = New System.Drawing.Size(148, 91)
+        Me.detailPriceLabel.Size = New System.Drawing.Size(145, 96)
         Me.detailPriceLabel.TabIndex = 0
         Me.detailPriceLabel.Text = "5 €"
         '
@@ -670,7 +670,7 @@ Partial Class Home
         '
         'affGridPanel
         '
-        Me.affGridPanel.BackColor = System.Drawing.Color.Gainsboro
+        Me.affGridPanel.BackColor = System.Drawing.Color.DarkGray
         Me.affGridPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.affGridPanel.Controls.Add(Me.ShapeContainer3)
         Me.affGridPanel.Cursor = System.Windows.Forms.Cursors.Hand
@@ -721,7 +721,7 @@ Partial Class Home
         '
         'affListPanel
         '
-        Me.affListPanel.BackColor = System.Drawing.Color.DarkGray
+        Me.affListPanel.BackColor = System.Drawing.Color.LightGray
         Me.affListPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.affListPanel.Controls.Add(Me.ShapeContainer2)
         Me.affListPanel.Cursor = System.Windows.Forms.Cursors.Hand
@@ -743,6 +743,7 @@ Partial Class Home
         '
         'LineShape5
         '
+        Me.LineShape5.Enabled = False
         Me.LineShape5.Name = "LineShape5"
         Me.LineShape5.X1 = 6
         Me.LineShape5.X2 = 43
@@ -751,6 +752,7 @@ Partial Class Home
         '
         'LineShape4
         '
+        Me.LineShape4.Enabled = False
         Me.LineShape4.Name = "LineShape4"
         Me.LineShape4.X1 = 6
         Me.LineShape4.X2 = 43
@@ -759,6 +761,7 @@ Partial Class Home
         '
         'LineShape3
         '
+        Me.LineShape3.Enabled = False
         Me.LineShape3.Name = "LineShape3"
         Me.LineShape3.X1 = 6
         Me.LineShape3.X2 = 43
@@ -767,6 +770,7 @@ Partial Class Home
         '
         'LineShape2
         '
+        Me.LineShape2.Enabled = False
         Me.LineShape2.Name = "LineShape2"
         Me.LineShape2.X1 = 6
         Me.LineShape2.X2 = 43
