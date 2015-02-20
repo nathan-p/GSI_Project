@@ -34,6 +34,14 @@
         updateStock()
     End Sub
 
+    Public Sub updateTextBox(ByVal quantite As Integer)
+        article.stock += qte - quantite
+        qte = quantite        
+        Me.LabelStock.Text = String.Concat("En stock : ", Me.article.stock)
+        TextBoxQuantite.Text = CStr(qte)
+        updateButtons()
+    End Sub
+
     Public Property art() As Article
         Get
             Return article
@@ -55,6 +63,10 @@
             home.getPanier.Add(article, qte)
         End If
         'Enable des boutons
+        updateButtons()
+    End Sub
+
+    Private Sub updateButtons()
         If (Me.article.stock = 0) Then
             Me.boutonAjouter.Enabled = False
             Me.boutonAjouter.FillColor = Color.LightGray

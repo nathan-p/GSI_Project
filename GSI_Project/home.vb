@@ -383,6 +383,14 @@ Public Class Home
         Next
     End Sub
 
+    Private Sub reinitialiserAfficheurArticles(ByRef article As Article, ByVal quantite As Integer)
+        For Each afficheur As AfficheurProduit In Me.listAfficheurs
+            If (afficheur.art.Equals(article)) Then
+                afficheur.updateTextBox(quantite)
+            End If
+        Next
+    End Sub
+
     Public Property getPanier() As Dictionary(Of Article, Integer)
         Get
             Return panier
@@ -466,10 +474,12 @@ Public Class Home
         While listSavedCart.ContainsKey(index)
             index += 1
         End While
+
         Dim savedCart As New Dictionary(Of Article, Integer)
         For Each item As Article In panier.Keys
             savedCart.Add(item, panier.Item(item))
         Next
+
         listSavedCart.Add(index, savedCart)
         Dim noeudNouvelleListe As TreeNode
         noeudNouvelleListe = SavedListsTreeView.Nodes.Add(String.Format(index), "Liste n°" + String.Format(index) + " (Total: " + String.Format(sommePanier) + " €)", "", "")
@@ -616,11 +626,11 @@ Public Class Home
             savedCart = listSavedCart.Item(SavedListsTreeView.SelectedNode.Name)
             For Each item As Article In savedCart.Keys
                 panier.Add(item, savedCart.Item(item))
-            Next
-            For Each item As Article In panier.Keys
+                'Next
+                'For Each item As Article In panier.Keys
                 addToCart(item, panier.Item(item))
+                reinitialiserAfficheurArticles(item, panier.Item(item))
             Next
-
         End If
     End Sub
 
