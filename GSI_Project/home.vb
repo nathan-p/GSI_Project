@@ -36,7 +36,6 @@ Public Class Home
         initArticles()
     End Sub
 
-
     Private Sub updateUI()
         Select Case myState
             Case State.INIT
@@ -140,9 +139,7 @@ Public Class Home
         'si l'article n'est pas dans la panier y'a un bug sinon on modifie sa quantite
         If (itemFound Is Nothing) Then
             'probleme
-            Debug.WriteLine("PROBLEME")
         Else
-            Debug.WriteLine("TROUVE")
             If qte = 0 Then
                 itemFound.Remove()
             Else
@@ -150,7 +147,6 @@ Public Class Home
             End If
             cartListView.Update()
         End If
-
     End Sub
 
 
