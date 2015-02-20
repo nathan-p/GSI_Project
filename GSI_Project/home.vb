@@ -23,6 +23,7 @@ Public Class Home
     Dim myState As State
     Dim nbProduct As Integer
     Dim listArticles As ArrayList
+    Dim listAfficheurs As ArrayList
     Dim categorieActif As categorie
     Dim panier As New Dictionary(Of Article, Integer)
     Dim sommePanier As Double
@@ -108,12 +109,12 @@ Public Class Home
     Private Sub realisePayment()
         Select Case myState
             Case State.INIT
-                nbProduct = 0
-                clearCart()
+
             Case State.CART
 
             Case State.VALID_CART
-
+                addArticlesInPanel()
+                reinitialiserAfficheurArticles(False)
         End Select
     End Sub
 
@@ -321,9 +322,8 @@ Public Class Home
         listArticles.Add(steakHache)
 
         'Création des afficheurs et ajout au panel
-        Dim listAfficheur As ArrayList
-        listAfficheur = New ArrayList
-
+        Me.listAfficheurs = New ArrayList
+        createAfficheurs()
         addArticlesInPanel()
     End Sub
 
@@ -345,17 +345,27 @@ Public Class Home
             Case categorie.SURGELES
                 cat = "Surgeles"
         End Select
-        Console.WriteLine("Ajouts des articles dans ")
-        Console.WriteLine(cat)
-        For Each item As Article In listArticles
-            If (item.category = cat) Then
-                Console.WriteLine(item.name)
-                Dim afficheur As AfficheurProduit
-                afficheur = New AfficheurProduit(item, Me)
-                Dim path As String = Directory.GetCurrentDirectory()
-                afficheur.imageBox.Image = Image.FromFile(path + "\Ressources\" + item.img)
-                Me.articlePanel.Controls.Add(afficheur)
+        For Each item As AfficheurProduit In listAfficheurs            
+            If (item.art.category = cat) Then
+                Me.articlePanel.Controls.Add(item)
             End If
+        Next
+    End Sub
+
+    Sub createAfficheurs()
+        Me.listAfficheurs.Clear()
+        For Each item As Article In listArticles
+            Dim afficheur As AfficheurProduit
+            afficheur = New AfficheurProduit(item, Me)
+            Dim path As String = Directory.GetCurrentDirectory()
+            afficheur.imageBox.Image = Image.FromFile(path + "\Ressources\" + item.img)
+            Me.listAfficheurs.Add(afficheur)
+        Next
+    End Sub
+
+    Private Sub reinitialiserAfficheurArticles(ByVal isSuppressionPanier As Boolean)        
+        For Each afficheur As AfficheurProduit In Me.listAfficheurs            
+            afficheur.updateTextBox(isSuppressionPanier)
         Next
     End Sub
 
@@ -379,9 +389,7 @@ Public Class Home
         For Each article As Article In panier.Keys
             sommeArticle = article.price * panier.Item(article)
             sommeTotal += sommeArticle
-            'Debug.WriteLine("Article " + article.name + " sommeArticle " + String.Format(sommeArticle))
-        Next
-        'Debug.WriteLine("Somme Totale " + String.Format(sommeTotal))
+        Next        
         Return sommeTotal
     End Function
 
@@ -414,7 +422,7 @@ Public Class Home
         Select Case myState
             Case State.INIT
                 'interdit
-            Case State.CART
+            Case State.CART                
                 myState = State.VALID_CART
                 updateUI()
             Case State.VALID_CART
@@ -489,9 +497,11 @@ Public Class Home
             Case State.INIT
                 'interdit
             Case State.CART
+                reinitialiserAfficheurArticles(True)
                 myState = State.INIT
                 updateUI()
             Case State.VALID_CART
+                reinitialiserAfficheurArticles(True)
                 myState = State.INIT
                 updateUI()
         End Select
