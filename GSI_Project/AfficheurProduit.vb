@@ -87,6 +87,7 @@
         Me.article.stock -= 1
         Me.qte += 1
         Me.updateStock()
+        addToCart()
     End Sub
 
     Private Sub boutonRetirer_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles boutonRetirer.Click
@@ -99,10 +100,11 @@
         Me.article.stock += 1
         Me.qte -= 1
         Me.updateStock()
+
     End Sub
 
-    Private Sub boutonAjouter_MouseEnter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles boutonAjouter.MouseEnter
-        Me.Cursor = Cursors.Hand
+
+    Private Sub addToCart()
         For index As Integer = 0 To home.ImageList1.Images.Count
             If (home.ImageList1.Images.Keys(index).ToString = article.img) Then
                 imageIndex = index
@@ -115,24 +117,10 @@
         'Dim s As Integer = home.ListView1.FindItemWithText(labelNomArticle.Text)
         If (item2 Is Nothing) Then
             home.ListView1.Items.Add(ListViewItem2)
-
-
         End If
         home.ListView1.Update()
-
     End Sub
 
-    Private Sub boutonRetirer_MouseEnter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles boutonRetirer.MouseEnter
-        Me.Cursor = Cursors.Hand
-    End Sub
-
-    Private Sub boutonAjouter_MouseLeave(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles boutonAjouter.MouseLeave
-        Me.Cursor = Cursors.Default
-    End Sub
-
-    Private Sub boutonRetirer_MouseLeave(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles boutonRetirer.MouseLeave
-        Me.Cursor = Cursors.Default
-    End Sub
 
     Private Sub TextBoxQuantite_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TextBoxQuantite.KeyPress
 
@@ -169,5 +157,6 @@
         End If
 
     End Sub
+
 
 End Class

@@ -53,6 +53,7 @@ Partial Class AfficheurProduit
         '
         Me.labelRetirer.AutoSize = True
         Me.labelRetirer.BackColor = System.Drawing.Color.LightCoral
+        Me.labelRetirer.Cursor = System.Windows.Forms.Cursors.Hand
         Me.labelRetirer.Enabled = False
         Me.labelRetirer.Font = New System.Drawing.Font("Segoe UI", 12.0!)
         Me.labelRetirer.Location = New System.Drawing.Point(144, 190)
@@ -65,6 +66,7 @@ Partial Class AfficheurProduit
         '
         Me.labelAjouter.AutoSize = True
         Me.labelAjouter.BackColor = System.Drawing.Color.LightGreen
+        Me.labelAjouter.Cursor = System.Windows.Forms.Cursors.Hand
         Me.labelAjouter.Enabled = False
         Me.labelAjouter.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.labelAjouter.Location = New System.Drawing.Point(235, 181)
@@ -141,6 +143,7 @@ Partial Class AfficheurProduit
         '
         'boutonRetirer
         '
+        Me.boutonRetirer.Cursor = System.Windows.Forms.Cursors.Hand
         Me.boutonRetirer.FillColor = System.Drawing.Color.LightCoral
         Me.boutonRetirer.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid
         Me.boutonRetirer.Location = New System.Drawing.Point(138, 186)
@@ -159,6 +162,7 @@ Partial Class AfficheurProduit
         '
         'boutonAjouter
         '
+        Me.boutonAjouter.Cursor = System.Windows.Forms.Cursors.Hand
         Me.boutonAjouter.FillColor = System.Drawing.Color.LightGreen
         Me.boutonAjouter.FillGradientColor = System.Drawing.Color.ForestGreen
         Me.boutonAjouter.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid

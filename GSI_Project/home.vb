@@ -33,10 +33,7 @@ Public Class Home
         updateUI()
         updateMenuButton()
         'INITIALISATION DE LA LISTE
-       
-
         initArticles()
-
     End Sub
 
 
@@ -285,7 +282,6 @@ Public Class Home
                 Dim path As String = Directory.GetCurrentDirectory()
                 afficheur.imageBox.Image = Image.FromFile(path + "\Ressources\" + item.img)
                 Me.articlePanel.Controls.Add(afficheur)
-
             End If
         Next
     End Sub
