@@ -780,7 +780,6 @@ Public Class Home
         bPanier.Clear()
         For index As Integer = 0 To (cartListView.Items.Count - 1)
             bouton = New Button
-
             Ajouter_Controles_ListView(cartListView, bouton, index, 3)
         Next
 

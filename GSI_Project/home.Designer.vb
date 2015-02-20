@@ -1156,6 +1156,7 @@ Partial Class Home
         Me.ResumeLayout(False)
 
     End Sub
+
     Friend WithEvents headerPanel As System.Windows.Forms.Panel
     Friend WithEvents searchTextBox As System.Windows.Forms.TextBox
     Friend WithEvents centerPanel As System.Windows.Forms.Panel
