@@ -36,7 +36,9 @@
         Me.LabelStock.Text = String.Concat("En stock : ", Me.article.stock)
         TextBoxQuantite.Text = CStr(qte)
         home.getPanier.Remove(article)
-        home.getPanier.Add(article, qte)
+        If (qte > 0) Then
+            home.getPanier.Add(article, qte)
+        End If
         'Enable des boutons
         If (Me.article.stock = 0) Then
             Me.boutonAjouter.Enabled = False
