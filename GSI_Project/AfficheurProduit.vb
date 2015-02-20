@@ -26,7 +26,7 @@
         Me.LabelStock.Text = String.Concat("En stock : ", article.stock)
     End Sub
 
-    Public Sub updateTextBox(ByVal isSuppressionPanier As Boolean)        
+    Public Sub updateTextBox(ByVal isSuppressionPanier As Boolean)
         If (isSuppressionPanier) Then
             article.stock += qte
         End If

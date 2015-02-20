@@ -24,7 +24,7 @@ Public Class Home
     Dim nbProduct As Integer
     Dim listArticles As ArrayList
     Dim listAfficheurs As ArrayList
-    Dim listSavedCart As ArrayList
+    Dim listSavedCart As New Dictionary(Of Integer, Dictionary(Of Article, Integer))
     Dim categorieActif As categorie
     Dim panier As New Dictionary(Of Article, Integer)
     Dim sommePanier As Double
@@ -36,7 +36,6 @@ Public Class Home
         'INITIALISATION DES ATTRIBUTS
         myState = State.INIT
         categorieActif = categorie.MARCHE
-        listSavedCart = New ArrayList
         updateUI()
         updateMenuButton()
         'INITIALISATION DE LA LISTE
@@ -413,14 +412,6 @@ Public Class Home
         cartTotalPriceLabel.Text = "Total : " + String.Format(sommePanier) + " €"
         Label2.Text = String.Format(sommePanier) + " €"
     End Sub
-    '********************************************************************************
-    '*************************** Gestion listes sauvegardés  ************************
-    '********************************************************************************
-    Private Function buildPanierFromNode(ByRef noeud As TreeNode) As Dictionary(Of Article, Integer)
-        Dim newPanier As New Dictionary(Of Article, Integer)
-
-        Return newPanier
-    End Function
 
     '********************************************************************************
     '*************************** MENU SORT DISPLAY HOVER LISTENER *******************
@@ -471,13 +462,21 @@ Public Class Home
     End Sub
 
     Private Sub cartSaveButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cartSaveButton.Click
-        listSavedCart.Add(panier)
-        Dim idList As String = String.Format(listSavedCart.Count)
+        Dim index As Integer = 0
+        While listSavedCart.ContainsKey(index)
+            index += 1
+        End While
+        Dim savedCart As New Dictionary(Of Article, Integer)
+        For Each item As Article In panier.Keys
+            savedCart.Add(item, panier.Item(item))
+        Next
+        listSavedCart.Add(index, savedCart)
         Dim noeudNouvelleListe As TreeNode
-        noeudNouvelleListe = SavedListsTreeView.Nodes.Add(idList, "Liste n°" + idList + " (Total: " + String.Format(sommePanier) + " €)", "", "")
+        noeudNouvelleListe = SavedListsTreeView.Nodes.Add(String.Format(index), "Liste n°" + String.Format(index) + " (Total: " + String.Format(sommePanier) + " €)", "", "")
         For Each item As Article In panier.Keys
             noeudNouvelleListe.Nodes.Add(item.name, String.Format(panier.Item(item)) + " x " + item.name, "", "")
         Next
+        SavedListsTreeView.Sort()
     End Sub
 
     Private Sub myListButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cartListButton.Click
@@ -610,16 +609,24 @@ Public Class Home
     '********************************************************************************
 
     Private Sub loadSavedListButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles loadSavedListButton.Click
-        If (Not SavedListsTreeView.SelectedNode Is Nothing) Then
-            'Reconstruire le panier depuis le node puis faire un panier = panier reconstruit
-            panier = buildPanierFromNode(SavedListsTreeView.SelectedNode)
+        If (Not SavedListsTreeView.SelectedNode Is Nothing And SavedListsTreeView.SelectedNode.Parent Is Nothing) Then
+            clearCart()
+            reinitialiserAfficheurArticles(True)
+            Dim savedCart As Dictionary(Of Article, Integer)
+            savedCart = listSavedCart.Item(SavedListsTreeView.SelectedNode.Name)
+            For Each item As Article In savedCart.Keys
+                panier.Add(item, savedCart.Item(item))
+            Next
+            For Each item As Article In panier.Keys
+                addToCart(item, panier.Item(item))
+            Next
+
         End If
     End Sub
 
     Private Sub deleteSavedListButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles deleteSavedListButton.Click
-        If (Not SavedListsTreeView.SelectedNode Is Nothing) Then
-            'Reconstruire le panier depuis le node puis faire un remove du panier reconstruit
-            'listSavedCart.Remove(buildPanierFromNode(SavedListsTreeView.SelectedNode))
+        If (Not SavedListsTreeView.SelectedNode Is Nothing And SavedListsTreeView.SelectedNode.Parent Is Nothing) Then
+            listSavedCart.Remove(SavedListsTreeView.SelectedNode.Name)
             SavedListsTreeView.SelectedNode.Remove()
         End If
         If (SavedListsTreeView.SelectedNode Is Nothing) Then
@@ -636,5 +643,4 @@ Public Class Home
         deleteSavedListButton.Enabled = True
         loadSavedListButton.Enabled = True
     End Sub
-
 End Class

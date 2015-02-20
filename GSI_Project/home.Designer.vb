@@ -24,7 +24,6 @@ Partial Class Home
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Home))
-        Dim ListViewItem1 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem(New String() {"Cerise", "2.45", "1"}, 1)
         Me.headerPanel = New System.Windows.Forms.Panel()
         Me.cartLabel = New System.Windows.Forms.Label()
         Me.logoPictureBox = New System.Windows.Forms.PictureBox()
@@ -39,26 +38,6 @@ Partial Class Home
         Me.SavedListsTreeView = New System.Windows.Forms.TreeView()
         Me.savedListsCancelButton = New System.Windows.Forms.Button()
         Me.savedListTitleLabel = New System.Windows.Forms.Label()
-        Me.detailCartPanel = New System.Windows.Forms.Panel()
-        Me.cartDetailCancelButton = New System.Windows.Forms.Button()
-        Me.detailCartListView = New System.Windows.Forms.ListView()
-        Me.ColumnHeader4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader5 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader6 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader7 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.cartDetailTitleLabel = New System.Windows.Forms.Label()
-        Me.detailPopUpPanel = New System.Windows.Forms.TableLayoutPanel()
-        Me.detailPriceLabel = New System.Windows.Forms.Label()
-        Me.detailImgPictureBox = New System.Windows.Forms.PictureBox()
-        Me.detailSpecLabel = New System.Windows.Forms.Label()
-        Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
-        Me.detailNameLabel = New System.Windows.Forms.Label()
-        Me.detailCategoryLabel = New System.Windows.Forms.Label()
-        Me.detailBrandLabel = New System.Windows.Forms.Label()
-        Me.detailWeightLabel = New System.Windows.Forms.Label()
-        Me.detailPriceKgLabel = New System.Windows.Forms.Label()
-        Me.detailOriginLabel = New System.Windows.Forms.Label()
-        Me.detailCloseButton = New System.Windows.Forms.Button()
         Me.validationPaymentPanel = New System.Windows.Forms.Panel()
         Me.paymentTotalLabel = New System.Windows.Forms.Label()
         Me.paymentNbProdLabel = New System.Windows.Forms.Label()
@@ -72,6 +51,26 @@ Partial Class Home
         Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel()
         Me.cancelPopUpButton = New System.Windows.Forms.Button()
         Me.validPopUpButton = New System.Windows.Forms.Button()
+        Me.detailPopUpPanel = New System.Windows.Forms.TableLayoutPanel()
+        Me.detailPriceLabel = New System.Windows.Forms.Label()
+        Me.detailImgPictureBox = New System.Windows.Forms.PictureBox()
+        Me.detailSpecLabel = New System.Windows.Forms.Label()
+        Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.detailNameLabel = New System.Windows.Forms.Label()
+        Me.detailCategoryLabel = New System.Windows.Forms.Label()
+        Me.detailBrandLabel = New System.Windows.Forms.Label()
+        Me.detailWeightLabel = New System.Windows.Forms.Label()
+        Me.detailPriceKgLabel = New System.Windows.Forms.Label()
+        Me.detailOriginLabel = New System.Windows.Forms.Label()
+        Me.detailCloseButton = New System.Windows.Forms.Button()
+        Me.detailCartPanel = New System.Windows.Forms.Panel()
+        Me.cartDetailCancelButton = New System.Windows.Forms.Button()
+        Me.detailCartListView = New System.Windows.Forms.ListView()
+        Me.ColumnHeader4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader5 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader6 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader7 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.cartDetailTitleLabel = New System.Windows.Forms.Label()
         Me.articlePanel = New System.Windows.Forms.FlowLayoutPanel()
         Me.menuPanel = New System.Windows.Forms.Panel()
         Me.menuBoissonsButton = New System.Windows.Forms.Button()
@@ -110,13 +109,13 @@ Partial Class Home
         CType(Me.logoPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.centerPanel.SuspendLayout()
         Me.savedListPanel.SuspendLayout()
-        Me.detailCartPanel.SuspendLayout()
-        Me.detailPopUpPanel.SuspendLayout()
-        CType(Me.detailImgPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.FlowLayoutPanel1.SuspendLayout()
         Me.validationPaymentPanel.SuspendLayout()
         Me.popUpPanel.SuspendLayout()
         Me.FlowLayoutPanel2.SuspendLayout()
+        Me.detailPopUpPanel.SuspendLayout()
+        CType(Me.detailImgPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.FlowLayoutPanel1.SuspendLayout()
+        Me.detailCartPanel.SuspendLayout()
         Me.menuPanel.SuspendLayout()
         Me.affGridPanel.SuspendLayout()
         Me.affListPanel.SuspendLayout()
@@ -203,8 +202,6 @@ Partial Class Home
         '
         Me.centerPanel.BackColor = System.Drawing.Color.White
         Me.centerPanel.Controls.Add(Me.savedListPanel)
-        Me.centerPanel.Controls.Add(Me.detailCartPanel)
-        Me.centerPanel.Controls.Add(Me.detailPopUpPanel)
         Me.centerPanel.Controls.Add(Me.validationPaymentPanel)
         Me.centerPanel.Controls.Add(Me.popUpPanel)
         Me.centerPanel.Controls.Add(Me.detailPopUpPanel)
@@ -284,246 +281,6 @@ Partial Class Home
         Me.savedListTitleLabel.Size = New System.Drawing.Size(288, 31)
         Me.savedListTitleLabel.TabIndex = 0
         Me.savedListTitleLabel.Text = "Vos listes enregistrées"
-        '
-        'detailCartPanel
-        '
-        Me.detailCartPanel.Controls.Add(Me.cartDetailCancelButton)
-        Me.detailCartPanel.Controls.Add(Me.detailCartListView)
-        Me.detailCartPanel.Controls.Add(Me.cartDetailTitleLabel)
-        Me.detailCartPanel.Location = New System.Drawing.Point(41, 82)
-        Me.detailCartPanel.Margin = New System.Windows.Forms.Padding(2)
-        Me.detailCartPanel.Name = "detailCartPanel"
-        Me.detailCartPanel.Size = New System.Drawing.Size(771, 431)
-        Me.detailCartPanel.TabIndex = 0
-        Me.detailCartPanel.Visible = False
-        '
-        'cartDetailCancelButton
-        '
-        Me.cartDetailCancelButton.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.cartDetailCancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cartDetailCancelButton.Location = New System.Drawing.Point(732, 15)
-        Me.cartDetailCancelButton.Margin = New System.Windows.Forms.Padding(2)
-        Me.cartDetailCancelButton.Name = "cartDetailCancelButton"
-        Me.cartDetailCancelButton.Size = New System.Drawing.Size(34, 24)
-        Me.cartDetailCancelButton.TabIndex = 2
-        Me.cartDetailCancelButton.Text = "X"
-        Me.cartDetailCancelButton.UseVisualStyleBackColor = True
-        '
-        'detailCartListView
-        '
-        Me.detailCartListView.BackColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.detailCartListView.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader4, Me.ColumnHeader5, Me.ColumnHeader6, Me.ColumnHeader7})
-        Me.detailCartListView.Location = New System.Drawing.Point(108, 58)
-        Me.detailCartListView.Margin = New System.Windows.Forms.Padding(2)
-        Me.detailCartListView.Name = "detailCartListView"
-        Me.detailCartListView.Size = New System.Drawing.Size(558, 343)
-        Me.detailCartListView.TabIndex = 1
-        Me.detailCartListView.UseCompatibleStateImageBehavior = False
-        Me.detailCartListView.View = System.Windows.Forms.View.Details
-        '
-        'ColumnHeader4
-        '
-        Me.ColumnHeader4.Text = "Nom"
-        '
-        'ColumnHeader5
-        '
-        Me.ColumnHeader5.Text = "Prix"
-        '
-        'ColumnHeader6
-        '
-        Me.ColumnHeader6.Text = "Quantité"
-        '
-        'ColumnHeader7
-        '
-        Me.ColumnHeader7.Text = "Description"
-        Me.ColumnHeader7.Width = 571
-        '
-        'cartDetailTitleLabel
-        '
-        Me.cartDetailTitleLabel.AutoSize = True
-        Me.cartDetailTitleLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cartDetailTitleLabel.Location = New System.Drawing.Point(232, 15)
-        Me.cartDetailTitleLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.cartDetailTitleLabel.Name = "cartDetailTitleLabel"
-        Me.cartDetailTitleLabel.Size = New System.Drawing.Size(271, 31)
-        Me.cartDetailTitleLabel.TabIndex = 0
-        Me.cartDetailTitleLabel.Text = "Détail de votre panier"
-        '
-        'detailPopUpPanel
-        '
-        Me.detailPopUpPanel.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.detailPopUpPanel.ColumnCount = 3
-        Me.detailPopUpPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.detailPopUpPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 212.0!))
-        Me.detailPopUpPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25.0!))
-        Me.detailPopUpPanel.Controls.Add(Me.detailPriceLabel, 0, 1)
-        Me.detailPopUpPanel.Controls.Add(Me.detailImgPictureBox, 0, 0)
-        Me.detailPopUpPanel.Controls.Add(Me.detailSpecLabel, 1, 1)
-        Me.detailPopUpPanel.Controls.Add(Me.FlowLayoutPanel1, 1, 0)
-        Me.detailPopUpPanel.Controls.Add(Me.detailCloseButton, 2, 0)
-        Me.detailPopUpPanel.Location = New System.Drawing.Point(172, 122)
-        Me.detailPopUpPanel.Margin = New System.Windows.Forms.Padding(2)
-        Me.detailPopUpPanel.Name = "detailPopUpPanel"
-        Me.detailPopUpPanel.RowCount = 2
-        Me.detailPopUpPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.0!))
-        Me.detailPopUpPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34.0!))
-        Me.detailPopUpPanel.Size = New System.Drawing.Size(450, 284)
-        Me.detailPopUpPanel.TabIndex = 14
-        Me.detailPopUpPanel.Visible = False
-        '
-        'detailPriceLabel
-        '
-        Me.detailPriceLabel.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.detailPriceLabel.AutoSize = True
-        Me.detailPriceLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.detailPriceLabel.ForeColor = System.Drawing.Color.White
-        Me.detailPriceLabel.Location = New System.Drawing.Point(46, 199)
-        Me.detailPriceLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.detailPriceLabel.Name = "detailPriceLabel"
-        Me.detailPriceLabel.Size = New System.Drawing.Size(121, 73)
-        Me.detailPriceLabel.TabIndex = 0
-        Me.detailPriceLabel.Text = "5 €"
-        '
-        'detailImgPictureBox
-        '
-        Me.detailImgPictureBox.Location = New System.Drawing.Point(2, 2)
-        Me.detailImgPictureBox.Margin = New System.Windows.Forms.Padding(2)
-        Me.detailImgPictureBox.Name = "detailImgPictureBox"
-        Me.detailImgPictureBox.Size = New System.Drawing.Size(208, 183)
-        Me.detailImgPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.detailImgPictureBox.TabIndex = 1
-        Me.detailImgPictureBox.TabStop = False
-        '
-        'detailSpecLabel
-        '
-        Me.detailSpecLabel.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.detailSpecLabel.AutoSize = True
-        Me.detailSpecLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.detailSpecLabel.ForeColor = System.Drawing.Color.White
-        Me.detailSpecLabel.Location = New System.Drawing.Point(215, 187)
-        Me.detailSpecLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.detailSpecLabel.Name = "detailSpecLabel"
-        Me.detailSpecLabel.Size = New System.Drawing.Size(208, 97)
-        Me.detailSpecLabel.TabIndex = 2
-        Me.detailSpecLabel.Text = resources.GetString("detailSpecLabel.Text")
-        '
-        'FlowLayoutPanel1
-        '
-        Me.FlowLayoutPanel1.Controls.Add(Me.detailNameLabel)
-        Me.FlowLayoutPanel1.Controls.Add(Me.detailCategoryLabel)
-        Me.FlowLayoutPanel1.Controls.Add(Me.detailBrandLabel)
-        Me.FlowLayoutPanel1.Controls.Add(Me.detailWeightLabel)
-        Me.FlowLayoutPanel1.Controls.Add(Me.detailPriceKgLabel)
-        Me.FlowLayoutPanel1.Controls.Add(Me.detailOriginLabel)
-        Me.FlowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
-        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(215, 2)
-        Me.FlowLayoutPanel1.Margin = New System.Windows.Forms.Padding(2)
-        Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Padding = New System.Windows.Forms.Padding(0, 16, 0, 0)
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(208, 183)
-        Me.FlowLayoutPanel1.TabIndex = 3
-        '
-        'detailNameLabel
-        '
-        Me.detailNameLabel.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.detailNameLabel.AutoSize = True
-        Me.detailNameLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.detailNameLabel.ForeColor = System.Drawing.Color.White
-        Me.detailNameLabel.Location = New System.Drawing.Point(17, 16)
-        Me.detailNameLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.detailNameLabel.Name = "detailNameLabel"
-        Me.detailNameLabel.Size = New System.Drawing.Size(77, 31)
-        Me.detailNameLabel.TabIndex = 0
-        Me.detailNameLabel.Text = "NOM"
-        '
-        'detailCategoryLabel
-        '
-        Me.detailCategoryLabel.AutoSize = True
-        Me.detailCategoryLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.detailCategoryLabel.ForeColor = System.Drawing.Color.White
-        Me.detailCategoryLabel.Location = New System.Drawing.Point(2, 47)
-        Me.detailCategoryLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.detailCategoryLabel.Name = "detailCategoryLabel"
-        Me.detailCategoryLabel.Padding = New System.Windows.Forms.Padding(30, 0, 0, 0)
-        Me.detailCategoryLabel.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.detailCategoryLabel.Size = New System.Drawing.Size(108, 20)
-        Me.detailCategoryLabel.TabIndex = 1
-        Me.detailCategoryLabel.Text = "Catégorie"
-        Me.detailCategoryLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        '
-        'detailBrandLabel
-        '
-        Me.detailBrandLabel.AutoSize = True
-        Me.detailBrandLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.detailBrandLabel.ForeColor = System.Drawing.Color.White
-        Me.detailBrandLabel.Location = New System.Drawing.Point(2, 67)
-        Me.detailBrandLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.detailBrandLabel.Name = "detailBrandLabel"
-        Me.detailBrandLabel.Padding = New System.Windows.Forms.Padding(30, 0, 0, 0)
-        Me.detailBrandLabel.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.detailBrandLabel.Size = New System.Drawing.Size(93, 20)
-        Me.detailBrandLabel.TabIndex = 2
-        Me.detailBrandLabel.Text = "Marque"
-        Me.detailBrandLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        '
-        'detailWeightLabel
-        '
-        Me.detailWeightLabel.AutoSize = True
-        Me.detailWeightLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.detailWeightLabel.ForeColor = System.Drawing.Color.White
-        Me.detailWeightLabel.Location = New System.Drawing.Point(2, 87)
-        Me.detailWeightLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.detailWeightLabel.Name = "detailWeightLabel"
-        Me.detailWeightLabel.Padding = New System.Windows.Forms.Padding(30, 0, 0, 0)
-        Me.detailWeightLabel.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.detailWeightLabel.Size = New System.Drawing.Size(78, 20)
-        Me.detailWeightLabel.TabIndex = 3
-        Me.detailWeightLabel.Text = "Poids"
-        Me.detailWeightLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        '
-        'detailPriceKgLabel
-        '
-        Me.detailPriceKgLabel.AutoSize = True
-        Me.detailPriceKgLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.detailPriceKgLabel.ForeColor = System.Drawing.Color.White
-        Me.detailPriceKgLabel.Location = New System.Drawing.Point(2, 107)
-        Me.detailPriceKgLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.detailPriceKgLabel.Name = "detailPriceKgLabel"
-        Me.detailPriceKgLabel.Padding = New System.Windows.Forms.Padding(30, 0, 0, 0)
-        Me.detailPriceKgLabel.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.detailPriceKgLabel.Size = New System.Drawing.Size(93, 20)
-        Me.detailPriceKgLabel.TabIndex = 4
-        Me.detailPriceKgLabel.Text = "Prix / kg"
-        Me.detailPriceKgLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        '
-        'detailOriginLabel
-        '
-        Me.detailOriginLabel.AutoSize = True
-        Me.detailOriginLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.detailOriginLabel.ForeColor = System.Drawing.Color.White
-        Me.detailOriginLabel.Location = New System.Drawing.Point(2, 127)
-        Me.detailOriginLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.detailOriginLabel.Name = "detailOriginLabel"
-        Me.detailOriginLabel.Padding = New System.Windows.Forms.Padding(30, 0, 0, 0)
-        Me.detailOriginLabel.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.detailOriginLabel.Size = New System.Drawing.Size(89, 20)
-        Me.detailOriginLabel.TabIndex = 5
-        Me.detailOriginLabel.Text = "Origine"
-        Me.detailOriginLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        '
-        'detailCloseButton
-        '
-        Me.detailCloseButton.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.detailCloseButton.FlatAppearance.BorderSize = 0
-        Me.detailCloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.detailCloseButton.ForeColor = System.Drawing.Color.White
-        Me.detailCloseButton.Location = New System.Drawing.Point(427, 2)
-        Me.detailCloseButton.Margin = New System.Windows.Forms.Padding(2)
-        Me.detailCloseButton.Name = "detailCloseButton"
-        Me.detailCloseButton.Size = New System.Drawing.Size(20, 21)
-        Me.detailCloseButton.TabIndex = 4
-        Me.detailCloseButton.Text = "X"
-        Me.detailCloseButton.UseVisualStyleBackColor = True
         '
         'validationPaymentPanel
         '
@@ -714,6 +471,246 @@ Partial Class Home
         Me.validPopUpButton.TabIndex = 10
         Me.validPopUpButton.Text = "Oui"
         Me.validPopUpButton.UseVisualStyleBackColor = False
+        '
+        'detailPopUpPanel
+        '
+        Me.detailPopUpPanel.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.detailPopUpPanel.ColumnCount = 3
+        Me.detailPopUpPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.detailPopUpPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 212.0!))
+        Me.detailPopUpPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25.0!))
+        Me.detailPopUpPanel.Controls.Add(Me.detailPriceLabel, 0, 1)
+        Me.detailPopUpPanel.Controls.Add(Me.detailImgPictureBox, 0, 0)
+        Me.detailPopUpPanel.Controls.Add(Me.detailSpecLabel, 1, 1)
+        Me.detailPopUpPanel.Controls.Add(Me.FlowLayoutPanel1, 1, 0)
+        Me.detailPopUpPanel.Controls.Add(Me.detailCloseButton, 2, 0)
+        Me.detailPopUpPanel.Location = New System.Drawing.Point(172, 122)
+        Me.detailPopUpPanel.Margin = New System.Windows.Forms.Padding(2)
+        Me.detailPopUpPanel.Name = "detailPopUpPanel"
+        Me.detailPopUpPanel.RowCount = 2
+        Me.detailPopUpPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.0!))
+        Me.detailPopUpPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34.0!))
+        Me.detailPopUpPanel.Size = New System.Drawing.Size(450, 284)
+        Me.detailPopUpPanel.TabIndex = 14
+        Me.detailPopUpPanel.Visible = False
+        '
+        'detailPriceLabel
+        '
+        Me.detailPriceLabel.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.detailPriceLabel.AutoSize = True
+        Me.detailPriceLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.detailPriceLabel.ForeColor = System.Drawing.Color.White
+        Me.detailPriceLabel.Location = New System.Drawing.Point(46, 199)
+        Me.detailPriceLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.detailPriceLabel.Name = "detailPriceLabel"
+        Me.detailPriceLabel.Size = New System.Drawing.Size(121, 73)
+        Me.detailPriceLabel.TabIndex = 0
+        Me.detailPriceLabel.Text = "5 €"
+        '
+        'detailImgPictureBox
+        '
+        Me.detailImgPictureBox.Location = New System.Drawing.Point(2, 2)
+        Me.detailImgPictureBox.Margin = New System.Windows.Forms.Padding(2)
+        Me.detailImgPictureBox.Name = "detailImgPictureBox"
+        Me.detailImgPictureBox.Size = New System.Drawing.Size(208, 183)
+        Me.detailImgPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.detailImgPictureBox.TabIndex = 1
+        Me.detailImgPictureBox.TabStop = False
+        '
+        'detailSpecLabel
+        '
+        Me.detailSpecLabel.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.detailSpecLabel.AutoSize = True
+        Me.detailSpecLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.detailSpecLabel.ForeColor = System.Drawing.Color.White
+        Me.detailSpecLabel.Location = New System.Drawing.Point(215, 187)
+        Me.detailSpecLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.detailSpecLabel.Name = "detailSpecLabel"
+        Me.detailSpecLabel.Size = New System.Drawing.Size(208, 97)
+        Me.detailSpecLabel.TabIndex = 2
+        Me.detailSpecLabel.Text = resources.GetString("detailSpecLabel.Text")
+        '
+        'FlowLayoutPanel1
+        '
+        Me.FlowLayoutPanel1.Controls.Add(Me.detailNameLabel)
+        Me.FlowLayoutPanel1.Controls.Add(Me.detailCategoryLabel)
+        Me.FlowLayoutPanel1.Controls.Add(Me.detailBrandLabel)
+        Me.FlowLayoutPanel1.Controls.Add(Me.detailWeightLabel)
+        Me.FlowLayoutPanel1.Controls.Add(Me.detailPriceKgLabel)
+        Me.FlowLayoutPanel1.Controls.Add(Me.detailOriginLabel)
+        Me.FlowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(215, 2)
+        Me.FlowLayoutPanel1.Margin = New System.Windows.Forms.Padding(2)
+        Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
+        Me.FlowLayoutPanel1.Padding = New System.Windows.Forms.Padding(0, 16, 0, 0)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(208, 183)
+        Me.FlowLayoutPanel1.TabIndex = 3
+        '
+        'detailNameLabel
+        '
+        Me.detailNameLabel.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.detailNameLabel.AutoSize = True
+        Me.detailNameLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.detailNameLabel.ForeColor = System.Drawing.Color.White
+        Me.detailNameLabel.Location = New System.Drawing.Point(17, 16)
+        Me.detailNameLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.detailNameLabel.Name = "detailNameLabel"
+        Me.detailNameLabel.Size = New System.Drawing.Size(77, 31)
+        Me.detailNameLabel.TabIndex = 0
+        Me.detailNameLabel.Text = "NOM"
+        '
+        'detailCategoryLabel
+        '
+        Me.detailCategoryLabel.AutoSize = True
+        Me.detailCategoryLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.detailCategoryLabel.ForeColor = System.Drawing.Color.White
+        Me.detailCategoryLabel.Location = New System.Drawing.Point(2, 47)
+        Me.detailCategoryLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.detailCategoryLabel.Name = "detailCategoryLabel"
+        Me.detailCategoryLabel.Padding = New System.Windows.Forms.Padding(30, 0, 0, 0)
+        Me.detailCategoryLabel.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.detailCategoryLabel.Size = New System.Drawing.Size(108, 20)
+        Me.detailCategoryLabel.TabIndex = 1
+        Me.detailCategoryLabel.Text = "Catégorie"
+        Me.detailCategoryLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'detailBrandLabel
+        '
+        Me.detailBrandLabel.AutoSize = True
+        Me.detailBrandLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.detailBrandLabel.ForeColor = System.Drawing.Color.White
+        Me.detailBrandLabel.Location = New System.Drawing.Point(2, 67)
+        Me.detailBrandLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.detailBrandLabel.Name = "detailBrandLabel"
+        Me.detailBrandLabel.Padding = New System.Windows.Forms.Padding(30, 0, 0, 0)
+        Me.detailBrandLabel.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.detailBrandLabel.Size = New System.Drawing.Size(93, 20)
+        Me.detailBrandLabel.TabIndex = 2
+        Me.detailBrandLabel.Text = "Marque"
+        Me.detailBrandLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'detailWeightLabel
+        '
+        Me.detailWeightLabel.AutoSize = True
+        Me.detailWeightLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.detailWeightLabel.ForeColor = System.Drawing.Color.White
+        Me.detailWeightLabel.Location = New System.Drawing.Point(2, 87)
+        Me.detailWeightLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.detailWeightLabel.Name = "detailWeightLabel"
+        Me.detailWeightLabel.Padding = New System.Windows.Forms.Padding(30, 0, 0, 0)
+        Me.detailWeightLabel.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.detailWeightLabel.Size = New System.Drawing.Size(78, 20)
+        Me.detailWeightLabel.TabIndex = 3
+        Me.detailWeightLabel.Text = "Poids"
+        Me.detailWeightLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'detailPriceKgLabel
+        '
+        Me.detailPriceKgLabel.AutoSize = True
+        Me.detailPriceKgLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.detailPriceKgLabel.ForeColor = System.Drawing.Color.White
+        Me.detailPriceKgLabel.Location = New System.Drawing.Point(2, 107)
+        Me.detailPriceKgLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.detailPriceKgLabel.Name = "detailPriceKgLabel"
+        Me.detailPriceKgLabel.Padding = New System.Windows.Forms.Padding(30, 0, 0, 0)
+        Me.detailPriceKgLabel.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.detailPriceKgLabel.Size = New System.Drawing.Size(93, 20)
+        Me.detailPriceKgLabel.TabIndex = 4
+        Me.detailPriceKgLabel.Text = "Prix / kg"
+        Me.detailPriceKgLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'detailOriginLabel
+        '
+        Me.detailOriginLabel.AutoSize = True
+        Me.detailOriginLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.detailOriginLabel.ForeColor = System.Drawing.Color.White
+        Me.detailOriginLabel.Location = New System.Drawing.Point(2, 127)
+        Me.detailOriginLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.detailOriginLabel.Name = "detailOriginLabel"
+        Me.detailOriginLabel.Padding = New System.Windows.Forms.Padding(30, 0, 0, 0)
+        Me.detailOriginLabel.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.detailOriginLabel.Size = New System.Drawing.Size(89, 20)
+        Me.detailOriginLabel.TabIndex = 5
+        Me.detailOriginLabel.Text = "Origine"
+        Me.detailOriginLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'detailCloseButton
+        '
+        Me.detailCloseButton.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.detailCloseButton.FlatAppearance.BorderSize = 0
+        Me.detailCloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.detailCloseButton.ForeColor = System.Drawing.Color.White
+        Me.detailCloseButton.Location = New System.Drawing.Point(427, 2)
+        Me.detailCloseButton.Margin = New System.Windows.Forms.Padding(2)
+        Me.detailCloseButton.Name = "detailCloseButton"
+        Me.detailCloseButton.Size = New System.Drawing.Size(20, 21)
+        Me.detailCloseButton.TabIndex = 4
+        Me.detailCloseButton.Text = "X"
+        Me.detailCloseButton.UseVisualStyleBackColor = True
+        '
+        'detailCartPanel
+        '
+        Me.detailCartPanel.Controls.Add(Me.cartDetailCancelButton)
+        Me.detailCartPanel.Controls.Add(Me.detailCartListView)
+        Me.detailCartPanel.Controls.Add(Me.cartDetailTitleLabel)
+        Me.detailCartPanel.Location = New System.Drawing.Point(41, 82)
+        Me.detailCartPanel.Margin = New System.Windows.Forms.Padding(2)
+        Me.detailCartPanel.Name = "detailCartPanel"
+        Me.detailCartPanel.Size = New System.Drawing.Size(771, 431)
+        Me.detailCartPanel.TabIndex = 0
+        Me.detailCartPanel.Visible = False
+        '
+        'cartDetailCancelButton
+        '
+        Me.cartDetailCancelButton.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.cartDetailCancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cartDetailCancelButton.Location = New System.Drawing.Point(732, 15)
+        Me.cartDetailCancelButton.Margin = New System.Windows.Forms.Padding(2)
+        Me.cartDetailCancelButton.Name = "cartDetailCancelButton"
+        Me.cartDetailCancelButton.Size = New System.Drawing.Size(34, 24)
+        Me.cartDetailCancelButton.TabIndex = 2
+        Me.cartDetailCancelButton.Text = "X"
+        Me.cartDetailCancelButton.UseVisualStyleBackColor = True
+        '
+        'detailCartListView
+        '
+        Me.detailCartListView.BackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.detailCartListView.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader4, Me.ColumnHeader5, Me.ColumnHeader6, Me.ColumnHeader7})
+        Me.detailCartListView.Location = New System.Drawing.Point(108, 58)
+        Me.detailCartListView.Margin = New System.Windows.Forms.Padding(2)
+        Me.detailCartListView.Name = "detailCartListView"
+        Me.detailCartListView.Size = New System.Drawing.Size(558, 343)
+        Me.detailCartListView.TabIndex = 1
+        Me.detailCartListView.UseCompatibleStateImageBehavior = False
+        Me.detailCartListView.View = System.Windows.Forms.View.Details
+        '
+        'ColumnHeader4
+        '
+        Me.ColumnHeader4.Text = "Nom"
+        '
+        'ColumnHeader5
+        '
+        Me.ColumnHeader5.Text = "Prix"
+        '
+        'ColumnHeader6
+        '
+        Me.ColumnHeader6.Text = "Quantité"
+        '
+        'ColumnHeader7
+        '
+        Me.ColumnHeader7.Text = "Description"
+        Me.ColumnHeader7.Width = 571
+        '
+        'cartDetailTitleLabel
+        '
+        Me.cartDetailTitleLabel.AutoSize = True
+        Me.cartDetailTitleLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cartDetailTitleLabel.Location = New System.Drawing.Point(232, 15)
+        Me.cartDetailTitleLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.cartDetailTitleLabel.Name = "cartDetailTitleLabel"
+        Me.cartDetailTitleLabel.Size = New System.Drawing.Size(271, 31)
+        Me.cartDetailTitleLabel.TabIndex = 0
+        Me.cartDetailTitleLabel.Text = "Détail de votre panier"
         '
         'articlePanel
         '
@@ -1009,7 +1006,6 @@ Partial Class Home
         '
         Me.cartListView.BackColor = System.Drawing.SystemColors.GradientActiveCaption
         Me.cartListView.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3})
-        Me.cartListView.Items.AddRange(New System.Windows.Forms.ListViewItem() {ListViewItem1})
         Me.cartListView.LargeImageList = Me.ImageList1
         Me.cartListView.Location = New System.Drawing.Point(0, -1)
         Me.cartListView.Name = "cartListView"
@@ -1132,18 +1128,18 @@ Partial Class Home
         Me.centerPanel.ResumeLayout(False)
         Me.savedListPanel.ResumeLayout(False)
         Me.savedListPanel.PerformLayout()
-        Me.detailCartPanel.ResumeLayout(False)
-        Me.detailCartPanel.PerformLayout()
-        Me.detailPopUpPanel.ResumeLayout(False)
-        Me.detailPopUpPanel.PerformLayout()
-        CType(Me.detailImgPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.FlowLayoutPanel1.ResumeLayout(False)
-        Me.FlowLayoutPanel1.PerformLayout()
         Me.validationPaymentPanel.ResumeLayout(False)
         Me.validationPaymentPanel.PerformLayout()
         Me.popUpPanel.ResumeLayout(False)
         Me.popUpPanel.PerformLayout()
         Me.FlowLayoutPanel2.ResumeLayout(False)
+        Me.detailPopUpPanel.ResumeLayout(False)
+        Me.detailPopUpPanel.PerformLayout()
+        CType(Me.detailImgPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.FlowLayoutPanel1.ResumeLayout(False)
+        Me.FlowLayoutPanel1.PerformLayout()
+        Me.detailCartPanel.ResumeLayout(False)
+        Me.detailCartPanel.PerformLayout()
         Me.menuPanel.ResumeLayout(False)
         Me.affGridPanel.ResumeLayout(False)
         Me.affListPanel.ResumeLayout(False)
