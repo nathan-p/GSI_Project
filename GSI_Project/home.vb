@@ -29,6 +29,8 @@ Public Class Home
     Dim sommePanier As Double
     Private Const SEUIL As Double = 20
 
+    Private Property CurrentSB As ListViewItem.ListViewSubItem
+
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'INITIALISATION DES ATTRIBUTS
         myState = State.CART
@@ -38,7 +40,6 @@ Public Class Home
         'INITIALISATION DE LA LISTE
         initArticles()
     End Sub
-
 
     Private Sub updateUI()
         updateSommePanier()
@@ -118,7 +119,6 @@ Public Class Home
     End Sub
 
 
-
     Public Sub addToCart(ByVal art As Article, ByVal qte As Integer)
         myState = State.CART
         'récuperer l'index de l'image du produit
@@ -156,9 +156,7 @@ Public Class Home
         'si l'article n'est pas dans la panier y'a un bug sinon on modifie sa quantite
         If (itemFound Is Nothing) Then
             'probleme
-            Debug.WriteLine("PROBLEME")
         Else
-            Debug.WriteLine("TROUVE")
             If qte = 0 Then
                 itemFound.Remove()
             Else
@@ -382,7 +380,7 @@ Public Class Home
     End Function
 
     Private Sub updateSommePanier()
-        sommePanier = calculSommePanier()        
+        sommePanier = calculSommePanier()
         cartTotalPriceLabel.Text = "Total : " + String.Format(sommePanier) + " €"
         Label2.Text = String.Format(sommePanier) + " €"
     End Sub

@@ -90,6 +90,8 @@ Partial Class Home
         Me.cartDetailButton = New System.Windows.Forms.Button()
         Me.cartListButton = New System.Windows.Forms.Button()
         Me.cartValidationButton = New System.Windows.Forms.Button()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.cartMinPriceLabel = New System.Windows.Forms.Label()
         Me.headerPanel.SuspendLayout()
         CType(Me.logoPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.centerPanel.SuspendLayout()
@@ -786,13 +788,14 @@ Partial Class Home
         'cartPanel
         '
         Me.cartPanel.BackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.cartPanel.Controls.Add(Me.cartTotalPriceLabel)
+        Me.cartPanel.Controls.Add(Me.cartMinPriceLabel)
+        Me.cartPanel.Controls.Add(Me.cartValidationButton)
         Me.cartPanel.Controls.Add(Me.cartListView)
         Me.cartPanel.Controls.Add(Me.cartSaveButton)
-        Me.cartPanel.Controls.Add(Me.cartTotalPriceLabel)
         Me.cartPanel.Controls.Add(Me.cartSuppressionButton)
         Me.cartPanel.Controls.Add(Me.cartDetailButton)
         Me.cartPanel.Controls.Add(Me.cartListButton)
-        Me.cartPanel.Controls.Add(Me.cartValidationButton)
         Me.cartPanel.Location = New System.Drawing.Point(1101, 86)
         Me.cartPanel.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.cartPanel.Name = "cartPanel"
@@ -867,7 +870,7 @@ Partial Class Home
         Me.cartTotalPriceLabel.AutoSize = True
         Me.cartTotalPriceLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cartTotalPriceLabel.ForeColor = System.Drawing.Color.DimGray
-        Me.cartTotalPriceLabel.Location = New System.Drawing.Point(41, 434)
+        Me.cartTotalPriceLabel.Location = New System.Drawing.Point(10, 435)
         Me.cartTotalPriceLabel.Name = "cartTotalPriceLabel"
         Me.cartTotalPriceLabel.Size = New System.Drawing.Size(156, 32)
         Me.cartTotalPriceLabel.TabIndex = 6
@@ -934,8 +937,18 @@ Partial Class Home
         Me.cartValidationButton.Name = "cartValidationButton"
         Me.cartValidationButton.Size = New System.Drawing.Size(221, 30)
         Me.cartValidationButton.TabIndex = 2
-        Me.cartValidationButton.Text = "Valider"
+        Me.cartValidationButton.Text = "Payer"
         Me.cartValidationButton.UseVisualStyleBackColor = True
+        '
+        'cartMinPriceLabel
+        '
+        Me.cartMinPriceLabel.AutoSize = True
+        Me.cartMinPriceLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.cartMinPriceLabel.Location = New System.Drawing.Point(179, 446)
+        Me.cartMinPriceLabel.Name = "cartMinPriceLabel"
+        Me.cartMinPriceLabel.Size = New System.Drawing.Size(68, 17)
+        Me.cartMinPriceLabel.TabIndex = 8
+        Me.cartMinPriceLabel.Text = "(min 20€)"
         '
         'Home
         '
@@ -1035,5 +1048,7 @@ Partial Class Home
     Friend WithEvents ColumnHeader2 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader3 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ImageList1 As System.Windows.Forms.ImageList
+    Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
+    Friend WithEvents cartMinPriceLabel As System.Windows.Forms.Label
 
 End Class
