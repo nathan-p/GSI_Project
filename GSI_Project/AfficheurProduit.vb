@@ -107,7 +107,7 @@
     End Sub
 
 
-    
+
 
 
     Private Sub TextBoxQuantite_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TextBoxQuantite.KeyPress
@@ -142,6 +142,7 @@
                 TextBoxQuantite.Text = CStr(qte)
             End If
             Me.updateStock()
+            Me.home.addToCart(article, qte)
         End If
 
     End Sub

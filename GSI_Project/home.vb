@@ -25,11 +25,14 @@ Public Class Home
     Dim listArticles As ArrayList
     Dim categorieActif As categorie
     Dim panier As New Dictionary(Of Article, Integer)
+    Dim sommePanier As Double
+    Private Const SEUIL As Double = 20
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'INITIALISATION DES ATTRIBUTS
         myState = State.CART
         categorieActif = categorie.MARCHE
+        updateSommePanier()
         updateUI()
         updateMenuButton()
         'INITIALISATION DE LA LISTE
@@ -68,9 +71,13 @@ Public Class Home
             Case State.CART
                 cartDetailButton.Enabled = True
                 cartListButton.Enabled = True
-                cartValidationButton.Enabled = True
                 cartSaveButton.Enabled = True
                 cartSuppressionButton.Enabled = True
+                If (sommePanier >= SEUIL) Then
+                    cartValidationButton.Enabled = True
+                Else
+                    cartValidationButton.Enabled = False
+                End If
             Case State.VALID_CART
                 cartDetailButton.Enabled = True
                 cartListButton.Enabled = True
@@ -132,6 +139,7 @@ Public Class Home
         End If
 
         cartListView.Update()
+        updateSommePanier()
     End Sub
 
     Public Sub removeToCart(ByVal art As Article, ByVal qte As Integer)
@@ -150,7 +158,7 @@ Public Class Home
             End If
             cartListView.Update()
         End If
-
+        updateSommePanier()
     End Sub
 
 
@@ -341,11 +349,28 @@ Public Class Home
         End Set
     End Property
 
+    '********************************************************************************
+    '*************************** GESTION PRIX PANIER ET SEUIL************************
+    '********************************************************************************
 
+    Private Function calculSommePanier() As Double
+        Dim sommeTotal As Double
+        Dim sommeArticle As Double
+        sommeTotal = 0
+        For Each article As Article In panier.Keys
+            sommeArticle = article.price * panier.Item(article)
+            sommeTotal += sommeArticle
+            'Debug.WriteLine("Article " + article.name + " sommeArticle " + String.Format(sommeArticle))
+        Next
+        'Debug.WriteLine("Somme Totale " + String.Format(sommeTotal))
+        Return sommeTotal
+    End Function
 
-
-
-
+    Private Sub updateSommePanier()
+        sommePanier = calculSommePanier()
+        cartTotalPriceLabel.Text = "Total : " + String.Format(sommePanier) + " €"
+        updateUI()
+    End Sub
 
 
     '********************************************************************************

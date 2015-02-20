@@ -58,11 +58,11 @@
         End Set
     End Property
 
-    Public Property price() As String
+    Public Property price() As Double
         Get
-            Return Prix
+            Return prix
         End Get
-        Set(ByVal value As String)
+        Set(ByVal value As Double)
             prix = value
         End Set
     End Property
