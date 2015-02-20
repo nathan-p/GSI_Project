@@ -99,6 +99,7 @@ Partial Class Home
         Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader8 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.cartSaveButton = New System.Windows.Forms.Button()
         Me.cartSuppressionButton = New System.Windows.Forms.Button()
@@ -1005,9 +1006,9 @@ Partial Class Home
         'cartListView
         '
         Me.cartListView.BackColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.cartListView.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3})
+        Me.cartListView.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader8})
         Me.cartListView.LargeImageList = Me.ImageList1
-        Me.cartListView.Location = New System.Drawing.Point(0, -1)
+        Me.cartListView.Location = New System.Drawing.Point(3, -1)
         Me.cartListView.Name = "cartListView"
         Me.cartListView.Size = New System.Drawing.Size(185, 351)
         Me.cartListView.SmallImageList = Me.ImageList1
@@ -1018,15 +1019,22 @@ Partial Class Home
         'ColumnHeader1
         '
         Me.ColumnHeader1.Text = "Articles"
-        Me.ColumnHeader1.Width = 96
+        Me.ColumnHeader1.Width = 72
         '
         'ColumnHeader2
         '
         Me.ColumnHeader2.Text = "Prix"
+        Me.ColumnHeader2.Width = 34
         '
         'ColumnHeader3
         '
         Me.ColumnHeader3.Text = "Qte"
+        Me.ColumnHeader3.Width = 53
+        '
+        'ColumnHeader8
+        '
+        Me.ColumnHeader8.Text = "s"
+        Me.ColumnHeader8.Width = 18
         '
         'ImageList1
         '
@@ -1229,5 +1237,6 @@ Partial Class Home
     Friend WithEvents savedListsCancelButton As System.Windows.Forms.Button
     Friend WithEvents savedListTitleLabel As System.Windows.Forms.Label
     Friend WithEvents deleteSavedListButton As System.Windows.Forms.Button
+    Friend WithEvents ColumnHeader8 As System.Windows.Forms.ColumnHeader
 
 End Class
