@@ -770,15 +770,13 @@ Public Class Home
     End Sub
     Private Sub ButtonClicked(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles bouton.Click
         ' Me.cartListView.Items.Clear()
-        MsgBox(sender.Text)
+
         Dim Zone As Integer
         Zone = Val(sender.Text)
         Me.cartListView.Items.RemoveAt(Zone)
         For index As Integer = 0 To (bPanier.Count - 1)
             bPanier.Item(index).Hide()
         Next
-
-
         bPanier.Clear()
         For index As Integer = 0 To (cartListView.Items.Count - 1)
             bouton = New Button
