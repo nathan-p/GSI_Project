@@ -59,6 +59,7 @@ Public Class Home
             Case State.VALID_CART
                 validationPaymentPanel.Height = 255
                 validationPaymentPanel.Visible = True
+                paymentNbProdLabel.Text = "Vous avez " + getNbProdInCart() + " produits dans votre panier"
                 popUpPanel.Visible = False
                 buttonEnable()
         End Select
@@ -95,7 +96,19 @@ Public Class Home
         cartListView.Items.Clear()
         panier.Clear()
         updateSommePanier()
+        updateDetailCart()
     End Sub
+
+    Private Function getNbProdInCart() As String
+        Dim nbProd As Integer = 0
+
+        For Each prod In panier
+            nbProd += prod.Value
+        Next
+
+        Return nbProd.ToString
+    End Function
+
 
     Private Sub showPopUp()
         popUpPanel.Height = 200

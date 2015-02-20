@@ -207,6 +207,8 @@ Partial Class Home
         Me.centerPanel.Controls.Add(Me.detailPopUpPanel)
         Me.centerPanel.Controls.Add(Me.validationPaymentPanel)
         Me.centerPanel.Controls.Add(Me.popUpPanel)
+        Me.centerPanel.Controls.Add(Me.detailPopUpPanel)
+        Me.centerPanel.Controls.Add(Me.detailCartPanel)
         Me.centerPanel.Controls.Add(Me.articlePanel)
         Me.centerPanel.Controls.Add(Me.menuPanel)
         Me.centerPanel.Controls.Add(Me.affGridPanel)
@@ -297,6 +299,7 @@ Partial Class Home
         '
         'cartDetailCancelButton
         '
+        Me.cartDetailCancelButton.Cursor = System.Windows.Forms.Cursors.Hand
         Me.cartDetailCancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cartDetailCancelButton.Location = New System.Drawing.Point(732, 15)
         Me.cartDetailCancelButton.Margin = New System.Windows.Forms.Padding(2)
@@ -534,7 +537,7 @@ Partial Class Home
         Me.validationPaymentPanel.Location = New System.Drawing.Point(203, 145)
         Me.validationPaymentPanel.Margin = New System.Windows.Forms.Padding(2)
         Me.validationPaymentPanel.Name = "validationPaymentPanel"
-        Me.validationPaymentPanel.Size = New System.Drawing.Size(401, 0)
+        Me.validationPaymentPanel.Size = New System.Drawing.Size(535, 253)
         Me.validationPaymentPanel.TabIndex = 9
         Me.validationPaymentPanel.Visible = False
         '
