@@ -24,6 +24,7 @@ Public Class Home
     Dim nbProduct As Integer
     Dim listArticles As ArrayList
     Dim listAfficheurs As ArrayList
+    Dim listSavedCart As ArrayList
     Dim categorieActif As categorie
     Dim panier As New Dictionary(Of Article, Integer)
     Dim sommePanier As Double
@@ -35,6 +36,7 @@ Public Class Home
         'INITIALISATION DES ATTRIBUTS
         myState = State.INIT
         categorieActif = categorie.MARCHE
+        listSavedCart = New ArrayList
         updateUI()
         updateMenuButton()
         'INITIALISATION DE LA LISTE
@@ -411,7 +413,14 @@ Public Class Home
         cartTotalPriceLabel.Text = "Total : " + String.Format(sommePanier) + " €"
         Label2.Text = String.Format(sommePanier) + " €"
     End Sub
+    '********************************************************************************
+    '*************************** Gestion listes sauvegardés  ************************
+    '********************************************************************************
+    Private Function buildPanierFromNode(ByRef noeud As TreeNode) As Dictionary(Of Article, Integer)
+        Dim newPanier As New Dictionary(Of Article, Integer)
 
+        Return newPanier
+    End Function
 
     '********************************************************************************
     '*************************** MENU SORT DISPLAY HOVER LISTENER *******************
@@ -462,11 +471,17 @@ Public Class Home
     End Sub
 
     Private Sub cartSaveButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cartSaveButton.Click
-
+        listSavedCart.Add(panier)
+        Dim idList As String = String.Format(listSavedCart.Count)
+        Dim noeudNouvelleListe As TreeNode
+        noeudNouvelleListe = SavedListsTreeView.Nodes.Add(idList, "Liste n°" + idList + " (Total: " + String.Format(sommePanier) + " €)", "", "")
+        For Each item As Article In panier.Keys
+            noeudNouvelleListe.Nodes.Add(item.name, String.Format(panier.Item(item)) + " x " + item.name, "", "")
+        Next
     End Sub
 
     Private Sub myListButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cartListButton.Click
-
+        savedListPanel.Visible = True
     End Sub
 
 
@@ -589,4 +604,37 @@ Public Class Home
     Private Sub cartDetailCancelButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cartDetailCancelButton.Click
         detailCartPanel.Visible = False
     End Sub
+
+    '********************************************************************************
+    '********************** SAVED LIST BUTTON CLICK LISTENER ************************
+    '********************************************************************************
+
+    Private Sub loadSavedListButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles loadSavedListButton.Click
+        If (Not SavedListsTreeView.SelectedNode Is Nothing) Then
+            'Reconstruire le panier depuis le node puis faire un panier = panier reconstruit
+            panier = buildPanierFromNode(SavedListsTreeView.SelectedNode)
+        End If
+    End Sub
+
+    Private Sub deleteSavedListButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles deleteSavedListButton.Click
+        If (Not SavedListsTreeView.SelectedNode Is Nothing) Then
+            'Reconstruire le panier depuis le node puis faire un remove du panier reconstruit
+            'listSavedCart.Remove(buildPanierFromNode(SavedListsTreeView.SelectedNode))
+            SavedListsTreeView.SelectedNode.Remove()
+        End If
+        If (SavedListsTreeView.SelectedNode Is Nothing) Then
+            deleteSavedListButton.Enabled = False
+            loadSavedListButton.Enabled = False
+        End If
+    End Sub
+
+    Private Sub savedListsCancelButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles savedListsCancelButton.Click
+        savedListPanel.Visible = False
+    End Sub
+
+    Private Sub SavedListsTreeView_AfterSelect(ByVal sender As Object, ByVal e As System.Windows.Forms.TreeViewEventArgs) Handles SavedListsTreeView.AfterSelect
+        deleteSavedListButton.Enabled = True
+        loadSavedListButton.Enabled = True
+    End Sub
+
 End Class
