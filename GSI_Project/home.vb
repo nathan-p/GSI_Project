@@ -383,13 +383,15 @@ Public Class Home
         Next
     End Sub
 
-    Private Sub reinitialiserAfficheurArticles(ByRef article As Article, ByVal quantite As Integer)
+    Private Function reinitialiserAfficheurArticles(ByRef article As Article, ByVal quantite As Integer) As Integer
+        Dim qte As Integer = 0
         For Each afficheur As AfficheurProduit In Me.listAfficheurs
             If (afficheur.art.Equals(article)) Then
-                afficheur.updateTextBox(quantite)
+                qte = afficheur.updateTextBox(quantite)
             End If
         Next
-    End Sub
+        Return qte
+    End Function
 
     Public Property getPanier() As Dictionary(Of Article, Integer)
         Get
@@ -624,13 +626,15 @@ Public Class Home
             reinitialiserAfficheurArticles(True)
             Dim savedCart As Dictionary(Of Article, Integer)
             savedCart = listSavedCart.Item(SavedListsTreeView.SelectedNode.Name)
+            Dim qte As Integer = 0
             For Each item As Article In savedCart.Keys
-                panier.Add(item, savedCart.Item(item))
-                'Next
-                'For Each item As Article In panier.Keys
-                addToCart(item, panier.Item(item))
-                reinitialiserAfficheurArticles(item, panier.Item(item))
+                qte = reinitialiserAfficheurArticles(item, savedCart.Item(item))
+                If (qte > 0) Then
+                    panier.Add(item, qte)
+                    addToCart(item, qte)
+                End If                
             Next
+            savedListPanel.Visible = False
         End If
     End Sub
 
