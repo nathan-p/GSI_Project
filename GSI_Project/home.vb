@@ -249,6 +249,20 @@ Public Class Home
         End Select
     End Sub
 
+
+    Private Sub updateDetailCart()
+        detailCartListView.Items.Clear()
+
+        For Each produit In panier
+            Dim item As ListViewItem
+            item = New System.Windows.Forms.ListViewItem(New String() {produit.Key.name, produit.Key.price, produit.Value, produit.Key.desc})
+            detailCartListView.Items.Add(item)
+        Next
+        detailCartPanel.Refresh()
+
+    End Sub
+
+
     '********************************************************************************
     '*************************** ARTICLES INITIALIZATION ****************************
     '********************************************************************************
@@ -409,7 +423,8 @@ Public Class Home
     End Sub
 
     Private Sub cartDetailButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cartDetailButton.Click
-
+        updateDetailCart()
+        detailCartPanel.Visible = True
     End Sub
 
     Private Sub cartSuppressionButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cartSuppressionButton.Click
@@ -548,4 +563,7 @@ Public Class Home
     End Sub
 
 
+    Private Sub cartDetailCancelButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cartDetailCancelButton.Click
+        detailCartPanel.Visible = False
+    End Sub
 End Class

@@ -33,6 +33,14 @@ Partial Class Home
         Me.separateurShapeContainer = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
         Me.LineShape1 = New Microsoft.VisualBasic.PowerPacks.LineShape()
         Me.centerPanel = New System.Windows.Forms.Panel()
+        Me.detailCartPanel = New System.Windows.Forms.Panel()
+        Me.cartDetailCancelButton = New System.Windows.Forms.Button()
+        Me.detailCartListView = New System.Windows.Forms.ListView()
+        Me.ColumnHeader4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader5 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader6 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader7 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.cartDetailTitleLabel = New System.Windows.Forms.Label()
         Me.detailPopUpPanel = New System.Windows.Forms.TableLayoutPanel()
         Me.detailPriceLabel = New System.Windows.Forms.Label()
         Me.detailImgPictureBox = New System.Windows.Forms.PictureBox()
@@ -79,22 +87,23 @@ Partial Class Home
         Me.LineShape3 = New Microsoft.VisualBasic.PowerPacks.LineShape()
         Me.LineShape2 = New Microsoft.VisualBasic.PowerPacks.LineShape()
         Me.cartPanel = New System.Windows.Forms.Panel()
+        Me.cartTotalPriceLabel = New System.Windows.Forms.Label()
+        Me.cartMinPriceLabel = New System.Windows.Forms.Label()
+        Me.cartValidationButton = New System.Windows.Forms.Button()
         Me.cartListView = New System.Windows.Forms.ListView()
         Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.cartSaveButton = New System.Windows.Forms.Button()
-        Me.cartTotalPriceLabel = New System.Windows.Forms.Label()
         Me.cartSuppressionButton = New System.Windows.Forms.Button()
         Me.cartDetailButton = New System.Windows.Forms.Button()
         Me.cartListButton = New System.Windows.Forms.Button()
-        Me.cartValidationButton = New System.Windows.Forms.Button()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.cartMinPriceLabel = New System.Windows.Forms.Label()
         Me.headerPanel.SuspendLayout()
         CType(Me.logoPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.centerPanel.SuspendLayout()
+        Me.detailCartPanel.SuspendLayout()
         Me.detailPopUpPanel.SuspendLayout()
         CType(Me.detailImgPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.FlowLayoutPanel1.SuspendLayout()
@@ -185,6 +194,7 @@ Partial Class Home
         'centerPanel
         '
         Me.centerPanel.BackColor = System.Drawing.Color.White
+        Me.centerPanel.Controls.Add(Me.detailCartPanel)
         Me.centerPanel.Controls.Add(Me.detailPopUpPanel)
         Me.centerPanel.Controls.Add(Me.validationPaymentPanel)
         Me.centerPanel.Controls.Add(Me.popUpPanel)
@@ -198,6 +208,65 @@ Partial Class Home
         Me.centerPanel.Name = "centerPanel"
         Me.centerPanel.Size = New System.Drawing.Size(1103, 642)
         Me.centerPanel.TabIndex = 3
+        '
+        'detailCartPanel
+        '
+        Me.detailCartPanel.Controls.Add(Me.cartDetailCancelButton)
+        Me.detailCartPanel.Controls.Add(Me.detailCartListView)
+        Me.detailCartPanel.Controls.Add(Me.cartDetailTitleLabel)
+        Me.detailCartPanel.Location = New System.Drawing.Point(55, 101)
+        Me.detailCartPanel.Name = "detailCartPanel"
+        Me.detailCartPanel.Size = New System.Drawing.Size(1028, 530)
+        Me.detailCartPanel.TabIndex = 0
+        Me.detailCartPanel.Visible = False
+        '
+        'cartDetailCancelButton
+        '
+        Me.cartDetailCancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cartDetailCancelButton.Location = New System.Drawing.Point(976, 18)
+        Me.cartDetailCancelButton.Name = "cartDetailCancelButton"
+        Me.cartDetailCancelButton.Size = New System.Drawing.Size(45, 29)
+        Me.cartDetailCancelButton.TabIndex = 2
+        Me.cartDetailCancelButton.Text = "X"
+        Me.cartDetailCancelButton.UseVisualStyleBackColor = True
+        '
+        'detailCartListView
+        '
+        Me.detailCartListView.BackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.detailCartListView.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader4, Me.ColumnHeader5, Me.ColumnHeader6, Me.ColumnHeader7})
+        Me.detailCartListView.Location = New System.Drawing.Point(144, 71)
+        Me.detailCartListView.Name = "detailCartListView"
+        Me.detailCartListView.Size = New System.Drawing.Size(742, 421)
+        Me.detailCartListView.TabIndex = 1
+        Me.detailCartListView.UseCompatibleStateImageBehavior = False
+        Me.detailCartListView.View = System.Windows.Forms.View.Details
+        '
+        'ColumnHeader4
+        '
+        Me.ColumnHeader4.Text = "Nom"
+        '
+        'ColumnHeader5
+        '
+        Me.ColumnHeader5.Text = "Prix"
+        '
+        'ColumnHeader6
+        '
+        Me.ColumnHeader6.Text = "Quantité"
+        '
+        'ColumnHeader7
+        '
+        Me.ColumnHeader7.Text = "Description"
+        Me.ColumnHeader7.Width = 571
+        '
+        'cartDetailTitleLabel
+        '
+        Me.cartDetailTitleLabel.AutoSize = True
+        Me.cartDetailTitleLabel.Font = New System.Drawing.Font("Roboto Lt", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cartDetailTitleLabel.Location = New System.Drawing.Point(310, 18)
+        Me.cartDetailTitleLabel.Name = "cartDetailTitleLabel"
+        Me.cartDetailTitleLabel.Size = New System.Drawing.Size(320, 39)
+        Me.cartDetailTitleLabel.TabIndex = 0
+        Me.cartDetailTitleLabel.Text = "Détail de votre panier"
         '
         'detailPopUpPanel
         '
@@ -802,6 +871,43 @@ Partial Class Home
         Me.cartPanel.Size = New System.Drawing.Size(245, 638)
         Me.cartPanel.TabIndex = 4
         '
+        'cartTotalPriceLabel
+        '
+        Me.cartTotalPriceLabel.AutoSize = True
+        Me.cartTotalPriceLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cartTotalPriceLabel.ForeColor = System.Drawing.Color.DimGray
+        Me.cartTotalPriceLabel.Location = New System.Drawing.Point(10, 435)
+        Me.cartTotalPriceLabel.Name = "cartTotalPriceLabel"
+        Me.cartTotalPriceLabel.Size = New System.Drawing.Size(156, 32)
+        Me.cartTotalPriceLabel.TabIndex = 6
+        Me.cartTotalPriceLabel.Text = "Total : 56 €"
+        '
+        'cartMinPriceLabel
+        '
+        Me.cartMinPriceLabel.AutoSize = True
+        Me.cartMinPriceLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.cartMinPriceLabel.Location = New System.Drawing.Point(179, 446)
+        Me.cartMinPriceLabel.Name = "cartMinPriceLabel"
+        Me.cartMinPriceLabel.Size = New System.Drawing.Size(68, 17)
+        Me.cartMinPriceLabel.TabIndex = 8
+        Me.cartMinPriceLabel.Text = "(min 20€)"
+        '
+        'cartValidationButton
+        '
+        Me.cartValidationButton.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.cartValidationButton.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.cartValidationButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.cartValidationButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.cartValidationButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cartValidationButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cartValidationButton.Location = New System.Drawing.Point(13, 469)
+        Me.cartValidationButton.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.cartValidationButton.Name = "cartValidationButton"
+        Me.cartValidationButton.Size = New System.Drawing.Size(221, 30)
+        Me.cartValidationButton.TabIndex = 2
+        Me.cartValidationButton.Text = "Payer"
+        Me.cartValidationButton.UseVisualStyleBackColor = True
+        '
         'cartListView
         '
         Me.cartListView.BackColor = System.Drawing.SystemColors.GradientActiveCaption
@@ -865,17 +971,6 @@ Partial Class Home
         Me.cartSaveButton.Text = "Sauvegarder"
         Me.cartSaveButton.UseVisualStyleBackColor = True
         '
-        'cartTotalPriceLabel
-        '
-        Me.cartTotalPriceLabel.AutoSize = True
-        Me.cartTotalPriceLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cartTotalPriceLabel.ForeColor = System.Drawing.Color.DimGray
-        Me.cartTotalPriceLabel.Location = New System.Drawing.Point(10, 435)
-        Me.cartTotalPriceLabel.Name = "cartTotalPriceLabel"
-        Me.cartTotalPriceLabel.Size = New System.Drawing.Size(156, 32)
-        Me.cartTotalPriceLabel.TabIndex = 6
-        Me.cartTotalPriceLabel.Text = "Total : 56 €"
-        '
         'cartSuppressionButton
         '
         Me.cartSuppressionButton.Cursor = System.Windows.Forms.Cursors.Hand
@@ -924,32 +1019,6 @@ Partial Class Home
         Me.cartListButton.Text = "Mes listes"
         Me.cartListButton.UseVisualStyleBackColor = True
         '
-        'cartValidationButton
-        '
-        Me.cartValidationButton.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.cartValidationButton.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.cartValidationButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.cartValidationButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.cartValidationButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cartValidationButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cartValidationButton.Location = New System.Drawing.Point(13, 469)
-        Me.cartValidationButton.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.cartValidationButton.Name = "cartValidationButton"
-        Me.cartValidationButton.Size = New System.Drawing.Size(221, 30)
-        Me.cartValidationButton.TabIndex = 2
-        Me.cartValidationButton.Text = "Payer"
-        Me.cartValidationButton.UseVisualStyleBackColor = True
-        '
-        'cartMinPriceLabel
-        '
-        Me.cartMinPriceLabel.AutoSize = True
-        Me.cartMinPriceLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.cartMinPriceLabel.Location = New System.Drawing.Point(179, 446)
-        Me.cartMinPriceLabel.Name = "cartMinPriceLabel"
-        Me.cartMinPriceLabel.Size = New System.Drawing.Size(68, 17)
-        Me.cartMinPriceLabel.TabIndex = 8
-        Me.cartMinPriceLabel.Text = "(min 20€)"
-        '
         'Home
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -965,6 +1034,8 @@ Partial Class Home
         Me.headerPanel.PerformLayout()
         CType(Me.logoPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.centerPanel.ResumeLayout(False)
+        Me.detailCartPanel.ResumeLayout(False)
+        Me.detailCartPanel.PerformLayout()
         Me.detailPopUpPanel.ResumeLayout(False)
         Me.detailPopUpPanel.PerformLayout()
         CType(Me.detailImgPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1050,5 +1121,13 @@ Partial Class Home
     Friend WithEvents ImageList1 As System.Windows.Forms.ImageList
     Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
     Friend WithEvents cartMinPriceLabel As System.Windows.Forms.Label
+    Friend WithEvents detailCartPanel As System.Windows.Forms.Panel
+    Friend WithEvents detailCartListView As System.Windows.Forms.ListView
+    Friend WithEvents ColumnHeader4 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader5 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader6 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader7 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents cartDetailTitleLabel As System.Windows.Forms.Label
+    Friend WithEvents cartDetailCancelButton As System.Windows.Forms.Button
 
 End Class
