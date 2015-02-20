@@ -33,7 +33,7 @@ Public Class Home
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'INITIALISATION DES ATTRIBUTS
-        myState = State.CART
+        myState = State.INIT
         categorieActif = categorie.MARCHE
         updateUI()
         updateMenuButton()
@@ -345,7 +345,7 @@ Public Class Home
             Case categorie.SURGELES
                 cat = "Surgeles"
         End Select
-        For Each item As AfficheurProduit In listAfficheurs            
+        For Each item As AfficheurProduit In listAfficheurs
             If (item.art.category = cat) Then
                 Me.articlePanel.Controls.Add(item)
             End If
@@ -363,8 +363,8 @@ Public Class Home
         Next
     End Sub
 
-    Private Sub reinitialiserAfficheurArticles(ByVal isSuppressionPanier As Boolean)        
-        For Each afficheur As AfficheurProduit In Me.listAfficheurs            
+    Private Sub reinitialiserAfficheurArticles(ByVal isSuppressionPanier As Boolean)
+        For Each afficheur As AfficheurProduit In Me.listAfficheurs
             afficheur.updateTextBox(isSuppressionPanier)
         Next
     End Sub
@@ -389,7 +389,7 @@ Public Class Home
         For Each article As Article In panier.Keys
             sommeArticle = article.price * panier.Item(article)
             sommeTotal += sommeArticle
-        Next        
+        Next
         Return sommeTotal
     End Function
 
@@ -422,7 +422,7 @@ Public Class Home
         Select Case myState
             Case State.INIT
                 'interdit
-            Case State.CART                
+            Case State.CART
                 myState = State.VALID_CART
                 updateUI()
             Case State.VALID_CART
