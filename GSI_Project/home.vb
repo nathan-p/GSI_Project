@@ -28,6 +28,8 @@ Public Class Home
     Dim sommePanier As Double
     Private Const SEUIL As Double = 20
 
+    Private Property CurrentSB As ListViewItem.ListViewSubItem
+
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'INITIALISATION DES ATTRIBUTS
         myState = State.CART
@@ -114,7 +116,6 @@ Public Class Home
 
         End Select
     End Sub
-
 
 
     Public Sub addToCart(ByVal art As Article, ByVal qte As Integer)
