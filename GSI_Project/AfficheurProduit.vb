@@ -4,7 +4,6 @@
     Dim article As Article
     Dim qte As Integer 'Quantité à récupérer du panier de Home
     Dim ListViewItem2 As System.Windows.Forms.ListViewItem
-    Dim imageIndex As Integer
 
     Public Sub New(ByRef art As Article, ByVal hom As Home)
         InitializeComponent()
@@ -83,45 +82,32 @@
         Me.article.stock -= 1
         Me.qte += 1
         Me.updateStock()
-        addToCart()
+        Me.home.addToCart(article, qte)
     End Sub
 
     Private Sub boutonAjouter_DoubleClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles boutonAjouter.DoubleClick
         Me.article.stock -= 1
         Me.qte += 1
         Me.updateStock()
-
+        Me.home.addToCart(article, qte)
     End Sub
 
     Private Sub boutonRetirer_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles boutonRetirer.Click
         Me.article.stock += 1
         Me.qte -= 1
         Me.updateStock()
+        Me.home.removeToCart(article, qte)
     End Sub
 
     Private Sub boutonRetirer_DoubleClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles boutonRetirer.DoubleClick
         Me.article.stock += 1
         Me.qte -= 1
         Me.updateStock()
+        Me.home.removeToCart(article, qte)
     End Sub
 
 
-    Private Sub addToCart()
-        For index As Integer = 0 To (home.ImageList1.Images.Count - 1)
-                If (home.ImageList1.Images.Keys(index).ToString = article.img) Then
-                    imageIndex = index
-                    Exit For
-                End If
-            Next
-            ListViewItem2 = New System.Windows.Forms.ListViewItem(New String() {labelNomArticle.Text, labelPrix.Text, Me.qte}, imageIndex)
-
-            Dim item2 As ListViewItem = home.ListView1.FindItemWithText(labelNomArticle.Text)
-            'Dim s As Integer = home.ListView1.FindItemWithText(labelNomArticle.Text)
-            If (item2 Is Nothing) Then
-                home.ListView1.Items.Add(ListViewItem2)
-            End If
-            home.ListView1.Update()
-    End Sub
+    
 
 
     Private Sub TextBoxQuantite_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TextBoxQuantite.KeyPress

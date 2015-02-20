@@ -81,8 +81,7 @@ Public Class Home
     End Sub
 
     Private Sub clearCart()
-        'cartListView.Clear()
-
+        cartListView.Clear()
     End Sub
 
     Private Sub showPopUp()
@@ -107,6 +106,53 @@ Public Class Home
 
         End Select
     End Sub
+
+
+
+    Public Sub addToCart(ByVal art As Article, ByVal qte As Integer)
+        'récuperer l'index de l'image du produit
+        Dim imageIndex As Integer
+        For index As Integer = 0 To (ImageList1.Images.Count - 1)
+            If (ImageList1.Images.Keys(index).ToString = art.img) Then
+                imageIndex = index
+                Exit For
+            End If
+        Next
+
+        Dim item As ListViewItem
+        item = New System.Windows.Forms.ListViewItem(New String() {art.name, art.price, qte}, imageIndex)
+
+        Dim itemFound As ListViewItem = cartListView.FindItemWithText(art.name)
+
+        'si l'article n'est pas dans la panier on l'ajoute sinon on modifie sa quantite
+        If (itemFound Is Nothing) Then
+            cartListView.Items.Add(item)
+        Else
+            itemFound.SubItems.Item(2).Text = qte.ToString
+        End If
+
+        cartListView.Update()
+    End Sub
+
+    Public Sub removeToCart(ByVal art As Article, ByVal qte As Integer)
+        Dim itemFound As ListViewItem = cartListView.FindItemWithText(art.name)
+
+        'si l'article n'est pas dans la panier y'a un bug sinon on modifie sa quantite
+        If (itemFound Is Nothing) Then
+            'probleme
+            Debug.WriteLine("PROBLEME")
+        Else
+            Debug.WriteLine("TROUVE")
+            If qte = 0 Then
+                itemFound.Remove()
+            Else
+                itemFound.SubItems.Item(2).Text = qte.ToString
+            End If
+            cartListView.Update()
+        End If
+
+    End Sub
+
 
 
     Private Sub setPopUp(ByVal title As String, ByVal content As String, ByVal validButton As String, ByVal cancelButton As String)

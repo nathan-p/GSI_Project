@@ -79,7 +79,7 @@ Partial Class Home
         Me.LineShape3 = New Microsoft.VisualBasic.PowerPacks.LineShape()
         Me.LineShape2 = New Microsoft.VisualBasic.PowerPacks.LineShape()
         Me.cartPanel = New System.Windows.Forms.Panel()
-        Me.ListView1 = New System.Windows.Forms.ListView()
+        Me.cartListView = New System.Windows.Forms.ListView()
         Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
@@ -786,7 +786,7 @@ Partial Class Home
         'cartPanel
         '
         Me.cartPanel.BackColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.cartPanel.Controls.Add(Me.ListView1)
+        Me.cartPanel.Controls.Add(Me.cartListView)
         Me.cartPanel.Controls.Add(Me.cartSaveButton)
         Me.cartPanel.Controls.Add(Me.cartTotalPriceLabel)
         Me.cartPanel.Controls.Add(Me.cartSuppressionButton)
@@ -799,20 +799,20 @@ Partial Class Home
         Me.cartPanel.Size = New System.Drawing.Size(245, 638)
         Me.cartPanel.TabIndex = 4
         '
-        'ListView1
+        'cartListView
         '
-        Me.ListView1.BackColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3})
-        Me.ListView1.Items.AddRange(New System.Windows.Forms.ListViewItem() {ListViewItem1})
-        Me.ListView1.LargeImageList = Me.ImageList1
-        Me.ListView1.Location = New System.Drawing.Point(0, -1)
-        Me.ListView1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(245, 431)
-        Me.ListView1.SmallImageList = Me.ImageList1
-        Me.ListView1.TabIndex = 0
-        Me.ListView1.UseCompatibleStateImageBehavior = False
-        Me.ListView1.View = System.Windows.Forms.View.Details
+        Me.cartListView.BackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.cartListView.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3})
+        Me.cartListView.Items.AddRange(New System.Windows.Forms.ListViewItem() {ListViewItem1})
+        Me.cartListView.LargeImageList = Me.ImageList1
+        Me.cartListView.Location = New System.Drawing.Point(0, -1)
+        Me.cartListView.Margin = New System.Windows.Forms.Padding(4)
+        Me.cartListView.Name = "cartListView"
+        Me.cartListView.Size = New System.Drawing.Size(245, 431)
+        Me.cartListView.SmallImageList = Me.ImageList1
+        Me.cartListView.TabIndex = 0
+        Me.cartListView.UseCompatibleStateImageBehavior = False
+        Me.cartListView.View = System.Windows.Forms.View.Details
         '
         'ColumnHeader1
         '
@@ -1030,7 +1030,7 @@ Partial Class Home
     Friend WithEvents detailPriceKgLabel As System.Windows.Forms.Label
     Friend WithEvents detailOriginLabel As System.Windows.Forms.Label
     Friend WithEvents detailCloseButton As System.Windows.Forms.Button
-    Friend WithEvents ListView1 As System.Windows.Forms.ListView
+    Friend WithEvents cartListView As System.Windows.Forms.ListView
     Friend WithEvents ColumnHeader1 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader2 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader3 As System.Windows.Forms.ColumnHeader
