@@ -26,10 +26,26 @@
         Me.LabelStock.Text = String.Concat("En stock : ", article.stock)
     End Sub
 
+    Public Sub updateTextBox(ByVal isSuppressionPanier As Boolean)        
+        If (isSuppressionPanier) Then
+            article.stock += qte
+        End If
+        qte = 0
+        updateStock()
+    End Sub
+
+    Public Property art() As Article
+        Get
+            Return article
+        End Get
+        Set(ByVal value As Article)
+            article = value
+        End Set
+    End Property
+
     '********************************************************************************
     '*************************** Gestion bouton +/-**********************************
-    '********************************************************************************
-
+    '********************************************************************************    
     Private Sub updateStock()
         'Modifications des labels
         Me.LabelStock.Text = String.Concat("En stock : ", Me.article.stock)
@@ -106,10 +122,6 @@
         Me.home.removeToCart(article, qte)
     End Sub
 
-
-
-
-
     Private Sub TextBoxQuantite_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TextBoxQuantite.KeyPress
 
         '97 - 122 = Ascii codes for simple letters
@@ -142,7 +154,9 @@
                 TextBoxQuantite.Text = CStr(qte)
             End If
             Me.updateStock()
-            Me.home.addToCart(article, qte)
+            If (qte > 0) Then
+                Me.home.addToCart(article, qte)
+            End If
         End If
 
     End Sub
