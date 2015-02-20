@@ -167,7 +167,7 @@ Public Class Home
                 menuBoissonsButton.BackColor = Color.LightSlateGray
                 menuBoissonsButton.Cursor = Cursors.Default
                 menuBoissonsButton.Enabled = False
-            Case (categorie.FRAIS) 
+            Case (categorie.FRAIS)
                 menuFraisButton.BackColor = Color.LightSlateGray
                 menuFraisButton.Cursor = Cursors.Default
                 menuFraisButton.Enabled = False
@@ -229,7 +229,7 @@ Public Class Home
         Dim poissonPane As WindowsApplication1.Article
         poissonPane = New Article("Poisson Pané", "Surgeles", "Findus", 4.5, 2, "France", "Poisson panés frais pêché la veille", "poisson_pane.jpg")
         Dim steakHache As WindowsApplication1.Article
-        steakHache = New Article("Steak haché", "Surgeles", "Charal", 5.3, 2, "France", "Pur boeuf", "steak.jpg")
+        steakHache = New Article("Steak haché", "Surgeles", "Charal", 5.3, 2, "France", "Pur boeuf", "steak.JPG")
 
 
         listArticles = New ArrayList

@@ -36,7 +36,9 @@
         Me.LabelStock.Text = String.Concat("En stock : ", Me.article.stock)
         TextBoxQuantite.Text = CStr(qte)
         home.getPanier.Remove(article)
-        home.getPanier.Add(article, qte)
+        If (qte > 0) Then
+            home.getPanier.Add(article, qte)
+        End If
         'Enable des boutons
         If (Me.article.stock = 0) Then
             Me.boutonAjouter.Enabled = False
@@ -106,19 +108,19 @@
 
     Private Sub addToCart()
         For index As Integer = 0 To (home.ImageList1.Images.Count - 1)
-            If (home.ImageList1.Images.Keys(index).ToString = article.img) Then
-                imageIndex = index
-                Exit For
-            End If
-        Next
-        ListViewItem2 = New System.Windows.Forms.ListViewItem(New String() {labelNomArticle.Text, labelPrix.Text, Me.qte}, imageIndex)
+                If (home.ImageList1.Images.Keys(index).ToString = article.img) Then
+                    imageIndex = index
+                    Exit For
+                End If
+            Next
+            ListViewItem2 = New System.Windows.Forms.ListViewItem(New String() {labelNomArticle.Text, labelPrix.Text, Me.qte}, imageIndex)
 
-        Dim item2 As ListViewItem = home.ListView1.FindItemWithText(labelNomArticle.Text)
-        'Dim s As Integer = home.ListView1.FindItemWithText(labelNomArticle.Text)
-        If (item2 Is Nothing) Then
-            home.ListView1.Items.Add(ListViewItem2)
-        End If
-        home.ListView1.Update()
+            Dim item2 As ListViewItem = home.ListView1.FindItemWithText(labelNomArticle.Text)
+            'Dim s As Integer = home.ListView1.FindItemWithText(labelNomArticle.Text)
+            If (item2 Is Nothing) Then
+                home.ListView1.Items.Add(ListViewItem2)
+            End If
+            home.ListView1.Update()
     End Sub
 
 
