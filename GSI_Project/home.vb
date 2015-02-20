@@ -25,6 +25,8 @@ Public Class Home
     Dim listArticles As ArrayList
     Dim categorieActif As categorie
     Dim panier As New Dictionary(Of Article, Integer)
+    Dim sommePanier As Double
+    Private Const SEUIL As Double = 20
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'INITIALISATION DES ATTRIBUTS
@@ -37,6 +39,7 @@ Public Class Home
     End Sub
 
     Private Sub updateUI()
+        updateSommePanier()
         Select Case myState
             Case State.INIT
                 nbProduct = 0
@@ -67,9 +70,13 @@ Public Class Home
             Case State.CART
                 cartDetailButton.Enabled = True
                 cartListButton.Enabled = True
-                cartValidationButton.Enabled = True
                 cartSaveButton.Enabled = True
                 cartSuppressionButton.Enabled = True
+                If (sommePanier >= SEUIL) Then
+                    cartValidationButton.Enabled = True
+                Else
+                    cartValidationButton.Enabled = False
+                End If
             Case State.VALID_CART
                 cartDetailButton.Enabled = True
                 cartListButton.Enabled = True
@@ -80,7 +87,9 @@ Public Class Home
     End Sub
 
     Private Sub clearCart()
-        cartListView.Clear()
+        cartListView.Items.Clear()
+        panier.Clear()
+        updateSommePanier()
     End Sub
 
     Private Sub showPopUp()
@@ -109,6 +118,7 @@ Public Class Home
 
 
     Public Sub addToCart(ByVal art As Article, ByVal qte As Integer)
+        myState = State.CART
         'récuperer l'index de l'image du produit
         Dim imageIndex As Integer
         For index As Integer = 0 To (ImageList1.Images.Count - 1)
@@ -131,9 +141,14 @@ Public Class Home
         End If
 
         cartListView.Update()
+        updateUI()
     End Sub
 
     Public Sub removeToCart(ByVal art As Article, ByVal qte As Integer)
+        If (cartListView.Items.Count = 0) Then
+            myState = State.INIT
+        End If
+
         Dim itemFound As ListViewItem = cartListView.FindItemWithText(art.name)
 
         'si l'article n'est pas dans la panier y'a un bug sinon on modifie sa quantite
@@ -147,6 +162,7 @@ Public Class Home
             End If
             cartListView.Update()
         End If
+        updateUI()
     End Sub
 
 
@@ -337,11 +353,28 @@ Public Class Home
         End Set
     End Property
 
+    '********************************************************************************
+    '*************************** GESTION PRIX PANIER ET SEUIL************************
+    '********************************************************************************
 
+    Private Function calculSommePanier() As Double
+        Dim sommeTotal As Double
+        Dim sommeArticle As Double
+        sommeTotal = 0
+        For Each article As Article In panier.Keys
+            sommeArticle = article.price * panier.Item(article)
+            sommeTotal += sommeArticle
+            'Debug.WriteLine("Article " + article.name + " sommeArticle " + String.Format(sommeArticle))
+        Next
+        'Debug.WriteLine("Somme Totale " + String.Format(sommeTotal))
+        Return sommeTotal
+    End Function
 
-
-
-
+    Private Sub updateSommePanier()
+        sommePanier = calculSommePanier()
+        cartTotalPriceLabel.Text = "Total : " + String.Format(sommePanier) + " €"
+        Label2.Text = String.Format(sommePanier) + " €"
+    End Sub
 
 
     '********************************************************************************

@@ -90,7 +90,6 @@ Partial Class Home
         Me.cartDetailButton = New System.Windows.Forms.Button()
         Me.cartListButton = New System.Windows.Forms.Button()
         Me.cartValidationButton = New System.Windows.Forms.Button()
-        Me.ColumnHeader4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.headerPanel.SuspendLayout()
         CType(Me.logoPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.centerPanel.SuspendLayout()
@@ -803,7 +802,7 @@ Partial Class Home
         'cartListView
         '
         Me.cartListView.BackColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.cartListView.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader4})
+        Me.cartListView.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3})
         Me.cartListView.Items.AddRange(New System.Windows.Forms.ListViewItem() {ListViewItem1})
         Me.cartListView.LargeImageList = Me.ImageList1
         Me.cartListView.Location = New System.Drawing.Point(0, -1)
@@ -938,10 +937,6 @@ Partial Class Home
         Me.cartValidationButton.Text = "Valider"
         Me.cartValidationButton.UseVisualStyleBackColor = True
         '
-        'ColumnHeader4
-        '
-        Me.ColumnHeader4.Text = "Supprimer"
-        '
         'Home
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -1040,6 +1035,5 @@ Partial Class Home
     Friend WithEvents ColumnHeader2 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader3 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ImageList1 As System.Windows.Forms.ImageList
-    Friend WithEvents ColumnHeader4 As System.Windows.Forms.ColumnHeader
 
 End Class
