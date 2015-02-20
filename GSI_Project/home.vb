@@ -32,7 +32,6 @@ Public Class Home
         'INITIALISATION DES ATTRIBUTS
         myState = State.CART
         categorieActif = categorie.MARCHE
-        updateSommePanier()
         updateUI()
         updateMenuButton()
         'INITIALISATION DE LA LISTE
@@ -41,6 +40,7 @@ Public Class Home
 
 
     Private Sub updateUI()
+        updateSommePanier()
         Select Case myState
             Case State.INIT
                 nbProduct = 0
@@ -88,7 +88,9 @@ Public Class Home
     End Sub
 
     Private Sub clearCart()
-        cartListView.Clear()
+        cartListView.Items.Clear()
+        panier.Clear()
+        updateSommePanier()
     End Sub
 
     Private Sub showPopUp()
@@ -117,6 +119,7 @@ Public Class Home
 
 
     Public Sub addToCart(ByVal art As Article, ByVal qte As Integer)
+        myState = State.CART
         'récuperer l'index de l'image du produit
         Dim imageIndex As Integer
         For index As Integer = 0 To (ImageList1.Images.Count - 1)
@@ -139,10 +142,14 @@ Public Class Home
         End If
 
         cartListView.Update()
-        updateSommePanier()
+        updateUI()
     End Sub
 
     Public Sub removeToCart(ByVal art As Article, ByVal qte As Integer)
+        If (cartListView.Items.Count = 0) Then
+            myState = State.INIT
+        End If
+
         Dim itemFound As ListViewItem = cartListView.FindItemWithText(art.name)
 
         'si l'article n'est pas dans la panier y'a un bug sinon on modifie sa quantite
@@ -158,7 +165,7 @@ Public Class Home
             End If
             cartListView.Update()
         End If
-        updateSommePanier()
+        updateUI()
     End Sub
 
 
@@ -367,9 +374,9 @@ Public Class Home
     End Function
 
     Private Sub updateSommePanier()
-        sommePanier = calculSommePanier()
+        sommePanier = calculSommePanier()        
         cartTotalPriceLabel.Text = "Total : " + String.Format(sommePanier) + " €"
-        updateUI()
+        Label2.Text = String.Format(sommePanier) + " €"
     End Sub
 
 
