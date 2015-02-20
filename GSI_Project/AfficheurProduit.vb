@@ -81,13 +81,14 @@
         Me.article.stock -= 1
         Me.qte += 1
         Me.updateStock()
+        addToCart()
     End Sub
 
     Private Sub boutonAjouter_DoubleClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles boutonAjouter.DoubleClick
         Me.article.stock -= 1
         Me.qte += 1
         Me.updateStock()
-        addToCart()
+
     End Sub
 
     Private Sub boutonRetirer_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles boutonRetirer.Click
@@ -100,12 +101,11 @@
         Me.article.stock += 1
         Me.qte -= 1
         Me.updateStock()
-
     End Sub
 
 
     Private Sub addToCart()
-        For index As Integer = 0 To home.ImageList1.Images.Count
+        For index As Integer = 0 To (home.ImageList1.Images.Count - 1)
             If (home.ImageList1.Images.Keys(index).ToString = article.img) Then
                 imageIndex = index
                 Exit For
