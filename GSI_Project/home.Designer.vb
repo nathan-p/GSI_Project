@@ -194,10 +194,10 @@ Partial Class Home
         'centerPanel
         '
         Me.centerPanel.BackColor = System.Drawing.Color.White
-        Me.centerPanel.Controls.Add(Me.detailCartPanel)
-        Me.centerPanel.Controls.Add(Me.detailPopUpPanel)
         Me.centerPanel.Controls.Add(Me.validationPaymentPanel)
         Me.centerPanel.Controls.Add(Me.popUpPanel)
+        Me.centerPanel.Controls.Add(Me.detailPopUpPanel)
+        Me.centerPanel.Controls.Add(Me.detailCartPanel)
         Me.centerPanel.Controls.Add(Me.articlePanel)
         Me.centerPanel.Controls.Add(Me.menuPanel)
         Me.centerPanel.Controls.Add(Me.affGridPanel)
@@ -222,6 +222,7 @@ Partial Class Home
         '
         'cartDetailCancelButton
         '
+        Me.cartDetailCancelButton.Cursor = System.Windows.Forms.Cursors.Hand
         Me.cartDetailCancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cartDetailCancelButton.Location = New System.Drawing.Point(976, 18)
         Me.cartDetailCancelButton.Name = "cartDetailCancelButton"
@@ -448,7 +449,7 @@ Partial Class Home
         Me.validationPaymentPanel.Location = New System.Drawing.Point(271, 178)
         Me.validationPaymentPanel.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.validationPaymentPanel.Name = "validationPaymentPanel"
-        Me.validationPaymentPanel.Size = New System.Drawing.Size(535, 0)
+        Me.validationPaymentPanel.Size = New System.Drawing.Size(535, 253)
         Me.validationPaymentPanel.TabIndex = 9
         Me.validationPaymentPanel.Visible = False
         '
@@ -457,7 +458,7 @@ Partial Class Home
         Me.paymentTotalLabel.AutoSize = True
         Me.paymentTotalLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.paymentTotalLabel.ForeColor = System.Drawing.Color.White
-        Me.paymentTotalLabel.Location = New System.Drawing.Point(197, 140)
+        Me.paymentTotalLabel.Location = New System.Drawing.Point(168, 141)
         Me.paymentTotalLabel.Name = "paymentTotalLabel"
         Me.paymentTotalLabel.Size = New System.Drawing.Size(72, 25)
         Me.paymentTotalLabel.TabIndex = 10
@@ -479,7 +480,7 @@ Partial Class Home
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(275, 128)
+        Me.Label2.Location = New System.Drawing.Point(246, 129)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(80, 38)
         Me.Label2.TabIndex = 8
@@ -547,7 +548,7 @@ Partial Class Home
         Me.popUpPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.popUpPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 53.0!))
         Me.popUpPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.popUpPanel.Size = New System.Drawing.Size(532, 0)
+        Me.popUpPanel.Size = New System.Drawing.Size(532, 200)
         Me.popUpPanel.TabIndex = 12
         '
         'contentPopUpLabel
@@ -556,9 +557,9 @@ Partial Class Home
         Me.contentPopUpLabel.AutoSize = True
         Me.contentPopUpLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.contentPopUpLabel.ForeColor = System.Drawing.Color.White
-        Me.contentPopUpLabel.Location = New System.Drawing.Point(83, -26)
+        Me.contentPopUpLabel.Location = New System.Drawing.Point(83, 97)
         Me.contentPopUpLabel.Name = "contentPopUpLabel"
-        Me.contentPopUpLabel.Size = New System.Drawing.Size(365, 1)
+        Me.contentPopUpLabel.Size = New System.Drawing.Size(365, 25)
         Me.contentPopUpLabel.TabIndex = 10
         Me.contentPopUpLabel.Text = "Voulez-vous supprimer tous les produit ?"
         '
@@ -569,9 +570,9 @@ Partial Class Home
         Me.titlePopUpLabel.BackColor = System.Drawing.Color.Transparent
         Me.titlePopUpLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.titlePopUpLabel.ForeColor = System.Drawing.Color.White
-        Me.titlePopUpLabel.Location = New System.Drawing.Point(40, 0)
+        Me.titlePopUpLabel.Location = New System.Drawing.Point(40, 18)
         Me.titlePopUpLabel.Name = "titlePopUpLabel"
-        Me.titlePopUpLabel.Size = New System.Drawing.Size(451, 1)
+        Me.titlePopUpLabel.Size = New System.Drawing.Size(451, 36)
         Me.titlePopUpLabel.TabIndex = 3
         Me.titlePopUpLabel.Text = "Suppression de tous les produits"
         '
@@ -579,7 +580,7 @@ Partial Class Home
         '
         Me.FlowLayoutPanel2.Controls.Add(Me.cancelPopUpButton)
         Me.FlowLayoutPanel2.Controls.Add(Me.validPopUpButton)
-        Me.FlowLayoutPanel2.Location = New System.Drawing.Point(3, -50)
+        Me.FlowLayoutPanel2.Location = New System.Drawing.Point(3, 148)
         Me.FlowLayoutPanel2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
         Me.FlowLayoutPanel2.Size = New System.Drawing.Size(525, 47)
