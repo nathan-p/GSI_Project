@@ -104,6 +104,9 @@ Partial Class Home
         Me.cartSuppressionButton = New System.Windows.Forms.Button()
         Me.cartDetailButton = New System.Windows.Forms.Button()
         Me.cartListButton = New System.Windows.Forms.Button()
+        Me.puPanel = New System.Windows.Forms.Panel()
+        Me.puContentLabel = New System.Windows.Forms.Label()
+        Me.puCancelButton = New System.Windows.Forms.Button()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.headerPanel.SuspendLayout()
         CType(Me.logoPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -120,6 +123,7 @@ Partial Class Home
         Me.affGridPanel.SuspendLayout()
         Me.affListPanel.SuspendLayout()
         Me.cartPanel.SuspendLayout()
+        Me.puPanel.SuspendLayout()
         Me.SuspendLayout()
         '
         'headerPanel
@@ -1111,11 +1115,45 @@ Partial Class Home
         Me.cartListButton.Text = "Mes listes"
         Me.cartListButton.UseVisualStyleBackColor = True
         '
+        'puPanel
+        '
+        Me.puPanel.BackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.puPanel.Controls.Add(Me.puContentLabel)
+        Me.puPanel.Controls.Add(Me.puCancelButton)
+        Me.puPanel.Location = New System.Drawing.Point(350, 350)
+        Me.puPanel.Name = "puPanel"
+        Me.puPanel.Size = New System.Drawing.Size(392, 113)
+        Me.puPanel.TabIndex = 16
+        Me.puPanel.Visible = False        
+        '
+        'puContentLabel
+        '
+        Me.puContentLabel.AutoSize = True
+        Me.puContentLabel.Font = New System.Drawing.Font("Roboto", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.puContentLabel.ForeColor = System.Drawing.Color.White
+        Me.puContentLabel.Location = New System.Drawing.Point(5, 53)
+        Me.puContentLabel.Name = "puContentLabel"
+        Me.puContentLabel.Size = New System.Drawing.Size(369, 24)
+        Me.puContentLabel.TabIndex = 1
+        Me.puContentLabel.Text = "Votre commande à été prise en compte ! "
+        '
+        'puCancelButton
+        '
+        Me.puCancelButton.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.puCancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.puCancelButton.Location = New System.Drawing.Point(353, 3)
+        Me.puCancelButton.Name = "puCancelButton"
+        Me.puCancelButton.Size = New System.Drawing.Size(36, 34)
+        Me.puCancelButton.TabIndex = 0
+        Me.puCancelButton.Text = "X"
+        Me.puCancelButton.UseVisualStyleBackColor = True
+        '
         'Home
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1011, 586)
+        Me.Controls.Add(Me.puPanel)
         Me.Controls.Add(Me.headerPanel)
         Me.Controls.Add(Me.centerPanel)
         Me.Controls.Add(Me.cartPanel)
@@ -1145,6 +1183,8 @@ Partial Class Home
         Me.affListPanel.ResumeLayout(False)
         Me.cartPanel.ResumeLayout(False)
         Me.cartPanel.PerformLayout()
+        Me.puPanel.ResumeLayout(False)
+        Me.puPanel.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1229,5 +1269,7 @@ Partial Class Home
     Friend WithEvents savedListsCancelButton As System.Windows.Forms.Button
     Friend WithEvents savedListTitleLabel As System.Windows.Forms.Label
     Friend WithEvents deleteSavedListButton As System.Windows.Forms.Button
-
+    Friend WithEvents puPanel As System.Windows.Forms.Panel
+    Friend WithEvents puContentLabel As System.Windows.Forms.Label
+    Friend WithEvents puCancelButton As System.Windows.Forms.Button
 End Class

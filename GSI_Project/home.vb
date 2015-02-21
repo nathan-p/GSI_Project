@@ -120,6 +120,14 @@ Public Class Home
 
     End Sub
 
+    Public Sub showPu(ByVal show As Boolean)
+        puPanel.Visible = show
+    End Sub
+
+    Public Sub setPu(ByVal content As String)
+        puContentLabel.Text = content
+    End Sub
+
     Private Sub realisePayment()
         Select Case myState
             Case State.INIT
@@ -198,11 +206,9 @@ Public Class Home
                                )
         detailNameLabel.Text = name
         detailOriginLabel.Text = "Origine : " + origin
-        'detailImgPictureBox.Image = New Bitmap("./Ressources/pomme.jpg")
         Dim path As String = Directory.GetCurrentDirectory()
         detailImgPictureBox.Image = Image.FromFile(path + "\Ressources\" + urlImg)
         detailPriceLabel.Text = price + "€"
-        cartListButton.Text = detailPriceLabel.Text
 
         detailPriceKgLabel.Text = "Prix/kg : " + priceKg + "€ / kg"
         detailWeightLabel.Text = "Poids : " + weight + " kg"
@@ -489,6 +495,8 @@ Public Class Home
             noeudNouvelleListe.Nodes.Add(item.name, String.Format(panier.Item(item)) + " x " + item.name, "", "")
         Next
         SavedListsTreeView.Sort()
+        setPu("Votre panier à été sauvegardé !")
+        showPu(True)
     End Sub
 
     Private Sub myListButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cartListButton.Click
@@ -510,6 +518,8 @@ Public Class Home
                 realisePayment()
                 myState = State.INIT
                 updateUI()
+                setPu("Votre commande à été prise en compte !")
+                showPu(True)
         End Select
     End Sub
 
@@ -557,6 +567,10 @@ Public Class Home
                 myState = State.VALID_CART
                 updateUI()
         End Select
+    End Sub
+
+    Private Sub puCancelButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles puCancelButton.Click
+        showPu(False)
     End Sub
 
     '********************************************************************************
@@ -632,7 +646,7 @@ Public Class Home
                 If (qte > 0) Then
                     panier.Add(item, qte)
                     addToCart(item, qte)
-                End If                
+                End If
             Next
             savedListPanel.Visible = False
         End If
