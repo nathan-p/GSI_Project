@@ -99,12 +99,14 @@ Partial Class Home
         Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader8 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.cartSaveButton = New System.Windows.Forms.Button()
         Me.cartSuppressionButton = New System.Windows.Forms.Button()
         Me.cartDetailButton = New System.Windows.Forms.Button()
         Me.cartListButton = New System.Windows.Forms.Button()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.NumericUpDown1 = New System.Windows.Forms.NumericUpDown()
         Me.headerPanel.SuspendLayout()
         CType(Me.logoPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.centerPanel.SuspendLayout()
@@ -120,6 +122,7 @@ Partial Class Home
         Me.affGridPanel.SuspendLayout()
         Me.affListPanel.SuspendLayout()
         Me.cartPanel.SuspendLayout()
+        CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'headerPanel
@@ -201,6 +204,7 @@ Partial Class Home
         'centerPanel
         '
         Me.centerPanel.BackColor = System.Drawing.Color.White
+        Me.centerPanel.Controls.Add(Me.NumericUpDown1)
         Me.centerPanel.Controls.Add(Me.savedListPanel)
         Me.centerPanel.Controls.Add(Me.validationPaymentPanel)
         Me.centerPanel.Controls.Add(Me.popUpPanel)
@@ -1005,9 +1009,9 @@ Partial Class Home
         'cartListView
         '
         Me.cartListView.BackColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.cartListView.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3})
+        Me.cartListView.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader8})
         Me.cartListView.LargeImageList = Me.ImageList1
-        Me.cartListView.Location = New System.Drawing.Point(0, -1)
+        Me.cartListView.Location = New System.Drawing.Point(3, -1)
         Me.cartListView.Name = "cartListView"
         Me.cartListView.Size = New System.Drawing.Size(185, 351)
         Me.cartListView.SmallImageList = Me.ImageList1
@@ -1018,15 +1022,22 @@ Partial Class Home
         'ColumnHeader1
         '
         Me.ColumnHeader1.Text = "Articles"
-        Me.ColumnHeader1.Width = 96
+        Me.ColumnHeader1.Width = 72
         '
         'ColumnHeader2
         '
         Me.ColumnHeader2.Text = "Prix"
+        Me.ColumnHeader2.Width = 34
         '
         'ColumnHeader3
         '
         Me.ColumnHeader3.Text = "Qte"
+        Me.ColumnHeader3.Width = 53
+        '
+        'ColumnHeader8
+        '
+        Me.ColumnHeader8.Text = "s"
+        Me.ColumnHeader8.Width = 18
         '
         'ImageList1
         '
@@ -1111,6 +1122,13 @@ Partial Class Home
         Me.cartListButton.Text = "Mes listes"
         Me.cartListButton.UseVisualStyleBackColor = True
         '
+        'NumericUpDown1
+        '
+        Me.NumericUpDown1.Location = New System.Drawing.Point(29, 42)
+        Me.NumericUpDown1.Name = "NumericUpDown1"
+        Me.NumericUpDown1.Size = New System.Drawing.Size(120, 20)
+        Me.NumericUpDown1.TabIndex = 16
+        '
         'Home
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1145,9 +1163,11 @@ Partial Class Home
         Me.affListPanel.ResumeLayout(False)
         Me.cartPanel.ResumeLayout(False)
         Me.cartPanel.PerformLayout()
+        CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
+
     Friend WithEvents headerPanel As System.Windows.Forms.Panel
     Friend WithEvents searchTextBox As System.Windows.Forms.TextBox
     Friend WithEvents centerPanel As System.Windows.Forms.Panel
@@ -1229,5 +1249,7 @@ Partial Class Home
     Friend WithEvents savedListsCancelButton As System.Windows.Forms.Button
     Friend WithEvents savedListTitleLabel As System.Windows.Forms.Label
     Friend WithEvents deleteSavedListButton As System.Windows.Forms.Button
+    Friend WithEvents ColumnHeader8 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents NumericUpDown1 As System.Windows.Forms.NumericUpDown
 
 End Class

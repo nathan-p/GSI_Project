@@ -34,13 +34,18 @@
         updateStock()
     End Sub
 
-    Public Sub updateTextBox(ByVal quantite As Integer)
-        article.stock += qte - quantite
-        qte = quantite        
+    Public Function updateTextBox(ByVal quantite As Integer) As Integer
+        article.stock += qte
+        If (article.stock < quantite) Then
+            quantite = article.stock
+        End If
+        article.stock -= quantite
+        qte = quantite
         Me.LabelStock.Text = String.Concat("En stock : ", Me.article.stock)
         TextBoxQuantite.Text = CStr(qte)
         updateButtons()
-    End Sub
+        Return quantite
+    End Function
 
     Public Property art() As Article
         Get
