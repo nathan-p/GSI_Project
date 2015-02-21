@@ -30,7 +30,7 @@ Public Class Home
     Dim sommePanier As Double
     Private Const SEUIL As Double = 20
     Private Property CurrentSB As ListViewItem.ListViewSubItem
-    Public WithEvents bouton As Windows.Forms.Button
+    Public WithEvents deleteCartButton As Windows.Forms.Button
     Public WithEvents Control As New Button
     Dim bPanier As New List(Of Button)
     Dim numUDPanier As New List(Of NumericUpDown)
@@ -159,12 +159,13 @@ Public Class Home
 
         'si l'article n'est pas dans la panier on l'ajoute sinon on modifie sa quantite
         If (itemFound Is Nothing) Then
-            bouton = New Windows.Forms.Button
+            deleteCartButton = New Windows.Forms.Button
             numUpDown = New NumericUpDown()
+            numUpDown.Minimum = 1
             cartListView.Items.Add(item)
 
-            Ajouter_Controles_ListView(cartListView, numUpDown, cartListView.Items.Count - 1, 2)
-            Ajouter_Controles_ListView(cartListView, bouton, cartListView.Items.Count - 1, 3)
+            addListViewControler(cartListView, numUpDown, cartListView.Items.Count - 1, 2)
+            addListViewControler(cartListView, deleteCartButton, cartListView.Items.Count - 1, 3)
             numUDPanier.Item(cartListView.Items.Count - 1).Value = 1
             numUDPanier.Item(cartListView.Items.Count - 1).Tag = cartListView.Items.Count - 1
         Else
@@ -442,6 +443,125 @@ Public Class Home
         Label2.Text = String.Format(sommePanier) + " €"
     End Sub
 
+
+
+    '********************************************************************************
+    '*************************** CART LIST VIEW ADD CONTROLER ***********************
+    '********************************************************************************
+
+    Sub addListViewControler(ByVal controle_target As ListView, ByVal controle_add As Windows.Forms.Control, ByVal no_ligne As Integer, ByVal no_colonne As Integer)
+
+        ' Teste si controle_add est bien :
+        ' Un Button /ou/ une CheckBox /ou/ un Label /ou/ un LinkLabel /ou/ une ProgressBar /ou/ un RadioButton /ou/ une TextBox /ou/ un RichTextBox
+        If controle_add.GetType.FullName <> "System.Windows.Forms.Button" And controle_add.GetType.FullName <> "System.Windows.Forms.CheckBox" _
+             And controle_add.GetType.FullName <> "System.Windows.Forms.Label" And controle_add.GetType.FullName <> "System.Windows.Forms.LinkLabel" _
+             And controle_add.GetType.FullName <> "System.Windows.Forms.ProgressBar" And controle_add.GetType.FullName <> "System.Windows.Forms.RadioButton" _
+             And controle_add.GetType.FullName <> "System.Windows.Forms.NumericUpDown" And controle_add.GetType.FullName <> "System.Windows.Forms.RichTextBox" _
+             And controle_add.GetType.FullName <> "System.Windows.Forms.ComboBox" And controle_add.GetType.FullName <> "System.Windows.Forms.MaskedTextBox" Then
+
+            ' Si controle_add n'est pas l'un des contrôles précedemment cités,
+            ' On affiche un message pour dire que le contrôle choisi n'est pas correcte
+            MsgBox("Désolé, " + controle_add.GetType.FullName + " n'est pas accepté")
+            Exit Sub
+        End If
+
+        ' Teste si le 3° paramètre no_ligne est compris entre 0 et le nombre de ligne du DatagridView - 1
+        If no_ligne < 0 Then
+            MsgBox("Désolé, le 3° paramètre no_ligne de la fonction est incorrecte")
+            Exit Sub
+        End If
+
+        ' Teste si no_ligne correspond à l'index d'un item existant
+        If no_ligne > controle_target.Items.Count - 1 Then
+            MsgBox("Désolé, l'item ayant pour index " + no_ligne.ToString + " n'existe pas")
+            Exit Sub
+        End If
+
+        ' Teste si le 4° paramètre no_colonne est compris entre 0 et le nombre de colonnes du DataGridView - 1
+        If no_colonne < 0 Then
+            MsgBox("Désolé, le 4° paramètre no_colonne de la fonction est incorrecte")
+            Exit Sub
+        End If
+
+        'Teste si no_colonne correspond à l'index d'une colonne existante
+        If no_colonne > controle_target.Columns.Count - 1 Then
+            MsgBox("Désolé, la colonne ayant pour index " + no_colonne.ToString + " n'existe pas")
+            Exit Sub
+        End If
+
+        If controle_add.GetType.FullName = "System.Windows.Forms.Button" Then
+            Dim x As Button
+            x = controle_add
+
+
+            controle_target.Controls.Add(x)
+            AddHandler deleteCartButton.Click, AddressOf DeleteCartButton_Click
+
+            Dim ctrl As Control = Me.GetNextControl(Me, True)
+
+            x.Text = no_ligne
+            x.Font = New Font(ctrl.Font.FontFamily, 1.0F, ctrl.Font.Style)
+            Dim path As String = Directory.GetCurrentDirectory()
+
+            x.Image = Image.FromFile(path + "\Ressources\supp.jpg")
+
+            bPanier.Add(x)
+
+
+        ElseIf controle_add.GetType.FullName = "System.Windows.Forms.CheckBox" Then
+            Dim Control As New CheckBox
+            controle_target.Controls.Add(Control)
+        ElseIf controle_add.GetType.FullName = "System.Windows.Forms.Label" Then
+            Dim Control As New Label
+            controle_target.Controls.Add(Control)
+        ElseIf controle_add.GetType.FullName = "System.Windows.Forms.LinkLabel" Then
+            Dim Control As New LinkLabel
+            controle_target.Controls.Add(Control)
+        ElseIf controle_add.GetType.FullName = "System.Windows.Forms.ProgressBar" Then
+            Dim Control As New ProgressBar
+            controle_target.Controls.Add(Control)
+        ElseIf controle_add.GetType.FullName = "System.Windows.Forms.Radiobutton" Then
+            Dim Control As New RadioButton
+            controle_target.Controls.Add(Control)
+        ElseIf controle_add.GetType.FullName = "System.Windows.Forms.NumericUpDown" Then
+
+            controle_target.Controls.Add(controle_add)
+            numUDPanier.Add(controle_add)
+
+
+            AddHandler numUpDown.ValueChanged, AddressOf cartQteProductNumericUpDown_ValueChanged
+
+        ElseIf controle_add.GetType.FullName = "System.Windows.Forms.RichTextBox" Then
+            Dim Control As New RichTextBox
+            controle_target.Controls.Add(Control)
+        ElseIf controle_add.GetType.FullName = "System.Windows.Forms.ComboBox" Then
+            Dim Control As New ComboBox
+            controle_target.Controls.Add(Control)
+        ElseIf controle_add.GetType.FullName = "System.Windows.Forms.MaskedTextBox" Then
+            Dim Control As New MaskedTextBox
+            controle_target.Controls.Add(Control)
+        End If
+
+        ' Utilise la propriété Tag pour se souvenir où a été ajouté le contrôle
+        controle_target.Controls(controle_target.Controls.Count - 1).Tag = no_ligne.ToString + "|" + no_colonne.ToString
+
+        ' Place controle_add dans la cellule choisie
+        With controle_target
+            .Controls(controle_target.Controls.Count - 1).Top = .Items(no_ligne).SubItems(no_colonne).Bounds.Top
+            .Controls(controle_target.Controls.Count - 1).Left = .Items(no_ligne).SubItems(no_colonne).Bounds.Left
+            .Controls(controle_target.Controls.Count - 1).Width = .Items(no_ligne).SubItems(no_colonne).Bounds.Width
+            .Controls(controle_target.Controls.Count - 1).Height = .Items(no_ligne).SubItems(no_colonne).Bounds.Height
+        End With
+
+        ' Ajoute un évènement ColumnWidthChanging et l'associe à la fonction MAJ_positions_dimensions_controles
+        ' La fonction se déclenchera dés que la largeur d'une colonne sera modifiée
+        '  AddHandler controle_target.ColumnWidthChanging, AddressOf MAJ_positions_dimensions_controles_ListView
+
+    End Sub
+
+
+
+
     '********************************************************************************
     '*************************** MENU SORT DISPLAY HOVER LISTENER *******************
     '********************************************************************************
@@ -677,164 +797,78 @@ Public Class Home
         loadSavedListButton.Enabled = True
     End Sub
 
-    Sub Ajouter_Controles_ListView(ByVal controle_target As ListView, ByVal controle_add As Windows.Forms.Control, ByVal no_ligne As Integer, ByVal no_colonne As Integer)
-
-        ' Teste si controle_add est bien :
-        ' Un Button /ou/ une CheckBox /ou/ un Label /ou/ un LinkLabel /ou/ une ProgressBar /ou/ un RadioButton /ou/ une TextBox /ou/ un RichTextBox
-        If controle_add.GetType.FullName <> "System.Windows.Forms.Button" And controle_add.GetType.FullName <> "System.Windows.Forms.CheckBox" _
-             And controle_add.GetType.FullName <> "System.Windows.Forms.Label" And controle_add.GetType.FullName <> "System.Windows.Forms.LinkLabel" _
-             And controle_add.GetType.FullName <> "System.Windows.Forms.ProgressBar" And controle_add.GetType.FullName <> "System.Windows.Forms.RadioButton" _
-             And controle_add.GetType.FullName <> "System.Windows.Forms.NumericUpDown" And controle_add.GetType.FullName <> "System.Windows.Forms.RichTextBox" _
-             And controle_add.GetType.FullName <> "System.Windows.Forms.ComboBox" And controle_add.GetType.FullName <> "System.Windows.Forms.MaskedTextBox" Then
-
-            ' Si controle_add n'est pas l'un des contrôles précedemment cités,
-            ' On affiche un message pour dire que le contrôle choisi n'est pas correcte
-            MsgBox("Désolé, " + controle_add.GetType.FullName + " n'est pas accepté")
-            Exit Sub
-        End If
-
-        ' Teste si le 3° paramètre no_ligne est compris entre 0 et le nombre de ligne du DatagridView - 1
-        If no_ligne < 0 Then
-            MsgBox("Désolé, le 3° paramètre no_ligne de la fonction est incorrecte")
-            Exit Sub
-        End If
-
-        ' Teste si no_ligne correspond à l'index d'un item existant
-        If no_ligne > controle_target.Items.Count - 1 Then
-            MsgBox("Désolé, l'item ayant pour index " + no_ligne.ToString + " n'existe pas")
-            Exit Sub
-        End If
-
-        ' Teste si le 4° paramètre no_colonne est compris entre 0 et le nombre de colonnes du DataGridView - 1
-        If no_colonne < 0 Then
-            MsgBox("Désolé, le 4° paramètre no_colonne de la fonction est incorrecte")
-            Exit Sub
-        End If
-
-        'Teste si no_colonne correspond à l'index d'une colonne existante
-        If no_colonne > controle_target.Columns.Count - 1 Then
-            MsgBox("Désolé, la colonne ayant pour index " + no_colonne.ToString + " n'existe pas")
-            Exit Sub
-        End If
-
-        If controle_add.GetType.FullName = "System.Windows.Forms.Button" Then
-            Dim x As Button
-            x = controle_add
-
-
-            controle_target.Controls.Add(x)
-            AddHandler bouton.Click, AddressOf Delete_Panier_Button
-
-            Dim ctrl As Control = Me.GetNextControl(Me, True)
-
-            x.Text = no_ligne
-            x.Font = New Font(ctrl.Font.FontFamily, 1.0F, ctrl.Font.Style)
-            Dim path As String = Directory.GetCurrentDirectory()
-
-            x.Image = Image.FromFile(path + "\Ressources\supp.jpg")
-
-            bPanier.Add(x)
-
-
-        ElseIf controle_add.GetType.FullName = "System.Windows.Forms.CheckBox" Then
-            Dim Control As New CheckBox
-            controle_target.Controls.Add(Control)
-        ElseIf controle_add.GetType.FullName = "System.Windows.Forms.Label" Then
-            Dim Control As New Label
-            controle_target.Controls.Add(Control)
-        ElseIf controle_add.GetType.FullName = "System.Windows.Forms.LinkLabel" Then
-            Dim Control As New LinkLabel
-            controle_target.Controls.Add(Control)
-        ElseIf controle_add.GetType.FullName = "System.Windows.Forms.ProgressBar" Then
-            Dim Control As New ProgressBar
-            controle_target.Controls.Add(Control)
-        ElseIf controle_add.GetType.FullName = "System.Windows.Forms.Radiobutton" Then
-            Dim Control As New RadioButton
-            controle_target.Controls.Add(Control)
-        ElseIf controle_add.GetType.FullName = "System.Windows.Forms.NumericUpDown" Then
-           
-            controle_target.Controls.Add(controle_add)
-            numUDPanier.Add(controle_add)
-
-
-            AddHandler numUpDown.ValueChanged, AddressOf NumericUpDown1_ValueChanged
-
-        ElseIf controle_add.GetType.FullName = "System.Windows.Forms.RichTextBox" Then
-            Dim Control As New RichTextBox
-            controle_target.Controls.Add(Control)
-        ElseIf controle_add.GetType.FullName = "System.Windows.Forms.ComboBox" Then
-            Dim Control As New ComboBox
-            controle_target.Controls.Add(Control)
-        ElseIf controle_add.GetType.FullName = "System.Windows.Forms.MaskedTextBox" Then
-            Dim Control As New MaskedTextBox
-            controle_target.Controls.Add(Control)
-        End If
-
-        ' Utilise la propriété Tag pour se souvenir où a été ajouté le contrôle
-        controle_target.Controls(controle_target.Controls.Count - 1).Tag = no_ligne.ToString + "|" + no_colonne.ToString
-
-        ' Place controle_add dans la cellule choisie
-        With controle_target
-            .Controls(controle_target.Controls.Count - 1).Top = .Items(no_ligne).SubItems(no_colonne).Bounds.Top
-            .Controls(controle_target.Controls.Count - 1).Left = .Items(no_ligne).SubItems(no_colonne).Bounds.Left
-            .Controls(controle_target.Controls.Count - 1).Width = .Items(no_ligne).SubItems(no_colonne).Bounds.Width
-            .Controls(controle_target.Controls.Count - 1).Height = .Items(no_ligne).SubItems(no_colonne).Bounds.Height
-        End With
-
-        ' Ajoute un évènement ColumnWidthChanging et l'associe à la fonction MAJ_positions_dimensions_controles
-        ' La fonction se déclenchera dés que la largeur d'une colonne sera modifiée
-        '  AddHandler controle_target.ColumnWidthChanging, AddressOf MAJ_positions_dimensions_controles_ListView
-
-    End Sub
-    Private Sub Delete_Panier_Button(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles bouton.Click
+    Private Sub DeleteCartButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles deleteCartButton.Click
         'Mettre a jour la listView
 
         Dim pos As Integer
         pos = Val(sender.Text)
+
         'MsgBox(cartListView.Items(pos).Text)
-        Me.cartListView.Items.RemoveAt(pos)
 
-        'Mettre a jour les bouttons
-        For index As Integer = 0 To (bPanier.Count - 1)
-            bPanier.Item(index).Hide()
-        Next
-        bPanier.Clear()
-        For index As Integer = 0 To (cartListView.Items.Count - 1)
-            bouton = New Button
-            Ajouter_Controles_ListView(cartListView, bouton, index, 3)
-        Next
+        If pos < cartListView.Items.Count Then
+            Me.cartListView.Items.RemoveAt(pos)
 
-        'Mettre a jour les numUpDown
+            'Mettre a jour les bouttons
+            For index As Integer = 0 To (bPanier.Count - 1)
+                bPanier.Item(index).Hide()
+            Next
+            bPanier.Clear()
+            For index As Integer = 0 To (cartListView.Items.Count - 1)
+                deleteCartButton = New Button
+                addListViewControler(cartListView, deleteCartButton, index, 3)
+            Next
 
-        For index As Integer = 0 To (numUDPanier.Count - 1)
-            numUDPanier.Item(index).Hide()
-        Next
-        numUDPanier.RemoveAt(pos)
-        For index As Integer = 0 To (numUDPanier.Count - 1)
-            numUDvalue.Add(numUDPanier.Item(index).Value)
-        Next
-        numUDPanier.Clear()
+            'Mettre a jour les numUpDown
 
-        For index As Integer = 0 To (cartListView.Items.Count - 1)
-            numUpDown = New NumericUpDown()
+            For index As Integer = 0 To (numUDPanier.Count - 1)
+                numUDPanier.Item(index).Hide()
+            Next
+            numUDPanier.RemoveAt(pos)
+            For index As Integer = 0 To (numUDPanier.Count - 1)
+                numUDvalue.Add(numUDPanier.Item(index).Value)
+            Next
+            numUDPanier.Clear()
+
+            For index As Integer = 0 To (cartListView.Items.Count - 1)
+                numUpDown = New NumericUpDown()
 
 
-            Ajouter_Controles_ListView(cartListView, numUpDown, index, 2)
-            numUDPanier.Item(index).Value = numUDvalue.Item(index)
+                addListViewControler(cartListView, numUpDown, index, 2)
+                numUDPanier.Item(index).Value = numUDvalue.Item(index)
 
-        Next
-        numUDvalue.Clear()
-
+            Next
+            numUDvalue.Clear()
+        End If
 
     End Sub
+
+
+
+
     'NumUpDownListeners
-    Private Sub NumericUpDown1_ValueChanged(ByVal sender As System.Object, ByVal e As EventArgs) _
-     Handles numUpDown.ValueChanged
+    Private Sub cartQteProductNumericUpDown_ValueChanged(ByVal sender As System.Object, ByVal e As EventArgs) Handles numUpDown.ValueChanged
         Dim posnumupown As Integer
         posnumupown = Val(sender.tag)
+
         'MsgBox(cartListView.Items(posnumupown).Text)
+
+        Debug.WriteLine("*********************")
+        Debug.WriteLine(sender.value())
+        Dim i As Integer = 0
+
+        For Each elt In panier
+            If i = posnumupown Then
+                elt.Key.stock = elt.Key.stock - 1
+
+                'TODO : modifier la quantité du produit ds le panier
+                'elt.Value
+            End If
+            i = i + 1
+        Next
+
+        'TODO : UPDATE de tout (panier, grille de produit, etc)
 
     End Sub
 
-    
+
 End Class
