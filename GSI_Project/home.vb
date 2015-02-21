@@ -118,14 +118,20 @@ Public Class Home
 
 
     Private Sub showPopUp()
-        popUpPanel.Height = 200
         popUpPanel.Visible = True
     End Sub
 
-    Public Sub showDetailPopUp()
-        detailPopUpPanel.Height = 350
-        detailPopUpPanel.Visible = True
 
+    Public Sub showDetailPopUp()
+        detailPopUpPanel.Visible = True
+    End Sub
+
+    Public Sub showPu(ByVal show As Boolean)
+        puPanel.Visible = show
+    End Sub
+
+    Public Sub setPu(ByVal content As String)
+        puContentLabel.Text = content
     End Sub
 
     Private Sub realisePayment()
@@ -628,6 +634,8 @@ Public Class Home
             noeudNouvelleListe.Nodes.Add(item.name, String.Format(panier.Item(item)) + " x " + item.name, "", "")
         Next
         SavedListsTreeView.Sort()
+        setPu("Votre panier à été sauvegardé !")
+        showPu(True)
     End Sub
 
     Private Sub myListButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cartListButton.Click
@@ -649,6 +657,8 @@ Public Class Home
                 realisePayment()
                 myState = State.INIT
                 updateUI()
+                setPu("Votre commande à été prise en compte !")
+                showPu(True)
         End Select
     End Sub
 
@@ -871,4 +881,7 @@ Public Class Home
     End Sub
 
 
+    Private Sub puCancelButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles puCancelButton.Click
+        showPu(False)
+    End Sub
 End Class

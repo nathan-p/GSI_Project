@@ -105,6 +105,9 @@ Partial Class Home
         Me.cartSuppressionButton = New System.Windows.Forms.Button()
         Me.cartDetailButton = New System.Windows.Forms.Button()
         Me.cartListButton = New System.Windows.Forms.Button()
+        Me.puPanel = New System.Windows.Forms.Panel()
+        Me.puContentLabel = New System.Windows.Forms.Label()
+        Me.puCancelButton = New System.Windows.Forms.Button()
         Me.headerPanel.SuspendLayout()
         CType(Me.logoPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.centerPanel.SuspendLayout()
@@ -120,6 +123,7 @@ Partial Class Home
         Me.affGridPanel.SuspendLayout()
         Me.affListPanel.SuspendLayout()
         Me.cartPanel.SuspendLayout()
+        Me.puPanel.SuspendLayout()
         Me.SuspendLayout()
         '
         'headerPanel
@@ -225,7 +229,7 @@ Partial Class Home
         Me.savedListPanel.Controls.Add(Me.savedListsCancelButton)
         Me.savedListPanel.Controls.Add(Me.savedListTitleLabel)
         Me.savedListPanel.Location = New System.Drawing.Point(56, 97)
-        Me.savedListPanel.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.savedListPanel.Margin = New System.Windows.Forms.Padding(4)
         Me.savedListPanel.Name = "savedListPanel"
         Me.savedListPanel.Size = New System.Drawing.Size(1027, 529)
         Me.savedListPanel.TabIndex = 15
@@ -236,7 +240,7 @@ Partial Class Home
         Me.deleteSavedListButton.Enabled = False
         Me.deleteSavedListButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.deleteSavedListButton.Location = New System.Drawing.Point(245, 469)
-        Me.deleteSavedListButton.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.deleteSavedListButton.Margin = New System.Windows.Forms.Padding(4)
         Me.deleteSavedListButton.Name = "deleteSavedListButton"
         Me.deleteSavedListButton.Size = New System.Drawing.Size(151, 28)
         Me.deleteSavedListButton.TabIndex = 6
@@ -248,7 +252,7 @@ Partial Class Home
         Me.loadSavedListButton.Enabled = False
         Me.loadSavedListButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.loadSavedListButton.Location = New System.Drawing.Point(91, 469)
-        Me.loadSavedListButton.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.loadSavedListButton.Margin = New System.Windows.Forms.Padding(4)
         Me.loadSavedListButton.Name = "loadSavedListButton"
         Me.loadSavedListButton.Size = New System.Drawing.Size(139, 28)
         Me.loadSavedListButton.TabIndex = 5
@@ -259,7 +263,7 @@ Partial Class Home
         '
         Me.SavedListsTreeView.BackColor = System.Drawing.SystemColors.Window
         Me.SavedListsTreeView.Location = New System.Drawing.Point(63, 81)
-        Me.SavedListsTreeView.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.SavedListsTreeView.Margin = New System.Windows.Forms.Padding(4)
         Me.SavedListsTreeView.Name = "SavedListsTreeView"
         Me.SavedListsTreeView.Size = New System.Drawing.Size(912, 360)
         Me.SavedListsTreeView.TabIndex = 4
@@ -995,7 +999,7 @@ Partial Class Home
         Me.cartListView.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader8})
         Me.cartListView.LargeImageList = Me.ImageList1
         Me.cartListView.Location = New System.Drawing.Point(4, -1)
-        Me.cartListView.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cartListView.Margin = New System.Windows.Forms.Padding(4)
         Me.cartListView.Name = "cartListView"
         Me.cartListView.Size = New System.Drawing.Size(245, 431)
         Me.cartListView.SmallImageList = Me.ImageList1
@@ -1106,11 +1110,45 @@ Partial Class Home
         Me.cartListButton.Text = "Mes listes"
         Me.cartListButton.UseVisualStyleBackColor = True
         '
+        'puPanel
+        '
+        Me.puPanel.BackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.puPanel.Controls.Add(Me.puContentLabel)
+        Me.puPanel.Controls.Add(Me.puCancelButton)
+        Me.puPanel.Location = New System.Drawing.Point(350, 350)
+        Me.puPanel.Name = "puPanel"
+        Me.puPanel.Size = New System.Drawing.Size(392, 113)
+        Me.puPanel.TabIndex = 16
+        Me.puPanel.Visible = False
+        '
+        'puContentLabel
+        '
+        Me.puContentLabel.AutoSize = True
+        Me.puContentLabel.Font = New System.Drawing.Font("Roboto", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.puContentLabel.ForeColor = System.Drawing.Color.White
+        Me.puContentLabel.Location = New System.Drawing.Point(5, 53)
+        Me.puContentLabel.Name = "puContentLabel"
+        Me.puContentLabel.Size = New System.Drawing.Size(369, 24)
+        Me.puContentLabel.TabIndex = 1
+        Me.puContentLabel.Text = "Votre commande à été prise en compte ! "
+        '
+        'puCancelButton
+        '
+        Me.puCancelButton.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.puCancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.puCancelButton.Location = New System.Drawing.Point(353, 3)
+        Me.puCancelButton.Name = "puCancelButton"
+        Me.puCancelButton.Size = New System.Drawing.Size(36, 34)
+        Me.puCancelButton.TabIndex = 0
+        Me.puCancelButton.Text = "X"
+        Me.puCancelButton.UseVisualStyleBackColor = True
+        '
         'Home
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1348, 721)
+        Me.Controls.Add(Me.puPanel)
         Me.Controls.Add(Me.headerPanel)
         Me.Controls.Add(Me.centerPanel)
         Me.Controls.Add(Me.cartPanel)
@@ -1140,6 +1178,8 @@ Partial Class Home
         Me.affListPanel.ResumeLayout(False)
         Me.cartPanel.ResumeLayout(False)
         Me.cartPanel.PerformLayout()
+        Me.puPanel.ResumeLayout(False)
+        Me.puPanel.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1225,5 +1265,8 @@ Partial Class Home
     Friend WithEvents savedListTitleLabel As System.Windows.Forms.Label
     Friend WithEvents deleteSavedListButton As System.Windows.Forms.Button
     Friend WithEvents ColumnHeader8 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents puPanel As System.Windows.Forms.Panel
+    Friend WithEvents puContentLabel As System.Windows.Forms.Label
+    Friend WithEvents puCancelButton As System.Windows.Forms.Button
 
 End Class
