@@ -3,9 +3,11 @@
 Public Class Home
 
     Enum State
-        INIT
-        CART
-        VALID_CART
+        ACCUEIL
+        CATALOGUE
+        DETAIL_PANIER
+        LISTES_SAUVES
+        PAIEMENT
     End Enum
 
     Enum categorie
@@ -34,7 +36,7 @@ Public Class Home
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'INITIALISATION DES ATTRIBUTS
-        myState = State.INIT
+        myState = State.ACCUEIL
         categorieActif = categorie.MARCHE
         updateUI()
         updateMenuButton()
@@ -45,49 +47,113 @@ Public Class Home
     Private Sub updateUI()
         updateSommePanier()
         Select Case myState
-            Case State.INIT
+            Case State.ACCUEIL
                 nbProduct = 0
                 clearCart()
                 validationPaymentPanel.Visible = False
                 popUpPanel.Visible = False
+                updatePopUpVisibility()
                 buttonEnable()
-            Case State.CART
-                validationPaymentPanel.Visible = False
-                popUpPanel.Visible = False
+            Case State.CATALOGUE
+                updatePopUpVisibility()
                 buttonEnable()
-            Case State.VALID_CART
+            Case State.DETAIL_PANIER
+                updatePopUpVisibility()
+                buttonEnable()
+            Case State.LISTES_SAUVES
+                updatePopUpVisibility()
+                buttonEnable()
+            Case State.PAIEMENT
                 validationPaymentPanel.Height = 255
-                validationPaymentPanel.Visible = True
                 paymentNbProdLabel.Text = "Vous avez " + getNbProdInCart() + " produits dans votre panier"
-                popUpPanel.Visible = False
+                updatePopUpVisibility()
                 buttonEnable()
+
         End Select
     End Sub
 
     Private Sub buttonEnable()
         Select Case myState
-            Case State.INIT
+            Case State.ACCUEIL
                 cartDetailButton.Enabled = False
                 cartListButton.Enabled = True
                 cartValidationButton.Enabled = False
                 cartSaveButton.Enabled = False
                 cartSuppressionButton.Enabled = False
-            Case State.CART
-                cartDetailButton.Enabled = True
-                cartListButton.Enabled = True
-                cartSaveButton.Enabled = True
-                cartSuppressionButton.Enabled = True
+            Case State.CATALOGUE
+                If (panier.Keys.Count = 0) Then
+                    cartDetailButton.Enabled = False
+                    cartSaveButton.Enabled = False
+                    cartSuppressionButton.Enabled = False
+                Else
+                    cartDetailButton.Enabled = True
+                    cartSaveButton.Enabled = True
+                    cartSuppressionButton.Enabled = True
+                End If
                 If (sommePanier >= SEUIL) Then
                     cartValidationButton.Enabled = True
                 Else
                     cartValidationButton.Enabled = False
                 End If
-            Case State.VALID_CART
-                cartDetailButton.Enabled = True
                 cartListButton.Enabled = True
-                cartValidationButton.Enabled = True
-                cartSaveButton.Enabled = True
-                cartSuppressionButton.Enabled = True
+            Case State.DETAIL_PANIER
+                cartDetailButton.Enabled = False
+                cartListButton.Enabled = False
+                cartValidationButton.Enabled = False
+                cartSaveButton.Enabled = False
+                cartSuppressionButton.Enabled = False
+            Case State.LISTES_SAUVES
+                cartDetailButton.Enabled = False
+                cartListButton.Enabled = False
+                cartValidationButton.Enabled = False
+                cartSaveButton.Enabled = False
+                cartSuppressionButton.Enabled = False
+            Case State.PAIEMENT
+                cartDetailButton.Enabled = False
+                cartListButton.Enabled = False
+                cartValidationButton.Enabled = False
+                cartSaveButton.Enabled = False
+                cartSuppressionButton.Enabled = False
+        End Select
+    End Sub
+
+    Sub updatePopUpVisibility()
+        Select Case myState
+            Case State.ACCUEIL
+                validationPaymentPanel.Visible = False
+                popUpPanel.Visible = False
+                detailPopUpPanel.Visible = False
+                savedListPanel.Visible = False
+                puPanel.Visible = False
+                detailCartPanel.Visible = False
+            Case State.CATALOGUE
+                validationPaymentPanel.Visible = False
+                popUpPanel.Visible = False
+                detailPopUpPanel.Visible = False
+                savedListPanel.Visible = False
+                puPanel.Visible = False
+                detailCartPanel.Visible = False
+            Case State.DETAIL_PANIER
+                validationPaymentPanel.Visible = False
+                popUpPanel.Visible = False
+                detailPopUpPanel.Visible = False
+                savedListPanel.Visible = False
+                puPanel.Visible = False
+                detailCartPanel.Visible = True
+            Case State.LISTES_SAUVES
+                validationPaymentPanel.Visible = False
+                popUpPanel.Visible = False
+                detailPopUpPanel.Visible = False
+                savedListPanel.Visible = True
+                puPanel.Visible = False
+                detailCartPanel.Visible = False
+            Case State.PAIEMENT
+                validationPaymentPanel.Visible = True
+                popUpPanel.Visible = False
+                detailPopUpPanel.Visible = False
+                savedListPanel.Visible = False
+                puPanel.Visible = False
+                detailCartPanel.Visible = False
         End Select
     End Sub
 
@@ -130,11 +196,11 @@ Public Class Home
 
     Private Sub realisePayment()
         Select Case myState
-            Case State.INIT
-
-            Case State.CART
-
-            Case State.VALID_CART
+            Case State.ACCUEIL
+            Case State.CATALOGUE
+            Case State.DETAIL_PANIER
+            Case State.LISTES_SAUVES
+            Case State.PAIEMENT
                 addArticlesInPanel()
                 reinitialiserAfficheurArticles(False)
         End Select
@@ -142,7 +208,7 @@ Public Class Home
 
 
     Public Sub addToCart(ByVal art As Article, ByVal qte As Integer)
-        myState = State.CART
+        myState = State.CATALOGUE
         'récuperer l'index de l'image du produit
         Dim imageIndex As Integer
         For index As Integer = 0 To (ImageList1.Images.Count - 1)
@@ -170,7 +236,7 @@ Public Class Home
 
     Public Sub removeToCart(ByVal art As Article, ByVal qte As Integer)
         If (cartListView.Items.Count = 0) Then
-            myState = State.INIT
+            myState = State.ACCUEIL
         End If
 
         Dim itemFound As ListViewItem = cartListView.FindItemWithText(art.name)
@@ -408,6 +474,57 @@ Public Class Home
         End Set
     End Property
 
+    Private Sub sauverPanier()
+        Dim index As Integer = 0
+        While listSavedCart.ContainsKey(index)
+            index += 1
+        End While
+
+        Dim savedCart As New Dictionary(Of Article, Integer)
+        For Each item As Article In panier.Keys
+            savedCart.Add(item, panier.Item(item))
+        Next
+
+        listSavedCart.Add(index, savedCart)
+        Dim noeudNouvelleListe As TreeNode
+        noeudNouvelleListe = SavedListsTreeView.Nodes.Add(String.Format(index), "Liste n°" + String.Format(index) + " (Total: " + String.Format(sommePanier) + " €)", "", "")
+        For Each item As Article In panier.Keys
+            noeudNouvelleListe.Nodes.Add(item.name, String.Format(panier.Item(item)) + " x " + item.name, "", "")
+        Next
+        SavedListsTreeView.Sort()
+        setPu("Votre panier à été sauvegardé !")
+        showPu(True)
+    End Sub
+
+    Private Sub chargerListe()
+        If (Not SavedListsTreeView.SelectedNode Is Nothing And SavedListsTreeView.SelectedNode.Parent Is Nothing) Then
+            clearCart()
+            reinitialiserAfficheurArticles(True)
+            Dim savedCart As Dictionary(Of Article, Integer)
+            savedCart = listSavedCart.Item(SavedListsTreeView.SelectedNode.Name)
+            Dim qte As Integer = 0
+            For Each item As Article In savedCart.Keys
+                qte = reinitialiserAfficheurArticles(item, savedCart.Item(item))
+                If (qte > 0) Then
+                    panier.Add(item, qte)
+                    addToCart(item, qte)
+                End If
+            Next
+            'savedListPanel.Visible = False
+        End If
+    End Sub
+
+    Private Sub supprimerListe()
+        If (Not SavedListsTreeView.SelectedNode Is Nothing And SavedListsTreeView.SelectedNode.Parent Is Nothing) Then
+            listSavedCart.Remove(SavedListsTreeView.SelectedNode.Name)
+            SavedListsTreeView.SelectedNode.Remove()
+        End If
+        If (SavedListsTreeView.SelectedNode Is Nothing) Then
+            deleteSavedListButton.Enabled = False
+            loadSavedListButton.Enabled = False
+        End If
+    End Sub
+
     '********************************************************************************
     '*************************** GESTION PRIX PANIER ET SEUIL************************
     '********************************************************************************
@@ -440,67 +557,70 @@ Public Class Home
         affListPanel.BackColor = Color.Gainsboro
     End Sub
 
-
-
-
-
     '********************************************************************************
     '*************************** LISTENER CART BUTTON *******************************
     '********************************************************************************
     Private Sub cartValidationButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cartValidationButton.Click
         Select Case myState
-            Case State.INIT
+            Case State.ACCUEIL
                 'interdit
-            Case State.CART
-                myState = State.VALID_CART
+            Case State.CATALOGUE
+                myState = State.PAIEMENT
                 updateUI()
-            Case State.VALID_CART
+            Case State.DETAIL_PANIER
+                'interdit
+            Case State.LISTES_SAUVES
+                'interdit
+            Case State.PAIEMENT
                 'interdit
         End Select
     End Sub
 
     Private Sub cartDetailButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cartDetailButton.Click
-        updateDetailCart()
-        detailCartPanel.Visible = True
+        Select Case myState
+            Case State.ACCUEIL
+                'interdit
+            Case State.CATALOGUE
+                myState = State.DETAIL_PANIER
+                updateDetailCart()
+                updateUI()
+            Case State.DETAIL_PANIER
+                'interdit
+            Case State.LISTES_SAUVES
+                'interdit
+            Case State.PAIEMENT
+                'interdit
+        End Select
     End Sub
 
     Private Sub cartSuppressionButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cartSuppressionButton.Click
         Select Case myState
-            Case State.INIT
+            Case State.ACCUEIL
                 'interdit
-            Case State.CART
+            Case State.CATALOGUE
+                myState = State.CATALOGUE
+                updateUI()
                 setPopUp("Suppression des produits", "Voulez-vous supprimer tous les produits ?", "Supprimer", "Annuler")
                 showPopUp()
-            Case State.VALID_CART
-
+            Case State.DETAIL_PANIER
+                'interdit
+            Case State.LISTES_SAUVES
+                'interdit
+            Case State.PAIEMENT
+                'interdit
         End Select
 
     End Sub
 
     Private Sub cartSaveButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cartSaveButton.Click
-        Dim index As Integer = 0
-        While listSavedCart.ContainsKey(index)
-            index += 1
-        End While
-
-        Dim savedCart As New Dictionary(Of Article, Integer)
-        For Each item As Article In panier.Keys
-            savedCart.Add(item, panier.Item(item))
-        Next
-
-        listSavedCart.Add(index, savedCart)
-        Dim noeudNouvelleListe As TreeNode
-        noeudNouvelleListe = SavedListsTreeView.Nodes.Add(String.Format(index), "Liste n°" + String.Format(index) + " (Total: " + String.Format(sommePanier) + " €)", "", "")
-        For Each item As Article In panier.Keys
-            noeudNouvelleListe.Nodes.Add(item.name, String.Format(panier.Item(item)) + " x " + item.name, "", "")
-        Next
-        SavedListsTreeView.Sort()
-        setPu("Votre panier à été sauvegardé !")
-        showPu(True)
+        myState = State.CATALOGUE
+        sauverPanier()        
     End Sub
 
     Private Sub myListButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cartListButton.Click
-        savedListPanel.Visible = True
+        myState = State.LISTES_SAUVES
+        updateUI()
+        'savedListPanel.Visible = True
     End Sub
 
 
@@ -510,13 +630,17 @@ Public Class Home
 
     Private Sub paidButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles paidButton.Click
         Select Case myState
-            Case State.INIT
+            Case State.ACCUEIL
                 'interdit
-            Case State.CART
+            Case State.CATALOGUE
+                'Interdit
+            Case State.DETAIL_PANIER
                 'interdit
-            Case State.VALID_CART
+            Case State.LISTES_SAUVES
+                'interdit
+            Case State.PAIEMENT
                 realisePayment()
-                myState = State.INIT
+                myState = State.ACCUEIL
                 updateUI()
                 setPu("Votre commande à été prise en compte !")
                 showPu(True)
@@ -525,12 +649,16 @@ Public Class Home
 
     Private Sub cancelPaidButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cancelPaidButton.Click
         Select Case myState
-            Case State.INIT
+            Case State.ACCUEIL
                 'interdit
-            Case State.CART
+            Case State.CATALOGUE
+                'Interdit
+            Case State.DETAIL_PANIER
                 'interdit
-            Case State.VALID_CART
-                myState = State.CART
+            Case State.LISTES_SAUVES
+                'interdit
+            Case State.PAIEMENT
+                myState = State.CATALOGUE
                 updateUI()
         End Select
     End Sub
@@ -543,29 +671,34 @@ Public Class Home
 
     Private Sub validPopUpButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles validPopUpButton.Click
         Select Case myState
-            Case State.INIT
+            Case State.ACCUEIL
                 'interdit
-            Case State.CART
+            Case State.CATALOGUE
                 reinitialiserAfficheurArticles(True)
-                myState = State.INIT
+                myState = State.ACCUEIL
                 updateUI()
-            Case State.VALID_CART
-                reinitialiserAfficheurArticles(True)
-                myState = State.INIT
-                updateUI()
+            Case State.DETAIL_PANIER
+                'Interdit
+            Case State.LISTES_SAUVES
+                'Interdit
+            Case State.PAIEMENT
+                'Interdit
         End Select
     End Sub
 
     Private Sub cancelPopUpButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cancelPopUpButton.Click
         Select Case myState
-            Case State.INIT
+            Case State.ACCUEIL
                 'interdit
-            Case State.CART
-                myState = State.CART
+            Case State.CATALOGUE
+                myState = State.CATALOGUE
                 updateUI()
-            Case State.VALID_CART
-                myState = State.VALID_CART
-                updateUI()
+            Case State.DETAIL_PANIER
+                'Interdit
+            Case State.LISTES_SAUVES
+                'Interdit
+            Case State.PAIEMENT
+                'Interdit
         End Select
     End Sub
 
@@ -578,56 +711,159 @@ Public Class Home
     '********************************************************************************
 
     Private Sub menuFraisButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles menuFraisButton.Click
-        categorieActif = categorie.FRAIS
-        addArticlesInPanel()
-        updateMenuButton()
+        Select Case myState
+            Case State.ACCUEIL
+                myState = State.CATALOGUE
+                updateUI()
+            Case State.CATALOGUE
+                myState = State.CATALOGUE
+                updateUI()
+                categorieActif = categorie.FRAIS
+                addArticlesInPanel()
+                updateMenuButton()
+            Case State.DETAIL_PANIER
+                'Interdit
+            Case State.LISTES_SAUVES
+                'Interdit
+            Case State.PAIEMENT
+                'Interdit
+        End Select
     End Sub
 
     Private Sub menuMarcheButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles menuMarcheButton.Click
-        categorieActif = categorie.MARCHE
-        addArticlesInPanel()
-        updateMenuButton()
+        Select Case myState
+            Case State.ACCUEIL
+                myState = State.CATALOGUE
+                updateUI()
+            Case State.CATALOGUE
+                myState = State.CATALOGUE
+                updateUI()
+                categorieActif = categorie.MARCHE
+                addArticlesInPanel()
+                updateMenuButton()
+            Case State.DETAIL_PANIER
+                'Interdit
+            Case State.LISTES_SAUVES
+                'Interdit
+            Case State.PAIEMENT
+                'Interdit
+        End Select
     End Sub
 
     Private Sub menuEpicerieSaleeButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles menuEpicerieSaleeButton.Click
-        categorieActif = categorie.SALES
-        addArticlesInPanel()
-        updateMenuButton()
+        Select Case myState
+            Case State.ACCUEIL
+                myState = State.CATALOGUE
+                updateUI()
+            Case State.CATALOGUE
+                myState = State.CATALOGUE
+                updateUI()
+                categorieActif = categorie.SALES
+                addArticlesInPanel()
+                updateMenuButton()
+            Case State.DETAIL_PANIER
+                'Interdit
+            Case State.LISTES_SAUVES
+                'Interdit
+            Case State.PAIEMENT
+                'Interdit
+        End Select
     End Sub
 
     Private Sub menuEpicerieSucreeButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles menuEpicerieSucreeButton.Click
-        categorieActif = categorie.SUCRES
-        addArticlesInPanel()
-        updateMenuButton()
+        Select Case myState
+            Case State.ACCUEIL
+                myState = State.CATALOGUE
+                updateUI()
+            Case State.CATALOGUE
+                myState = State.CATALOGUE
+                updateUI()
+                categorieActif = categorie.SUCRES
+                addArticlesInPanel()
+                updateMenuButton()
+            Case State.DETAIL_PANIER
+                'Interdit
+            Case State.LISTES_SAUVES
+                'Interdit
+            Case State.PAIEMENT
+                'Interdit
+        End Select
     End Sub
 
     Private Sub menuBoissonsButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles menuBoissonsButton.Click
-        categorieActif = categorie.BOISSONS
-        addArticlesInPanel()
-        updateMenuButton()
+        Select Case myState
+            Case State.ACCUEIL
+                myState = State.CATALOGUE
+                updateUI()
+            Case State.CATALOGUE
+                myState = State.CATALOGUE
+                updateUI()
+                categorieActif = categorie.BOISSONS
+                addArticlesInPanel()
+                updateMenuButton()
+            Case State.DETAIL_PANIER
+                'Interdit
+            Case State.LISTES_SAUVES
+                'Interdit
+            Case State.PAIEMENT
+                'Interdit
+        End Select
     End Sub
 
     Private Sub menuSurgelesButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles menuSurgelesButton.Click
-        categorieActif = categorie.SURGELES
-        addArticlesInPanel()
-        updateMenuButton()
+        Select Case myState
+            Case State.ACCUEIL
+                myState = State.CATALOGUE
+                updateUI()
+            Case State.CATALOGUE
+                myState = State.CATALOGUE
+                updateUI()
+                categorieActif = categorie.SURGELES
+                addArticlesInPanel()
+                updateMenuButton()
+            Case State.DETAIL_PANIER
+                'Interdit
+            Case State.LISTES_SAUVES
+                'Interdit
+            Case State.PAIEMENT
+                'Interdit
+        End Select
     End Sub
 
 
     '********************************************************************************
-    '********************** DETAIL PRODUTC BUTTON CLICK LISTENER ********************
+    '********************** DETAIL PRODUCT BUTTON CLICK LISTENER ********************
     '********************************************************************************
     Private Sub detailCloseButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles detailCloseButton.Click
-        detailPopUpPanel.Visible = False
+        Select Case myState
+            Case State.ACCUEIL
+                'interdit
+            Case State.CATALOGUE
+                'Interdit
+            Case State.DETAIL_PANIER
+                myState = State.CATALOGUE
+                updateUI()
+            Case State.LISTES_SAUVES
+                'interdit
+            Case State.PAIEMENT
+                'interdit
+        End Select
     End Sub
-
-    Private Sub articlePanel_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles articlePanel.Paint
-
-    End Sub
-
 
     Private Sub cartDetailCancelButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cartDetailCancelButton.Click
-        detailCartPanel.Visible = False
+        Select Case myState
+            Case State.ACCUEIL
+                'interdit
+            Case State.CATALOGUE
+                'Interdit
+            Case State.DETAIL_PANIER
+                myState = State.CATALOGUE
+                updateUI()
+            Case State.LISTES_SAUVES
+                'interdit
+            Case State.PAIEMENT
+                'interdit
+        End Select
     End Sub
 
     '********************************************************************************
@@ -635,36 +871,54 @@ Public Class Home
     '********************************************************************************
 
     Private Sub loadSavedListButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles loadSavedListButton.Click
-        If (Not SavedListsTreeView.SelectedNode Is Nothing And SavedListsTreeView.SelectedNode.Parent Is Nothing) Then
-            clearCart()
-            reinitialiserAfficheurArticles(True)
-            Dim savedCart As Dictionary(Of Article, Integer)
-            savedCart = listSavedCart.Item(SavedListsTreeView.SelectedNode.Name)
-            Dim qte As Integer = 0
-            For Each item As Article In savedCart.Keys
-                qte = reinitialiserAfficheurArticles(item, savedCart.Item(item))
-                If (qte > 0) Then
-                    panier.Add(item, qte)
-                    addToCart(item, qte)
-                End If
-            Next
-            savedListPanel.Visible = False
-        End If
+        Select Case myState
+            Case State.ACCUEIL
+                'interdit
+            Case State.CATALOGUE
+                'Interdit
+            Case State.DETAIL_PANIER
+                'Interdit
+            Case State.LISTES_SAUVES
+                myState = State.CATALOGUE
+                chargerListe()
+                updateUI()
+            Case State.PAIEMENT
+                'interdit
+        End Select        
     End Sub
 
     Private Sub deleteSavedListButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles deleteSavedListButton.Click
-        If (Not SavedListsTreeView.SelectedNode Is Nothing And SavedListsTreeView.SelectedNode.Parent Is Nothing) Then
-            listSavedCart.Remove(SavedListsTreeView.SelectedNode.Name)
-            SavedListsTreeView.SelectedNode.Remove()
-        End If
-        If (SavedListsTreeView.SelectedNode Is Nothing) Then
-            deleteSavedListButton.Enabled = False
-            loadSavedListButton.Enabled = False
-        End If
+        Select Case myState
+            Case State.ACCUEIL
+                'interdit
+            Case State.CATALOGUE
+                'Interdit
+            Case State.DETAIL_PANIER
+                'Interdit
+            Case State.LISTES_SAUVES
+                myState = State.LISTES_SAUVES
+                supprimerListe()
+                updateUI()
+                savedListPanel.Visible = True
+            Case State.PAIEMENT
+                'interdit
+        End Select        
     End Sub
 
     Private Sub savedListsCancelButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles savedListsCancelButton.Click
-        savedListPanel.Visible = False
+        Select Case myState
+            Case State.ACCUEIL
+                'interdit
+            Case State.CATALOGUE
+                'Interdit
+            Case State.DETAIL_PANIER
+                'Interdit
+            Case State.LISTES_SAUVES
+                myState = State.CATALOGUE
+                updateUI()
+            Case State.PAIEMENT
+                'interdit
+        End Select
     End Sub
 
     Private Sub SavedListsTreeView_AfterSelect(ByVal sender As Object, ByVal e As System.Windows.Forms.TreeViewEventArgs) Handles SavedListsTreeView.AfterSelect
