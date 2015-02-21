@@ -33,6 +33,11 @@ Public Class Home
     Public WithEvents bouton As Windows.Forms.Button
     Public WithEvents Control As New Button
     Dim bPanier As New List(Of Button)
+    Dim numUDPanier As New List(Of NumericUpDown)
+    Public WithEvents numUpDown As New NumericUpDown
+    Dim numUDvalue As New List(Of Integer)
+    Dim num
+    Public Event ValueChanged As EventHandler
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'INITIALISATION DES ATTRIBUTS
@@ -42,6 +47,7 @@ Public Class Home
         updateMenuButton()
         'INITIALISATION DE LA LISTE
         initArticles()
+
     End Sub
 
     Private Sub updateUI()
@@ -154,13 +160,19 @@ Public Class Home
         'si l'article n'est pas dans la panier on l'ajoute sinon on modifie sa quantite
         If (itemFound Is Nothing) Then
             bouton = New Windows.Forms.Button
-
+            numUpDown = New NumericUpDown()
             cartListView.Items.Add(item)
 
-
+            Ajouter_Controles_ListView(cartListView, numUpDown, cartListView.Items.Count - 1, 2)
             Ajouter_Controles_ListView(cartListView, bouton, cartListView.Items.Count - 1, 3)
+            numUDPanier.Item(cartListView.Items.Count - 1).Value = 1
+            numUDPanier.Item(cartListView.Items.Count - 1).Tag = cartListView.Items.Count - 1
         Else
+            numUDPanier.Item(itemFound.Index).Value = qte.ToString
+
+
             itemFound.SubItems.Item(2).Text = qte.ToString
+
         End If
 
         cartListView.Update()
@@ -639,7 +651,7 @@ Public Class Home
                 If (qte > 0) Then
                     panier.Add(item, qte)
                     addToCart(item, qte)
-                End If                
+                End If
             Next
             savedListPanel.Visible = False
         End If
@@ -672,7 +684,7 @@ Public Class Home
         If controle_add.GetType.FullName <> "System.Windows.Forms.Button" And controle_add.GetType.FullName <> "System.Windows.Forms.CheckBox" _
              And controle_add.GetType.FullName <> "System.Windows.Forms.Label" And controle_add.GetType.FullName <> "System.Windows.Forms.LinkLabel" _
              And controle_add.GetType.FullName <> "System.Windows.Forms.ProgressBar" And controle_add.GetType.FullName <> "System.Windows.Forms.RadioButton" _
-             And controle_add.GetType.FullName <> "System.Windows.Forms.TextBox" And controle_add.GetType.FullName <> "System.Windows.Forms.RichTextBox" _
+             And controle_add.GetType.FullName <> "System.Windows.Forms.NumericUpDown" And controle_add.GetType.FullName <> "System.Windows.Forms.RichTextBox" _
              And controle_add.GetType.FullName <> "System.Windows.Forms.ComboBox" And controle_add.GetType.FullName <> "System.Windows.Forms.MaskedTextBox" Then
 
             ' Si controle_add n'est pas l'un des contrôles précedemment cités,
@@ -711,8 +723,9 @@ Public Class Home
 
 
             controle_target.Controls.Add(x)
-            AddHandler bouton.Click, AddressOf ButtonClicked
-            Dim ctrl As Control = Me.GetNextControl(Me, True) 'thanks jmc
+            AddHandler bouton.Click, AddressOf Delete_Panier_Button
+
+            Dim ctrl As Control = Me.GetNextControl(Me, True)
 
             x.Text = no_ligne
             x.Font = New Font(ctrl.Font.FontFamily, 1.0F, ctrl.Font.Style)
@@ -738,9 +751,14 @@ Public Class Home
         ElseIf controle_add.GetType.FullName = "System.Windows.Forms.Radiobutton" Then
             Dim Control As New RadioButton
             controle_target.Controls.Add(Control)
-        ElseIf controle_add.GetType.FullName = "System.Windows.Forms.TextBox" Then
-            Dim Control As New TextBox
-            controle_target.Controls.Add(Control)
+        ElseIf controle_add.GetType.FullName = "System.Windows.Forms.NumericUpDown" Then
+           
+            controle_target.Controls.Add(controle_add)
+            numUDPanier.Add(controle_add)
+
+
+            AddHandler numUpDown.ValueChanged, AddressOf NumericUpDown1_ValueChanged
+
         ElseIf controle_add.GetType.FullName = "System.Windows.Forms.RichTextBox" Then
             Dim Control As New RichTextBox
             controle_target.Controls.Add(Control)
@@ -768,12 +786,15 @@ Public Class Home
         '  AddHandler controle_target.ColumnWidthChanging, AddressOf MAJ_positions_dimensions_controles_ListView
 
     End Sub
-    Private Sub ButtonClicked(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles bouton.Click
-        ' Me.cartListView.Items.Clear()
+    Private Sub Delete_Panier_Button(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles bouton.Click
+        'Mettre a jour la listView
 
-        Dim Zone As Integer
-        Zone = Val(sender.Text)
-        Me.cartListView.Items.RemoveAt(Zone)
+        Dim pos As Integer
+        pos = Val(sender.Text)
+        'MsgBox(cartListView.Items(pos).Text)
+        Me.cartListView.Items.RemoveAt(pos)
+
+        'Mettre a jour les bouttons
         For index As Integer = 0 To (bPanier.Count - 1)
             bPanier.Item(index).Hide()
         Next
@@ -783,7 +804,37 @@ Public Class Home
             Ajouter_Controles_ListView(cartListView, bouton, index, 3)
         Next
 
+        'Mettre a jour les numUpDown
+
+        For index As Integer = 0 To (numUDPanier.Count - 1)
+            numUDPanier.Item(index).Hide()
+        Next
+        numUDPanier.RemoveAt(pos)
+        For index As Integer = 0 To (numUDPanier.Count - 1)
+            numUDvalue.Add(numUDPanier.Item(index).Value)
+        Next
+        numUDPanier.Clear()
+
+        For index As Integer = 0 To (cartListView.Items.Count - 1)
+            numUpDown = New NumericUpDown()
+
+
+            Ajouter_Controles_ListView(cartListView, numUpDown, index, 2)
+            numUDPanier.Item(index).Value = numUDvalue.Item(index)
+
+        Next
+        numUDvalue.Clear()
+
+
+    End Sub
+    'NumUpDownListeners
+    Private Sub NumericUpDown1_ValueChanged(ByVal sender As System.Object, ByVal e As EventArgs) _
+     Handles numUpDown.ValueChanged
+        Dim posnumupown As Integer
+        posnumupown = Val(sender.tag)
+        'MsgBox(cartListView.Items(posnumupown).Text)
 
     End Sub
 
+    
 End Class
