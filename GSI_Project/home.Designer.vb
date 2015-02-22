@@ -32,6 +32,7 @@ Partial Class Home
         Me.separateurShapeContainer = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
         Me.LineShape1 = New Microsoft.VisualBasic.PowerPacks.LineShape()
         Me.centerPanel = New System.Windows.Forms.Panel()
+        Me.labelAccueil = New System.Windows.Forms.Label()
         Me.savedListPanel = New System.Windows.Forms.Panel()
         Me.puPanel = New System.Windows.Forms.Panel()
         Me.puContentLabel = New System.Windows.Forms.Label()
@@ -108,7 +109,6 @@ Partial Class Home
         Me.cartDetailButton = New System.Windows.Forms.Button()
         Me.cartListButton = New System.Windows.Forms.Button()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.labelAccueil = New System.Windows.Forms.Label()
         Me.headerPanel.SuspendLayout()
         CType(Me.logoPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.centerPanel.SuspendLayout()
@@ -206,6 +206,7 @@ Partial Class Home
         'centerPanel
         '
         Me.centerPanel.BackColor = System.Drawing.Color.White
+        Me.centerPanel.Controls.Add(Me.puPanel)
         Me.centerPanel.Controls.Add(Me.labelAccueil)
         Me.centerPanel.Controls.Add(Me.savedListPanel)
         Me.centerPanel.Controls.Add(Me.validationPaymentPanel)
@@ -223,10 +224,19 @@ Partial Class Home
         Me.centerPanel.Size = New System.Drawing.Size(827, 522)
         Me.centerPanel.TabIndex = 3
         '
+        'labelAccueil
+        '
+        Me.labelAccueil.AutoSize = True
+        Me.labelAccueil.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.labelAccueil.Location = New System.Drawing.Point(282, 237)
+        Me.labelAccueil.Name = "labelAccueil"
+        Me.labelAccueil.Size = New System.Drawing.Size(273, 30)
+        Me.labelAccueil.TabIndex = 16
+        Me.labelAccueil.Text = "Bienvenue sur GSI Courses"
+        '
         'savedListPanel
         '
         Me.savedListPanel.BackColor = System.Drawing.SystemColors.Window
-        Me.savedListPanel.Controls.Add(Me.puPanel)
         Me.savedListPanel.Controls.Add(Me.deleteSavedListButton)
         Me.savedListPanel.Controls.Add(Me.loadSavedListButton)
         Me.savedListPanel.Controls.Add(Me.SavedListsTreeView)
@@ -1153,16 +1163,6 @@ Partial Class Home
         Me.cartListButton.TabIndex = 3
         Me.cartListButton.Text = "Mes listes"
         Me.cartListButton.UseVisualStyleBackColor = True
-        '
-        'labelAccueil
-        '
-        Me.labelAccueil.AutoSize = True
-        Me.labelAccueil.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.labelAccueil.Location = New System.Drawing.Point(282, 237)
-        Me.labelAccueil.Name = "labelAccueil"
-        Me.labelAccueil.Size = New System.Drawing.Size(273, 30)
-        Me.labelAccueil.TabIndex = 16
-        Me.labelAccueil.Text = "Bienvenue sur GSI Courses"
         '
         'Home
         '

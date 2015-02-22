@@ -55,7 +55,6 @@ Public Class Home
                 updateMenuButton()
                 addArticlesInPanel()
                 validationPaymentPanel.Visible = False
-                popUpPanel.Visible = False
                 labelAccueil.Visible = True
                 updatePopUpVisibility()
                 buttonEnable()
