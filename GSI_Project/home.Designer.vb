@@ -32,11 +32,11 @@ Partial Class Home
         Me.separateurShapeContainer = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
         Me.LineShape1 = New Microsoft.VisualBasic.PowerPacks.LineShape()
         Me.centerPanel = New System.Windows.Forms.Panel()
-        Me.labelAccueil = New System.Windows.Forms.Label()
-        Me.savedListPanel = New System.Windows.Forms.Panel()
         Me.puPanel = New System.Windows.Forms.Panel()
         Me.puContentLabel = New System.Windows.Forms.Label()
         Me.puCancelButton = New System.Windows.Forms.Button()
+        Me.labelAccueil = New System.Windows.Forms.Label()
+        Me.savedListPanel = New System.Windows.Forms.Panel()
         Me.deleteSavedListButton = New System.Windows.Forms.Button()
         Me.loadSavedListButton = New System.Windows.Forms.Button()
         Me.SavedListsTreeView = New System.Windows.Forms.TreeView()
@@ -85,9 +85,6 @@ Partial Class Home
         Me.menuEpicerieSucreeButton = New System.Windows.Forms.Button()
         Me.affGridPanel = New System.Windows.Forms.Panel()
         Me.ShapeContainer3 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
-        Me.RectangleShape4 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
-        Me.RectangleShape3 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
-        Me.RectangleShape2 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.RectangleShape1 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.affListPanel = New System.Windows.Forms.Panel()
         Me.ShapeContainer2 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
@@ -109,11 +106,14 @@ Partial Class Home
         Me.cartDetailButton = New System.Windows.Forms.Button()
         Me.cartListButton = New System.Windows.Forms.Button()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.RectangleShape2 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
+        Me.RectangleShape3 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
+        Me.RectangleShape4 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.headerPanel.SuspendLayout()
         CType(Me.logoPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.centerPanel.SuspendLayout()
-        Me.savedListPanel.SuspendLayout()
         Me.puPanel.SuspendLayout()
+        Me.savedListPanel.SuspendLayout()
         Me.validationPaymentPanel.SuspendLayout()
         Me.popUpPanel.SuspendLayout()
         Me.FlowLayoutPanel2.SuspendLayout()
@@ -138,7 +138,7 @@ Partial Class Home
         Me.headerPanel.Location = New System.Drawing.Point(0, 0)
         Me.headerPanel.Margin = New System.Windows.Forms.Padding(2)
         Me.headerPanel.Name = "headerPanel"
-        Me.headerPanel.Size = New System.Drawing.Size(1011, 70)
+        Me.headerPanel.Size = New System.Drawing.Size(1011, 75)
         Me.headerPanel.TabIndex = 2
         '
         'cartLabel
@@ -156,10 +156,10 @@ Partial Class Home
         'logoPictureBox
         '
         Me.logoPictureBox.Image = CType(resources.GetObject("logoPictureBox.Image"), System.Drawing.Image)
-        Me.logoPictureBox.Location = New System.Drawing.Point(9, 5)
+        Me.logoPictureBox.Location = New System.Drawing.Point(2, -2)
         Me.logoPictureBox.Margin = New System.Windows.Forms.Padding(2)
         Me.logoPictureBox.Name = "logoPictureBox"
-        Me.logoPictureBox.Size = New System.Drawing.Size(166, 73)
+        Me.logoPictureBox.Size = New System.Drawing.Size(197, 77)
         Me.logoPictureBox.TabIndex = 4
         Me.logoPictureBox.TabStop = False
         '
@@ -190,7 +190,7 @@ Partial Class Home
         Me.separateurShapeContainer.Margin = New System.Windows.Forms.Padding(0)
         Me.separateurShapeContainer.Name = "separateurShapeContainer"
         Me.separateurShapeContainer.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.LineShape1})
-        Me.separateurShapeContainer.Size = New System.Drawing.Size(1011, 70)
+        Me.separateurShapeContainer.Size = New System.Drawing.Size(1011, 75)
         Me.separateurShapeContainer.TabIndex = 5
         Me.separateurShapeContainer.TabStop = False
         '
@@ -218,11 +218,45 @@ Partial Class Home
         Me.centerPanel.Controls.Add(Me.affGridPanel)
         Me.centerPanel.Controls.Add(Me.affListPanel)
         Me.centerPanel.Cursor = System.Windows.Forms.Cursors.Default
-        Me.centerPanel.Location = New System.Drawing.Point(0, 69)
+        Me.centerPanel.Location = New System.Drawing.Point(0, 73)
         Me.centerPanel.Margin = New System.Windows.Forms.Padding(2)
         Me.centerPanel.Name = "centerPanel"
-        Me.centerPanel.Size = New System.Drawing.Size(827, 522)
+        Me.centerPanel.Size = New System.Drawing.Size(827, 518)
         Me.centerPanel.TabIndex = 3
+        '
+        'puPanel
+        '
+        Me.puPanel.BackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.puPanel.Controls.Add(Me.puContentLabel)
+        Me.puPanel.Controls.Add(Me.puCancelButton)
+        Me.puPanel.Location = New System.Drawing.Point(217, 205)
+        Me.puPanel.Name = "puPanel"
+        Me.puPanel.Size = New System.Drawing.Size(392, 113)
+        Me.puPanel.TabIndex = 16
+        Me.puPanel.Visible = False
+        '
+        'puContentLabel
+        '
+        Me.puContentLabel.AutoSize = True
+        Me.puContentLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.puContentLabel.ForeColor = System.Drawing.Color.White
+        Me.puContentLabel.Location = New System.Drawing.Point(46, 46)
+        Me.puContentLabel.Name = "puContentLabel"
+        Me.puContentLabel.Size = New System.Drawing.Size(300, 20)
+        Me.puContentLabel.TabIndex = 1
+        Me.puContentLabel.Text = "Votre commande à été prise en compte ! "
+        '
+        'puCancelButton
+        '
+        Me.puCancelButton.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.puCancelButton.FlatAppearance.BorderSize = 0
+        Me.puCancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.puCancelButton.Location = New System.Drawing.Point(353, 3)
+        Me.puCancelButton.Name = "puCancelButton"
+        Me.puCancelButton.Size = New System.Drawing.Size(36, 34)
+        Me.puCancelButton.TabIndex = 0
+        Me.puCancelButton.Text = "X"
+        Me.puCancelButton.UseVisualStyleBackColor = True
         '
         'labelAccueil
         '
@@ -247,40 +281,6 @@ Partial Class Home
         Me.savedListPanel.Size = New System.Drawing.Size(770, 430)
         Me.savedListPanel.TabIndex = 15
         Me.savedListPanel.Visible = False
-        '
-        'puPanel
-        '
-        Me.puPanel.BackColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.puPanel.Controls.Add(Me.puContentLabel)
-        Me.puPanel.Controls.Add(Me.puCancelButton)
-        Me.puPanel.Location = New System.Drawing.Point(227, 155)
-        Me.puPanel.Name = "puPanel"
-        Me.puPanel.Size = New System.Drawing.Size(392, 113)
-        Me.puPanel.TabIndex = 16
-        Me.puPanel.Visible = False
-        '
-        'puContentLabel
-        '
-        Me.puContentLabel.AutoSize = True
-        Me.puContentLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.puContentLabel.ForeColor = System.Drawing.Color.White
-        Me.puContentLabel.Location = New System.Drawing.Point(5, 53)
-        Me.puContentLabel.Name = "puContentLabel"
-        Me.puContentLabel.Size = New System.Drawing.Size(300, 20)
-        Me.puContentLabel.TabIndex = 1
-        Me.puContentLabel.Text = "Votre commande à été prise en compte ! "
-        '
-        'puCancelButton
-        '
-        Me.puCancelButton.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.puCancelButton.FlatAppearance.BorderSize = 0
-        Me.puCancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.puCancelButton.Location = New System.Drawing.Point(353, 3)
-        Me.puCancelButton.Name = "puCancelButton"
-        Me.puCancelButton.Size = New System.Drawing.Size(36, 34)
-        Me.puCancelButton.TabIndex = 0
-        Me.puCancelButton.Text = "X"
-        Me.puCancelButton.UseVisualStyleBackColor = True
         '
         'deleteSavedListButton
         '
@@ -796,7 +796,7 @@ Partial Class Home
         Me.menuBoissonsButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver
         Me.menuBoissonsButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
         Me.menuBoissonsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.menuBoissonsButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.menuBoissonsButton.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.menuBoissonsButton.Location = New System.Drawing.Point(381, 1)
         Me.menuBoissonsButton.Margin = New System.Windows.Forms.Padding(2)
         Me.menuBoissonsButton.Name = "menuBoissonsButton"
@@ -813,7 +813,7 @@ Partial Class Home
         Me.menuMarcheButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver
         Me.menuMarcheButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
         Me.menuMarcheButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.menuMarcheButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.menuMarcheButton.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.menuMarcheButton.Location = New System.Drawing.Point(1, 1)
         Me.menuMarcheButton.Margin = New System.Windows.Forms.Padding(2)
         Me.menuMarcheButton.Name = "menuMarcheButton"
@@ -830,7 +830,7 @@ Partial Class Home
         Me.menuSurgelesButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver
         Me.menuSurgelesButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
         Me.menuSurgelesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.menuSurgelesButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.menuSurgelesButton.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.menuSurgelesButton.Location = New System.Drawing.Point(467, 1)
         Me.menuSurgelesButton.Margin = New System.Windows.Forms.Padding(2)
         Me.menuSurgelesButton.Name = "menuSurgelesButton"
@@ -847,7 +847,7 @@ Partial Class Home
         Me.menuFraisButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver
         Me.menuFraisButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
         Me.menuFraisButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.menuFraisButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.menuFraisButton.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.menuFraisButton.Location = New System.Drawing.Point(80, 1)
         Me.menuFraisButton.Margin = New System.Windows.Forms.Padding(2)
         Me.menuFraisButton.Name = "menuFraisButton"
@@ -864,7 +864,7 @@ Partial Class Home
         Me.menuEpicerieSaleeButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver
         Me.menuEpicerieSaleeButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
         Me.menuEpicerieSaleeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.menuEpicerieSaleeButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.menuEpicerieSaleeButton.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.menuEpicerieSaleeButton.Location = New System.Drawing.Point(144, 1)
         Me.menuEpicerieSaleeButton.Margin = New System.Windows.Forms.Padding(2)
         Me.menuEpicerieSaleeButton.Name = "menuEpicerieSaleeButton"
@@ -881,7 +881,7 @@ Partial Class Home
         Me.menuEpicerieSucreeButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver
         Me.menuEpicerieSucreeButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
         Me.menuEpicerieSucreeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.menuEpicerieSucreeButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.menuEpicerieSucreeButton.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.menuEpicerieSucreeButton.Location = New System.Drawing.Point(260, 1)
         Me.menuEpicerieSucreeButton.Margin = New System.Windows.Forms.Padding(2)
         Me.menuEpicerieSucreeButton.Name = "menuEpicerieSucreeButton"
@@ -912,34 +912,13 @@ Partial Class Home
         Me.ShapeContainer3.TabIndex = 0
         Me.ShapeContainer3.TabStop = False
         '
-        'RectangleShape4
-        '
-        Me.RectangleShape4.Enabled = False
-        Me.RectangleShape4.Location = New System.Drawing.Point(30, 24)
-        Me.RectangleShape4.Name = "RectangleShape4"
-        Me.RectangleShape4.Size = New System.Drawing.Size(15, 15)
-        '
-        'RectangleShape3
-        '
-        Me.RectangleShape3.Enabled = False
-        Me.RectangleShape3.Location = New System.Drawing.Point(7, 24)
-        Me.RectangleShape3.Name = "RectangleShape3"
-        Me.RectangleShape3.Size = New System.Drawing.Size(15, 15)
-        '
-        'RectangleShape2
-        '
-        Me.RectangleShape2.Enabled = False
-        Me.RectangleShape2.Location = New System.Drawing.Point(30, 4)
-        Me.RectangleShape2.Name = "RectangleShape2"
-        Me.RectangleShape2.Size = New System.Drawing.Size(15, 15)
-        '
         'RectangleShape1
         '
         Me.RectangleShape1.Cursor = System.Windows.Forms.Cursors.Hand
         Me.RectangleShape1.Enabled = False
-        Me.RectangleShape1.Location = New System.Drawing.Point(7, 4)
+        Me.RectangleShape1.Location = New System.Drawing.Point(5, 3)
         Me.RectangleShape1.Name = "RectangleShape1"
-        Me.RectangleShape1.Size = New System.Drawing.Size(15, 15)
+        Me.RectangleShape1.Size = New System.Drawing.Size(11, 10)
         '
         'affListPanel
         '
@@ -977,7 +956,7 @@ Partial Class Home
         Me.LineShape4.Enabled = False
         Me.LineShape4.Name = "LineShape4"
         Me.LineShape4.X1 = 6
-        Me.LineShape4.X2 = 43
+        Me.LineShape4.X2 = 30
         Me.LineShape4.Y1 = 26
         Me.LineShape4.Y2 = 26
         '
@@ -986,7 +965,7 @@ Partial Class Home
         Me.LineShape3.Enabled = False
         Me.LineShape3.Name = "LineShape3"
         Me.LineShape3.X1 = 6
-        Me.LineShape3.X2 = 43
+        Me.LineShape3.X2 = 30
         Me.LineShape3.Y1 = 17
         Me.LineShape3.Y2 = 17
         '
@@ -995,7 +974,7 @@ Partial Class Home
         Me.LineShape2.Enabled = False
         Me.LineShape2.Name = "LineShape2"
         Me.LineShape2.X1 = 6
-        Me.LineShape2.X2 = 43
+        Me.LineShape2.X2 = 30
         Me.LineShape2.Y1 = 8
         Me.LineShape2.Y2 = 8
         '
@@ -1019,23 +998,23 @@ Partial Class Home
         'cartTotalPriceLabel
         '
         Me.cartTotalPriceLabel.AutoSize = True
-        Me.cartTotalPriceLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cartTotalPriceLabel.Font = New System.Drawing.Font("Segoe UI", 17.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cartTotalPriceLabel.ForeColor = System.Drawing.Color.DimGray
-        Me.cartTotalPriceLabel.Location = New System.Drawing.Point(8, 353)
+        Me.cartTotalPriceLabel.Location = New System.Drawing.Point(5, 320)
         Me.cartTotalPriceLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.cartTotalPriceLabel.Name = "cartTotalPriceLabel"
-        Me.cartTotalPriceLabel.Size = New System.Drawing.Size(119, 26)
+        Me.cartTotalPriceLabel.Size = New System.Drawing.Size(124, 31)
         Me.cartTotalPriceLabel.TabIndex = 6
         Me.cartTotalPriceLabel.Text = "Total : 56 €"
         '
         'cartMinPriceLabel
         '
         Me.cartMinPriceLabel.AutoSize = True
-        Me.cartMinPriceLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.cartMinPriceLabel.Location = New System.Drawing.Point(134, 362)
+        Me.cartMinPriceLabel.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cartMinPriceLabel.Location = New System.Drawing.Point(131, 337)
         Me.cartMinPriceLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.cartMinPriceLabel.Name = "cartMinPriceLabel"
-        Me.cartMinPriceLabel.Size = New System.Drawing.Size(50, 13)
+        Me.cartMinPriceLabel.Size = New System.Drawing.Size(53, 13)
         Me.cartMinPriceLabel.TabIndex = 8
         Me.cartMinPriceLabel.Text = "(min 20€)"
         '
@@ -1046,11 +1025,11 @@ Partial Class Home
         Me.cartValidationButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.GradientActiveCaption
         Me.cartValidationButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveCaption
         Me.cartValidationButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cartValidationButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cartValidationButton.Location = New System.Drawing.Point(10, 381)
+        Me.cartValidationButton.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cartValidationButton.Location = New System.Drawing.Point(7, 353)
         Me.cartValidationButton.Margin = New System.Windows.Forms.Padding(2)
         Me.cartValidationButton.Name = "cartValidationButton"
-        Me.cartValidationButton.Size = New System.Drawing.Size(166, 24)
+        Me.cartValidationButton.Size = New System.Drawing.Size(166, 28)
         Me.cartValidationButton.TabIndex = 2
         Me.cartValidationButton.Text = "Payer"
         Me.cartValidationButton.UseVisualStyleBackColor = True
@@ -1060,9 +1039,9 @@ Partial Class Home
         Me.cartListView.BackColor = System.Drawing.SystemColors.GradientActiveCaption
         Me.cartListView.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3})
         Me.cartListView.LargeImageList = Me.ImageList1
-        Me.cartListView.Location = New System.Drawing.Point(0, -1)
+        Me.cartListView.Location = New System.Drawing.Point(0, 3)
         Me.cartListView.Name = "cartListView"
-        Me.cartListView.Size = New System.Drawing.Size(185, 351)
+        Me.cartListView.Size = New System.Drawing.Size(185, 315)
         Me.cartListView.SmallImageList = Me.ImageList1
         Me.cartListView.TabIndex = 0
         Me.cartListView.UseCompatibleStateImageBehavior = False
@@ -1107,11 +1086,11 @@ Partial Class Home
         Me.cartSaveButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.GradientActiveCaption
         Me.cartSaveButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveCaption
         Me.cartSaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cartSaveButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cartSaveButton.Location = New System.Drawing.Point(11, 468)
+        Me.cartSaveButton.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cartSaveButton.Location = New System.Drawing.Point(8, 455)
         Me.cartSaveButton.Margin = New System.Windows.Forms.Padding(2)
         Me.cartSaveButton.Name = "cartSaveButton"
-        Me.cartSaveButton.Size = New System.Drawing.Size(166, 23)
+        Me.cartSaveButton.Size = New System.Drawing.Size(166, 27)
         Me.cartSaveButton.TabIndex = 7
         Me.cartSaveButton.Text = "Sauvegarder"
         Me.cartSaveButton.UseVisualStyleBackColor = True
@@ -1123,11 +1102,11 @@ Partial Class Home
         Me.cartSuppressionButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.GradientActiveCaption
         Me.cartSuppressionButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveCaption
         Me.cartSuppressionButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cartSuppressionButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cartSuppressionButton.Location = New System.Drawing.Point(10, 440)
+        Me.cartSuppressionButton.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cartSuppressionButton.Location = New System.Drawing.Point(7, 421)
         Me.cartSuppressionButton.Margin = New System.Windows.Forms.Padding(2)
         Me.cartSuppressionButton.Name = "cartSuppressionButton"
-        Me.cartSuppressionButton.Size = New System.Drawing.Size(166, 26)
+        Me.cartSuppressionButton.Size = New System.Drawing.Size(166, 30)
         Me.cartSuppressionButton.TabIndex = 5
         Me.cartSuppressionButton.Text = "Supprimer"
         Me.cartSuppressionButton.UseVisualStyleBackColor = True
@@ -1139,11 +1118,11 @@ Partial Class Home
         Me.cartDetailButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.GradientActiveCaption
         Me.cartDetailButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveCaption
         Me.cartDetailButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cartDetailButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cartDetailButton.Location = New System.Drawing.Point(10, 409)
+        Me.cartDetailButton.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cartDetailButton.Location = New System.Drawing.Point(7, 385)
         Me.cartDetailButton.Margin = New System.Windows.Forms.Padding(2)
         Me.cartDetailButton.Name = "cartDetailButton"
-        Me.cartDetailButton.Size = New System.Drawing.Size(166, 28)
+        Me.cartDetailButton.Size = New System.Drawing.Size(166, 32)
         Me.cartDetailButton.TabIndex = 4
         Me.cartDetailButton.Text = "Détails"
         Me.cartDetailButton.UseVisualStyleBackColor = True
@@ -1155,14 +1134,38 @@ Partial Class Home
         Me.cartListButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.GradientActiveCaption
         Me.cartListButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveCaption
         Me.cartListButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cartListButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cartListButton.Location = New System.Drawing.Point(10, 494)
+        Me.cartListButton.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cartListButton.Location = New System.Drawing.Point(7, 486)
         Me.cartListButton.Margin = New System.Windows.Forms.Padding(2)
         Me.cartListButton.Name = "cartListButton"
-        Me.cartListButton.Size = New System.Drawing.Size(166, 21)
+        Me.cartListButton.Size = New System.Drawing.Size(166, 25)
         Me.cartListButton.TabIndex = 3
         Me.cartListButton.Text = "Mes listes"
         Me.cartListButton.UseVisualStyleBackColor = True
+        '
+        'RectangleShape2
+        '
+        Me.RectangleShape2.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.RectangleShape2.Enabled = False
+        Me.RectangleShape2.Location = New System.Drawing.Point(22, 3)
+        Me.RectangleShape2.Name = "RectangleShape2"
+        Me.RectangleShape2.Size = New System.Drawing.Size(11, 10)
+        '
+        'RectangleShape3
+        '
+        Me.RectangleShape3.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.RectangleShape3.Enabled = False
+        Me.RectangleShape3.Location = New System.Drawing.Point(5, 19)
+        Me.RectangleShape3.Name = "RectangleShape3"
+        Me.RectangleShape3.Size = New System.Drawing.Size(11, 10)
+        '
+        'RectangleShape4
+        '
+        Me.RectangleShape4.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.RectangleShape4.Enabled = False
+        Me.RectangleShape4.Location = New System.Drawing.Point(22, 19)
+        Me.RectangleShape4.Name = "RectangleShape4"
+        Me.RectangleShape4.Size = New System.Drawing.Size(11, 10)
         '
         'Home
         '
@@ -1174,16 +1177,16 @@ Partial Class Home
         Me.Controls.Add(Me.cartPanel)
         Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "Home"
-        Me.Text = "Form1"
+        Me.Text = "GSI Courses"
         Me.headerPanel.ResumeLayout(False)
         Me.headerPanel.PerformLayout()
         CType(Me.logoPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.centerPanel.ResumeLayout(False)
         Me.centerPanel.PerformLayout()
-        Me.savedListPanel.ResumeLayout(False)
-        Me.savedListPanel.PerformLayout()
         Me.puPanel.ResumeLayout(False)
         Me.puPanel.PerformLayout()
+        Me.savedListPanel.ResumeLayout(False)
+        Me.savedListPanel.PerformLayout()
         Me.validationPaymentPanel.ResumeLayout(False)
         Me.validationPaymentPanel.PerformLayout()
         Me.popUpPanel.ResumeLayout(False)
@@ -1215,9 +1218,6 @@ Partial Class Home
     Friend WithEvents affListPanel As System.Windows.Forms.Panel
     Friend WithEvents affGridPanel As System.Windows.Forms.Panel
     Friend WithEvents ShapeContainer3 As Microsoft.VisualBasic.PowerPacks.ShapeContainer
-    Friend WithEvents RectangleShape4 As Microsoft.VisualBasic.PowerPacks.RectangleShape
-    Friend WithEvents RectangleShape3 As Microsoft.VisualBasic.PowerPacks.RectangleShape
-    Friend WithEvents RectangleShape2 As Microsoft.VisualBasic.PowerPacks.RectangleShape
     Friend WithEvents RectangleShape1 As Microsoft.VisualBasic.PowerPacks.RectangleShape
     Friend WithEvents ShapeContainer2 As Microsoft.VisualBasic.PowerPacks.ShapeContainer
     Friend WithEvents LineShape5 As Microsoft.VisualBasic.PowerPacks.LineShape
@@ -1289,4 +1289,7 @@ Partial Class Home
     Friend WithEvents puContentLabel As System.Windows.Forms.Label
     Friend WithEvents puCancelButton As System.Windows.Forms.Button
     Friend WithEvents labelAccueil As System.Windows.Forms.Label
+    Friend WithEvents RectangleShape4 As Microsoft.VisualBasic.PowerPacks.RectangleShape
+    Friend WithEvents RectangleShape3 As Microsoft.VisualBasic.PowerPacks.RectangleShape
+    Friend WithEvents RectangleShape2 As Microsoft.VisualBasic.PowerPacks.RectangleShape
 End Class
