@@ -11,6 +11,7 @@ Public Class Home
     End Enum
 
     Enum categorie
+        AUCUNE
         MARCHE
         FRAIS
         SALES
@@ -25,7 +26,7 @@ Public Class Home
     Dim myState As State
     Dim nbProduct As Integer
     Dim listArticles As ArrayList
-    Dim listAfficheurs As ArrayList
+    Dim listAfficheurs As New ArrayList
     Dim listSavedCart As New Dictionary(Of Integer, Dictionary(Of Article, Integer))
     Dim categorieActif As categorie
     Dim panier As New Dictionary(Of Article, Integer)
@@ -37,7 +38,7 @@ Public Class Home
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'INITIALISATION DES ATTRIBUTS
         myState = State.ACCUEIL
-        categorieActif = categorie.MARCHE
+        categorieActif = categorie.AUCUNE
         updateUI()
         updateMenuButton()
         'INITIALISATION DE LA LISTE
@@ -50,20 +51,28 @@ Public Class Home
             Case State.ACCUEIL
                 nbProduct = 0
                 clearCart()
+                categorieActif = categorie.AUCUNE
+                updateMenuButton()
+                addArticlesInPanel()
                 validationPaymentPanel.Visible = False
                 popUpPanel.Visible = False
+                labelAccueil.Visible = True
                 updatePopUpVisibility()
                 buttonEnable()
             Case State.CATALOGUE
+                labelAccueil.Visible = False
                 updatePopUpVisibility()
                 buttonEnable()
             Case State.DETAIL_PANIER
+                labelAccueil.Visible = False
                 updatePopUpVisibility()
                 buttonEnable()
             Case State.LISTES_SAUVES
+                labelAccueil.Visible = False
                 updatePopUpVisibility()
                 buttonEnable()
             Case State.PAIEMENT
+                labelAccueil.Visible = False
                 validationPaymentPanel.Height = 255
                 paymentNbProdLabel.Text = "Vous avez " + getNbProdInCart() + " produits dans votre panier"
                 updatePopUpVisibility()
@@ -309,6 +318,8 @@ Public Class Home
         menuMarcheButton.Enabled = True
 
         Select Case categorieActif
+            Case categorie.AUCUNE
+
             Case categorie.BOISSONS
                 menuBoissonsButton.BackColor = Color.LightSlateGray
                 menuBoissonsButton.Cursor = Cursors.Default
@@ -408,7 +419,6 @@ Public Class Home
         listArticles.Add(steakHache)
 
         'Création des afficheurs et ajout au panel
-        Me.listAfficheurs = New ArrayList
         createAfficheurs()
         addArticlesInPanel()
     End Sub
@@ -715,6 +725,9 @@ Public Class Home
             Case State.ACCUEIL
                 myState = State.CATALOGUE
                 updateUI()
+                categorieActif = categorie.FRAIS
+                addArticlesInPanel()
+                updateMenuButton()
             Case State.CATALOGUE
                 myState = State.CATALOGUE
                 updateUI()
@@ -735,6 +748,9 @@ Public Class Home
             Case State.ACCUEIL
                 myState = State.CATALOGUE
                 updateUI()
+                categorieActif = categorie.MARCHE
+                addArticlesInPanel()
+                updateMenuButton()
             Case State.CATALOGUE
                 myState = State.CATALOGUE
                 updateUI()
@@ -755,6 +771,9 @@ Public Class Home
             Case State.ACCUEIL
                 myState = State.CATALOGUE
                 updateUI()
+                categorieActif = categorie.SALES
+                addArticlesInPanel()
+                updateMenuButton()
             Case State.CATALOGUE
                 myState = State.CATALOGUE
                 updateUI()
@@ -775,6 +794,9 @@ Public Class Home
             Case State.ACCUEIL
                 myState = State.CATALOGUE
                 updateUI()
+                categorieActif = categorie.SUCRES
+                addArticlesInPanel()
+                updateMenuButton()
             Case State.CATALOGUE
                 myState = State.CATALOGUE
                 updateUI()
@@ -795,6 +817,9 @@ Public Class Home
             Case State.ACCUEIL
                 myState = State.CATALOGUE
                 updateUI()
+                categorieActif = categorie.BOISSONS
+                addArticlesInPanel()
+                updateMenuButton()
             Case State.CATALOGUE
                 myState = State.CATALOGUE
                 updateUI()
@@ -815,6 +840,9 @@ Public Class Home
             Case State.ACCUEIL
                 myState = State.CATALOGUE
                 updateUI()
+                categorieActif = categorie.SURGELES
+                addArticlesInPanel()
+                updateMenuButton()
             Case State.CATALOGUE
                 myState = State.CATALOGUE
                 updateUI()
@@ -837,12 +865,12 @@ Public Class Home
     Private Sub detailCloseButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles detailCloseButton.Click
         Select Case myState
             Case State.ACCUEIL
-                'interdit
-            Case State.CATALOGUE
                 'Interdit
-            Case State.DETAIL_PANIER
+            Case State.CATALOGUE
                 myState = State.CATALOGUE
                 updateUI()
+            Case State.DETAIL_PANIER
+                'Interdit
             Case State.LISTES_SAUVES
                 'interdit
             Case State.PAIEMENT
